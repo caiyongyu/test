@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+
+        .active2 {
+            color: blue;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <div v-html="test"></div> -->
+        <!-- <div v-show="isShow">hello world</div> -->
+        <!-- <div v-if="isIf">hello if</div> -->
+        <!-- <div v-else>hello else</div> -->
+        <!-- <span v-for="(item, index) in arr" :key="index">{{item}}</span> -->
+        <!-- <span v-for=""></span> -->
+
+        <!-- <button v-on:click='add'>加1</button>
+        <div>{{num}}</div> -->
+        <!-- <div v-bind:class="tcal" v-bind:style="style">hello world</div> -->
+        <!-- <button v-on:click='change'>切换</button> -->
+
+
+        <!-- <input type="text" v-model="msg">
+        <div>{{msg}}</div>
+        <input type="checkbox" name="hobby" value="lan" v-model="cbox">篮球
+        <input type="checkbox" name="hobby" value="zu" v-model="cbox">足球
+        <input type="checkbox" name="hobby" value="pai" v-model="cbox">排球
+        {{cbox}} -->
+
+        <!-- <div v-cloak>{{arr}}</div> -->
+
+        <button v-on:click='add'>加1</button>
+        <div v-once>{{num}}</div>
+    </div>
+    
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                // test:"<h1>hello</h1>",
+                // isShow:false,
+                // isIf:true,
+                arr:[1,2,3,4,5],
+                num:0,
+                msg:"",
+                cbox:[],
+                tcal:'active',
+                style:{
+                    background:"yellow"
+                }
+            },
+            methods:{
+                add(){
+                    this.num++
+                },
+                change(){
+                    this.tcal='active2'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
