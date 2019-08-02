@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my-component1>
+            <div slot="username">
+                <label for="name">用户名</label>
+                <input type="text" id="name">
+            </div>
+            <div slot="pass">
+                    <label for="name">密码</label>
+                    <input type="text" id="name">
+            </div>
+            <div slot="info">
+                <button>登录</button>
+            </div>
+        </my-component1>
+        <my-component1>
+                <div slot="username">
+                    <label for="name">用户名</label>
+                    <input type="text" id="name">
+                </div> 
+                <!-- <div slot="pass">
+                        <label for="name">密码</label>
+                        <input type="text" id="name">
+                </div>
+                <div slot="info">
+                    <button>注册</button>
+                </div> -->
+            </my-component1>
+        <template id="com1">
+            <div>
+                <slot name="username"></slot>
+                <slot name="pass">默认值</slot>
+                <slot name="info">默认值</slot>
+            </div>
+        </template>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component("my-component1",{
+            template:"#com1"
+        })
+        new Vue({
+            el:"#app",
+            
+        })
+    </script>
+</body>
+</html>
