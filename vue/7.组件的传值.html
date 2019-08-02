@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <component1 :cnum="num"></component1>
+        <component2 @cChange="change"></component2>
+    </div>
+    <template id="com1">
+        <h1>{{cnum}}</h1>
+    </template>
+    <template id="com2">
+        <div>
+            <button @click="$emit('cchange',10)">change</button>
+        </div>
+    </template>
+    <script src="./vue.js"></script>
+    <script>
+        Vue.component("component1",{
+            template:"#com1",
+            props:['cnum']
+        })
+        Vue.component("component2",{
+            template:"#com2"
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                num:0
+            },
+            methods:{
+                change(val){
+                    this.num+=val
+                }
+            }
+        })
+    </script>
+</body>
+</html>
