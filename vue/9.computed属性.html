@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <div>{{cnum}}</div>
+        <button @click='change'>change</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                num:0
+            },
+            computed:{
+                cnum(){
+                    return this.num+10
+                }
+            },
+            methods:{
+                change(){
+                    this.num++
+                }
+            }
+        })
+    </script>
+</body>
+</html>
