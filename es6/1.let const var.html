@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var aLi =document.querySelectorAll("li");
+        for(let i=0;i<aLi.length;i++) {
+            aLi[i].onclick =function() {
+                console.log(i);
+                
+            }
+        }
+
+        //变量提升
+        // var a;
+        // console.log(a);
+        // a=10;
+
+        // console.log(a);
+        // var a=10;
+
+        //作用域链
+        // var a=10;
+        // function foo() {
+        //     a=20;
+        //     console.log(window.a);
+        //     var a=30;
+        // }
+        // foo();
+
+        //匿名函数是否变量提升
+        // console.log(a);
+        // var a= function() {}
+        // console.log(a);
+        // a="123";
+        // console.log(a);
+
+        //let的块级作用域
+        // for(let i=0;i<10;i++) {
+
+        // }
+        // console.log(i);
+        
+        //const定义常量
+        // const a=10;
+        // a=20;
+        // console.log(a);
+        
+        const foo= function() {
+            name:'aa';
+            a:20
+        }
+        a = 30;
+        console.log(a);
+        
+    </script>
+</body>
+</html>

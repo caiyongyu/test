@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var name="zz";
+        // var age="12";
+        // var str="school";
+        // var obj={
+        //     name,
+        //     age
+        // }
+        // var obj2={
+        //     [str]:"aaa"
+        // }
+        // console.log(obj2);
+
+        // var obj={
+        //     name:"aa",
+        //     age:"12",
+        //     para:"ew"
+        // }
+        // function foo(para) {
+        //     return obj[para];
+        // }
+        // console.log(foo("age"));
+
+
+        //对象方法的简写方式
+        // var name="aaa";
+        // var obj={
+        //     name,
+        //     showName() {
+        //         console.log(this.name);
+                
+        //     }
+        // }
+        // obj.showName();
+
+
+        //.is
+        // let obj={
+        //     name:"a"
+        // }
+        // let obj2={
+        //     name:"a"
+        // }
+        // let obj2=obj;
+        // console.log(Object.is(obj,obj2));
+        
+        // console.log(NaN==NaN);
+        // console.log(0===-0);
+        // console.log(Object.is(NaN,NaN));
+        // console.log(Object.is(0,-0));
+
+            //.assign
+        // let obj={
+        //     name:"aa"
+        // }
+        // let obj2={
+        //     age:20,
+        //     name:"uu",
+        //     parent:{
+        //         father:"kkk"
+        //     }
+        // }
+        // Object.assign(obj,obj2);
+        // obj2.age=10;
+        // obj2.parent.
+        // console.log(obj);
+        
+        
+        //判断是否有此属性
+        // let obj={
+        //     name:"aaaa"
+        // }
+        // console.log(obj.hasOwnProperty('name'));
+        
+        // console.log("name" in obj);
+        
+        // if(obj.name){
+        //     console.log("yes,had!");
+            
+        // }
+
+            //对象
+        // function Person() {
+        //     this.name="aaa"
+        // }
+        // Person.prototype.age=12;
+        // let student1=new  Person();
+        // console.log("age" in student1);
+        // console.log(student1.hasOwnProperty("age"));
+
+            //数组
+        // var arr=[1,2,3,4,5,6,7];
+        // console.log(1 in arr);
+
+        //删掉
+        let obj={
+            name:"aaa",
+            age:"12"
+        }
+        delete obj.age;
+        console.log(obj);
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

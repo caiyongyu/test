@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- var [a,b,c,d]=[1,2,3,4]; -->
+    <script>
+        //数组解构
+        // // var [a,b,c,d]=[1,2,3,4];
+        // // var [a,b,c,d]=[1,2,[3,4],5];
+        // var [a,b,[x,y],d]=[1,2,[3,9],4];
+        // // console.log(a,b,c,d);
+        // console.log(a,b,d,x,y);
+
+        //对象解构
+        // var obj ={
+        //     name:"小c",
+        //     age:"12"
+        // }
+        // let {name:a,age}=obj;
+        // console.log(age,a);
+
+        //字符串解构
+        // let str = "hello";
+        // // let a = str.charAt(0);
+        // // let a = str[0];
+        // let [a,b,c,d] = str;
+        // console.log(a,b,c,d);
+
+        //函数参数的解构
+        // function foo([a,b,c,d]) {
+        //     // console.log(arguments);
+        //     console.log(a,b,c,d);
+
+
+        // }
+        // foo(1,2,3,4);
+
+        //     function foo({name,age}) {
+        //         console.log(name,age);
+
+        //     }
+        // var obj={
+        //     name:"aa",
+        //     age:"12"
+        // }
+        // foo(obj);
+
+        //对象解构中参数有默认值
+        // function foo({ name, age=100 }) {
+        //     // age=age||10;
+        //     // if(!age) {
+        //     //     age="0";
+        //     // }
+        //     console.log(name, age);
+
+        // }
+        // var obj = {
+        //     name: "aa",
+            
+        // }
+        // foo(obj);
+
+        //应用：函数返回值  数组
+        // function foo() {
+        //     let arr=[1,2,3,4];
+        //     return arr;
+        // }
+        // let [a,b,c,d]=foo();
+        // console.log(a,b,c,d);
+        
+        //同上  对象
+        // function foo() {
+        //     let arr=[1,2,3,4];
+        //     let obj={
+        //         name:"cai",
+                
+        //     }
+        //     return obj;
+        // }
+        // let {name:a,age:b=20}=foo();
+        // console.log(a,b);
+
+        //应用：变量交换
+        // let a=10;
+        // let b=20;
+        // [a,b]=[b,a];
+        // console.log(a,b);
+
+        // a=a+b;
+        // b=a-b;
+        // a=a-b;
+        // console.log(a,b);
+
+        // b=[a,a=b][0];
+        // console.log(a,b);
+
+        //应用：JSON应用
+        // let obj='{"name":"aaa","age":"12"}';
+        // console.log(JSON.parse(obj));
+
+        var obj={
+            name:"bbb",
+            age:"12"
+        }
+        console.log(JSON.stringify(obj));
+        
+        
+        
+        
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一步：创建对象
+        var xmlhttp;
+        if(window.XMLHttpRequest) {
+            xmlhttp=new XMLHttpRequest();
+        }
+        else {
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //第二步：发送请求
+        xmlhttp.open("GET","test.json",true);
+        xmlhttp.send();
+        //第三步：响应
+        xmlhttp.onreadystatechange=function() {
+            if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+                console.log(JSON.parse(xmlhttp.responseText));
+                
+            }
+        }
+    </script>
+
+</body>
+</html>

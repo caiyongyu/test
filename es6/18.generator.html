@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.4.1.js"></script>
+</head>
+<body>
+    <script>
+        // function* helloWorldGenerator() {
+        //     yield 'hello';
+        //     yield 'world';
+        //     return 'ending';
+        // }
+
+        // var hw=helloWorldGenerator();
+        // console.log(hw.next());
+        // console.log(hw.next());
+        // console.log(hw.next());
+
+
+        // function* foo(x) {
+        //     var y=2*(yield(x+1));
+        //     console.log(y);
+            
+        //     var z=yield(y/3);
+        //     return x+y+z;
+        // }
+        // var a=foo(5);
+        // console.log(a.next());
+        // console.log(a.next(2));
+        
+        //体现异步 解决回调地狱
+        function request(url) {
+            $.get(url,function(res){
+                a.next(res);
+            })
+        }
+        function* foo() {
+            console.log(yield request("a.json"));
+            console.log(yield request("b.json"));
+            console.log(yield request("c.json"))
+            
+        }
+        var a=foo();
+        a.next();
+    </script>
+</body>
+</html>

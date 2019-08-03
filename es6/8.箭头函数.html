@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let foo2=(a,b)=>a+b
+        // console.log((foo2(1,2)));
+
+        // let school="理工";
+        // let obj={
+        //     school:"黑大",
+        //     showSchool:function() {
+        //         console.log(this.school);
+        //         setTimeout(function(){
+        //             console.log(this.school);
+                    
+        //         }.call(obj),1000)
+        //     }
+        // }
+        // obj.showSchool();
+
+
+            //this指向定义的对象内
+        // let school="理工";
+        // let obj={
+        //     school:"黑大",
+        //     showSchool:function() {
+        //         console.log(this.school);
+        //         setTimeout(()=>{
+        //             console.log(this.school);
+                    
+        //         },1000)
+        //     }
+        // }
+        // obj.showSchool();
+
+            //不可使用构造函数
+        // let Person=()=>{
+        //     this.name="aa"
+        // }
+        // var person1=new Person();
+        // console.log(person1.name);
+
+            //不可使用arguments
+            let foo=(...arg)=>{
+                console.log(arg);
+                
+            }
+            foo(1,3);
+        
+    </script>
+</body>
+</html>

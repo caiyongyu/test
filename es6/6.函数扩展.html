@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //一：参数默认值
+        // function foo(a,b=10) {
+        //     console.log(a+b);
+            
+        // }
+        // foo(1);
+
+        //.length方法
+        // function foo(a,b=10,c) {
+
+        // }
+        // console.log(foo.length);
+
+        //严格模式
+        // "use strict"
+        // // let a=10;
+        // // console.log(a);
+
+        // function foo() {
+        //     console.log(this);
+            
+        // }
+        // foo();
+
+        //严格模式：构造函数必须new
+        // "use strict"
+        // function Person() {
+        //     this.name="xxx";
+        //     console.log("123");
+            
+        // }
+        // Person(); 
+
+        //  禁止使用with语句（本来现在也用不了）
+        // var obj={
+        //     name:"xxx"
+        // }
+        // function foo() {
+        //     console.log(this.name);
+            
+        // }
+        // foo.call(obj);
+
+
+        //阶乘
+        function foo(num) {
+            if(num==1) {
+                return 1;
+            }else {
+                return num*arguments.callee(num-1);
+            }
+        }
+        console.log(foo(10));
+        
+        
+
+        
+    </script>
+</body>
+</html>
