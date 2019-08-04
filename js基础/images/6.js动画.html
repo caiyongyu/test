@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .box {
+        width: 600px;
+        border: 1px solid #999;
+        margin: 100px auto;
+    }
+    .bottom {
+        border: 1px solid #999;
+    }
+    .bottom li {
+        float: left;
+        border-right: 1px solid #999;
+        padding: 0 14px;
+    }
+    .bottom li:last-child {
+        border-right: 0;
+    }
+    .bottom img {
+        width: 120px;
+    }
+    .top {
+        text-align: center;
+    }
+    .top img {
+        width: 220px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="top">
+            <img id="bigImg" src="./01.png" alt="">
+        </div>
+        <div class="bottom">
+            <ul class="clearfix">
+                <li><img src="./01.png" alt=""></li>
+                <li><img src="./02.png" alt=""></li>
+                <li><img src="./03.png" alt=""></li>
+                <li><img src="./04.gif" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oImg =document.getElementById("bigImg");
+        var oBottom =document.getElementsByClassName("bottom")[0];
+        var aImg =oBottom.getElementsByTagName("img");
+
+        for(var i=0;i<aImg.length;i++)
+        {
+            aImg[i].index=i;
+            aImg[i].onmousemove =function() {
+                var thisSrc =this.getAttribute("src");
+                oImg.setAttribute("src",thisSrc);
+            }
+        }
+    </script>
+</body>
+</html>

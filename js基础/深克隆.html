@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    
+    <script>
+        var arr = [1,2,3,['a','b','c'],4];
+        var arr2 = [];
+
+        function jsClone(arr) {
+            var arr3=[];
+            for(var i=0;i<arr.length;i++)
+            {
+                if(typeof arr[i]=="object")
+                {
+                    arr3[i]=jsClone(arr[i]);
+                }
+                else{
+                    arr3[i]=arr[i];
+                }
+            }
+            return arr3;
+        }
+        arr2=jsClone(arr);
+        arr[3][0]='aa';
+        console.log(arr2);
+    </script>
+</body>
+</html>
