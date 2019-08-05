@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let str = "hello world!"
+        // console.log(str.indexOf("hello"));
+        // console.log(str.includes("hello"));
+        // // let reg = /hello/;
+        // let reg2 = new RegExp("hello");
+        // console.log(reg.test(str));
+        // console.log(reg.exec(str));
+
+
+        // let reg=/c{2}/;
+        // str='cainiao';
+        // console.log(reg.exec(str));
+
+            //或
+        // let reg=/c{3,4}/;
+        // str='acccainiaocccc';
+        // console.log(reg.exec(str));
+
+        //更多
+        // let reg=/c{1,}/;
+        // str='acccainiaocccc';
+        // console.log(reg.exec(str));
+
+        //* + ?
+        // let reg=/c{0,1}/;
+        // let str="acccainiao";
+        // console.log(reg.exec(str));
+
+        // let reg=/c{1,}/;
+        // let str="1ccccainiaocccc";
+        // console.log(reg.exec(str));
+
+
+        //边界
+        // let reg=/c\b/;
+        // str='acc cainiaocccc';
+        // console.log(reg.exec(str));
+        
+        //中文
+        // let reg=/c\b/;
+        // str='维生素c';
+        // console.log(reg.exec(str));
+
+        // let reg=/c/i;
+        // str='abC';
+        // console.log(reg.exec(str));
+
+        // let str="abacadae";
+        // let reg=/a/g;
+        // var a=str.replace(reg,"-");
+        // console.log(a);
+
+        //换位置
+        // let str="hello world";
+        // let reg=/(?<a>hello) (?<b>world)/;
+        // // console.log(reg.exec(str));
+        // let a=str.replace(reg,"$2 $1");
+        // console.log(a);
+
+
+        //练习
+        // let str="30bdsd0040";
+        // let reg=/\d{2,}$/g;
+        // console.log(reg.exec(str));
+
+        let str="12345643";
+        let reg=/^\d+$/;
+        console.log(reg.test(str));
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
