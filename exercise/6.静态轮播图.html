@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    body {
+        background-color: black;
+    }
+    .box {
+        width: 538px;
+        height: 270px;
+
+        border: 5px solid #ffffff;
+        position: relative;
+        margin: 0 auto;
+    }
+    .img-bar li {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+    .img-bar .active {
+        display: block;
+    }
+    .right-btn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .right-btn li,.left-btn li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background-color: #f90;
+        color: #ffffff;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        border-radius: 50%;
+        margin: 0 10px 10px 0; 
+    }
+    .left-btn {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .right-btn .active {
+        background-color: red; 
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="img-bar">
+            <ul>
+                <li class="active"><img src="./js基础/images/11.jpg" alt=""></li>
+                <li><img src="./js基础/images/22.jpg" alt=""></li>
+                <li><img src="./js基础/images/33.jpg" alt=""></li>
+                <li><img src="./js基础/images/11.jpg" alt=""></li>
+                <li><img src="./js基础/images/22.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="left-btn">
+            <ul>
+                <li>&lt;</li>
+                <li>&gt;</li>
+            </ul>
+        </div>
+        <div class="right-btn">
+            <ul class="clearfix">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var numBtn =document.getElementsByClassName("right-btn")[0].getElementsByTagName("li");
+        var oImg =document.getElementsByClassName("img-bar")[0].getElementsByTagName("li");
+        for(var i=0;i<numBtn.length;i++)
+        {
+            numBtn[i].index =i;
+            numBtn[i].onmousemove =function() {
+                for(var j=0;j<numBtn.length;j++)
+                {
+                    numBtn[j].classList.remove("active");
+                    oImg[j].classList.remove("active");
+                }
+                oImg[this.index].classList.add("active");
+                this.classList.add("active");
+            }
+        }
+    </script>
+</body>
+</html>
