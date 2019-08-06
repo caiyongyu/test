@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-on:click="foo1">hello
+            <div v-on:click="foo2">world</div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                foo1(){
+                    // console.log(e);
+                    
+                    console.log('foo1');
+                    
+                },
+                foo2(e){
+                    e.stopPropagation();
+                    console.log('foo2');
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>
