@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    .clock {
+        width: 202px;
+        height: 202px;
+        border: 1px dashed #666;
+        position: relative;
+        margin: 100px auto;
+    }
+    .clock ul {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #333;
+        border-radius: 50% 50%;
+        position: relative;
+    }
+    .clock ul li {
+        width: 2px;
+        height: 5px;
+        background-color: #333;
+        margin-left: -1px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform-origin: 50% 100px; 
+    }
+    .clock ul li:nth-child(2) {
+        transform: rotate(6deg);
+    }
+    .clock ul li:nth-child(3) {
+        transform: rotate(12deg);
+    }
+    .clock ul li:nth-child(4) {
+        transform: rotate(18deg);
+    }
+    .clock ul li:nth-child(5) {
+        transform: rotate(24deg);
+    }
+    .clock ul li:nth-child(6) {
+        transform: rotate(30deg);
+    }
+    .clock ul li:nth-child(5n+1) {
+        height: 10px;
+    }
+    .clock div {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+        transform-origin: top; 
+    }
+    .clock .hour {
+        width: 6px;
+        height: 20px;
+        background-color: red;
+        animation: run 216000s linear infinite; 
+    }
+    .clock .minute {
+        width: 4px;
+        height: 30px;
+        background-color: blue;
+        animation: run 3600s linear infinite;
+    }
+    .clock .second {
+        width: 3px;
+        height: 40px;
+        background-color: green;
+        animation: run 60s linear infinite; 
+    }
+    @keyframes run{
+        0%{
+            transform: translateX(-50%) rotate(180deg);
+        }
+        100%{
+            transform: translateX(-50%) rotateX(540deg);
+        }
+    }
+</style>
+<body>
+    <div class="clock">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>
