@@ -30,7 +30,7 @@
                 <input type="text" v-model="goodSearch" class="form-control" id="exampleInputEmail2"
                     placeholder="请输入搜索内容">
             </div>
-            <button type="button" class="btn btn-default" @click="addHandle" @click="search">搜索</button>
+            <button type="button" class="btn btn-default" @click="search">搜索</button>
         </form>
         </div>
 
@@ -102,11 +102,13 @@
                 search() {
                     let thisText=this.goodSearch;
                     let newArr=this.datalist.filter(function(item,index,arr){
+                        console.log(this.name);
+                        
                         if(item.name.includes(thisText)){
                             return item;
                         }
                     })
-                    console.log(newArr);
+                    this.datalist=newArr;
                 },
                 addHandle() {
                     this.datalist.push({

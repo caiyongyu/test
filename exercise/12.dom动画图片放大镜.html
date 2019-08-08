@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .choose {
+        width: 500px;
+        height: 700px;
+        float: left;
+        margin: 50px 0 0 50px;
+    }
+    .content {
+        width: 500px;
+        height: 500px;
+        position: relative;
+    }
+    .content img{
+        width: 500px;
+        height: 500px;
+    }
+    .larger {
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 50px;
+        left: 600px;
+        float: left;
+        overflow: hidden;
+        display: none;
+    }
+    #big {
+        width: 1000px;
+        height: 1000px;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+    .shadow {
+        width: 200px;
+        height: 200px;
+        background-color: rgba(145,200,200,.4);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        display: none;
+    }
+</style>
+<body>
+    <div class="choose">
+        <div class="content">
+            <img src="zhengfang.jpg" id="small">
+            <div class="shadow"></div>
+        </div>
+    </div>
+    <div class="larger">
+        <img src="zhengfang.jpg" id="big">
+    </div>
+    <script>
+        var content =document.getElementsByClassName("content")[0];
+        var larger =document.getElementsByClassName("larger")[0];
+        var shadow =document.getElementsByClassName("shadow")[0];
+        content.onmouseover =function(e) {
+            var evt =window.event || e;
+            larger.style.display ="block";
+            shadow.style.display ="block";
+            var clientX =evt.clientX;
+            var clientY =evt.clientY;
+
+            var scrollLeft =document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollTop =document.documentElement.scrollTop || document.body.scrollTop;
+
+            var X =clientX+scrollLeft-600+"px";
+            var Y =clientY+scrollTop-600+"px";
+            /*var X =clientX+scrollLeft-chooseMarginL-100;
+            var Y =clientY+scrollTop-chooseMarginT-100;*/
+
+            var maxX =document.documentElement.clientWidth-content.offsetWidth;
+            var maxY =document.documentElement.clientHeight-content.offsetHeight;
+
+            if(X <= 0){
+                X=0;
+            }
+            if(X >= maxX){
+                X=maxX;
+            }
+            if(Y <= 0){
+                Y=0;
+            }
+            if(Y >= maxY){
+                Y=maxY;
+            }
+        }
+        
+    </script>
+</body>
+</html>

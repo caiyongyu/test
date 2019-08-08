@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: red; 
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="box"></div>
+    <script>
+        var box =document.getElementsByClassName("box")[0];
+        var x;
+        var y;
+        var isDrop =false;
+
+        box.onmousedown =function(e) {
+            var e =e || window.event;
+            x =e.clientX-box.offsetLeft;
+            y =e.clientY-box.offsetTop;
+            isDrop =true;
+        }
+        document.onmousemove =function(e) {
+            if(isDrop){
+                var e =e || window.event;
+                var moveX =e.clientX-x;
+                var moveY =e.clientY-y;
+                box.style.left =moveX + "px";
+                box.style.top =moveY + "px";
+            }else{
+                return;
+            }
+        }
+        /*document.onmousemove =function() {
+            var e =e || window.event;
+            if(isDrop) {
+                var moveX =e.clientX-x;
+                var moveY =e.clientY-y;
+                var maxX =document.documentElement.clientWidth-box.offsetWidth;
+                var maxY =document.documentElement.clientHeight-box.offsetHeight;
+
+            }else{
+
+            }
+        }*/
+        document.onmouseup =function() {
+            isDrop =false;
+        }
+    </script>
+</body>
+</html>
