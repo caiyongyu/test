@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>我是标记</li>
+        </ul>
+    </div>
+    <script>
+        var div =document.getElementsByTagName("div")[0];
+        //console.log(div.childNodes);子节点 包含元素，换行，注释
+        //console.log(div.children);子元素 只获取标签
+        //console.log(div.parentNode);父节点
+       // console.log(div.parentElement);父元素
+       //console.log(div.firstChild.firstChild);第一个子节点
+       //console.log(div.firstElementChild);第一个子元素
+       //console.log(div.lastChild);最后一个子节点
+       //console.log(div.lastElementChild);最后一个子元素
+       //console.log(div.previousSibling);上一个兄弟节点
+       //console.log(div.previousElementSibling);上一个兄弟元素
+       //console.log(div.nextSibling);下一个兄弟节点
+       //console.log(div.nextElementSibling);
+       //除了用get方法获取标签外，还可以
+       console.log(document.body.lastElementChild.previousElementSibling.lastElementChild.lastElementChild.lastChild);
+    </script>
+</body>
+</html>
