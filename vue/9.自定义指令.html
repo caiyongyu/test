@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1 {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="div1" v-test="thisColor"></div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        // Vue.directive("test",function(el,binding,vnode){
+        //     console.log(el,binding,vnode);
+        //     el.style.backgroundColor = binding.value
+            
+        // })
+
+        Vue.directive("test",{
+            bind(){
+                console.log("bind");
+                
+            },
+            inserted(){
+                console.log("inserted");
+                
+            }
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                thisColor:"blue"
+            }
+        })
+    </script>
+</body>
+</html>
