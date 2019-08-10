@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <weichuang></weichuang>
+        <!-- <div :is="com"></div> -->
+
+        <!-- <fellow @click.native="clickHandle"></fellow> -->
+    </div>
+    <template id="tem">
+        <div>
+            <h1>hello {{str}}</h1>
+            <h1>hello {{msg}}</h1>
+            <h1>hello world</h1>
+            <test></test>
+        </div>
+    </template>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                com:"fellow",
+                num: 0
+            },
+            methods: {
+                clickHandle(){
+                    console.log(123);
+                    
+                }
+            },
+            components: {
+                "weichuang": {
+                    template: "#tem",
+                    components:{
+                        "test":{
+                            template:`<h1>你好</h1>`
+                        }
+                    },
+                    data() {
+                        return {
+
+                            str: "fellow32",
+                            msg: "abc"
+                        }
+                    },
+                },
+                
+                "fellow":{
+                    template:`<h1>fellow</h1>`
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang></weichuang>
+    </div>
+    <template id="tem">
+            <div>
+                <h1>hello {{str}}</h1>
+                <h2>hello {{msg}}</h2>
+                <test></test>
+            </div>
+    </template>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+        data: {
+            num:0
+        },
+        components:{
+            "weichuang":{
+                template:"#tem",
+                components:{
+                    "test":{
+                        template:`<h1>hei,hei,hei</h1>`
+                    }
+                },
+                data(){
+                return {
+                    str:"yyyyy",
+                    msg:"abc"
+                }
+            }
+            },
+            
+        }
+        })
+        
+
+    </script>
+</body>
+</html>
