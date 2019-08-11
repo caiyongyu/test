@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mosk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.3);
+        }
+
+        .dialog-content {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <my-dialog></my-dialog>
+    </div>
+    <template id="tem">
+            <div>
+                <div class="mosk">
+                    <div class="dialog-content">
+                        <div class="dialog-header"></div>
+                        <div class="dialog-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                
+            },
+            components:{
+                "my-dialog":{
+                    template:"#tem"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

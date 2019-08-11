@@ -11,10 +11,11 @@
 
 <body>
     <div id="app">
-        <weichuang></weichuang>
+        <!-- <weichuang></weichuang> -->
         <!-- <div :is="com"></div> -->
+        <!-- 当 `currentView` 改变时，组件也跟着改变 -->
 
-        <!-- <fellow @click.native="clickHandle"></fellow> -->
+        <fellow @click.native="clickHandle"></fellow>
     </div>
     <template id="tem">
         <div>
@@ -29,6 +30,7 @@
             el: "#app",
             data: {
                 com:"fellow",
+                // currentView:["weichuang",],
                 num: 0
             },
             methods: {

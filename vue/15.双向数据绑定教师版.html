@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <input type="text" id="inp">
+    <h1></h1>
+    <script>
+       var oInp = document.getElementById("inp");
+       var oH1 = document.getElementsByTagName("h1")[0];
+       var obj={
+           name:""
+       }
+       oInp.onkeyup = function(){
+           obj.name = this.value
+       }
+       Object.defineProperty(obj,"name",{
+           get(){
+            console.log("get");
+            
+           },
+           set(val){
+            console.log(val);
+            oH1.innerText =val
+           }
+       })
+    </script>
+</body>
+</html>

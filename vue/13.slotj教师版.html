@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <weichuang>
+            <span slot="fullname">小明</span> 
+            <span slot="age">13</span>  
+        </weichuang>
+    </div>
+    <template id="tem">
+        <div>
+            <div>name:<slot name="fullname"></slot></div>
+        <div>age:<slot name="age"></slot></div>
+        </div>
+        
+    </template>
+    <script>
+       
+        new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                "weichuang":{
+                    template:"#tem",
+                },
+                
+            }
+        })
+    </script>
+</body>
+</html>
