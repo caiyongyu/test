@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+            {{ fullName }}
+            <button @click="change">change</button>
+            <button @click="change2">change</button>
+            <div>
+                {{fullName2}}
+            </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar',
+                fullName: 'Foo Bar'
+            },
+            methods: {
+                change(){
+                    this.firstName = "aa"
+                },
+                change2(){
+                    this.lastName = "bb"
+                }
+            },
+            computed: {
+                //一个变量受多个变量影响
+                fullName2(){
+                    return this.firstName +" "+ this.lastName
+                }
+            },
+            watch: {
+            //一个变量影响多个变量
+                firstName(val){
+                    console.log(val);
+                    this.fullName = val +" " + this.lastName
+                },
+                lastName(val){
+                    this.fullName= this.firstName + " "+ val
+            
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

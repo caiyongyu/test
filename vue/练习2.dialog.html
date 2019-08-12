@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mosk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.3);
+        }
+
+        .dialog-content {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
+        .dialog-header {
+            height: 50px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .close {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <button @click="clickHandle(1)">登录</button>
+        <button @click="clickHandle(0)">注册</button>
+        <div :is="com" @closedia="closeHandle">
+                <span slot="title">登录</span>
+                <h1 slot="info">登录区域</h1>
+        </div>
+
+        <!-- <my-dialog>
+            <span slot="title">登录</span>
+            <h1 slot="info">登录区域</h1>
+        </my-dialog> -->
+    </div>
+    <template id="tem">
+            <div>
+                <div class="mosk">
+                    <div class="dialog-content">
+                        <div class="dialog-header"><slot name="title"></slot>
+                        <span class="close" @click="$emit('closedia')">X</span>
+                        </div>
+                        <div class="dialog-inner"><slot name="info"></slot></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                title:"登录",
+                info:"登录内容",
+                com:null
+            },
+            components:{
+                "my-dialog":{
+                    template:"#tem"
+                }
+            },
+            methods:{
+                closeHandle() {
+                    this.com=null
+                },
+                clickHandle(key){
+                    this.com="my-dialog"
+                    if(key==1){
+                        this.title="登录",
+                        this.info="登录内容"
+                    }else {
+                        this.title="注册",
+                        this.info="注册内容"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
