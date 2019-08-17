@@ -37,6 +37,10 @@ export default new Router({
           component: ()=>import('./views/Test2.vue')
         }
       ]
+    },
+    {
+      path    : "/mine",
+      redirect: "/"
     }
   ]
 })
