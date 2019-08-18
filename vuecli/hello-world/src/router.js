@@ -32,7 +32,7 @@ export default new Router({
           component: ()=>import('./views/Test1.vue')
         },
         {
-          path:"/connect/test2",
+          path:"/connect/test2/:username/:userage",
           name:"test2",
           component: ()=>import('./views/Test2.vue')
         }
