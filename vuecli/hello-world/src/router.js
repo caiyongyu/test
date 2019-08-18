@@ -19,7 +19,8 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      alias      : "/aboutme"
     },
     {
       path: '/connect',
@@ -35,6 +36,10 @@ export default new Router({
           path:"/connect/test2/:username/:userage",
           name:"test2",
           component: ()=>import('./views/Test2.vue')
+        },
+        {
+          path    : "/connect/gotest2/:username/:userage",
+          redirect: "/connect/test2/:username/:userage"
         }
       ]
     },
