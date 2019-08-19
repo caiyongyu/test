@@ -23,7 +23,7 @@ export default new Router({
       alias      : "/aboutme",
       beforeEnter: (to, from, next) => {
         console.log(to,from);
-        next();
+        next(true);
       }
     },
     {
@@ -46,6 +46,11 @@ export default new Router({
           redirect: "/connect/test2/:username/:userage"
         }
       ]
+    },
+    {
+      path: "/test3",
+      name:"test3",
+      component: ()=>import("./views/Test3.vue")
     },
     {
       path    : "/mine",
