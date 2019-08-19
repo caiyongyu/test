@@ -18,6 +18,12 @@ export default new Vuex.Store({
     // increment:state => state.count ++,
 
     // decrement:state => state.count --,
+    add(state){
+      state.count++
+    },
+    reduce(state){
+      state.count--
+    }
 
   },
 
