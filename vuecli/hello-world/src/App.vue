@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <div>
+        <button @click="backhome">返回首页</button>
+        <button @click="btntest2">test2</button>
+        <button @click="back">返回</button>
+        <button @click="forward">向前</button>
+      </div>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/connect">connect</router-link> |
@@ -14,6 +20,25 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods:{
+    back(){
+      this.$router.go(-1);
+    },
+    forward(){
+      this.$router.go(1);
+    },
+    btntest2(){
+      this.$router.push("/connect/gotest2/xiaod/10")
+    },
+    backhome(){
+      this.$router.push("/")
+    }
+  }
+}
+</script>
 
 <style>
 #app {
