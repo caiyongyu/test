@@ -27,6 +27,12 @@ export default new Vuex.Store({
 
   },
 
+  getters: {
+    count2(state){
+      return state.count+10
+    }
+  },
+
   action: {
 
   }

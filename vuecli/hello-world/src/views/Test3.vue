@@ -3,6 +3,7 @@
         <button @click="add(10)">加一</button>
         <button @click="reduce(5)">减一</button>
         <h1>{{count}}</h1>
+        <h1>{{$store.getters.count2}}</h1>
     </div>
 </template>
 <script>
