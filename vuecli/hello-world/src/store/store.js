@@ -33,7 +33,9 @@ export default new Vuex.Store({
     }
   },
 
-  action: {
-
+  actions: {
+    addAction({commit},num){
+      commit('add',num)
+    }
   }
 })
