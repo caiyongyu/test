@@ -2,7 +2,8 @@
     <div>
         <button @click="add(10)">加一</button>
         <button @click="reduce(5)">减一</button>
-        <button @click="addAction(20)">action加一</button>
+        <button @click="addAction(20)">action加一(map)</button>
+        <button @click="$store.dispatch('addAction',100)">action加一(单独)</button>
         <h1>{{count}}</h1>
         <h1>{{count2}}</h1>
     </div>

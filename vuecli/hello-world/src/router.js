@@ -50,7 +50,10 @@ export default new Router({
     {
       path: "/test3",
       name:"test3",
-      component: ()=>import("./views/Test3.vue")
+      components: {
+        default: ()=>import("./views/Test3.vue"),
+        view1: ()=>import("./views/Test2.vue")
+      } 
     },
     {
       path    : "/mine",
