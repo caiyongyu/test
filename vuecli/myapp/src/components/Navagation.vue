@@ -19,7 +19,29 @@
 export default {
     data() {
         return {
-            activeClass: "movie"
+            activeClass: "movie",
+            navList : [
+                {
+                    title: "电影",
+                    pathName: "/",
+                    Navclass: "movie"
+                },
+                {
+                    title: "电影",
+                    pathName: "/",
+                    Navclass: "movie"
+                },
+                {
+                    title: "书籍",
+                    pathName: "/",
+                    Navclass: "book"
+                },
+                {
+                    title: "电影",
+                    pathName: "/",
+                    Navclass: "movie"
+                }
+            ]
         }
     }
 }
