@@ -18,10 +18,9 @@
 export default {
     //  created() {
     //     console.log(window.location.pathname);
-    //     // this.$router.push(window.location.pathname);
     // },
 
-     props: ["activeObj"],
+    props: ["activeObj"],
     // mounted(){
     //     this.activeClass = this.activeObj.navName;
     //     this.activeTitle = this.activeObj.title;
