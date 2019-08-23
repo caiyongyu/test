@@ -1,21 +1,19 @@
 <template>
     <div>
-        <h1>电影</h1>
+        <h1>音乐</h1>
     </div>
 </template>
-
 <script>
 export default {
     created() {
         let obj = {
-            title:"电影",
-            navName:"movie"
+            title:"音乐",
+            navName:"music"
         };
         this.$emit("changeActive",obj)
     }
 }
 </script>
-
 <style scoped>
     
 </style>

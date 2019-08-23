@@ -1,15 +1,14 @@
 <template>
     <div :class="[activeClass,'nav-container']">
+        <!-- {{activeObj.title}} -->
         <header>
             <p>首页</p>
-            <span>电影</span>
+            <span>{{activeTitle}}</span>
         </header>
         <nav>
             <ul>
-                <li>电影</li>
-                <li>音乐</li>
-                <li>书籍</li>
-                <li>聊天</li>
+                <li @click="clickHandle(item)" v-for="(item,index) in navList" :key="index">{{item.title}}</li>
+                <!-- <li @click="clickHandle(item)" v-for="item in navList">{{item.title}}</li> -->
             </ul>
         </nav>
     </div>
@@ -17,9 +16,40 @@
 
 <script>
 export default {
+    //  created() {
+    //     console.log(window.location.pathname);
+    //     // this.$router.push(window.location.pathname);
+    // },
+
+     props: ["activeObj"],
+    // mounted(){
+    //     this.activeClass = this.activeObj.navName;
+    //     this.activeTitle = this.activeObj.title;
+    //     console.log(this.activeTitle)
+    // },
+    computed: {
+        activeObj2(){
+            return this.activeObj.title
+        }
+    },
+    watch: {
+       activeObj2(){
+        this.activeClass = this.activeObj.navName;
+        this.activeTitle = this.activeObj.title;
+       }
+    },
+    methods: {
+        clickHandle(obj) {
+            // console.log(obj.pathName);
+            this.$router.push(obj.pathName);
+            this.activeClass=obj.Navclass;
+            this.activeTitle=obj.title;
+        }
+    },
     data() {
         return {
             activeClass: "movie",
+            activeTitle: "电影",
             navList : [
                 {
                     title: "电影",
@@ -27,19 +57,19 @@ export default {
                     Navclass: "movie"
                 },
                 {
-                    title: "电影",
-                    pathName: "/",
-                    Navclass: "movie"
+                    title: "音乐",
+                    pathName: "/music",
+                    Navclass: "music"
                 },
                 {
                     title: "书籍",
-                    pathName: "/",
+                    pathName: "/book",
                     Navclass: "book"
                 },
                 {
-                    title: "电影",
-                    pathName: "/",
-                    Navclass: "movie"
+                    title: "聊天",
+                    pathName: "/talk",
+                    Navclass: "talk"
                 }
             ]
         }
