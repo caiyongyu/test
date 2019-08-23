@@ -23,6 +23,7 @@
 export default {
     data() {
         return {
+            start: 0,
             dataList:[]
         }
     },
@@ -39,23 +40,25 @@ export default {
         listenScroll(){
             let ele=document.documentElement;
 
-            window.onscroll=function(){
+            window.onscroll=()=>{
                 let cHeight = ele.clientHeight;
                 let sHeight = ele.scrollHeight;
                 let sTop = ele.scrollTop;
-                console.log(ele.scrollTop);
-                if(scrollHeight-scrollTop == cHeight+10){
-
+                // console.log(ele.scrollTop);
+                if(sHeight-sTop <= cHeight+10){
+                    // console.log("到底部了");
+                    this.start+=10;
+                    this.getData();
                 }
             }
         },
         getData(){
             let birdapi='https://bird.ioliu.cn/v2?url=';
-            let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=0&count=10`;
+            let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=${this.start}&count=10`;
             axios.get(birdapi+urlapi)
             .then((res)=>{
                 console.log(res.data.subject_collection_items);
-                this.dataList=res.data.subject_collection_items;
+                this.dataList=this.dataList.concat(res.data.subject_collection_items);
             })
         }
     }
