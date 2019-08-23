@@ -79,7 +79,7 @@ export default {
 <style scoped>
     .nav-container header,.nav-container nav {
         height: 1rem;
-        background-color: gray;
+        /* background-color: gray; */
         width: 100%;
     }
 

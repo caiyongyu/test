@@ -38,4 +38,14 @@ export default {
   li {
     list-style: none;
   }
+
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  body{
+    padding:1rem 0;
+  }
 </style>

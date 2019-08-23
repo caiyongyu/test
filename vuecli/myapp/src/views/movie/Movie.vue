@@ -1,6 +1,21 @@
 <template>
     <div>
-        <h1>电影</h1>
+        <div>
+            <ul>
+                <li v-for="item in dataList" :key="item.id" class="list-item clearfix">
+                    <div class="li-left">
+                        <img :src="'https://images.weserv.nl/?url='+item.cover.url">
+                    </div>
+                    <div class="li-right">
+                        <p>{{item.title}}</p>
+                        <p>主演:
+                            <span v-for="item2 in item.actors" :key="item2">{{item2}}/</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
     </div>
 </template>
 
@@ -13,6 +28,7 @@ export default {
     },
     created() {
         this.getData();
+        this.listenScroll();
         let obj = {
             title:"电影",
             navName:"movie"
@@ -20,14 +36,26 @@ export default {
         this.$emit("changeActive",obj)
     },
     methods: {
+        listenScroll(){
+            let ele=document.documentElement;
+
+            window.onscroll=function(){
+                let cHeight = ele.clientHeight;
+                let sHeight = ele.scrollHeight;
+                let sTop = ele.scrollTop;
+                console.log(ele.scrollTop);
+                if(scrollHeight-scrollTop == cHeight+10){
+
+                }
+            }
+        },
         getData(){
-            let birdapi='https://bird.ioliu.cn/v2?url='
-            let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=0&count=10`
-            // let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=0&count=10`
+            let birdapi='https://bird.ioliu.cn/v2?url=';
+            let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=0&count=10`;
             axios.get(birdapi+urlapi)
             .then((res)=>{
-                console.log(res);
-                
+                console.log(res.data.subject_collection_items);
+                this.dataList=res.data.subject_collection_items;
             })
         }
     }
@@ -35,5 +63,24 @@ export default {
 </script>
 
 <style scoped>
-    
+    .list-item {
+        padding: 10px;
+        border-bottom: 1px solid #fff;
+    }
+
+    .li-left {
+        float: left;
+        width: 40%;
+
+    }
+
+    .li-left  img{
+        width: 90%;
+    }
+
+    .li-right {
+        float: right;
+        width: 60%;
+        font-size: .4rem;
+    }
 </style>
