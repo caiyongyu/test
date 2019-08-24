@@ -70,6 +70,7 @@ export default {
         },
         getData(){
             let thisUrl="https://bird.ioliu.cn/netease/playlist?id=2899785819"
+            // let thisUrl="https://musicapi.xiecheng.live/playlist/detail?id=2899785819"
             axios.get(thisUrl).then((res)=>{
                 console.log(res.data.playlist.tracks);
                 this.dataList=res.data.playlist.tracks;
