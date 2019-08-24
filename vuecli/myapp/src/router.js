@@ -19,7 +19,14 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/movie/Movie.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/movie/Movie.vue'),
+      // children:[
+      //   {
+      //     path:"/movie/detail",
+      //     name:"moviedetail",
+      //     component:()=>import("./views/movie/MovieDetail.vue")
+      //   }
+      // ]
     },{
       path:"/music",
       name:"music",
@@ -32,6 +39,11 @@ export default new Router({
       path:"/talk",
       name:"talk",
       component:() => import("./views/talk/Talk.vue")
+    },
+    {
+      path:"/movie/detail",
+      name:"moviedetail",
+      component:()=>import("./views/movie/MovieDetail.vue")
     }
   ]
 })

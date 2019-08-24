@@ -2,7 +2,7 @@
     <div>
         <div>
             <ul>
-                <li v-for="item in dataList" :key="item.id" class="list-item clearfix">
+                <li @click="goDetail(item.id)" v-for="item in dataList" :key="item.id" class="list-item clearfix">
                     <div class="li-left">
                         <img :src="'https://images.weserv.nl/?url='+item.cover.url">
                     </div>
@@ -24,6 +24,7 @@ export default {
     data() {
         return {
             start: 0,
+            total:10,
             dataList:[]
         }
     },
@@ -37,6 +38,14 @@ export default {
         this.$emit("changeActive",obj)
     },
     methods: {
+        goDetail(id){
+            this.$router.push({
+                name:"moviedetail",
+                params:{
+                    id
+                }
+            })
+        },
         listenScroll(){
             let ele=document.documentElement;
 
@@ -53,13 +62,16 @@ export default {
             }
         },
         getData(){
-            let birdapi='https://bird.ioliu.cn/v2?url=';
+            if(this.dataList.length!=this.total) {
+                let birdapi='https://bird.ioliu.cn/v2?url=';
             let urlapi=`https://m.douban.com/rexxar/api/v2/subject_collection/movie_showing/items?start=${this.start}&count=10`;
             axios.get(birdapi+urlapi)
             .then((res)=>{
+                this.total=res.data.total;
                 console.log(res.data.subject_collection_items);
                 this.dataList=this.dataList.concat(res.data.subject_collection_items);
             })
+            }
         }
     }
 }
