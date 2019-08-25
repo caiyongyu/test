@@ -1,7 +1,7 @@
 <template>
   <div>
     <swiper :options="swiperOption">
-      <swiper-slide @click.native="clickHandle(item.id)" class="swiper-item" v-for="item in dataList" :key="item.id">
+      <swiper-slide class="swiper-item" v-for="item in dataList" :key="item.id">
           <img :src="item.cover.url" alt="">
           <p>{{item.title}}</p>
       </swiper-slide>
@@ -36,14 +36,6 @@ export default {
     };
   },
   methods: {
-      clickHandle(id){
-          this.$router.push({
-              name:"bookdetail",
-              params:{
-                  id
-              }
-          })
-      },
     //   getImages( _url ){
     //   if( _url !== undefined ){
     //     let _u = _url.substring( 7 );
@@ -79,12 +71,13 @@ export default {
 <style scoped>
 .swiper-item{
     width: 2rem;
-    height: 5rem;
+    height: 6rem;
 }
-.swiper-item img{
-    width: 100%;
+
+.swiper-item img {
+  width: 100%;
 }
-.swiper-item p{
-    font-size: .4rem;
+.swiper-item p {
+  font-size: .4rem;
 }
 </style>
