@@ -1,7 +1,7 @@
 <template>
   <div>
     <swiper :options="swiperOption">
-      <swiper-slide class="swiper-item" v-for="item in dataList" :key="item.id">
+      <swiper-slide @click.native="clickHandle(item.id)" class="swiper-item" v-for="item in dataList" :key="item.id">
           <img :src="item.cover.url" alt="">
           <p>{{item.title}}</p>
       </swiper-slide>
@@ -42,6 +42,16 @@ export default {
     //     return 'https://images.weserv.nl/?url=' + _u;
     //   }
     // },
+    clickHandle(id) {
+      // console.log(id);
+      this.$router.push({
+        name:"bookdetail",
+        params:{
+          id
+        }
+      })
+      
+    },
       getData(){
           let birdapi = "https://bird.ioliu.cn/v2?url=";
           let bookUrl = "https://m.douban.com/rexxar/api/v2/subject_collection/book_fiction/items?start=0&count=20";

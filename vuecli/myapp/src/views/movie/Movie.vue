@@ -80,7 +80,7 @@ export default {
 <style scoped>
     .list-item {
         padding: 10px;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid black;
     }
 
     .li-left {
