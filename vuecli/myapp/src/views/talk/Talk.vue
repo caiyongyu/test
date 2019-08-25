@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>聊天</h1>
+        <h1>聊天咋啦</h1>
     </div>
 </template>
 <script>
