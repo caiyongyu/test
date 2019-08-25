@@ -87,8 +87,8 @@ export default {
   border-collapse: collapse;
 }
 .music-list tbody tr:nth-child(odd) {
-  /* background-color: #f7f7f7; */
-  background-color: rgb(184, 79, 79);
+  background-color: #f7f7f7;
+  /* background-color: rgb(184, 79, 79); */
 }
 .loading {
   width: 100vw;
