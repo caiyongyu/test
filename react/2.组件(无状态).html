@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="./js/react-dom.development.js"></script>
     <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
     <script src="./js/babel.min.js"></script>
 </head>
 <body>
     <div id="root"></div>
     <script type="text/babel">
-    function Foo() {
+    function Foo(props) {
         return (
             <div>
                 <h1>hello hahahaya</h1>
                 <h1>hello world!</h1>
+                <h1>hai {props.msg}</h1>
             </div>
         )
     }
     ReactDOM.render(
-        <Foo/>,
+        <Foo msg="weichuang"/>,
         document.getElementById("root")
 
     )
