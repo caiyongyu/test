@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Foo2 extends React.Component{
+        constructor(props){
+            super(props)
+        }
+        addHandle(){
+            this.props.addF()
+        }
+        render(){
+            return(
+                <button onClick={this.addHandle.bind(this)}>add two</button>
+            )
+        }
+    }
+    class Foo extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                str:"fellow32",
+                count:0
+            }
+            // this.setState({
+            //     count:this.state.count+1
+            // });
+            
+        }
+        add(){
+            // console.log("1");
+            this.setState({
+                count:++this.state.count
+            })
+        }
+        render(){
+            return(
+                <div>
+            <h1>hei boy! and {this.state.str}</h1>
+            <h1>hello world {this.state.count}</h1>
+            <Foo2 addF={this.add.bind(this)}/>
+            </div>
+            )
+            
+        }
+    }
+    ReactDOM.render(
+        <Foo/>,
+        document.getElementById("root")
+
+    )
+    </script>
+</body>
+</html>
