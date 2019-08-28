@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <style>
+        .dia-bg{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(0,0,0,.3);
+        }
+
+        .dia-box{
+            width: 400px;
+            height: 300px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+        }
+
+        .dia-header{
+            box-sizing: border-box;
+            padding: 10px;
+            height: 50px;
+            background-color: black;
+            width: 100%;
+        }
+
+        .dia-header div {
+            color: #fff;
+        }
+
+        .dia-header div:first-child{
+            float: left;
+        }
+
+        .dia-header div:last-child{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Dialog extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return(
+                    <div>
+                        <div>
+                            <DiaBtn name={'登录'}/>
+                            <DiaBtn name={'注册'}/>
+                            <DiaContent/>
+                        </div>
+                    </div>
+                )
+            }
+        }
+        class DiaContent extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return(
+                    <div className="dia-bg">
+                        <div className="dia-box">
+                            <div className="dia-header">
+                                <div>title</div>
+                                <div>X</div>
+                            </div>
+                            <div className="dia-body"></div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+        class DiaBtn extends React.Component{
+            constructor(props){
+                super(props);
+            }
+            render(){
+                return(
+                    <div>
+                        <button>{this.props.name}</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Dialog/>
+            ,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

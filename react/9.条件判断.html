@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    function Foo2() {
+        return <div>组件1</div>
+    }
+    function Foo3() {
+        return <div>组件2</div>
+    }
+    class Foo extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                com:0
+            }
+        }
+        render(){
+            let com=null;
+            if(this.state.com==0){
+                com=<Foo2/>
+            }else{
+                com=<Foo3/>
+            }
+            return(
+                <div>
+                     {this.state.com==0?<Foo2/>:<Foo3/>}
+                     {com}
+                </div>
+            )
+        }
+    }
+        ReactDOM.render(
+            <Foo/>
+            ,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
