@@ -12,44 +12,28 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-    class Foo2 extends React.Component{
-        constructor(props){
-            super(props)
-        }
-        addHandle(num){
-            this.props.addF(num)
-        }
-        render(){
-            return(
-                <button onClick={this.addHandle.bind(this,10)}>add two</button>
-            )
-        }
-    }
     class Foo extends React.Component{
         constructor(props){
             super(props)
             this.state={
-                str:"fellow32",
-                count:0
             }
-            // this.setState({
-            //     count:this.state.count+1
-            // });
-            
+            this.inp2=React.createRef();
         }
-        add(num){
-            // console.log("1");
-            this.setState({
-                count:this.state.count+num
-            })
+        submitHandle(e){
+            console.log(this.inp2.current.value)
+            e.preventDefault();
         }
         render(){
             return(
                 <div>
-            <h1>hei boy! and {this.state.str}</h1>
-            <h1>hello world {this.state.count}</h1>
-            <Foo2 addF={this.add.bind(this)}/>
-            </div>
+                    <form onSubmit={this.submitHandle.bind(this)}>
+                        <input name="inp1" ref={this.inp1} type="text"/>
+                        <input name="inp2" ref={this.inp2} type="text"/>
+                        <input name="inp3" ref={this.inp3} type="text"/>
+                        <input name="inp4" ref={this.inp4} type="text"/>
+                        <button type="submit">submit</button>
+                    </form>
+                </div>
             )
             
         }

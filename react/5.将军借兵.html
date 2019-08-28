@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class General extends React.Component{
+        constructor(props){
+            super(props)
+        }
+        clickHandle(){
+            // console.log("com")
+            this.props.getSolider(this.props.name)
+        }
+        render(){
+            return(
+                <div>
+                <h2>将军 {this.props.name}拥有 {this.props.soliderx}万个士兵</h2>
+                <button onClick={this.clickHandle.bind(this)}>借兵</button>
+                </div>
+            )
+        }
+    }
+    // let str=<div></div>
+    class King extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                solider:100,
+                GeneralA:100,
+                GeneralB:100
+            }
+        }
+        changeSolider(name){
+            if(this.state.solider>0){
+                let kingSolider=this.state.solider;
+            let generalA=this.state.GeneralA;
+            let generalB=this.state.GeneralB;
+            kingSolider-=10;
+            if(name=="A"){
+                generalA+=10;
+            }else{
+                generalB+=10;
+            }
+            // console.log(name)
+            this.setState({
+                solider:kingSolider,
+                GeneralA:generalA,
+                GeneralB:generalB
+            })
+            }
+            
+        }
+        render(){
+            return (
+                <div>
+                    <h1>国王有 {this.state.solider}万个士兵</h1>
+                    <General getSolider={this.changeSolider.bind(this)} soliderx={this.state.GeneralA} name={"A"}/>
+                    <General getSolider={this.changeSolider.bind(this)} soliderx={this.state.GeneralB} name={"B"}/>
+                </div>
+            )
+        }
+    }
+        ReactDOM.render(
+            <King/>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>
