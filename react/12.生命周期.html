@@ -16,20 +16,24 @@
     class Foo2 extends React.Component{
         constructor(props){
             super(props)
+            this.state={
+                sum:0
+            }
             console.log("child-constructor");
-            
         }
-        componentDidUpdate(){
+        componentDidUpdate(prevProps,prevState){
+            console.log(prevProps,prevState);
             console.log("child-componentDidUpdate");
+        }
+        componentWillUnmount(){
+            console.log();
             
         }
         componentDidMount(){
             console.log("child-componentDidMount");
-            
         }
             render(){
                 console.log("child-render");
-                
                 return(
                     <h1>{this.props.num}</h1>
                 )
@@ -59,10 +63,14 @@
         }
         render(){
             console.log("render");
-            
+            let com1=<Foo2 num={this.state.count}/>
+            if(this.state.count>=5){
+                com1=null;
+            }
             return(
                 <div>
-                    <Foo2 num={this.state.count}/>
+                <input type="date"/>
+                    {com1}
                     <button onClick={this.add.bind(this)}>add</button> 
                 </div>
             )
