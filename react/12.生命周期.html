@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Foo2 extends React.Component{
+        constructor(props){
+            super(props)
+            console.log("child-constructor");
+            
+        }
+        componentDidMount(){
+            console.log("child-componentDidMount");
+            
+        }
+            render(){
+                console.log("child-render");
+                
+                return(
+                    <h1>{this.props.num}</h1>
+                )
+            }
+        }
+    class Foo extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                count:0
+            }
+            console.log("constructor");
+            
+        }
+        add(){
+            this.setState({
+                count:++this.state.count
+            })
+        }
+        componentDidMount(){
+            console.log("componentDidMount");
+            
+        }
+        componentDidUpdate(){
+            console.log("componentDidUpdate");
+            
+        }
+        render(){
+            console.log("render");
+            
+            return(
+                <div>
+                    <Foo2 num={this.state.count}/>
+                    <button onClick={this.add.bind(this)}>add</button> 
+                </div>
+            )
+        }
+    }
+        ReactDOM.render(
+            <Foo/>
+            ,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

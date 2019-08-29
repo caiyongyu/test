@@ -62,13 +62,15 @@
             constructor(props){
                 super(props);
                 this.state={
-                    isShow:false
+                    isShow:false,
+                    name:""
                 }
                 this.changShow=this.changShow.bind(this)
             }
-            changShow(){
+            changShow(state,name){
                 this.setState({
-                    isShow:true
+                    isShow:state,
+                    name:name
                 })
             }
             render(){
@@ -77,7 +79,7 @@
                         <div>
                             <DiaBtn showDia={this.changShow} name={'登录'}/>
                             <DiaBtn showDia={this.changShow} name={'注册'}/>
-                            <DiaContent isShow={this.state.isShow}/>
+                            <DiaContent title={this.state.name} hideDia={this.changShow} isShow={this.state.isShow}/>
                         </div>
                     </div>
                 )
@@ -88,6 +90,9 @@
                 super(props);
                 
             }
+            closeDia(){
+                this.props.hideDia(false)
+            }
             render(){
                 let style={
                     'display':this.props.isShow?'block':'none'
@@ -96,10 +101,12 @@
                     <div className="dia-bg" style={style}>
                         <div className="dia-box">
                             <div className="dia-header">
-                                <div>title</div>
-                                <div>X</div>
+                                <div>{this.props.title}</div>
+                                <div onClick={this.closeDia.bind(this)}>X</div>
                             </div>
-                            <div className="dia-body"></div>
+                            <div className="dia-body">
+                                {this.props.title=="登录"?<Login/>:<Register/>}
+                            </div>
                         </div>
                     </div>
                 )
@@ -110,7 +117,7 @@
                 super(props);
             }
             show(){
-                this.props.showDia()
+                this.props.showDia(true,this.props.name)
             }
             render(){
                 return(
@@ -119,6 +126,12 @@
                     </div>
                 )
             }
+        }
+        function Login() {
+            return <h1>登录</h1>
+        }
+        function Register() {
+            return <h1>注册</h1>
         }
         ReactDOM.render(
             <Dialog/>
