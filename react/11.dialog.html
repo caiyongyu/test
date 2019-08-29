@@ -10,12 +10,17 @@
     <script src="./js/babel.min.js"></script>
     <style>
         .dia-bg{
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background-color: rgb(0,0,0,.3);
+        }
+
+        .active {
+            display: block !important;
         }
 
         .dia-box{
@@ -56,14 +61,23 @@
         class Dialog extends React.Component{
             constructor(props){
                 super(props);
+                this.state={
+                    isShow:false
+                }
+                this.changShow=this.changShow.bind(this)
+            }
+            changShow(){
+                this.setState({
+                    isShow:true
+                })
             }
             render(){
                 return(
                     <div>
                         <div>
-                            <DiaBtn name={'登录'}/>
-                            <DiaBtn name={'注册'}/>
-                            <DiaContent/>
+                            <DiaBtn showDia={this.changShow} name={'登录'}/>
+                            <DiaBtn showDia={this.changShow} name={'注册'}/>
+                            <DiaContent isShow={this.state.isShow}/>
                         </div>
                     </div>
                 )
@@ -72,10 +86,14 @@
         class DiaContent extends React.Component{
             constructor(props){
                 super(props);
+                
             }
             render(){
+                let style={
+                    'display':this.props.isShow?'block':'none'
+                }
                 return(
-                    <div className="dia-bg">
+                    <div className="dia-bg" style={style}>
                         <div className="dia-box">
                             <div className="dia-header">
                                 <div>title</div>
@@ -91,10 +109,13 @@
             constructor(props){
                 super(props);
             }
+            show(){
+                this.props.showDia()
+            }
             render(){
                 return(
                     <div>
-                        <button>{this.props.name}</button>
+                        <button onClick={this.show.bind(this)}>{this.props.name}</button>
                     </div>
                 )
             }
