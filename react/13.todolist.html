@@ -45,12 +45,16 @@
             constructor(props){
                 super(props)
             }
+            trClick(index){
+                console.log(index);
+                
+            }
             render(){
                 let thisList=this.props.items;
                 console.log(thisList);
                 let trStr=thisList.map((item,index)=>{
                     return(
-                        <tr key={item.id}>
+                        <tr onClick={this.trClick.bind(this,index)} key={item.id}>
                                     <th scope="row">
                                         <input type="checkbox"/>
                                     </th>
@@ -77,6 +81,10 @@
                             </thead>
                             <tbody>
                                 {trStr}
+                                <tr>
+                                    <td><button type="button" class="btn btn-primary btn-sm">删除选中</button></td>
+                                    <td colSpan="4">0</td>
+                                </tr>
                             </tbody>
                             </table>
                     </div>
