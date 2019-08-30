@@ -16,27 +16,33 @@
     class Todoform extends React.Component{
             constructor(props){
                 super(props)
+                this.idcount=4;
+                this.formVal={}
+            }
+            changeval(e){
+                // console.log(e.target.value);
+                this.formVal[e.target.name]=e.target.value
+                
+            }
+            subHandle(e){
+                // console.log(this.formVal);
+                this.formVal.id=++this.idcount;
+                this.formVal.count=parseInt(this.formVal.count);
+                this.formVal.isActive=false;
+                this.props.addList(this.formVal)
+                e.preventDefault();
             }
             render(){
                 return(
                     <div>
-                            <form class="form-inline">
-  <label class="sr-only" for="inlineFormInputName2">Name</label>
-  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe"/>
-  <label class="sr-only" for="inlineFormInputName2">Name</label>
-  <input type="date" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe"/>
-
-  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-  <div class="input-group mb-2 mr-sm-2">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
-    </div>
-    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username"/>
-  </div>
-
-
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
-</form>
+                            <form class="form-inline" onSubmit={this.subHandle.bind(this)}>
+                            <input onChange={this.changeval.bind(this)} name="info" type="text" class="form-control mb-2 mr-sm-2" placeholder="待办事项"/>
+                            <input onChange={this.changeval.bind(this)} name="time" type="date" class="form-control mb-2 mr-sm-2"/>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <input onChange={this.changeval.bind(this)} name="count" type="text" class="form-control" placeholder="待办时间"/>
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                            </form>
                     </div>
                 )
             }
@@ -46,23 +52,39 @@
                 super(props)
             }
             trClick(index){
-                console.log(index);
+                this.props.checkLine(index)
                 
+            }
+            delLine(index,e){
+                this.props.delHandle(index)
+                e.stopPropagation();
+                
+            }
+            delCheck(){
+                this.props.delChecked();
             }
             render(){
                 let thisList=this.props.items;
+                let sum=0;
                 console.log(thisList);
                 let trStr=thisList.map((item,index)=>{
+                    let style=null
+                    if(item.isActive){
+                        sum+=item.count;
+                        style={
+                            backgroundColor:"gray"
+                        }
+                    }
                     return(
-                        <tr onClick={this.trClick.bind(this,index)} key={item.id}>
+                        <tr style={style} onClick={this.trClick.bind(this,index)} key={item.id}>
                                     <th scope="row">
-                                        <input type="checkbox"/>
+                                        <input type="checkbox" readOnly checked={item.isActive?true:false}/>
                                     </th>
                                     <td>{item.info}</td>
                                     <td>{item.time}</td>
                                     <td>{item.count}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-sm">删除</button>
+                                        <button type="button" class="btn btn-primary btn-sm" onClick={this.delLine.bind(this,index)}>删除</button>
                                     </td>
                                 </tr>
                     )
@@ -82,8 +104,8 @@
                             <tbody>
                                 {trStr}
                                 <tr>
-                                    <td><button type="button" class="btn btn-primary btn-sm">删除选中</button></td>
-                                    <td colSpan="4">0</td>
+                                    <td><button type="button" class="btn btn-primary btn-sm" onClick={this.delCheck.bind(this)}>删除选中</button></td>
+                                    <td colSpan="4">{sum}</td>
                                 </tr>
                             </tbody>
                             </table>
@@ -130,11 +152,48 @@
                     ]
                 }
             }
+            checkLine(index){
+                let thisList=this.state.dataList;
+                thisList[index].isActive=!thisList[index].isActive
+                this.setState({
+                    dataList:thisList
+                })
+                
+                
+            }
+            addHandle(obj){
+                let thisList=this.state.dataList;
+                thisList.push(obj);
+                this.setState({
+                    dataList:thisList
+                })
+                
+            }
+            delHandle(index){
+                let thisList=this.state.dataList;
+                thisList.splice(index,1)
+                // console.log(thisList);
+                this.setState({
+                    dataList:thisList
+                })
+            }
+            delChecked(){
+                console.log("com");
+                let thisList=this.state.dataList;
+                thisList=thisList.filter(item=>{
+                    if(!item.isActive){
+                        return item
+                    }
+                })
+                this.setState({
+                    dataList:thisList
+                })
+            }
             render(){
                 return(
                     <div>
-                        <Todoform/>
-                        <Todotable items={this.state.dataList}/>
+                        <Todoform addList={this.addHandle.bind(this)}/>
+                        <Todotable delChecked={this.delChecked.bind(this)} delHandle={this.delHandle.bind(this)} checkLine={this.checkLine.bind(this)} items={this.state.dataList}/>
                     </div>
                 )
             }
