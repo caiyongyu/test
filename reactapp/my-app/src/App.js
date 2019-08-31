@@ -12,6 +12,7 @@ import Test1 from "./component/Test1"
 import Test2 from "./component/Test2"
 import Test3 from "./component/Test3"
 import Test4 from "./component/Test4"
+import Test5 from "./component/Test5"
 const Foo=({match})=>{
   return(
     <h1>hello{match.params.id}</h1>
@@ -25,6 +26,7 @@ function App() {
         <Link to="/test2">test2</Link> |
         <Link to="/test3">test3</Link> |
         <Link to="/test4">test4</Link> |
+        <Link to="/test5">test5</Link> |
         <Link to="/foo/123456">foo</Link> |
         <Link to="/testrender">testrender</Link> |
         <Link to="/redirect">redirect</Link>
@@ -43,6 +45,7 @@ function App() {
           <Route path="/test2" component={Test2}/>
           <Route path="/test3" component={Test3}/>
           <Route path="/test4" component={Test4}/>
+          <Route path="/test5" component={Test5}/>
           <Route path="/:id" component={Test1}/>
           
         </Switch>
