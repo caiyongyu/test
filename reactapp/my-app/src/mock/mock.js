@@ -10,3 +10,16 @@ Mock.mock("https://api.myjson.com/bins/icw8n",{
         }
     ]
 })
+let Random=Mock.Random;
+let arr=[]
+for(let i=0;i<20;i++){
+    arr.push({
+        name:RandomSource.cname(),
+        img:Random.dataImage('100x100','fellow32'),
+        address:Random.province()
+    })
+}
+
+Mock.mock("https://www.fellow32.com/getdate",{
+    data:arr
+})
