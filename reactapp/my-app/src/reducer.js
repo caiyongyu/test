@@ -12,6 +12,7 @@ const count = (state=0,action)=>{
     
 }
 
+//将reduce放入combineReduces中使其工作
 const reduce = combineReducers({
     count
 })

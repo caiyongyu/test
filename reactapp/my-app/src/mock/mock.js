@@ -14,7 +14,7 @@ let Random=Mock.Random;
 let arr=[]
 for(let i=0;i<20;i++){
     arr.push({
-        name:RandomSource.cname(),
+        name:Random.cname(),
         img:Random.dataImage('100x100','fellow32'),
         address:Random.province()
     })
