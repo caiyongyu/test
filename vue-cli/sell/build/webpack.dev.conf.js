@@ -37,7 +37,7 @@ var apiRoutes = express.Router();
 //     data:ratings
 //   })
 // });
-// app.use('/api', apiRoutes);
+app.use('/api', apiRoutes);
 
 
 const HOST = process.env.HOST
