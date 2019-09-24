@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="./des.js"></script>
+    <script src="./vue.js"></script>
+</head>
+<body>
+        <!-- <input type="button" value="获取加密结果与解密结果" οnclick="getResult()" /> -->
+        <button onclick="getResult()">获取加密结果与解密结果</button>
+        <table>
+            <tr>
+              <!-- <td align="left">字符串：</td> -->
+              <!-- <td><span id="str">Hello</span></td> -->
+              <input type="text" placeholder="请输入明文" id="str">	
+              <h1></h1>	 
+            </tr>
+            <tr>		  
+              <td>加密key：</td>
+              <td>key<span id="key1">1</span>=0031000000000000<span id="key2"></span> <span id="key3"></span></td>
+            </tr>
+            <tr>
+              <td align="left">加密结果：</td>
+              <td align="left"><label id = "enStr"></label></td>
+            </tr>
+            <tr>
+              <td align="left">解密结果： </td>
+              <td align="left"><label id = "dnStr"></label></td>
+            </tr>
+        </table>
+
+    
+    <script>	
+
+
+
+
+    // console.log("bbb");
+    var oInp = document.getElementById("str");
+       var oH1 = document.getElementsByTagName("h1")[0];
+       var obj={
+           name:""
+       }
+       oInp.onkeyup = function(){
+           obj.name = this.value
+       }
+       console.log(oInp.value);
+       
+       Object.defineProperty(obj,"name",{
+           get(){
+            console.log("get");
+            
+           },
+           set(val){
+            console.log(val);
+            oH1.innerText ="明文："+val
+           }
+       })
+    	
+		function getResult(){
+
+            
+
+
+            //待加密字符串
+            // console.log("AAA");
+            var str = oH1.innerText;
+            // document.getElementById("str").innerHTML;
+			//第一个参数必须；第二个、第三个参数可选
+			var key1 = document.getElementById("key1").innerHTML;  
+			var key2 = document.getElementById("key2").innerHTML; 
+			var key3 = document.getElementById("key3").innerHTML; 
+			//加密方法		
+            var  enResult = strEnc(str,key1,key2,key3);	
+            // console.log(enResult);		
+			//解密方法
+			var deResult = strDec(enResult,key1,key2,key3);
+            //展示结果
+			document.getElementById("enStr").innerHTML = enResult; 
+			document.getElementById("dnStr").innerHTML = deResult; 
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  
+ <HTML>  
+ <HEAD>  
+ <TITLE> New Document </TITLE>  
+ <META NAME="Generator" CONTENT="EditPlus">  
+ <META NAME="Author" CONTENT="">  
+ <META NAME="Keywords" CONTENT="">  
+ <META NAME="Description" CONTENT="">  
+ </HEAD>  
+  
+<BODY>  
+<SCRIPT LANGUAGE="JavaScript">  
+// ==================================================================  
+// JavaScript RSA算法简单实现  
+// Know Bugs:  
+//   1. Math.pow存在计算精度问题，因此不能选取较大的质数，否则会溢出  
+RSAAlgorithm()  
+
+//我们要判断n是不是素数，首先我们必须保证n是个奇数
+function Prime(num)
+{
+	var arr = [19,71,97];
+	var i;
+	if(2 == num)
+		return 1;
+	if(1==num || 0==num%2)
+		return 0;
+	for(i=0;i<3;i++)
+	{
+		if( Witness(arr[i], num) )
+			return 0;
+	}
+	return 1;
+}
+ 
+function Witness(a,n)
+{
+	var j, m, x0, x1, b, i;
+	m = n-1;
+	j = 0;
+	while(m%2 == 0)
+	{
+		m /= 2;
+		j++;
+	}
+	b = a;
+	x0 = 1;
+	while(m)
+	{
+		if(m%2)
+			x0 = x0 * b % n;
+		m /= 2;
+		b = b * b % n;
+	}
+	for(i=0;i<j;i++)
+	{
+		x1 = x0 * x0 % n;
+		if(x1==1 && x0!=1 && x0!=n-1)    
+			return 1;
+		x0 = x1;
+	}
+	if(x0 != 1)   
+		return 1;
+	return 0;
+}
+
+
+
+function RSAAlgorithm(){  
+ //1.首先选择两个简单的质数p,q  
+ var p=5;  
+ var q=13;
+var n=p*q;
+var tem=17;
+
+ if( Prime(tem) )
+ console.log("Yes, it is a prime number.");
+        else
+        console.log("No, it not a prime number.");
+
+var n=p*q   
+ //随机选择余数r,保证r与(p-1)*(q-1)=48互质  
+ var r=7   
+ //得到private key是p,q,r  
+ document.write("----------------------------------<br>");  
+ document.write("<B>Private Key：</B><br>");  
+ document.write("p= "+p+"<br>");  
+ document.write("q= "+q+"<br>");  
+ document.write("r= "+r+"<br>");  
+ document.write("----------------------------------<br>");  
+ //2.计算public key  
+ //找到m,保证rm ==1 mod (p-1)*(q-1)  
+ var num=0  
+ for(a=0;a<500;a++){  
+  if(r*a%((p-1)*(q-1))==1){  
+   num=a;  
+   break;  
+  }  
+ }  
+ var m=num   
+ if(m>0){  
+  document.write("<br>找到m= "+num+" ,计算余数="+(num*r)%((p-1)*(q-1))+",成功！<br>")  
+ }  
+ else{  
+  document.write("找不到满足条件的m,请调整参数");  
+ }  
+ document.write("----------------------------------<br>");  
+ document.write("<B>Public Key：<br></B>");  
+ document.write("m= "+m+"<br>");  
+ document.write("n= "+n+"<br>");  
+ document.write("----------------------------------<br>");  
+ document.write("<br>");  
+ document.write("<B>#演示加密过程#</B><br>");  
+ var text=20 //明文  
+ document.write("明文="+text+"<br>");  
+ //接下来, 计算 etext == text^r mod n, (0 <= b < n)  
+ var etext=Math.pow(text,r)%n;  
+ document.write("加密后的内容:"+etext+"<br>");  
+ document.write("<br>");  
+ document.write("#演示解密过程#<br>");  
+ //text=etext^m mod pq  
+ var text=Math.pow(etext,m)%n;  
+ document.write("解密后的内容:"+text+"<br>");  
+}  
+</SCRIPT>  
+</BODY>  
+</HTML>  

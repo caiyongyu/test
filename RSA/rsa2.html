@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="getResult()">获取加密结果与解密结果</button>
+    <table>
+        <tr>
+            <!-- <td align="left">字符串：</td> -->
+            <!-- <td><span id="str">Hello</span></td> -->
+            <input type="text" placeholder="请输入p" id="input_p">
+            <input type="text" placeholder="请输入q" id="input_q">
+            <input type="text" placeholder="请输入明文" id="str">
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+        </tr>
+        <!-- <tr>		  
+              <td>加密key：</td>
+              <td>key<span id="key1">1</span>=0031000000000000<span id="key2"></span> <span id="key3"></span></td>
+            </tr>
+            <tr>
+              <td align="left">加密结果：</td>
+              <td align="left"><label id = "enStr"></label></td>
+            </tr>
+            <tr>
+              <td align="left">解密结果： </td>
+              <td align="left"><label id = "dnStr"></label></td>
+            </tr> -->
+    </table>
+
+    <SCRIPT LANGUAGE="JavaScript">
+        // ==================================================================  
+        // JavaScript RSA算法简单实现  
+        // Know Bugs:  
+        //   1. Math.pow存在计算精度问题，因此不能选取较大的质数，否则会溢出 
+
+
+        var input_p = document.getElementById("input_p");
+        var input_q = document.getElementById("input_q");
+        var oInp = document.getElementById("str");
+        var oH1 = document.getElementsByTagName("h1")[0];
+        var oHp=document.getElementsByTagName("h1")[1];
+        var oHq=document.getElementsByTagName("h1")[2];
+        var obj = {
+            name: "",
+            p:"",
+            q:""
+        }
+        
+        oInp.onkeyup = function () {
+            obj.name = this.value
+        }
+        input_p.onkeyup = function () {
+            obj.name = this.value
+        }
+        input_q.onkeyup = function () {
+            obj.name = this.value
+        }
+        console.log(oInp.value);
+
+        Object.defineProperty(obj, "name",{
+            get() {
+                console.log("get");
+
+            },
+            set(val) {
+                console.log(val);
+                oH1.innerText = val
+                // oHp.innerText=val;
+
+                // input_p.innerText=val
+                // input_q.innerText=val
+            }
+        })
+
+        function getResult() {
+
+            RSAAlgorithm()
+
+
+            //我们要判断n是不是素数，首先我们必须保证n是个奇数
+            function Prime(num) {
+                var arr = [19, 71, 97];
+                var i;
+                if (2 == num)
+                    return 1;
+                if (1 == num || 0 == num % 2)
+                    return 0;
+                for (i = 0; i < 3; i++) {
+                    if (Witness(arr[i], num))
+                        return 0;
+                }
+                return 1;
+            }
+
+            function Witness(a, n) {
+                var j, m, x0, x1, b, i;
+                m = n - 1;
+                j = 0;
+                while (m % 2 == 0) {
+                    m /= 2;
+                    j++;
+                }
+                b = a;
+                x0 = 1;
+                while (m) {
+                    if (m % 2)
+                        x0 = x0 * b % n;
+                    m /= 2;
+                    b = b * b % n;
+                }
+                for (i = 0; i < j; i++) {
+                    x1 = x0 * x0 % n;
+                    if (x1 == 1 && x0 != 1 && x0 != n - 1)
+                        return 1;
+                    x0 = x1;
+                }
+                if (x0 != 1)
+                    return 1;
+                return 0;
+            }
+
+
+
+            function pow_mod(a, b, c) {
+                var ans = 1;
+                var base = a % c;
+                while (b) {
+                    if (b & 1) ans = (ans * base) % c;
+                    base = (base * base) % c;
+                    b >>= 1;
+                }
+                return ans;
+            }
+
+            //返回值为1则互质
+            function mgcd(a,b)
+            {
+                var t;
+                if (a < b) {
+                    t = a; a = b; b = t;
+                }
+                while (a % b) {
+                    t = b;
+                    b = a % b;
+                    a = t;
+                }
+                return b;
+            }
+
+            function RSAAlgorithm() {
+                //1.首先选择两个简单的质数p,q  
+                input_p.onchange = function(){
+            //value属性获得表单值
+            console.log(input_p.value)
+            
+        }
+
+        input_q.onchange = function(){
+            //value属性获得表单值
+            console.log(input_q.value)
+            
+        }
+                // var p = 15
+                var p=input_p.value
+                var q = input_q.value
+                console.log(p);
+                console.log(q);
+                
+                var n = p * q
+
+                var tem = 101;
+
+                if (Prime(tem))
+                    console.log("Yes, it is a prime number.");
+                else
+                    console.log("No, it not a prime number.");
+
+                //随机选择余数r,保证r与(p-1)*(q-1)=48互质  
+                var r = 0
+                var tem_r=0
+                for (a = 2; a < 500; a++) {
+                    if (mgcd((p-1)*(q-1),a)==1) {
+                        tem_r = a;
+                        break;
+                    }
+                }
+                if(!tem_r){
+                        alert('公有密钥不存在！');
+                }
+                r=tem_r;
+                //得到公 key是p,q,r  
+                document.write("----------------------------------<br>");
+                document.write("<B>Public Key：</B><br>");
+                document.write("p= " + p + "<br>");
+                document.write("q= " + q + "<br>");
+                document.write("公钥r= " + r + "<br>");
+                document.write("----------------------------------<br>");
+                //2.计算si key  
+                //找到m,保证rm ==1 mod (p-1)*(q-1)  
+                var num = 0
+                for (a = 0; a < 500; a++) {
+                    if (r * a % ((p - 1) * (q - 1)) == 1) {
+                        num = a;
+                        break;
+                    }
+                }
+                var m = num
+                if (m > 0) {
+                    document.write("<br>找到私钥m= " + num + " ,计算余数=" + (num * r) % ((p - 1) * (q - 1)) + ",成功！<br>")
+                }
+                else {
+                    document.write("找不到满足条件的m,请调整参数");
+                }
+                document.write("----------------------------------<br>");
+                document.write("<B>Private Key：<br></B>");
+                document.write("私钥m= " + m + "<br>");
+                document.write("n= " + n + "<br>");
+                document.write("----------------------------------<br>");
+                document.write("<br>");
+                document.write("<B>#演示加密过程#</B><br>");
+                var text = oH1.innerText; //明文  
+                console.log(text);
+
+                document.write("明文=" + text + "<br>");
+                //接下来, 计算 etext == text^r mod n, (0 <= b < n)  
+                //  var etext=Math.pow(text,r)%n;  
+                var etext = pow_mod(text, r, n);
+                document.write("加密后的内容:" + etext + "<br>");
+                document.write("<br>");
+                document.write("#演示解密过程#<br>");
+                //text=etext^m mod pq  
+                var text = pow_mod(etext, m, n);
+                document.write("解密后的内容:" + text + "<br>");
+            }
+        }
+    </SCRIPT>
+</body>
+
+</html>
