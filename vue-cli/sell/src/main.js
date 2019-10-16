@@ -5,21 +5,12 @@ import App from './App';
 // import router from './router';
 import VueRouter from 'vue-router';
 import goods from './components/goods/goods';
-
+import ratings from './components/ratings/ratings';
+import seller from './components/seller/seller';
 // Vue.config.productionTip = false;
+import './common/stylus/index.styl';
+
 Vue.use(VueRouter);
-
-// let app=Vue.extend(App);
-
-// let router=new VueRouter();
-
-// router.map({
-//   '/goods': {
-//     components: goods
-//   }
-// });
-
-// router.start(app, '#app');
 
 const routes = [{
    path: '/',
@@ -27,6 +18,12 @@ const routes = [{
 }, {
     path: '/goods',
     component: goods
+}, {
+  path: '/ratings',
+  component: ratings
+}, {
+  path: '/seller',
+  component: seller
 }];
 
 const router = new VueRouter({
