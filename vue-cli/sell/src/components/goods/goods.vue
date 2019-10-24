@@ -38,6 +38,7 @@
         </div>
         <shopcart ref="shopcart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
     </div>
+    <food :food="selectFood"></food>
 </template>
 
 <script type="text/ecmascript-6">
@@ -56,7 +57,8 @@ export default{
         return {
             goods: [],
             listHeight: [],
-            scrollY: 0
+            scrollY: 0,
+            selectFood: {}
         };
     },
     computed: {
