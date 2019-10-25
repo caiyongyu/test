@@ -21,10 +21,14 @@
                         <cartcontrol @add="addFood" :food="food"></cartcontrol>
                     </div>
                     <transition name="fade">
-                        <div @click="addFirst" class="buy" v-show="!food.count || food.count===0">
+                        <div @click.stop.prevent="addFirst" class="buy" v-show="!food.count || food.count===0">
                             加入购物车
                         </div>
                     </transition>
+                </div>
+                <split></split>
+                <div class="info">
+                    <h1 class="title">商品信息</h1>
                 </div>
             </div>
         </div>
@@ -35,6 +39,7 @@
 import BScroll from 'better-scroll';
 import Vue from 'vue';
 import cartcontrol from '../cartcontrol/cartcontrol';
+import split from '../split/split';
 export default {
     props: {
         food: {
@@ -74,7 +79,8 @@ export default {
       }
     },
     components: {
-        cartcontrol
+        cartcontrol,
+        split
     }
 };
 </script>
