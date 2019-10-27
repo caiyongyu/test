@@ -26,9 +26,15 @@
                         </div>
                     </transition>
                 </div>
-                <split></split>
-                <div class="info">
+                <split v-show="food.info"></split>
+                <div class="info" v-show="food.info">
                     <h1 class="title">商品信息</h1>
+                    <p class="text">{{food.info}}</p>
+                </div>
+                <split></split>
+                <div class="rating">
+                    <h1 class="title">商品评价</h1>
+                    <ratingselect></ratingselect>
                 </div>
             </div>
         </div>
@@ -39,6 +45,7 @@
 import BScroll from 'better-scroll';
 import Vue from 'vue';
 import cartcontrol from '../cartcontrol/cartcontrol';
+import ratingselect from '../ratingselect/ratingselect';
 import split from '../split/split';
 export default {
     props: {
@@ -80,7 +87,8 @@ export default {
     },
     components: {
         cartcontrol,
-        split
+        split,
+        ratingselect
     }
 };
 </script>
@@ -173,4 +181,16 @@ export default {
                 &.fade-enter, &.fade-leave-active
                     opacity: 0
                     z-index: -1
+        .info
+            padding: 18px
+            .title
+                line-height: 14px
+                margin-bottom: 6px
+                font-style: 14px
+                color: rgb(7,17,27)
+            .text
+                line-height: 24px
+                padding: 0 8px
+                font-size: 12px
+                color: rgb(77,85,93)
 </style>
