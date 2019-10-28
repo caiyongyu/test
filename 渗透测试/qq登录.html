@@ -1,0 +1,58 @@
+<html>
+<script>
+function EnumCheckPwd()
+{
+    var checkNext = true;
+    var pos = maxPwdNum - 1;
+    while(pos >= 0)
+    {
+        guessPwdPos[pos] ++;
+        if(guessPwdPos[pos] >= dictNum)
+        {
+            guessPwdPos[pos] = 0;
+            pos --;
+        }else{
+            break;
+        }
+    }
+    for(var i in guessPwdPos)
+    {
+        guessPwd[i] = dict[guessPwdPos[i]];
+        console.log(guessPwd);
+        
+    }
+    if(guessPwd.toString() == pwd.toString())
+    {
+        //show.value = guessPwd.join("");
+        alert("Get pwd:" + guessPwd.join(""));
+        clearInterval(dispTimer);
+        return;
+    }else{
+        count ++;
+        setTimeout(EnumCheckPwd, 0);
+    }
+}
+function CheckPwd()
+{
+     dict = new Array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
+    'u','v','w','x','y','z');
+     dictNum = 26;
+     maxPwdNum = 4;
+     count = 0;
+     pwd = new Array('a','b','i','a');
+     temp = new Array();
+     guessPwdPos = new Array();
+     for(var i = 0; i < maxPwdNum; i ++){
+        guessPwdPos[i] = 0;
+     }
+     guessPwdPos[maxPwdNum-1] = -1;
+     guessPwd = new Array();
+     var maxPwd = Math.pow(dictNum, maxPwdNum);
+     setTimeout(function(){EnumCheckPwd();}, 10);
+     dispTimer = setInterval(function(){show.value= count + ":" + parseFloat(count/maxPwd*100).toFixed(2)+ "%" + ":"+ guessPwd.join("");}, 1000);
+     
+}
+</script>
+<input type="button" value="StartCrack" onclick = "CheckPwd()"/>
+<input type="textarea" id = "show"/>
+</html>

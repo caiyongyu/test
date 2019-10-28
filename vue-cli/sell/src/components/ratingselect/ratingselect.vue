@@ -79,4 +79,6 @@ export default {
                     background: rgba(77,85,93,0.2)
                     &.active
                         background: rgb(77,85,93)
+        .switch
+            
 </style>

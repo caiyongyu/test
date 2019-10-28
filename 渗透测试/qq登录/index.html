@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆界面1</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div class="container">
+		<!-- 导航 -->
+		<div class="nav">
+			<ul>
+				<li><a href="#">链接三</a></li>
+				<li><a href="#">链接二</a></li>
+				<li><a href="#">链接一</a></li>
+				<li><a href="#">首页</a></li>
+			</ul>
+		</div>
+ 
+		<!-- 主体内容 （登陆界面）-->
+		<div class="main">
+			<!-- 左侧信息栏 -->
+			<div class="sideleft">
+				<h1>海量品牌    信息共享</h1>
+				<h4>数据结合商业  让大数据发挥大价值</h4>
+				</br></br></br>
+				<p>精准营销、数据化管理，提升管理水平。</p>
+				<p>打造线上线下数字一体化。</p>
+				<p>双选平台，建立工厂与经销商双向选择平台。</p>
+				<p>服务市场，塑造经销商信用等级，为其提供相应的金融服务。</p>
+ 
+			</div>
+			<!-- 右侧登陆界面 -->
+			<div class="sideright">
+				<div class="index">
+					<form name="form1" method="post" action="">
+						<p class="headline">用户登陆</p>
+						<p class="astyle">用户名：</p>
+						<input type="text" name="user" id="name" value="请输入您的账号">
+						<p class="astyle">密码：</p>
+                        <input type="text" id = "show" name="pwd" id="pwd" value="请输入密码">
+                        <!-- <input type="textarea" id = "show"/> -->
+                        <!-- <input type="submit" value="登陆" name="login" onclick="check_deng()"> -->
+                        <input name="login" type="button" value="登陆" onclick="check_deng()">
+						</br>
+						<p class="bstyle"><input type="checkbox" name="rempas" />  记住密码</p>
+						<p class="cstyle">忘记密码</p>
+						</br></br>
+                        <p class="cstyle">没有账号？<a href="zhuce.html">立即注册</a></p>
+                        <input type="button" value="暴力破解" onclick = "CheckPwd()"/>
+					</form>
+ 
+				</div>
+			</div>
+		</div>
+ 
+		<!-- 尾部 -->
+		<div class="footer">
+				<ul>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">诚聘人才</a></li>
+					<li><a href="#">联系商家</a></li>
+					<li><a href="#">广告服务</a></li>
+					<li><a href="#">黑龙江大学网络信息安全002组  1466401937@qq.com 2019.9.26</a></li>
+				</ul>
+ 
+		</div>
+ 
+    </div>
+    <script>
+        // var denglu = document.getElementById("show");
+        function EnumCheckPwd()
+{
+    var checkNext = true;
+    var pos = maxPwdNum - 1;
+    while(pos >= 0)
+    {
+        guessPwdPos[pos] ++;
+        if(guessPwdPos[pos] >= dictNum)
+        {
+            guessPwdPos[pos] = 0;
+            pos --;
+        }else{
+            break;
+        }
+    }
+    for(var i in guessPwdPos)
+    {
+        guessPwd[i] = dict[guessPwdPos[i]];
+
+
+
+        console.log(guessPwd);
+        
+    }
+    if(guessPwd.toString() == pwd.toString())
+    {
+        //show.value = guessPwd.join("");
+        alert("Get pwd:" + guessPwd.join(""));
+        clearInterval(dispTimer);
+        return;
+    }else{
+        count ++;
+        setTimeout(EnumCheckPwd, 0);
+    }
+}
+function CheckPwd()
+{
+     dict = new Array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t',
+    'u','v','w','x','y','z');
+     dictNum = 26;
+     maxPwdNum = 4;
+     count = 0;
+     pwd = new Array('a','b','i','a');
+     temp = new Array();
+     guessPwdPos = new Array();
+     for(var i = 0; i < maxPwdNum; i ++){
+        guessPwdPos[i] = 0;
+     }
+     guessPwdPos[maxPwdNum-1] = -1;
+     guessPwd = new Array();
+     var maxPwd = Math.pow(dictNum, maxPwdNum);
+     setTimeout(function(){EnumCheckPwd();}, 10);
+     dispTimer = setInterval(function(){show.value= count + ":" + parseFloat(count/maxPwd*100).toFixed(2)+ "%" + ":"+ guessPwd.join("");}, 1000);
+     
+}
+function check_deng()
+{
+    var user_name=form1.user.value;//获取表单form1的用户名的值
+    var user_pwd=form1.pwd.value;//获取表单form1密码值
+    if((user_name=="")||(user_name==null)){//判断用户名是否为空，为空就弹出提示框"请输入用户名"，否则正常执行下面的代码。
+        alert("请输入账号！");
+        form1.user.focus();//获取焦点，即：鼠标自动定位到用户名输入框，等待用户输入用户名。
+        return;
+    }
+    else if((user_pwd=="")||(user_pwd==null)){//判断密码是否为空，为空就弹出提示框"请输入密码"，否则正常执行下面的代码。
+        alert("请输入密码！");
+        form1.pwd.focus();//获取焦点。
+        return;}
+    else if(user_name!="20170002"||user_pwd!="abia"){
+        alert("账号密码不匹配，请重新输入！");
+        form1.pwd.focus();//获取焦点。
+        return;
+    }
+    else {//如果用户名、密码都正常输入，则提交表单，浏览器经打开新的（主页）窗口。
+        window.open("http://www.baidu.com");
+        // form1.submit();
+        // alert("账号密码不匹配，请重新输入！");
+        console.log(user_pwd);
+        
+        // window.location.href="http://baidu.com/";
+        
+    }
+}
+    </script>
+</body>
+</html>

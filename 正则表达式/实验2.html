@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>软件测试实验2</title>
+</head>
+<body>
+    <input type="text" value="" maxlength="12" onkeyup='this.value=this.value.replace(/[^0-9]+$/,"-")' 
+   onblur='checkPhone(this.value)' placeholder="请输入电话号码" />
+<script>
+    function checkPhone(value){
+        const rule = /^([2-9]\d{2})-( |\d{3})(-\d{4})?$/;
+        if(rule.test(value)){
+            alert("电话号码合法");
+        }else{
+            alert("电话号码非法");                
+        }
+    }
+</script>
+</body>
+</html>

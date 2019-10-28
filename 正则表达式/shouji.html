@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="" maxlength="11" onkeyup='this.value=this.value.replace(/[^0-9]*$/,"")' 
+   onblur='checkPhone(this.value)' placeholder="只能输入11位的纯数字的手机号" />
+<script>
+    function checkPhone(value){
+        const rule = /^1[3|4|5|7|8|9][0-9]\d{4,11}$/;
+        if(rule.test(value)){
+            console.log("手机号输入正确");
+        }else{
+            console.log("手机号输入错误");                
+        }
+    }
+</script>
+</body>
+</html>
