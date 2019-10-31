@@ -13,7 +13,13 @@
         var btn = document.getElementById('btn');
 
         if(btn.addEventListener){
-            
+            btn.addEventListener('click', function(){
+                alert(11);
+            }, false);
+        }else{
+            btn.attachEvent('onclick', function(){
+                alert(22);
+            });
         }
     </script>
 </body>

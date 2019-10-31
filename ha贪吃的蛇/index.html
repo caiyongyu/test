@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ha贪吃的蛇</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 1038px;
+            height: 650px;
+            background: url(img/bg.jpg);
+            margin: 0 auto;
+            position: relative;
+        }
+        #map-panel{
+            width: 631px;
+            height: 421px;
+            /* background: #cccccc; */
+            position: absolute;
+            left: 90px;
+            top: 140px;
+        }
+        /* #map-panel:nth-child() */
+        #map-bg{
+            border-collapse: collapse;
+        }
+        #map-bg td{
+            width: 20px;
+            height: 20px;
+            border: 1px solid #888;
+        }
+        .snack{
+            width: 20px;
+            height: 20px;
+            background: rgb(0,255,255);
+            position: absolute;
+            top: 64px;
+        }
+        .food{
+            width: 20px;
+            height: 20px;
+            /* background: rgb(255,255,0); */
+            background: url(img/apple_food.png);
+            background-size: 20px 20px;
+            position: absolute;
+        }
+        #control-panel{
+            width: 196px;
+            height: 500px;
+            /* background: #cccccc; */
+            position: absolute;
+            left: 800px;
+            top: 100px;
+            text-align: center;
+        }
+        #control-panel button{
+            width: 178px;
+            height: 52px;
+            margin-bottom: 20px;
+            border: 0;
+        }
+        #btn-start{
+            background: url(img/start-game.png);
+        }
+        #btn-setting{
+            background: url(img/game-setting.png);
+        }
+        #btn-quit{
+            background: url(img/quit-game.png);
+        }
+        #btn-help{
+            background: url(img/help.png);
+        }
+        #speed-panel{
+            width: 196px;
+            height: 204px;
+            background: url(img/speed-panel.png);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="map-panel">
+            <table id="map-bg">
+                <!-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr> -->
+            </table>
+            <!-- <div class="snack"></div>
+            <div class="snack"></div>
+            <div class="snack"></div> -->
+            <!-- <div class="food"></div> -->
+        </div>
+        <div id="control-panel">
+                <a href="javascript:playPause();"><button id="btn-start"></button></a>
+            <button id="btn-setting"></button>
+            <button id="btn-quit"></button>
+            <button id="btn-help"></button>
+            <div id="speed-panel"></div>
+            <audio id="music2" src="mp3/bg_music.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>    
+<!-- <a href="javascript:playPause();"><img src="img/pause.jpg" width="48" height="50" id="music_btn2" border="0"></a> -->
+        </div>
+    </div>
+    <script>
+        var oMapPanel = document.getElementById('map-panel')
+        var oMapTable = document.getElementById('map-bg');
+        var oBtnStart = document.getElementById('btn-start');
+
+        var direction = 'right';
+        var timer,oFood;
+
+        for(var row = 0; row < 20; row++){
+            var otr = document.createElement('tr');
+            for(var col = 0; col < 30; col++){
+                var otd= document.createElement('td');
+                otr.appendChild(otd);
+            }
+            oMapTable.appendChild(otr);
+        }
+
+        //初始化蛇
+        var snackBody = [];
+        for(var i = 2; i>=0; i--){
+            var oDiv = document.createElement('div');
+            oDiv.className = 'snack';
+            oDiv.style.left = 1+21*i+'px';
+            oMapPanel.appendChild(oDiv);
+            oDiv.pos = {
+                left: 1+21*i,
+                top: 64
+            };
+            snackBody.push(oDiv);
+        }
+
+        //初始化食物
+        function productFood() {
+            do {
+            var bFlag = true;   //true找到了
+            //计算食物的坐标
+            var iLeft = parseInt(Math.random() * 30);
+            iLeft = iLeft*21+1;
+            var iTop = parseInt(Math.random() * 20);
+            iTop = iTop*21+1;
+
+            for(var i = 0; i < snackBody.length; i++){
+
+                if(snackBody[i].offsetLeft == iLeft && snackBody[i].offsetTop == iTop){
+                    bFlag = false;  //没找到
+                }
+            }
+
+            oFood = document.createElement('div');
+            oFood.className = 'food';
+            oFood.style.left = iLeft + 'px';
+            oFood.style.top = iTop + 'px'; 
+
+            oFood.pos = {
+                left: iLeft,
+                top: iTop
+            }
+
+            oMapPanel.appendChild(oFood);
+        } while (!bFlag);
+        };
+        //初始化食物
+        
+
+        oBtnStart.onclick = function(){
+            if(!timer) {
+                timer = setInterval(() => {
+                snackMove();
+            }, 300);
+            }
+            
+        };
+        productFood();
+        function snackMove() {
+            if(direction == 'down'){
+                    var snackHead = snackBody[0];
+                    snackHead.style.top = snackHead.offsetTop+21+'px';
+                }else if(direction == 'right'){
+                    var snackHead = snackBody[0];
+                    snackHead.style.left = snackHead.offsetLeft+21+'px';
+                }else if(direction == 'up'){
+                    var snackHead = snackBody[0];
+                    snackHead.style.top = snackHead.offsetTop-21+'px';
+                }else if(direction == 'left'){
+                    var snackHead = snackBody[0];
+                    snackHead.style.left = snackHead.offsetLeft-21+'px';
+                }
+                
+
+                
+                //蛇吃食物
+                if(snackHead.offsetLeft == oFood.offsetLeft && snackHead.offsetTop == oFood.offsetTop){
+                    oFood.className='snack';
+                    // snackBody.push(oFood);
+                    //将食物定位
+                    oFood.style.left=snackHead.pos.left+'px';
+                    oFood.style.top=snackHead.pos.top+'px';
+                    snackBody.splice(1, 0, oFood);
+                    productFood();
+                }else{
+                    //让蛇头往后的部分向身体的前一部分移动
+                for(var i = 1;i<snackBody.length;i++){
+                    snackBody[i].style.left = snackBody[i-1].pos.left+'px';
+                    snackBody[i].style.top = snackBody[i-1].pos.top+'px';
+                }
+                    
+                }
+
+                //将蛇移动后的当前位置更新
+                for(var i=0;i<snackBody.length;i++){
+                    snackBody[i].pos.left=snackBody[i].offsetLeft;
+                    snackBody[i].pos.top=snackBody[i].offsetTop;
+                }
+        }
+
+        document.onkeydown = function(e){
+                    e = e || window.event;
+                    var key = e.which || e.keyCode;
+                    if(key == 40){   //down
+                        if(direction != 'up'){
+                            direction = 'down';
+                        }
+                    }else if(key == 39){    //right
+                        if(direction != 'left'){
+                            direction = 'right';
+                        }
+                        
+                    }else if(key == 38){
+                        if(direction != 'down'){
+                            direction = 'up';
+                        }
+        
+                    }else if(key == 37){
+                        if(direction != 'right'){
+                            direction = 'left';
+                        }
+                    }
+                    snackMove();
+                };
+
+
+                function playPause() {    
+    var music = document.getElementById('music2');    
+    var music_btn = document.getElementById('music_btn2');    
+    if (music.paused){    
+        music.play();    
+        music_btn.src = 'img/play.jpg';    
+    }    
+    else{    
+        music.pause();    
+        music_btn.src = 'img/pause.jpg';     
+    }    
+}   
+    </script>
+</body>
+</html>
