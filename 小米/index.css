@@ -65,12 +65,33 @@ a{
 .nav > li .nav-list:hover{
     color: #e94400;
 }
-.nav-button{
+.nav-sub-list{
+    width: 102px;
+    height: 102px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
     position: absolute;
     top: 0;
     bottom: 0;
-    border: 1px solid #e5e5e5
+    /* border: 1px solid #e5e5e5 */
 }
-.licai{
+.nav-sub-list ul{
+    padding: 10px 0;
+}
+.nav-sub-list li{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.nav-sub-list a{
+    color: #434343;
+}
+.nav-sub-list::before{
+    width: 100px;
+    height: 100px;
+    
+    border: 1px solid #434343;
+}
+.nav-money{
     position: relative;
 }
