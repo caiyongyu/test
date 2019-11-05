@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1);
+        setTimeout(function(){
+            console.log(2);
+        },0);
+        new Promise(function(resolve){
+            console.log(3);
+            resolve();
+        }).then(function(){
+            console.log(4);
+        });
+        console.log(5);
+        //一次Event loop是执行一个宏任务，在执行相应的微任务后，结束。
+    </script>
+</body>
+</html>

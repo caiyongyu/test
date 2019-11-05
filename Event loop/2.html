@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(function(){
+            console.log(2);
+            
+        },0);
+        sleep();
+        function sleep() {
+            console.log("xxx");
+            console.log("xxx");
+            console.log("xxx");
+            console.log("xxx");
+            console.log("xxx");
+        }
+        //执行异步任务得等线程空闲，且时间到达触发条件，即同步执行完了
+    </script>
+</body>
+</html>
