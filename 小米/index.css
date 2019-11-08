@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    padding: 0;
 }
 body{
     font: 14px "HanHei SC","PingFang SC","Avenir Next";
@@ -42,6 +43,8 @@ a{
     float: right;
     /* color: #fff; */
 }
+
+/* header开始 */
 .header{
     height: 100px;
     /* background: red; */
@@ -57,6 +60,7 @@ a{
 .nav > li{
     float: left;
     padding: 0 23px;
+    height: 40px;
 }
 .nav > li .nav-list{
     color: #212121;
@@ -67,6 +71,7 @@ a{
 }
 .nav-sub-list{
     display: none;
+    /* z-index: 1; */
     width: 150px;
     height: 102px;
     border: 1px solid #e5e5e5;
@@ -113,3 +118,92 @@ a{
 .nav-money:hover .nav-sub-list{
     display: block;
 }
+
+/* header结束 */
+
+/* banner开始 */
+.banner{
+    height: 640px;
+    background: url(image/banner.jpg) center 0;
+}
+.sub_title{
+    font-size: 54px;
+    line-height: 54px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    padding-top: 194px;
+    margin-bottom: 30px;
+}
+.download_btn{
+    text-align: center;
+}
+.banner a{
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 60px;
+    display: inline-block;
+    background: #F93F2B;
+    width: 260px;
+    height: 60px;
+    border-radius: 5px;
+}
+/* banner结束 */
+/* content开始 */
+.content{
+    width: 1170px;
+    height: 392px;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    /* margin: 0 auto; */
+    padding: 30px 0 30px 30px;
+    margin-top: -80px;
+}
+.list{
+    /* background: orange; */
+    width: 360px;
+    float: left;
+    margin-right: 30px;
+}
+.list-img{
+    height: 180px;
+    background: url(image/bg1.png) 0 0 no-repeat;
+    background-size: 360px 180px;
+    overflow: hidden;
+}
+.list-img h2{
+    color: #fff;
+    font-size: 33px;
+    line-height: 33px;
+    margin-top: 40px;
+    padding-left: 35px;
+}
+.list-img p{
+    color: #ffffff;
+    font-size: 33px;
+    line-height: 33px;
+    font-weight: 300;
+    padding-top: 16px;
+    padding-left: 35px;
+}
+.dec-list{
+    padding: 10px 30px;
+    color: #666;
+    font-size: 16px;
+}
+.dec-list span{
+    color: #EA5600;
+}
+.dec-list p{
+    margin-top: 20px;
+}
+.list-more{
+    border-top: 1px solid #ececec;
+    color: #EA5600;
+    font-size: 16px;
+    text-align: center;
+    margin: 40px 0 10px;
+    height: 62px;
+    line-height: 62px;
+}
+/* content结束 */
