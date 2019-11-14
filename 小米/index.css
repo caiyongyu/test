@@ -171,6 +171,12 @@ a{
     background-size: 360px 180px;
     overflow: hidden;
 }
+.bg2{
+    background: url(image/bg2.png) 0 0 no-repeat;
+}
+.bg3{
+    background: url(image/bg3.png) 0 0 no-repeat;
+}
 .list-img h2{
     color: #fff;
     font-size: 33px;
@@ -194,6 +200,12 @@ a{
 .dec-list span{
     color: #EA5600;
 }
+.des2 span{
+    color: #4481C8;
+}
+.des3 span{
+    color: #0DB27B;
+}
 .dec-list p{
     margin-top: 20px;
 }
@@ -207,3 +219,30 @@ a{
     line-height: 62px;
 }
 /* content结束 */
+
+/* footer开始 */
+.footer{
+    height: 210px;
+    background: #cccccc;
+}
+.footer-left-logo{
+    width: 46px;
+    height: 46px;
+    float: left;
+}
+.about{
+    display: block;
+    /* overflow: hidden; */
+}
+.about li{
+    color: #575757;
+    font-size: 14px;
+    line-height: 14px;
+    float: left;
+    border-right: 1px solid #575757;
+    padding: 3px 8px 0 8px;
+}
+.note li{
+    float: left;
+}
+/* footer结束 */
