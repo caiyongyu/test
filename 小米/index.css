@@ -222,7 +222,7 @@ a{
 
 /* footer开始 */
 .footer{
-    height: 210px;
+    height: 209px;
     background: #cccccc;
 }
 .footer-left-logo{
@@ -230,19 +230,21 @@ a{
     height: 46px;
     float: left;
 }
-.about{
-    display: block;
-    /* overflow: hidden; */
-}
-.about li{
-    color: #575757;
-    font-size: 14px;
-    line-height: 14px;
+.footer-left-message{
     float: left;
-    border-right: 1px solid #575757;
-    padding: 3px 8px 0 8px;
+    /* border-right: 1px solid #575757; */
+    /* padding: 3px 8px 0 8px; */
 }
-.note li{
+.footer-left-message li{
+    float: left;
+    padding: 0 8px;
+}
+/* .footer-left-message{
     float: left;
 }
+.footer-left-message li{
+    float: left;
+    border-right:1px solid #575757;
+    padding:0 8px;
+} */
 /* footer结束 */
