@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            let match=(s)=>{
+                //以0或1开头
+                var j=s.match(/^(0+|1+)/)[0];
+                //以0或1开头后的下一个
+                var o=(j[0] ^ 1).toString().repeat(j.length);
+                //创建一个正则表达式匹配
+                var reg=new RegExp(`^(${j}${o})`);
+                if(reg.test(s)){
+                    return RegExp.$1;
+                }
+                else{
+                    return "";
+                }
+            }
+
+            function fn(s) {
+                var res=[];
+                for(var i=0;i<s.length-1;i++){
+                    let r=match(s.slice(i));
+                    if(r){
+                        res.push(r);
+                    }
+                }
+                return res;
+            }
+            var str="00110011";
+            console.log(fn(str));
+            
+        </script>
+</body>
+</html>

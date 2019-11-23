@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="let this leetCode content";
+
+        //以空格分隔，数组内每个词组revorse存储
+        // function fn(s){
+        //     var arr=s.split(" ");
+        //     let result= arr.map(function(item){
+        //         return item.split("").reverse().join("");
+        //     });
+        //     return result.join(" ");
+        // }
+
+
+        // function fn(s){
+        //     return s.split(" ").map(function(item) {
+        //         return item.split("").reverse().join("");
+        //     }).join(" ");
+        // }
+
+        function fn(s) {
+            return s.match(/[\w']+/g).map(function(item) {
+                return item.split("").reverse().join("");
+            }).join(" ");
+        }
+        
+
+        console.log(fn(str));
+        
+    </script>
+</body>
+</html>
