@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //换页
+        // var reg=/\f.+/;
+        // var str='\nsas\fllo';
+        // console.log(reg.exec(str));
+        
+        //空格后面全部（包括空格）
+        // var reg=/\s.+/;
+        // var str=' lloooo';
+        // console.log(reg.exec(str));
+
+
+        //\S 除了第一个空格不要，其他都要
+        // var reg=/\S.+/;
+        // var str=' ll oooo';
+        // console.log(reg.exec(str));
+
+
+        //碰到空格就停下
+        var reg=/\S+/;
+        var str='ll oooo';
+        console.log(reg.exec(str));
+
+        
+    </script>
+</body>
+</html>

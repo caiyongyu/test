@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var reg=/^b|c.+/;
+        // var str='bcainiao';
+        // console.log(reg.exec(str));
+
+
+        //多出一组
+        // var reg=/^(b|c).+/;
+        // var str='bcainiao';
+        // console.log(reg.exec(str));
+
+
+        //以字母开头，后面是数字字母下划线
+        // var reg=/^[a-zA-Z][a-zA-Z0-9_]+/;
+        // var str='bcfai_ni.ao';
+        // console.log(reg.exec(str));
+
+
+        var reg=/[^a-zA-Z]/;
+        var str='bcainiao123';
+        console.log(reg.exec(str));
+        
+    </script>
+</body>
+</html>
