@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var reg=/(\w)/;
+        // var str='woow';
+        // console.log(reg.exec(str));  //0-w  1-w
+
+        
+        // var reg=/(\w)\1/;
+        // var str='woow';
+        // console.log(reg.exec(str));     //0-oo  1-o
+
+
+
+        var reg=/(\w)(\w)\2\1/;
+        var str='woow';
+        console.log(reg.exec(str));     //0-woo1  1-w  2-o
+    </script>
+</body>
+</html>
