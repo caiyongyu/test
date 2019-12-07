@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str2="00110011";
+        //返回字符串中的符合条件的子字符串
+        function fn(str) {
+            let i=str.match(/^(0+|1+)/g)[0];
+            let j=(i[0]^1).toString().repeat(i.length);
+            let an=new RegExp(`^(${i}${j})`);
+            if(an.test(str)){
+                return RegExp.$1;
+            }
+            else{
+                return "";
+            }
+        }
+
+        function constring(s) {
+            let reg=[];
+            for(let i=0;i<s.length-1;i++){
+                let r=fn(s.slice(i));
+                if(r!=""){
+                    reg.push(r);
+                }
+            }
+            return reg.length;
+        }
+        console.log(constring(str2));
+        
+    </script>
+</body>
+</html>
