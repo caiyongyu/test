@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1></h1>
-    <span></span>
+    <script>
+        let str="00110011";
+        let i=str.match(/^(0+|1+)/g);
+        let j=(i[0]^1);      //.toString().repeat(i.length);
+        
+        console.log(typeof(i));
+        console.log(typeof(j));
+        
+        
+    </script>
 </body>
 </html>
