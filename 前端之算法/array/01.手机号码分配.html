@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"];
+        function phoneConbin(aa) {
+            let num=aa.splice("");
+            let code=[];
+            num.forEach((item)=>{
+                code.push(arr[item]);
+            });
+            return fn(code);
+        }
+
+        function fn(s) {
+            let res=[];
+            for(let i=0;i<s[0].length;i++){
+                for(let j=0;j<s[1].length;j++){
+                    res.push(s[0][i]+s[1][j]);
+                }
+            }
+            s.splice(0,2,res);
+            if(s.length>1){
+                fn(s);
+            }
+            return s[0];
+        }
+        console.log(phoneConbin([2,3,4]));
+        
+    </script>
+</body>
+</html>
