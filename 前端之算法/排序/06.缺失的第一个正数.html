@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function findthNumlost(arr) {
+        //     let r=arr.filter(item=>item>0);     //只保留item>0
+        //     r.sort((a,b)=>a-b);
+        //     if(r[0]!=1){
+        //         return 1;
+        //     }
+        //     for(let i=1;i<r.length;i++){
+        //         if(r[i]-r[i-1]!=1){
+        //             return r[i-1]+1;
+        //         }
+        //     }
+        //     return r.pop()+1;               //取r的最后一个数+1
+        // }
+
+        function findthNumlost(arr) {
+            let r=arr.filter(item=>item>0);     //只保留item>0
+            for(let i=0;i<r.length;i++){
+                let min=i;
+                for(let j=i;j<r.length;j++){
+                    if(r[j]<r[min]){
+                        if(i!=min){
+                            [r[min],r[j]]=[r[j],r[min]];
+                        }
+                    }
+                }
+                if(i+1!=r[i]){
+                    return i+1;
+                }
+            }
+            return r.pop()+1;
+        }
+        console.log(findthNumlost([0,-1,1,2,3,5]));
+        
+    </script>
+</body>
+</html>

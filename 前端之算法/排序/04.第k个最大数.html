@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function findthKlargst(arr,k) {
+        //     arr.sort((a,b)=>b-a);
+        //     return arr[k-1];
+        // }
+
+        //如果数据很大，排序时就可以找好
+        function findthKlargst(arr,k) {
+            for(let i=arr.length-1;i>=arr.length-k;i--){
+                for(let j=0;j<i;j++){
+                    if(arr[j]>arr[j+1]){
+                        [arr[j],arr[j+1]]=[arr[j+1],arr[j]];
+                    }
+                }
+            }
+            return arr[arr.length-k];
+        }
+
+        console.log(findthKlargst([2,6,9,9,7,16],3));
+        
+    </script>
+</body>
+</html>
