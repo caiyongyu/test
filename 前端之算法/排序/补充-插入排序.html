@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function insertionSort(arr) {
+            for(let i=1;i<arr.length;i++){
+                let preindex=i-1;
+                let current=arr[i];                  //!!!!注意，此处不能存下标即let current=i;，下面arr[current]会只等于1
+                // console.log(i);
+                
+                    while(preindex>=0 && arr[preindex]>current){
+                        // console.log(current);            //等到console.log时早已循环完了
+                        
+                        arr[preindex+1]=arr[preindex];
+                        preindex--;
+                    }
+                arr[preindex+1]=current;
+            }
+            return arr;
+        }
+
+        console.log(insertionSort([3,5,1,9,10,4,3,18]));
+        
+    </script>
+</body>
+</html>
