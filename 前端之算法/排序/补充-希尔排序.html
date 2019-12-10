@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ShellSort(arr) {
+            let gap=Math.floor(arr.length/2);
+            while(gap>=1){
+                for(let i=gap;i<arr.length;i++){
+                    let item=arr[i];
+                    let j=i;            //让j=i,随着i很大，开始真正的插入排序
+                    while(arr[j]<arr[j-gap] && j>gap-1){
+                        [arr[j],arr[j-gap]]=[arr[j-gap],arr[j]];
+                        j-=gap;
+                    }
+                }
+                gap=Math.floor(gap/2);          //取希尔原稿的增量获取方式
+            }
+            return arr;
+        }
+
+        console.log(ShellSort([3,5,1,9,10,4,3,18]));
+        
+    </script>
+</body>
+</html>

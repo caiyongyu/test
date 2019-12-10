@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function QuickSort(arr) {
+            if(arr.length<=1){
+                return arr;
+            }
+            let middleIndex=Math.floor(arr.length/2);
+            let arrLeft=[];
+            let arrRight=[];
+            let middleValue=arr.splice(middleIndex,1)[0];           //记录中间值
+            for(let i=0;i<arr.length;i++){
+                let item=arr[i];
+                arr[i]<middleValue?arrLeft.push(item):arrRight.push(item);
+            }
+            return QuickSort(arrLeft).concat(middleValue,QuickSort(arrRight));      //concat拼接
+        }
+
+        console.log(QuickSort([3,5,1,9,10,4,3,18]));
+        
+    </script>
+</body>
+</html>
