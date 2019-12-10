@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function arrAssumeZhang(arr) {          //数组模拟栈
+            let res=[];
+            let pre1=0;
+            let pre2=0;
+            arr.forEach(item => {
+                switch(item){
+                    case "D":
+                        if(res.length>0){
+                            let pre1=res.pop();
+                            res.push(pre1,pre1*2);
+                        }
+                        break;
+                    case "C":
+                        if(res.length>0){
+                            res.pop();
+                        }
+                        break;
+                    case "+":
+                        if(res.length>1){
+                            pre1=res.pop();
+                            pre2=res.pop();
+                            res.push(pre2,pre1,pre1+pre2);
+                        }
+                        break;
+                    default:
+                        res.push(item*1);
+                        break;
+                }
+            });
+            return res.reduce((total,num)=>total+num);
+        }
+        console.log(arrAssumeZhang(["2","5","D","C","+"]));
+        
+    </script>
+</body>
+</html>
