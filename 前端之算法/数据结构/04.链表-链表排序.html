@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(val){
+                this.val=val;
+                this.next=undefined;
+            }
+        }
+
+        class lianbiaoSort{
+            constructor(arr){
+                this.head=new Node(arr[0]);
+                let temp=this.head;
+                for(let i=1;i<arr.length;i++){
+                    temp.next=new Node(arr[i]);
+                    temp=temp.next;
+                }
+                return this.head;
+            }
+        }
+
+        let swap=(p,q)=>{
+            [p.val,q.val]=[q.val,p.val];
+        }
+
+        let pos=(begin,end)=>{          //找到基准值
+            let beginVal=begin.val;
+            let p=begin;
+            let q=begin.next;
+            while(q!=end){
+                if(q.val<beginVal){
+                    swap(p.next,q);
+                    p=p.next;
+                }
+                q=q.next;
+            }
+            swap(p,begin);
+            return p;
+        }
+
+        let sort=(begin,end)=>{
+            if(begin!=end){         //begin==end  子序列排序完毕
+                let obj=pos(begin,end);
+                sort(begin,obj);
+                sort(obj.next,end);
+            }
+            
+        }
+
+        let lb=new lianbiaoSort([5,4,2,7,9]);
+        sort(lb);
+        while(lb){
+            console.log(lb.val);
+            lb=lb.next;
+        }
+
+
+        // p
+        // q
+        // 5,3,2,1,4,6,8,4,4
+
+        //           p   q
+        // 5,3,2,1,4,6,8,4,4
+
+        //             p   q
+        // 5,3,2,1,4,4,8,6,4
+    </script>
+</body>
+</html>
