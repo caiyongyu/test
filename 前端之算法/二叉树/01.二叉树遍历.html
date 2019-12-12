@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class rootTree{
+            constructor(val){
+                this.key=val;
+                this.left=undefined;
+                this.right=undefined;
+            }
+        }
+
+        class BirTree{
+            constructor(arr){
+                this.root=undefined;
+                arr.forEach(item => {
+                    this.insert(item);
+                });
+            }
+            insert(item){
+                if(!this.root){
+                    this.root=new rootTree(item);           //给根节点赋值,赋一个节点
+                }else{
+                    this.insertNum(this.root,item);             //根节点往下开始构建二叉树
+                }
+            }
+            insertNum(Node,item){
+                if(Node.key<item){                         //  用 根 节点的value去比较
+                    if(!Node.right){
+                        Node.right=new rootTree(item);
+                    }else{
+                        this.insertNum(Node.right,item);
+                    }
+                }else{
+                    if(!Node.left){
+                        Node.left=new rootTree(item);
+                    }else{
+                        this.insertNum(Node.left,item);
+                    }
+                }
+            }
+
+            min(){
+                function searchMin(Node) {
+                    while(Node.left){
+                        Node=Node.left;
+                    }
+                    return Node.key;
+                }
+                return searchMin(this.root);
+            }
+
+            max(){
+                function searchMin(Node) {
+                    while(Node.right){
+                        Node=Node.right;
+                    }
+                    return Node.key;
+                }
+                return searchMin(this.root);
+            }
+
+            //中序排序
+            middle(){
+                function fn(node) {
+                    if(node.left){
+                        fn(node.left);
+                    }
+                    console.log(node.key);
+                    if(node.right){
+                        fn(node.right);
+                    }
+                }
+                return fn(this.root);
+            }
+
+            //前序排序
+            front(){
+                function fn(node) {
+                    console.log(node.key);
+                    if(node.left){
+                        fn(node.left);
+                    }
+                    if(node.right){
+                        fn(node.right);
+                    }
+                }
+                return fn(this.root);
+            }
+
+            //后序排序
+            rear(){
+                function fn(node) {
+                    if(node.left){
+                        fn(node.left);
+                    }
+                    if(node.right){
+                        fn(node.right);
+                    }
+                    console.log(node.key);
+                }
+                return fn(this.root);
+            }
+        }
+
+        let bt=new BirTree([6,2,4,8,9]);
+        console.log(bt.min());
+        console.log(bt.max());
+        console.log("----------");
+        bt.middle();
+        console.log("----------");
+        bt.front();
+        console.log("----------");
+        bt.rear();
+        
+    </script>
+</body>
+</html>
