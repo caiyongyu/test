@@ -52,12 +52,12 @@
     <h1>总价：{{showTotal}}</h1>
   </table>
   <h2 v-else>暂无数据。。。</h2>
-  
+  <Footer @changeStr="changeBtn"></Footer>
   </div>
 </template>
 
 <script>
-
+import Footer from './components/Footer';
 export default {
   // data() {
   //   return {
@@ -83,7 +83,31 @@ export default {
 
   data() {
     return {
-      list:[]
+      a: 0,
+      list:[{
+        id:0,
+        name:"足球",
+        price:200,
+        count:1,
+      },
+      {
+        id:1,
+        name:"上衣",
+        price:109,
+        count:1,
+      },
+      {
+        id:2,
+        name:"鞋",
+        price:1500,
+        count:1,
+      },
+      {
+        id:3,
+        name:"裤子",
+        price:300,
+        count:1,
+      }]
     }
   },
   methods: {
@@ -96,6 +120,10 @@ export default {
     },
     Delete(index){
       this.list.splice(index,1);
+    },
+    changeBtn(s) {
+      // console.log(s);
+      alert(s);
     }
   },
   computed: {
@@ -107,7 +135,9 @@ export default {
       return total;
     }
   },
-
+  components: {
+    Footer
+  }
 }
 </script>
 
