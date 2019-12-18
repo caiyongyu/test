@@ -14,10 +14,13 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper, )
 import './assets/css/swiper.css'
 
+import animate from 'animate.css'
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  animate,
   render: h => h(App)
 }).$mount('#app')

@@ -1,6 +1,11 @@
 <template>
     <div class="banner">
-        <div class="top-heise" v-show="false">黑色部分</div>
+        <transition
+            enter-active-class="bounceInLeft"
+            leave-active-class="bounceOutLeft"
+        >
+            <div class="banner-left animated" v-show="isShow"></div>
+        </transition>
         <div class="banner-header">
             <div class="banner-top">
                 <div class="top-left">
@@ -12,7 +17,7 @@
                     泰国
                     </div>
                 <div class="top-right">
-                    <img src="@/assets/img/show.png" alt="">
+                    <img src="@/assets/img/show.png" @click="showLeft">
                 </div>
             </div>
             <div class="banner-swiper">
@@ -36,6 +41,7 @@
 export default {
     data() {
         return {
+            isShow: false,
             swiperOption: {
                 loop: true,
                 pagination: {
@@ -45,10 +51,24 @@ export default {
             }
         }
     },
+    methods: {
+        showLeft() {
+            this.isShow=!this.isShow;
+        }
+    },
 }
 </script>
 
 <style scoped>
+.banner-left{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 6.66666rem;
+    background: #000;
+    z-index: 999;
+}
 .banner-header{
     background-color: #f5f5f5;
     width: 100%;
