@@ -16,6 +16,9 @@ import './assets/css/swiper.css'
 
 import animate from 'animate.css'
 
+import axios from 'axios'
+Vue.prototype.axios=axios
+
 Vue.config.productionTip = false
 
 new Vue({

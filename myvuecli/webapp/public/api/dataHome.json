@@ -1,0 +1,161 @@
+{
+	"data":[
+		{
+			"city":"北京",
+			"spikeList":[
+				{
+					"id":"01",
+					"startTime":1545715707708,
+					"endTime":1546716149954,
+					"imgUrl":"http://localhost:8080/img/59fae5cabd6a0.jpg",
+					"title":"[元旦特惠·莲花山]1.1  登俊险莲花山 看三佛映壁奇观 一入莲花山 回眸千山秀（单日登山活动）",
+					"price":80,
+					"num":35
+				},
+				{
+					"id":"02",
+					"startTime":1545715707708,
+					"endTime":1546716149954,
+					"imgUrl":"http://localhost:8080/img/5aba02de65944.jpg",
+					"title":"[开业特惠 • 小城故事]泰国清迈，塔佩门喂鸽子-走街串巷游古城-契迪龙大塔寺-帕辛寺-清曼寺大象佛塔-网红海南鸡饭-嘟嘟车环游古城- 《泰囧》同款布帕兰寺-瓦落落水果街集市，邂逅清迈古城一日游",
+					"price":99,
+					"num":285
+				}
+				
+			],
+			"likeList":[
+				{
+					"title":"户外与休闲",
+					"imgUrl":"http://localhost:8080/img/5bbd659694c49.jpg",
+					"Introduction":"[热带云南]10-4月 春城昆明-建水古",
+					"price":"1980",
+					"cityList":[
+						{
+							"id":"01",
+							"imgUrl":"http://localhost:8080/img/58a175687c790.jpg",
+							"title":"[人文之旅·蔚县]12-3月 赏蔚县暖",
+							"price":"460"
+						},
+						{
+							"id":"02",
+							"imgUrl":"http://localhost:8080/img/5a7d532dc9b41.jpg",
+							"title":"[长峪城冰泡]12-2月 穿越明代残留",
+							"price":"80"
+						},
+						{
+							"id":"03",
+							"imgUrl":"http://localhost:8080/img/5c23366c3454d.jpg",
+							"title":"[进阶之路Ⅰ·玉龙] 开设新手专用道及初",
+							"price":"160"
+						}
+					]
+				},
+				{
+					"title":"摄影与外拍",
+					"imgUrl":"http://localhost:8080/img/5ba1ebf318c34.jpg",
+					"Introduction":"[冬摄老君山]2018年全年计划之老君山",
+					"price":"1580",
+					"cityList":[
+						{
+							"id":"01",
+							"imgUrl":"http://localhost:8080/img/5a0d42558be60.jpg",
+							"title":"[行摄豫陕晋]共赴三门峡与天鹅共舞，摄特",
+							"price":"1800"
+						},
+						{
+							"id":"02",
+							"imgUrl":"http://localhost:8080/img/59e597d159a75.jpg",
+							"title":"[坝上冬摄]北京-乌兰布统茫茫雪原 摄极",
+							"price":"1580"
+						},
+						{
+							"id":"03",
+							"imgUrl":"http://localhost:8080/img/5bc0552520634.jpg",
+							"title":"[冰雪长城]雄伟的艺术之地——行摄金山岭",
+							"price":"620"
+						}
+					]
+				}
+			]
+		},
+		{
+			"city":"上海",
+			"spikeList":[
+				{
+					"id":"01",
+					"startTime":1545715707708,
+					"endTime":1546716149954,
+					"imgUrl":"http://localhost:8080/img/59fae5cabd6a0.jpg",
+					"title":"[特惠·孙家岭古道]1.6周日，徒步孙家岭古道-五百岗，登顶雄鹅峰，疾行冬行大尖山，探浙江腹地的高山草甸（每周特惠，限收百人，报满即止）",
+					"price":80,
+					"num":35
+				},
+				{
+					"id":"02",
+					"startTime":1545715707708,
+					"endTime":1546716149954,
+					"imgUrl":"http://localhost:8080/img/5aba02de65944.jpg",
+					"title":"[亲子特惠之徒步栲栳山]1.6周日，带宝贝徒步慈溪栲栳山，去鸣鹤古镇玩趣味定向寻美味年糕饺~",
+					"price":99,
+					"num":285
+				}
+				
+			],
+			"likeList":[
+				{
+					"title":"户外与休闲",
+					"imgUrl":"http://localhost:8080/img/5bbd659694c49.jpg",
+					"Introduction":"[热带云南]10-4月 春城昆明-建水古",
+					"price":"1980",
+					"cityList":[
+						{
+							"id":"01",
+							"imgUrl":"http://localhost:8080/img/58a175687c790.jpg",
+							"title":"[人文之旅·蔚县]12-3月 赏蔚县暖",
+							"price":"460"
+						},
+						{
+							"id":"02",
+							"imgUrl":"http://localhost:8080/img/5a7d532dc9b41.jpg",
+							"title":"[长峪城冰泡]12-2月 穿越明代残留",
+							"price":"80"
+						},
+						{
+							"id":"03",
+							"imgUrl":"http://localhost:8080/img/5c23366c3454d.jpg",
+							"title":"[进阶之路Ⅰ·玉龙] 开设新手专用道及初",
+							"price":"160"
+						}
+					]
+				},
+				{
+					"title":"摄影与外拍",
+					"imgUrl":"http://localhost:8080/img/5ba1ebf318c34.jpg",
+					"Introduction":"[冬摄老君山]2018年全年计划之老君山",
+					"price":"1580",
+					"cityList":[
+						{
+							"id":"01",
+							"imgUrl":"http://localhost:8080/img/5a0d42558be60.jpg",
+							"title":"[行摄豫陕晋]共赴三门峡与天鹅共舞，摄特",
+							"price":"1800"
+						},
+						{
+							"id":"02",
+							"imgUrl":"http://localhost:8080/img/59e597d159a75.jpg",
+							"title":"[坝上冬摄]北京-乌兰布统茫茫雪原 摄极",
+							"price":"1580"
+						},
+						{
+							"id":"03",
+							"imgUrl":"http://localhost:8080/img/5bc0552520634.jpg",
+							"title":"[冰雪长城]雄伟的艺术之地——行摄金山岭",
+							"price":"620"
+						}
+					]
+				}
+			]
+		}
+	]
+
+}
