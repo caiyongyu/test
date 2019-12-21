@@ -45,7 +45,7 @@ export default {
     /* background: red; */
 }
 .like-content{
-    margin-top: .5rem;
+    padding: .5rem;
     height: 11rem;
 }
 .like-top{

@@ -8,9 +8,9 @@
         </transition>
         <div class="banner-header">
             <div class="banner-top">
-                <div class="top-left">
-                    北京
-                    <i class="iconfont">&#xe65b;</i>
+                    <div class="top-left" @click="toCity">
+                        北京
+                        <i class="iconfont">&#xe65b;</i>
                     </div>
                 <div class="top-center">
                     <i class="iconfont">&#xe60b;</i>
@@ -54,6 +54,11 @@ export default {
     methods: {
         showLeft() {
             this.isShow=!this.isShow;
+        },
+        toCity() {
+            this.$router.push({
+                path:"/city"
+            })
         }
     },
 }
