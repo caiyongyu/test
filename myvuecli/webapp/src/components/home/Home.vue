@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Banner from './Banner'
 import Icons from './Icons'
 import Tabs from './Tabs'  
@@ -31,25 +32,45 @@ export default {
         Like,
         Footer
     },
+    computed: {
+        ...mapState(['cityName'])
+    },
     data() {
         return {
             spikeList:[],
-            likeList:[]
+            likeList:[],
+            oldCity:''
         }
     },
-    mounted() {
-        this.http();
-    },
+
     methods: {
         http() {
             let That=this;
             this.axios.get("http://localhost:8080/api/dataHome.json").then((res)=>{
-                That.spikeList=res.data.data[0].spikeList;
-                That.likeList=res.data.data[0].likeList;
-                // window.console.log(res.data.data[0]);
+                res.data.data.forEach((item)=>{
+                    if(item.city==That.cityName){
+                        window.console.log(item.name);
+                        That.spikeList=item.spikeList;
+                        That.likeList=item.likeList;
+                    }
+                })
+                window.console.log(res.data.data);
             })
         }
     },
+    mounted() {
+        // this.oldCity=this.cityName;
+        this.http();
+        
+    },
+    activated() {
+        // window.console.log(1);
+        if(this.oldCity != this.cityName){
+            this.http();
+            this.oldCity=this.cityName;
+        }
+    },
+
 }
 </script>
 

@@ -9,7 +9,7 @@
         <div class="banner-header">
             <div class="banner-top">
                     <div class="top-left" @click="toCity">
-                        北京
+                        {{cityName}}
                         <i class="iconfont">&#xe65b;</i>
                     </div>
                 <div class="top-center">
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     data() {
         return {
@@ -50,6 +51,9 @@ export default {
                 },
             }
         }
+    },
+    computed: {
+        ...mapState(['cityName'])
     },
     methods: {
         showLeft() {
@@ -96,6 +100,7 @@ export default {
     color: #fff;
     font-size: .42666rem;
     padding: .2rem .4rem;
+    font-weight: 580;
 }
 .top-center{
     font-size: .37333rem;

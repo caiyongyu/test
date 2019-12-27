@@ -11,8 +11,8 @@ import FastClick from 'fastclick'
 FastClick.attach(document.body);
 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-Vue.use(VueAwesomeSwiper, )
 import './assets/css/swiper.css'
+Vue.use(VueAwesomeSwiper, )
 
 import animate from 'animate.css'
 

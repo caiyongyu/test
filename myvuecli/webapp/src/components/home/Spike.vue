@@ -3,7 +3,7 @@
         <swiper :options="swiperOption">
                 <!-- slides -->
                     <swiper-slide v-for="(item,index) in spikeList" :key="index">
-                        <div class="spike-content">
+                        <div class="spike-content" @click="toDetail(item)">
                             <div class="spike-top">
                                 <img src="@/assets/img/spike1.png" alt="">
                                 <span>距离结束</span>
@@ -58,6 +58,16 @@ export default {
    },
    components: {
         CountDown
+    },
+    methods: {
+        toDetail(item) {
+            this.$router.push({
+                path:"/detail",
+                query:{
+                    item
+                }
+            })
+        }
     },
     mounted() {
         window.console.log(new Date().getTime()+5*24*3600);

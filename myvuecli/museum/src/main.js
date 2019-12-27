@@ -6,6 +6,8 @@ import store from './store'
 import './assets/js/font'
 import './assets/css/reset.css'
 
+import animate from 'animate.css'
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './assets/css/swiper.css'
 Vue.use(VueAwesomeSwiper, )
@@ -23,5 +25,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  animate,
   render: h => h(App)
 }).$mount('#app')

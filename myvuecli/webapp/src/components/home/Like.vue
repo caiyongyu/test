@@ -10,7 +10,9 @@
                 </div>
             </div>
             <div class="like-bottom">
-                <div class="bottom-header" :style="{'background':'url('+item.imgUrl+')'}">
+                <div class="bottom-header" :style="{'background':'url('+item.imgUrl+')'}"
+                @click="toDetail(item)"
+                >
                     <div class="like-info">
                         <span>{{item.Introduction}}</span>
                         <span>￥{{item.price}}起</span>
@@ -19,7 +21,7 @@
                 </div>
                 <ul>
                     <li v-for="(item,index) in item.cityList" :key="index">
-                        <img :src="item.imgUrl" alt="">
+                        <img :src="item.imgUrl" alt="" @click="toDetail(item)">
                         <span class="title">{{item.title}}</span>
                         <span class="price">￥{{item.price}}</span>
                     </li>
@@ -33,7 +35,17 @@
 
 <script>
 export default {
-    props: ['likeList']
+    props: ['likeList'],
+    methods: {
+        toDetail(item) {
+            this.$router.push({
+                path: '/detail',
+                query:{
+                    item
+                }
+            })
+        }
+    },
 }
 </script>
 
@@ -45,8 +57,9 @@ export default {
     /* background: red; */
 }
 .like-content{
-    padding: .5rem;
-    height: 11rem;
+    padding: .4rem .5rem;
+    height: 10rem;
+    /* background: red; */
 }
 .like-top{
     position: relative;
@@ -86,7 +99,7 @@ export default {
 .bottom-header .like-info{
     display: flex;
     position: absolute;
-    bottom: .26rem;
+    bottom: .3rem;
     left: .4rem;
     justify-content: space-between;
     /* width: 100%; */
@@ -101,7 +114,7 @@ export default {
     text-overflow: ellipsis;
 }
 .like-bottom .bottom-header .like-info span:nth-child(2){
-    margin-left: 1.5rem;
+    margin-left: .5rem;
     font-size: .5rem;
     color: orange;
 }
@@ -109,12 +122,24 @@ export default {
     padding: .2rem 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    /* text-align: center; */
+    width: 8.4rem;
+
+    /* background: red; */
 }
 .like-bottom ul li{
     width: 2.96rem;
 }
 .like-bottom ul img{
-    width: 100%;
+    /* flex: 1; */
+    display: block;
+    /* padding: 0 .2rem; */
+    width: 2.77rem;
+    /* width: 2.6rem; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     height: 1.9584rem;
 }
 .like-bottom ul li .title{
@@ -130,7 +155,8 @@ export default {
     font-weight: 700;
     margin-top: .1rem;
     display: block;
-    height: .68rem;
+    height: .63rem;
+
     /* background: red; */
 }
 .like-bottom ul li .price{

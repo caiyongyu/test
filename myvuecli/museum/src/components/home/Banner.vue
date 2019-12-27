@@ -1,11 +1,24 @@
 <template>
     <div class="banner">
+        <transition
+            enter-active-class="bounceInLeft"
+            leave-active-class="bounceOutLeft"
+        >
+            <div v-show="showItem" class="showInleft animated">
+                <div class="showConbottom">
+                    <span>夜间模式</span>
+                    <span>设置</span>
+                    <span>退出</span>
+                </div>
+            </div>
+        </transition>
+            
         <div class="banner-header">
             <div class="banner-search">
                 <i class="iconfont">&#xe60b;</i>
                 文献
             </div>
-            <div class="banner-right">
+            <div class="banner-right" @click="show_login">
                 <img src="img/show.png" alt="">
             </div>
         </div>
@@ -37,6 +50,7 @@
 export default {
     data() {
         return {
+            showItem: false,
             swiperOption: {
                 loop:true,
                 pagination: {
@@ -45,20 +59,51 @@ export default {
         },
         }
     },
+    methods: {
+        show_login() {
+            this.showItem=!this.showItem;
+        }
+    },
 }
 </script>
 
 <style scoped>
-.banner{
+.showConbottom{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .5rem;
+    font-weight: 600;
+    color: #999;
+    width: 100%;
+}
+.showConbottom span{
+    /* flex:1; */
+    padding: .3rem;
+}
+.banner-header{
     position: relative;
+}
+.showInleft{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 6.66666rem;
+    background: #fff;
+    z-index: 9999;
 }
 .banner-img{
     width: 100%;
-    height: 5.6301rem
+    height: 5.6301rem;
+    /* height: 100%; */
 }
 .banner-img img{
     width: 100%;
     height: 5.6301rem;
+    /* height: 100%; */
 }
 .banner-header{
     position: absolute;

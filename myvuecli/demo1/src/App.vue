@@ -53,11 +53,15 @@
   </table>
   <h2 v-else>暂无数据。。。</h2>
   <Footer @changeStr="changeBtn"></Footer>
+  <A></A>
+  <B></B>
   </div>
 </template>
 
 <script>
 import Footer from './components/Footer';
+import A from './components/A';
+import B from './components/B';
 export default {
   // data() {
   //   return {
@@ -136,7 +140,9 @@ export default {
     }
   },
   components: {
-    Footer
+    Footer,
+    A,
+    B
   }
 }
 </script>
