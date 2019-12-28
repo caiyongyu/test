@@ -1,22 +1,24 @@
 <template>
   <div class="box">
     <header>购物车</header>
-    <div class="container">
+
+    <div class="shop-list" v-for="(item,index) in shopList" :key="index">
+      <div class="container">
       <div class="container-people">
         <img src="./assets/img/banner3.png" alt="">
-        <span>商家11号</span>
+        <span>{{item.pName}}</span>
       </div>
       <div class="container-content">
         <div class="goods_img">
-          <img src="./assets/img/banner3.png" alt="">
+          <img :src="item.imgUrl" alt="">
         </div>
         <div class="goods-right">
-          <div class="goods_title">违法的违法热痱粉热热嗯嗯嗯二所多额而非的飞飞飞而非二恶烷人人通电放费</div>
+          <div class="goods_title">{{item.title}}</div>
           <div class="goods_des">
-            <div>颜色：黑亮</div>
-            <div>产品：智能手机</div>
+            <div>{{item.shopDes1}}</div>
+            <div>{{item.shopDes2}}</div>
           </div>
-          <div class="goods_price">￥6666元/件</div>
+          <div class="goods_price">￥{{item.price}}元/件</div>
         </div>
         
         
@@ -31,6 +33,8 @@
       </div>
     </div>
 
+    </div>
+    
 
     
     <footer class="shopcar-footer">
@@ -49,8 +53,32 @@ export default {
     return {
       shopList:[
         {
-          
-        }
+          id: 1,
+          pName:'商家1号',
+          imgUrl:'banner3.png',
+          title:'二等分无人氛围让人烦豆腐乳非个人风格',
+          shopDes1:'颜色：黑亮',
+          shopDes2: '产品：智能手机',
+          price: '9986'
+        },
+        {
+          id: 2,
+          pName:'商家2号',
+          imgUrl:'banner3.png',
+          title:'二等分无人氛围让人烦豆腐乳非个人风格',
+          shopDes1:'颜色：黑亮',
+          shopDes2: '产品：智能手机',
+          price: '9986'
+        },
+        {
+          id: 3,
+          pName:'商家3号',
+          imgUrl:'banner3.png',
+          title:'二等分无人氛围让人烦豆腐乳非个人风格',
+          shopDes1:'颜色：黑亮',
+          shopDes2: '产品：智能手机',
+          price: '9986'
+        },
       ]
     }
   },
