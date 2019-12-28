@@ -1,7 +1,127 @@
 <template>
-  <div>
+  <div class="box">
     <header>购物车</header>
-    <div class="container"></div>
+    <div class="container">
+      <div class="container-people">
+        <img src="./assets/img/banner3.png" alt="">
+        <span>商家11号</span>
+      </div>
+      <div class="container-content">
+        <div class="goods_img">
+          <img src="./assets/img/banner3.png" alt="">
+        </div>
+        <div class="goods-right">
+          <div class="goods_title">违法的违法热痱粉热热嗯嗯嗯二所多额而非的飞飞飞而非二恶烷人人通电放费</div>
+          <div class="goods_des">
+            <div>颜色：黑亮</div>
+            <div>产品：智能手机</div>
+          </div>
+          <div class="goods_price">￥6666元/件</div>
+        </div>
+        
+        
+      </div>
+      <div class="container-count">
+        <span class="count_des">购买数量</span>
+        <div class="count_btn">
+          <span class="count_dsc">-</span>
+          <span>1</span>
+          <span class="count_add">+</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="container-people">
+        <img src="./assets/img/banner3.png" alt="">
+        <span>商家11号</span>
+      </div>
+      <div class="container-content">
+        <div class="goods_img">
+          <img src="./assets/img/banner3.png" alt="">
+        </div>
+        <div class="goods-right">
+          <div class="goods_title">违法的违法热痱粉热热嗯嗯嗯二所多额而非的飞飞飞而非二恶烷人人通电放费</div>
+          <div class="goods_des">
+            <div>颜色：黑亮</div>
+            <div>产品：智能手机</div>
+          </div>
+          <div class="goods_price">￥6666元/件</div>
+        </div>
+        
+        
+      </div>
+      <div class="container-count">
+        <span class="count_des">购买数量</span>
+        <div class="count_btn">
+          <span class="count_dsc">-</span>
+          <span>1</span>
+          <span class="count_add">+</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="container-people">
+        <img src="./assets/img/banner3.png" alt="">
+        <span>商家11号</span>
+      </div>
+      <div class="container-content">
+        <div class="goods_img">
+          <img src="./assets/img/banner3.png" alt="">
+        </div>
+        <div class="goods-right">
+          <div class="goods_title">违法的违法热痱粉热热嗯嗯嗯二所多额而非的飞飞飞而非二恶烷人人通电放费</div>
+          <div class="goods_des">
+            <div>颜色：黑亮</div>
+            <div>产品：智能手机</div>
+          </div>
+          <div class="goods_price">￥6666元/件</div>
+        </div>
+        
+        
+      </div>
+      <div class="container-count">
+        <span class="count_des">购买数量</span>
+        <div class="count_btn">
+          <span class="count_dsc">-</span>
+          <span>1</span>
+          <span class="count_add">+</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="container-people">
+        <img src="./assets/img/banner3.png" alt="">
+        <span>商家11号</span>
+      </div>
+      <div class="container-content">
+        <div class="goods_img">
+          <img src="./assets/img/banner3.png" alt="">
+        </div>
+        <div class="goods-right">
+          <div class="goods_title">违法的违法热痱粉热热嗯嗯嗯二所多额而非的飞飞飞而非二恶烷人人通电放费</div>
+          <div class="goods_des">
+            <div>颜色：黑亮</div>
+            <div>产品：智能手机</div>
+          </div>
+          <div class="goods_price">￥6666元/件</div>
+        </div>
+        
+        
+      </div>
+      <div class="container-count">
+        <span class="count_des">购买数量</span>
+        <div class="count_btn">
+          <span class="count_dsc">-</span>
+          <span>1</span>
+          <span class="count_add">+</span>
+        </div>
+      </div>
+    </div>
     <footer class="shopcar-footer">
       <div class="footer-left">实际付款：￥232.00免运费</div>
       <div class="footer-right">
@@ -55,5 +175,66 @@ footer .footer-right{
   width: 150px;
   height: 50px;
   background: red;
+}
+.container{
+  width: 100%;
+  /* height: 150px; */
+  /* background: red; */
+  padding: 50px 0;
+  /* border-bottom: 1px solid #ccc; */
+}
+.box>.container+.container{
+  border-top: 1px solid #ccc;
+}
+.container:nth-last-child(){
+  border-bottom: none;
+}
+.container-people{
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+}
+.container-people>img{
+  height: 15px;
+  width: 15px;
+  padding: 0 20px;
+}
+.container-content{
+  padding: 10px;
+  background: #ccc;
+  display: flex;
+  /* height: 100px; */
+  align-items: center;
+}
+.container-content .goods-right{
+  margin-left: 10px;
+  font-size: 14px;
+}
+.goods_img img{
+  height: 80px;
+  width: 80px;
+}
+.container-count{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  line-height: 40px;
+}
+.goods_des{
+  color: #888;
+}
+.count_des{
+  padding-left: 15px;
+}
+.count_btn span{
+  padding: 0 20px;
+}
+.count_btn{
+  padding-right: 10px;
+}
+.count_btn .count_dsc,.count_add{
+  background: #ccc;
+  /* width: 15px;
+  height: 18px; */
 }
 </style>
