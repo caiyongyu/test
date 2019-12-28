@@ -42,6 +42,21 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  data() {
+    return {
+      shopList:[
+        {
+          
+        }
+      ]
+    }
+  },
+}
+</script>
+
 <style>
 body{
   margin: 0;
