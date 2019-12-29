@@ -2,8 +2,8 @@
   <div class="box">
     <header>购物车</header>
 
-    <div class="shop-list" v-for="(item,index) in shopList" :key="index">
-      <div class="container">
+    <div class="shop-list">
+      <div class="container" v-for="(item,index) in shopList" :key="index">
       <div class="container-people">
         <img src="./assets/img/banner3.png" alt="">
         <span>{{item.pName}}</span>
@@ -26,9 +26,9 @@
       <div class="container-count">
         <span class="count_des">购买数量</span>
         <div class="count_btn">
-          <span class="count_dsc">-</span>
-          <span>1</span>
-          <span class="count_add">+</span>
+          <span class="count_dsc" @click="btn(false,index)">-</span>
+          <span>{{item.num}}</span>
+          <span class="count_add" @click="btn(true,index)">+</span>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
     
     <footer class="shopcar-footer">
-      <div class="footer-left">实际付款：￥232.00免运费</div>
+      <div class="footer-left">实际付款：￥{{totalPrice}}免运费</div>
       <div class="footer-right">
         立即支付
         </div>
@@ -51,6 +51,7 @@
 export default {
   data() {
     return {
+      totalPrice:0.00,
       shopList:[
         {
           id: 1,
@@ -59,7 +60,8 @@ export default {
           title:'二等分无人氛围让人烦豆腐乳非个人风格',
           shopDes1:'颜色：黑亮',
           shopDes2: '产品：智能手机',
-          price: '9986'
+          price: '986',
+          num: 1,
         },
         {
           id: 2,
@@ -68,7 +70,8 @@ export default {
           title:'二等分无人氛围让人烦豆腐乳非个人风格',
           shopDes1:'颜色：黑亮',
           shopDes2: '产品：智能手机',
-          price: '9986'
+          price: '226',
+          num: 1,
         },
         {
           id: 3,
@@ -77,10 +80,37 @@ export default {
           title:'二等分无人氛围让人烦豆腐乳非个人风格',
           shopDes1:'颜色：黑亮',
           shopDes2: '产品：智能手机',
-          price: '9986'
+          price: '186.999',
+          num: 1,
         },
       ]
     }
+  },
+  methods: {
+    gettotalPrice() {
+       var num1=0.00;
+      // this.totalPrice.toFixed(1);
+      this.shopList.forEach((item) => {
+        num1+=item.price*item.num;
+      });
+      this.totalPrice=num1;
+      this.totalPrice.toFixed(2);
+    },
+    btn(bool,index) {
+      // window.console.log(bool,index);
+      if(bool){
+        this.shopList[index].num++;
+      }else{
+        if(this.shopList[index].num<=1){
+          return;
+        }
+        this.shopList[index].num--;
+      }
+      this.gettotalPrice();
+    }
+  },
+  mounted() {
+    this.gettotalPrice();
   },
 }
 </script>
@@ -130,11 +160,14 @@ footer .footer-right{
   height: 50px;
   background: red;
 }
+.shop-list{
+  padding: 50px 0;
+}
 .container{
   width: 100%;
   /* height: 150px; */
   /* background: red; */
-  padding: 50px 0;
+  padding: 5px 0;
   /* border-bottom: 1px solid #ccc; */
 }
 .box>.container+.container{
