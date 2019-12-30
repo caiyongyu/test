@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arr,m,n) {
+            if(m===2&&n===2){
+                if(arr[1][0]+arr[0][1]===2||arr[1][1]===1){
+                    return 0;
+                }else if(arr[1][0]+arr[0][1]===1){
+                    return 1;
+                }else{
+                    return 2;
+                }
+            }else if(m<2 || n<2){
+                if(m<2){
+                    // if(arr[m].includes(1)){
+                    //     return 0;
+                    // }else{
+                    //     return 1;
+                    // }
+                    return arr[0].includes(1)?0:1;
+                }else{
+                    for(let i=0;i<m;i++){
+                        if(arr[i][0]===1){
+                            return 0;
+                        }
+                    }
+                    return 1;
+                }
+            }
+            return fn(arr,m,n-1)+fn(arr,m-1,n);
+        }
+        console.log(fn([
+            [0,0,0,0],
+            [0,1,0,0],
+            [0,0,0,0]
+        ],3,4));
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+header{
+    height: 80px;
+    position: fixed;
+    /* display: block; */
+    left: 0;
+    top: 0;
+    z-index: 100;
+    /* background: red; */
+    width: 100%;
+    /* border: 0 0 0 0 #ccc; */
+    box-shadow: 0 2px 2px 0 #ccc;
+    overflow: hidden;
+}
+.logo{
+    margin-top: 18px;
+    width: 120px;
+    height: 44px;
+    line-height: 44px;
+    /* margin-left: 100px; */
+    /* background: red; */
+    /* overflow: hidden; */
+}
+.logo img{
+    max-width: 120px;
+    max-height: 44px;
+}
+.header-left li{
+    float: left;
+    height: 80px;
+    line-height: 80px;
+    margin-left: 30px;
+}
+a{
+    color: #684029;
+}
+.header-right li{
+    margin-top: 18px;
+    margin-right: 25px;
+    float: left;
+    height: 44px;
+    line-height: 44px;
+}
+.my i{
+    margin-left: 3px;
+}
+.shopcarIcon{
+    position: relative;
+}
+.shopcarIcon b{
+    position: absolute;
+    left: 16px;
+    top: -10px;
+    background: orange;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}

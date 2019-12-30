@@ -51,7 +51,7 @@
 export default {
   data() {
     return {
-      totalPrice:0.00,
+      totalPrice:0,
       shopList:[
         {
           id: 1,
@@ -88,13 +88,13 @@ export default {
   },
   methods: {
     gettotalPrice() {
-       var num1=0.00;
+       var num1=0;
       // this.totalPrice.toFixed(1);
       this.shopList.forEach((item) => {
         num1+=item.price*item.num;
       });
-      this.totalPrice=num1;
-      this.totalPrice.toFixed(2);
+      // this.totalPrice.toFixed(2);        //无效
+      this.totalPrice=num1.toFixed(2);
     },
     btn(bool,index) {
       // window.console.log(bool,index);

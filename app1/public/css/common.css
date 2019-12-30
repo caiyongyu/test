@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #fff;
+    color: #684029;
+    padding: 0;
+    margin: 0;
+}
+a,ins{
+    text-decoration: none;
+}
+.tc{
+    text-align: center;
+}
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+.wrap{
+    /* background: blue; */
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}

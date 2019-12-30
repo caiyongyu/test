@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //n个台阶，每次上升1/2阶
+        function fn(num) {
+            // if(num===1){
+            //     return 1;
+            // }
+            // else if(num===2){
+            //     return 2;
+            // }else{
+            //     return fn(num-1)+fn(num-2);
+            // }
+
+            if(num===1){
+                return 1;
+            }
+            else if(num===2){
+                return 2;
+            }
+            let n1=1,n2=2,res;
+            for(let i=3;i<=num;i++){
+                res=n1+n2;
+                n1=n2;
+                n2=res;
+            }
+            return res;
+        }
+        console.log(fn(5));
+        
+    </script>
+</body>
+</html>

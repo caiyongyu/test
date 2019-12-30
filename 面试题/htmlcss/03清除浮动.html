@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            border: 5px solid green;
+            /* overflow: hidden; */
+        }
+        .dv1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .dv2{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        .dv3{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background: #333333;
+        }
+        /* .clear{
+            clear: both;
+        } */
+        .box:after{
+            content:"";
+            clear: both;
+            /* overflow: hidden; */
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <!-- 也叫闭合 -->
+    <div class="box">
+        <div class="dv1"></div>
+        <div class="dv2"></div>
+        <div class="dv3"></div>
+        <!-- <div class="clear">
+
+        </div> -->
+    </div>
+</body>
+</html>
