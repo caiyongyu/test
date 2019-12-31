@@ -11,11 +11,9 @@ header{
     box-shadow: 0 2px 2px 0 #ccc;
     
 }
-.box{
-    /* overflow: hidden; */
-}
+
 .logo{
-    margin-top: 18px;
+    padding-top: 18px;
     width: 120px;
     height: 44px;
     line-height: 44px;
@@ -47,6 +45,7 @@ a{
 
 .b-bottom{
     display: none;
+    /* z-index: 999; */
 }
 .mobile img{
     position: absolute;
@@ -73,7 +72,7 @@ a{
     display: inline-block;
     transition: transform .1s;
 }
-.rotate:hover{
+.my_2:hover .rotate{
     transform: rotate(180deg);
 }
 
