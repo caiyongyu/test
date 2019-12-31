@@ -3,6 +3,27 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+section{
+  padding-top: 82px;
+}
+.ad-box{
+  position: relative;
+  width: 100%;
+}
+.ad-box .ad-swiper{
+  position: absolute;
+  width: 100vw;
+}
+.swiper-container img{
+  width: 100%;
+  height: 100%;
+}
+.swiper-pagination-bullet{
+  /* background: #442818; */
+  width: 10px;
+  height: 10px;
+}
+.swiper-pagination-bullet-active{
+  background: #fff;
+  
 }

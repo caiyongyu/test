@@ -3,19 +3,52 @@
   <head>
     <title>首页</title>
     <link rel='stylesheet' href='/css/style.css' />
-    <!-- <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/iconfont.css"> -->
-    <style>
-      .div1{
-        padding-top: 80px;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/iconfont.css">
+    <link rel="stylesheet" href="/css/swiper.min.css" />
   </head>
   <body>
     <%include header.ejs %>
-    <div class="div1">首页</div>
+    <section>
+      <div class="ad-box">
+        <div class="ad-swiper">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="img/swiper1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="img/swiper2.jpg" alt="">
+                </div>
+                
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+            
+            
+        </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script>
+      var mySwiper = new Swiper ('.swiper-container', {
+        // direction: 'vertical', // 垂直切换选项
+    loop: true, // 循环模式选项
     
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    
+    // 如果需要前进后退按钮
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })        
+    </script>
     
   </body>
 </html>
