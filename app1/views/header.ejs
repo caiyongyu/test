@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="/css/iconfont.css">
   </head>
   <body>
-      <div class="header">
-        <header class="box">
+        <header>
+          <div class="box">
           <div class="wrap">
             <div class="logo l">
               <a href="">
-                <img src="img/banner3.png" alt="">
+                <img src="img/logo.jpg" alt="">
               </a>
             </div>
               <div class="header-left l">
@@ -40,8 +40,21 @@
               </div>
               <div class="header-right r">
                 <ul>
-                  <li>移动端</li>
-                  <li class="my">我的<i class="iconfont icon-xiajiantou"></i></li>
+                  <li class="mobile">
+                    <span>移动端</span>
+                    <div class="b-bottom">
+                      <img src="img/mobile.png" alt="">
+                    </div>
+                  </li>
+                  <li class="my_2">
+                    我的<i class="iconfont icon-xiajiantou rotate"></i>
+                    <div class="b-bottom">
+                      <div>帮助中心</div>
+                      <div>我的订单</div>
+                      <div>我的收藏</div>
+                      <div>会员中心</div>
+                    </div>
+                  </li>
                   <li>
                     <a href="">
                       登录/注册
@@ -59,9 +72,20 @@
               </div>
               
         </div>
-        </header>
       </div>
+        </header>
         
-     
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script type="text/javascript">
+          $(function(){
+            $(".mobile,.my_2").hover(function() {
+              $(this).find(".b-bottom").show()
+            },function() {
+              $(this).find(".b-bottom").hide()
+            })
+          })
+        </script>
+
+        
   </body>
 </html>
