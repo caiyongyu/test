@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>首页</title>
+    <title>登录</title>
     <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/iconfont.css">
+    <link rel="stylesheet" href="/css/login.css">
   </head>
   <body>
     <%include header.ejs %>
-    <div>登录</div>
+    <section>
+      <div class="login-box">
+        <div class="login-bg">
+          <div class="wrap">
+            <div class="login-commit">
+              <div class="login-article tc">
+                用户登录
+              </div>
+              <form action="">
+                <div>
+                  <input type="text" placeholder="手机号">
+                </div>
+                <div>
+                  <input type="text" placeholder="输入验证码">
+                  <button>发送验证码</button>
+                </div>
+                
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <%include footer.ejs%>
   </body>
 </html>

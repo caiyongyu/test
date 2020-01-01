@@ -1,0 +1,35 @@
+footer{
+    margin-top: 60px;
+    /* position: fixed; */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    background: #333;
+    width: 100%;
+    color: #fff;
+    z-index: 999;
+  }
+  footer .footer-logo img{
+    width: 70px;
+    height: 70px;
+    margin: 50px 0;
+  }
+  footer .footer-nav{
+    margin-bottom: 20px;
+  }
+  footer .footer-nav li{
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 12px;
+  }
+  footer .bl-des{
+    font-size: 12px;
+    margin: 20px 0;
+    line-height: 20px;
+  }
+  footer .footer-line{
+    border-top: 1px solid #fff;
+    /* margin: 20px 0; */
+    /* line-height: 20px; */
+    padding-bottom: 20px;
+  }
