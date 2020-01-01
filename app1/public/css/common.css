@@ -30,3 +30,11 @@ a,ins{
     width: 1200px;
     margin: 0 auto;
 }
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.clearfix{
+    *zoom: 1;
+}
