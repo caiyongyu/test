@@ -19,14 +19,16 @@
               <div class="login-article tc">
                 用户登录
               </div>
-              <form action="">
+              <form onsubmit="return false">
                 <div>
-                  <input type="text" placeholder="手机号">
+                  <input id="p_number" type="text" placeholder="手机号">
+                  <span id="pho_message" style="color: red"></span>
                 </div>
                 <div>
-                  <input type="text" placeholder="输入验证码">
-                  <button>发送验证码</button>
+                  <input id="test_num" type="text" placeholder="输入验证码">
+                  <button id="send_btn" dis>发送验证码</button>
                 </div>
+                <button id="login_btn">登录</button>
                 
               </form>
             </div>
@@ -37,5 +39,48 @@
       
     </section>
     <%include footer.ejs%>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+      var relnum=/^1[3456789]\d{9}$/;
+      var timeSum=3;
+      var timer=null;
+      var mach_num='4567';
+      $("#send_btn").click(function() {
+        if(relnum.test($("#p_number").val())){
+          $("#pho_message").text("手机号正确");
+          timer = setInterval(function(params) {
+              timeSum--;
+              if(timeSum<1){
+                timeSum=3;
+                clearInterval(timer);
+                $("#send_btn").text("重新发送");
+                $("#send_btn").attr("disabled",false);
+              }else{
+                $("#send_btn").attr("disabled",true);
+                $("#send_btn").text("倒计时"+timeSum);
+              }
+          },1000)
+          $.ajax({
+            url:'/loginUrl',
+            success:function(data){
+              console.log(data);
+              
+            }
+          })
+        }else{
+          $("#pho_message").text("手机号错误");
+        }
+      })
+      $("#login_btn").click(function() {
+        
+        if(mach_num==$("#test_num").val()){
+          alert("登录成功");
+        }else{
+          alert("登录失败");
+        }
+      })
+
+    </script>
   </body>
 </html>
