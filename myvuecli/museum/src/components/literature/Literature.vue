@@ -1,15 +1,17 @@
 <template>
     <div>
-        This is literature
+        <List></List>
         <Footer></Footer>
     </div>
 </template>
 
 <script>
 import Footer from './Footer'
+import List from './List'
 export default {
     components: {
-        Footer
+        Footer,
+        List
     }
 }
 </script>
