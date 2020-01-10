@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var localHandler = function(data){
+            alert('我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：' + data.result);
+        };
+        </script>
+    <script type="text/javascript" src="remote.js"></script>
+    <script src="http://101.200.131.217:8080/museum/pub/homePageRotationDiagra"></script>
+</body>
+</html>

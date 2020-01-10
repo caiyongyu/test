@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="ajax.js"></script>
+    <script>
+        // var obj={
+        //             "id":"0",
+        //             "pwd":"20175921"
+        //         };
+        //         console.log(typeof obj);
+                
+
+        ajax({
+                // url:"http://101.200.131.217:8080/museum/pub/homePageRotationDiagram",
+                // url:"http://101.200.131.217:8080/museum/pub/login",
+                // url:"HTTP://101.200.131.217:8080/museum/pub/getAllBooks",
+                // url:"http://101.200.131.217:8080/museum/pub/getBigLabels",
+                url:"http://101.200.131.217:8080/museum/pub/getSmallLabels",
+                type:"GET",
+                // dataType: "json",
+                async:true,
+                // data:{
+                //     "bigLabelName":"政治"
+                //     // "pwd":"20175921"
+                // },
+                contentType: "application/json",
+                success:function(data){
+                    // alert(data)
+                    var obj=JSON.parse(data);
+                    console.log(obj);
+                    
+
+                    
+                    
+                }
+            })
+    </script>
+</body>
+</html>

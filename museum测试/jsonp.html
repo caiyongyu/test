@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="uls">
+        
+    </ul>
+    <script>
+        function suggest_so(data){
+            // console.log(data.s);
+            for(var i=0;i<data.s.length;i++){
+                // document.write(data.s[i])
+                uls.innerHTML+='<li>'+data.s[i]+'</li>'
+            }
+            
+        }
+    </script>
+    <script src="https://sug.so.360.cn/suggest?callback=suggest_so&word=b"></script>
+</body>
+</html>
