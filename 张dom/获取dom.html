@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li class="lis bbb">2</li>
+        <li class="aaa lis bbb">3</li>
+        <li class="aaa lis">4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        // var lis=document.getElementsByClassName('lis');          //在IE8及以下不好使，要封装
+        // for(var i=0;i<lis.length;i++){
+        //     lis[i].style.background='red';
+        // }
+        
+            // alert(doms.length);
+
+        // 1.获取所有节点
+        // 2.比较所有节点的className是否与参数相等
+        // 3.将相等的节点放入新建的数组中
+        // 4.返回数组
+
+
+        function fns(cName){
+            var doms=document.getElementsByTagName('*');
+            var arr=[];
+            for(var i=0;i<doms.length;i++){
+                if(doms[i].className==cName || doms[i].className.indexOf(" "+cName)!=-1 || doms[i].className.indexOf(cName+" ")!=-1 || doms[i].className.indexOf(" "+cName+" ")!=-1){
+                    arr.push(doms[i]);
+                }
+            }
+            return arr;
+        }
+        for(var i=0;i<fns('lis').length;i++){
+            fns('lis')[i].style.background='blue';
+        }
+        // alert();
+        
+    </script>
+</body>
+</html>
