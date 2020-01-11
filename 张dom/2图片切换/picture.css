@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 520px;
+    height: 280px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+}
+ul,ol{
+    list-style: none;
+}
+ul li{
+    width: 520px;
+    height: 280px;
+    float: left;
+    
+}
+#container div{
+    width: 30px;
+    height: 60px;
+    background: #fff;
+    /* border-radius: 50%; */
+    line-height: 60px;
+    text-align: center;
+    opacity: 0.6;
+    position: absolute;
+    top: 110px;
+    display: none;
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+}
+ol{
+    position: absolute;
+    bottom: 30px;
+    left: 197.5px;
+}
+ol li{
+    
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    float: left;
+    margin-left: 5px;
+}
+.bg{
+    background: red;
+}
