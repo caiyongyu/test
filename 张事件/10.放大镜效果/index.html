@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+        #min{
+            float: left;
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+        #max{
+            float: right;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+            position: relative;
+        }
+        b{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: blue;
+            opacity: 0.5;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        #bigImg{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body style="height: 2000px;">
+    
+    <div id="box">
+        <div id="min"><img src="imgs/min.jpg" alt=""><b></b></div>
+        <div id="max"><img src="imgs/max.jpg" alt="" id="bigImg"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
