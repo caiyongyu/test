@@ -37,7 +37,7 @@ window.onload=function(){               //是window，非document
         
 
 
-        waterfall("main","box");
+        waterfall("main","box");            //之前理解有误，此为第二次调用---重新排版函数
     }
 }
 
