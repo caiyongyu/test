@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    
+    <script>
+        var box=document.getElementById("box");
+        box.onmouseover=function(){         
+            animated(box,300);
+        }
+
+        box.onmouseout=function(){
+            animated(box,0);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

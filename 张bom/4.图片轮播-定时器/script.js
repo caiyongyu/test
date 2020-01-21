@@ -13,14 +13,18 @@ function fn(){
     lis[index].style.display="block"
 }
 
+
 var timer=setInterval(fn,1000)
 
 box.onmouseover=function(){
     clearInterval(timer);
+    // alert(1);
 }
 box.onmouseout=function(){
-    // setInterval(fn,1000)
-}
+    // alert(2)
+//     clearInterval(timer);
+//     setInterval(fn,1000)
+ }
 
 
 // setInterval   定时器：间歇调用
