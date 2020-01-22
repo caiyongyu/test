@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 520px;
+            height: 280px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #uls{
+            list-style: none;
+            width: 2600px;
+            height: 280px;
+            
+        }
+        #uls li{
+            width: 520px;
+            height: 280px;
+            float: left;
+        }
+        #btn{
+            position: absolute;
+            top: 90px;
+            width: 520px;
+        }
+        #btn span{
+            
+            width: 50px;
+            height: 100px;
+            background: #fff;
+            opacity: 0.5;
+            text-align: center;
+            line-height: 100px;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <ul id="uls">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+        </ul>
+
+        <div id="btn">
+            <span id="left"><</span>
+            <span id="right">></span>
+        </div>
+    </div>
+    <script src="js/animate.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

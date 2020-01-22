@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        ul li{
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+            filter: alpha(opacity:30)          /* IE8以下，现在无效了？？ */
+        }
+    </style>
+</head>
+<body>
+   
+    <ul>
+        <li></li>
+    </ul>
+    
+    <script>
+       var lis=document.getElementsByTagName("li")[0];
+       
+           lis.onmouseover=function(){
+                // animated(this,100,"opacity");
+                animated(this,{
+                    "width":500,
+                    "height":400
+                },function(){           //链式运动类似于   回调函数
+                    
+                });
+           }
+        //    lis[i].onmouseout=function(){
+        //         // animated(this,0,"opacity");
+        //         animated(this,150,"height");
+        //    }
+       
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

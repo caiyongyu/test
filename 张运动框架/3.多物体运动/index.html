@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            width: 400px;
+            height: 150px;
+            background: greenyellow;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+   
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <script>
+       var lis=document.getElementsByTagName("li");
+       for(var i=0;i<lis.length;i++){
+           lis[i].onmouseover=function(){
+                animated(this,600);
+           }
+           lis[i].onmouseout=function(){
+                animated(this,400);
+           }
+       }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
