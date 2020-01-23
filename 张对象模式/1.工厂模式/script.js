@@ -15,4 +15,5 @@ console.log(o1.name);
 console.log(o1);
 
 console.log(o1.run==o2.run);            //缺点：对象的方法不共享（函数地址不相同）   正常，new 的不同的createObject函数，内部的方法肯定不相同
+                                                    //2不能从函数名看出它是干什么的
 
