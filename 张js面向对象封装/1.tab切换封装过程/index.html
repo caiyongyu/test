@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #uls{
+            width: 300px;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+        #uls li{
+            width: 150px;
+            height: 50px;
+            float: left;
+            line-height: 50px;
+            text-align: center;
+        }
+        .active{
+            background: #ccc;
+        }
+        div ul li{
+            float: left;
+            width: 300px;
+            /* height: 10px; */
+
+        }
+        div ul{
+            width: 300px;
+            /* height: 300px; */
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul id="uls">
+        <li class="active">产品服务</li>
+        <li>产品简介</li>
+    </ul>
+
+    <div>
+        <ul>
+            <li>三年保修，五年保障，只有你想不到</li>
+            <li>三年保修，五年保障</li>
+            <li>三年保修，五年保障，只有你想不到</li>
+            <li>三年保修，五年保障，只有你想不到</li>
+            <li>三年保修，五年保障，只有你</li>
+        </ul>
+    </div>
+
+    <div style="display: none;">
+        <ul>
+            <li>腾讯云服务设备，品质保障</li>
+            <li>腾讯云服务设备，品质保障</li>
+            <li>腾讯云服务设备，品质保障</li>
+            <li>腾讯云服务设备，品质保障</li>
+            <li>腾讯云服务设备，品质保障</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
