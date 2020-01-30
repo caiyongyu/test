@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>小米</li>
+        <li>苹果</li>
+        <li>华为</li>
+        <li>锤子</li>
+        <li>oppo</li>
+        <li>其他品牌</li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        // $("ul li:not(:lt(2),:last)").css("background","blue")
+
+        $("ul li:gt(1):not(:last)").css("background","blue")
+    </script>
+</body>
+</html>

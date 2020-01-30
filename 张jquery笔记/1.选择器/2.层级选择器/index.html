@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <span>
+            外部
+            <span>内部</span>
+        </span>
+    </ul>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <script src="jquery1.7.js"></script>
+    <script>
+        // console.log($("ul span"));           //内部所有子元素
+        // console.log($("ul>span"));           //内部次级子元素
+        
+        // $("ul+div").css("background","red")      //同级下一个
+
+        $("ul~div").css("background","red")         //同级下面所有
+    </script>
+</body>
+</html>
