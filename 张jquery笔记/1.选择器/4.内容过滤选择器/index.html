@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>1a</li>
+        <li>2ab</li>
+        <li>3cc</li>
+        <li>4dd</li>
+        <li></li>
+        <li>5
+            <span></span>
+        </li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        // $("ul li:contains(a)").css("background","red");
+
+        // $("ul li:empty").css("background","red")            //内部要不含文本和标签
+
+        // $("ul li:has(span)").css("background","red")
+
+        $("ul li:parent").css("background","red")           //与:empty相反，有二级选择
+    </script>
+</body>
+</html>

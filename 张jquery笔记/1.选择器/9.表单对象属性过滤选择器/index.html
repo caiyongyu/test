@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+
+    <input type="file" name="" id="">
+
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <select name="" id=""></select>
+
+    <button></button>
+    
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //表单对象属性选择器  只适用于form表单
+            
+            // console.log($("input").length);
+
+            // console.log($(":input").length);            //选中input  textarea  select  button  标签
+
+
+            // $(":file").css("background","red")
+
+
+            //对象转换
+
+            //1 jquery对象转换为js中DOM节点
+
+            console.log($("input")[0]);
+
+
+            console.log($("input").get(0));
+
+
+            //2 js中的DOM节点转换为jquery对象
+
+            var input1=document.getElementsByTagName("input")[0];
+
+            console.log($(input1));
+
+
+            
+            
+            
+            
+            
+        })
+    </script>
+</body>
+</html>

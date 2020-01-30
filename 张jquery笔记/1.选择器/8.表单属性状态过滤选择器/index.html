@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" disabled="">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+
+    <input type="checkbox" checked>
+
+    <select name="" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+    </select>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //表单属性状态选择器  只适用于form表单
+            $("input:enabled").css("background","red");          //选中可用的input
+
+
+            $("input:disabled").css("background","blue");
+
+            // console.log($("input:checked"));            //单选框radio和复选框checkbox    选中的
+
+
+            console.log($("option:selected").text());           //适用下拉列表          选中的
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li id="">1</li>
+        <li id="a2">2</li>
+        <li>3</li>
+        <li id="4a">4</li>
+        <li id="" class="">5</li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            // $("ul li[id]").css("background","red");
+            // $("ul li[id=a2]").css("background","red");
+            // $("ul li[id!=]").css("background","red");           //没有id属性的也会被选中
+
+            // $("ul li[id^=a]").css("background","red");
+
+            // $("ul li[id$=a]").css("background","red");
+
+            // $("ul li[id*=a]").css("background","red");
+
+            $("ul li[id][class]").css("background","red");          //复合属性选择器，越多选中越少
+        })
+    </script>
+</body>
+</html>
