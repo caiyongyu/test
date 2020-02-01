@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            
+        }
+        #uls{
+            width: 400px;
+            height: 50px;
+            margin: 0 auto;
+            margin-top: 120px;
+        }
+        li{
+            float: left;
+            width: 100px;
+            height: 30px;
+            background: orange;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+        }
+        .item ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul id="uls">
+        <li class="item">蔬菜
+            <ul>
+                <li>vegetables1</li>
+                <li>vegetables2</li>
+            </ul>
+        </li>
+        <li class="item">水果
+            <ul>
+                <li>fruit1</li>
+                <li>fruit2</li>
+            </ul>
+        </li>
+        <li class="item">肉类
+            <ul>
+                <li>meat1</li>
+                <li>meat2</li>
+            </ul>
+        </li>
+        <li class="item">日用
+            <ul>
+                <li>daily1</li>
+                <li>daily2</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            $(".item").mouseover(function(){
+                // alert(1)
+                // $(this).find("ul").show(500);
+                // $(this).find("ul").slideDown();
+                $(this).find("ul").stop(false,true).fadeIn();
+            }).mouseout(function(){
+                // alert(2)
+                // $(this).find("ul").hide(500)
+                // $(this).find("ul").slideUp();
+                $(this).find("ul").stop(false,true).fadeOut();
+            })
+        })
+    </script>
+</body>
+</html>

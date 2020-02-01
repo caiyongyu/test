@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+            /* display: none; */
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul> -->
+
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+
+    <ul class="active">
+        <li>111111</li>
+        <li>111111</li>
+        <li class="lis">111111</li>
+    </ul>
+
+    <ul>
+        <li>222222</li>
+        <li class="lis">222222</li>
+        <li>222222</li>
+    </ul>
+    <ul>
+        <div>3</div>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+
+    <script>
+        $(function(){
+            // $("ul li:not(:eq(2))").eq(2).css("background","red")
+
+            //index
+            $("button").click(function(){
+                var ids=$(this).index();
+                $("ul").eq(ids).css("display","block").siblings("ul").css("display","none");
+            })
+
+            //.not()
+            // $("ul").not($(".active")[0]).css("background","green")
+            //不同
+            // var uls=document.getElementsByTagName("ul")[1];
+            // $("ul").not(uls).css("background","red")
+
+            //.has()
+            // $("ul").has("div").css("background","blue")
+
+            //.filter()
+            // $("ul li").filter($(".lis")).css("background","orange")             //不限定与次级，可同级
+
+            //.slice()
+            $(".active li").slice(1,4).css("background","blue")
+        })
+    </script>
+</body>
+</html>

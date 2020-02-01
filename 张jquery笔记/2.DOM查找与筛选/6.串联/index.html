@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv1">dv1
+        <p>p1</p>
+        <p>p1</p>
+    </div>
+    <div id="dv2">dv2</div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            // $("#dv1").add($("#dv2")).css("background","red")
+
+            //.andSelf()
+            // $("#dv1").find("p").andSelf().css("background","blue")          //加上上次所选的，加入当前元素中
+
+            //.content()
+            // $("#dv1").contents().css("color","blue")            //选中内部的元素节点和文本节点，文本color加不上
+
+            //.end()
+            // $("#dv1").find("p").end().css("background","blue")
+            $("#dv1").end().css("background","blue")                //给上个所选加，前面没了就都不加
+        })
+    </script>
+</body>
+</html>

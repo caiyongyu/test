@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span>上两个</span>
+    <span>上一个</span>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <div>外部
+                <div>内部</div>
+            </div>
+        </ul>
+    </div>
+
+    <span>下一个</span>
+    <span>下两个</span>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //次级元素
+            // $("ul").children("div").css("background","red");
+
+            // $("ul").find("div").css("background","red");
+
+            //父级元素
+            // $("li").parent().css("background","red");
+
+            // $("li").parents("body").css("background","red");
+
+            //兄弟元素
+
+            // $("div").next().css("background","blue")
+
+            // $("div").nextAll().css("background","blue")
+
+            // $("div").prev().css("background","blue")
+
+            // $("div").prevAll().css("background","blue")
+
+            $("div").siblings().css("background","blue")
+
+
+        })
+    </script>
+</body>
+</html>

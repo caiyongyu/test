@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        dl{
+            width: 300px;
+            margin: 20px auto;
+        }
+        dt{
+            width: 300px;
+            text-align: center;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    
+    <dl>
+        <dt>网页特效</dt>
+        <dd>手风琴</dd>
+        <dd>到顶部</dd>
+        <dd>图片轮播</dd>
+    </dl>
+
+    <dl>
+        <dt>网页特效2</dt>
+        <dd>手风琴2</dd>
+        <dd>到顶部2</dd>
+        <dd>图片轮播2</dd>
+    </dl>
+
+    <dl>
+        <dt>网页特效3</dt>
+        <dd>手风琴3</dd>
+        <dd>到顶部3</dd>
+        <dd>图片轮播3</dd>
+    </dl>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            $("dd").hide();
+            $("dt").click(function(){
+                //1
+                // $("dd").hide();
+                // $(this).siblings().show()
+
+                //2
+                // $(this).siblings().show().parent().siblings().find("dd").hide();
+
+                //3 点击自己显示隐藏
+                if($(this).siblings().is(":visible")){
+                    $(this).siblings().hide();
+                }else{
+                    $(this).siblings().show();
+                }
+                $(this).parent().siblings().find("dd").hide();
+            })
+        })
+    </script>
+</body>
+</html>

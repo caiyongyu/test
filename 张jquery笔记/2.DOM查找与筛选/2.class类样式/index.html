@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background: blue;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>我是div1</div>
+
+    <div class="bb oo">我是div2</div>
+
+    <div class="btn">更多</div>
+
+    <a href="" class="box"></a>
+    <!-- <div class="box"></div> -->
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            // $("div").addClass("dv1")
+            // $("div").removeClass("bb oo");
+            // $("div").removeClass()          //会清空class属性中的内容，但会保存class属性
+            var lis=$("ul li");
+            $(".btn").click(function(){
+                
+                
+                    $("a").toggleClass();
+                
+
+
+
+                // if(lis.is(":visible")){
+                //     lis.hide(500);
+                // }else{
+                //     lis.show(500);
+                // }
+            })
+        })
+    </script>
+</body>
+</html>
