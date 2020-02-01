@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <div id="box">
+        <p>p1</p>
+        <p>p2</p>
+    </div> -->
+
+    <button id="add">添加节点</button>
+    <button id="remove">删除节点</button>
+
+
+    <!-- <ul>
+        <li>1<button>删除</button>
+        </li>
+        <li>2<button>删除</button></li>
+        <li>3<button>删除</button></li>
+        <li>4<button>删除</button></li>
+        <li>5<button>删除</button></li>
+    </ul> -->
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){                   
+            // $("#box").remove()              //删除自身和子节点
+
+            // $("#box").empty()                   //只删除子节点
+
+
+            // demo1
+            $("#add").click(function(){
+                $("body").append("<div id='oDiv'>我是div</div>");           //id就会一个一个删除
+            })
+            $("#remove").click(function(){
+                $("#oDiv").remove()
+            })
+
+
+            //demo2
+            // $("button").click(function(){
+            //     $(this).parent().remove()
+            // })
+
+        })
+    </script>
+</body>
+</html>

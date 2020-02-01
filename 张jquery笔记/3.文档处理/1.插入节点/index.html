@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        ----我是box------
+    </div>
+
+    <div id="tem">I am tem</div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //内部插入
+            // $("#box").append("<p>This is p!</p>")
+            // $("#box").append($("<p>This is p2!</p>"))
+            // $("<p>This is p3!</p>").appendTo($("#box"))
+            // $("<p>This is p4!</p>").appendTo("#box")         //与append反过来，小区别后面可以不是jquery对象
+            // ("<p>This is p5!</p>").appendTo("#box")         //No
+            
+            // $("#box").prepend("<p>This is p!</p>")
+            // $("<p>This is p2!</p>").prependTo($("#box"))
+
+            //外部插入
+            // $("#box").after("<p>This is p5!</p>")
+            // $("#box").before("<p>This is p5!</p>")
+            // $("<p>This is p5!</p>").insertAfter($("#box"))
+            $("<p>This is p5!</p>").insertBefore($("#box"))
+            var oTem=document.getElementById("tem");
+            $(oTem).insertBefore($("#box"));
+        })
+    </script>
+</body>
+</html>
