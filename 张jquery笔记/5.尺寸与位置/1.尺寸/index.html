@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+            // console.log( $("#box").width());         //获取的是**第一个匹配的元素不带单位的number类型数值
+            // $("#box").width("500px")                    //也可以设置值，500、"500"、"500px"
+
+            // console.log($("#box").innerWidth());         //不能写参数，包括padding
+            
+            console.log($("#box").outerWidth());            //不带参数，返回加padding和border
+            console.log($("#box").outerWidth(true));          //参数为true，返回padding加border加margin
+            
+            
+
+            
+
+
+        })
+    </script>
+</body>
+</html>

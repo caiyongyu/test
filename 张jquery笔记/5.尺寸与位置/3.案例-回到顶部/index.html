@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box ul li{
+            width: 100%;
+            height: 400px;
+            text-align: center;
+            border-top: 4px solid #ccc;
+        }
+        #btn ul{
+            position: fixed;
+            width: 100px;
+            /* height: 300px; */
+            background: orange;
+            color: #fff;
+            bottom: 80px;
+            right: 50px;
+            display: none;
+        }
+        #btn ul li{
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   <div id="box">
+       <ul>
+           <li>图书</li>
+           <li>上衣</li>
+           <li>名鞋</li>
+           <li>牛仔裤</li>
+           <li>袜子</li>
+           <li>回到顶部</li>
+       </ul>
+   </div>
+
+   <div id="btn">
+       <ul>
+           <li>名鞋</li>
+           <li>牛仔裤</li>
+           <li>袜子</li>
+           <li>回到顶部</li>
+       </ul>
+   </div>
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+
+            $(window).scroll(function(){
+                if($(window).scrollTop()>=$(window).height()){
+                        //  console.log(1);
+                        $("#btn ul").css("display","block");
+                        
+                        
+                        
+               
+                }else{
+                    $("#btn ul").css("display","none")
+                }
+       
+            })
+
+            $("#btn ul li").click(function(){           //不能放在滚动监听事件中？？
+                            var ids=$(this).index();
+                            if(ids==3){
+                                // $(window).scrollTop(0)
+                                $(document.body).animate({"scrollTop":0},1000)
+                                $(document.documentElement).animate({"scrollTop":0},1000);           //chrome firefox??  
+                            }else if(ids==0){
+                                $(document.documentElement).animate({"scrollTop":800},1000);         //height 与border无关
+                            }else if(ids==1){
+                                $(document.documentElement).animate({"scrollTop":1200},1000); 
+                            }else if(ids==2){
+                                $(document.documentElement).animate({"scrollTop":1600},1000); 
+                            }
+                        })
+           
+           
+            
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg{
+            width: 300px;
+            height: 300px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <button>转换</button>
+    <div id="box" class="aa oo">This is box!</div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+           //.css()也可获取样式的值
+
+           $("#box").addClass("aa")             //已有class名，不会重复添加
+
+            
+            // $("#box").removeClass()         //只会删除class值
+
+            // $("button").click(function(){
+            //     $("#box").toggleClass("bg")
+            // })
+
+        })
+    </script>
+</body>
+</html>

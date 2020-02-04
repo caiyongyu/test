@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background: orange;
+            margin-left: 100px;
+        }
+        #dv1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <div id="dv1"></div>
+    </div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+        //    console.log($("#dv1").offset().left);            //括号内包个对象，有left和top，不能设置值，获取相对视口的位置
+
+        // console.log($("#dv1").position().left);                 //相对已定位父元素的，没写是相对body的
+
+        console.log($("#dv1").scrollTop());                         //已滚动的位置
+        
+        
+
+           
+
+
+        })
+    </script>
+</body>
+</html>
