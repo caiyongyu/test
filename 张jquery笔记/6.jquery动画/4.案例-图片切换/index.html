@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #pics{
+            width: 1000px;
+            height: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        ul,ol{
+            list-style: none;
+            width: 5000px;
+            
+            
+        }
+        ul{
+            height: 600px;
+        }
+        ol{
+            height: 80px;
+            position: absolute;
+            bottom: 20px;
+        }
+        ol li{
+            float: left;
+            width: 180px;
+            height: 80px;
+            padding: 10px;
+        }
+        ol li img{
+            /* display: block; */
+            width: 180px;
+            height: 80px;
+            text-align: center;
+        }
+        ul li{
+            float: left;
+            width: 1000px;
+            height: 600px;
+        }
+        #btns div{
+            width: 51px;
+            height: 45px;
+            position: absolute;
+            top: 278px;
+        }
+        #left{
+            left: 10px;
+        }
+        #right{
+            right: 10px;
+        }
+        .active{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pics">
+        <ul>
+            <li title="0"><img src="images/1.jpg" alt=""></li>
+            <li title="1"><img src="images/2.jpg" alt=""></li>
+            <li title="2"><img src="images/3.jpg" alt=""></li>
+            <li title="3"><img src="images/4.jpg" alt=""></li>
+            <li title="4"><img src="images/5.jpg" alt=""></li>
+            
+        </ul>
+
+        <ol>
+            <li class="active"><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+        </ol>
+
+        <div id="btns">
+            <div id="left"><img src="images/1.gif" alt=""></div>
+            <div id="right"><img src="images/2.gif" alt=""></div>
+        </div>
+    </div>
+
+    
+    
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            var li_Width=$("ul li").first().width();         //??
+            var index;
+
+            function changeClass(){
+                index=$("ul li").attr("title");
+                $("ol li").eq(index).addClass("active").siblings().removeClass("active");
+            }
+
+            $("#right").click(function(){
+                // alert(1)
+                
+                // console.log(li_Width);
+                
+                // console.log($("ul li").attr("title"));           //0--??
+                
+                $("ul").stop(true).animate({"marginLeft":-li_Width},1000,function(){
+                    $("ul li").first().appendTo($("ul"));
+                    $("ul").css("marginLeft",0)
+                    // console.log($("ul li").attr("title"));           1--??
+                    changeClass();
+                });
+               
+            })
+
+            $("#left").click(function(){
+                $("ul").css("marginLeft",-1000);
+                $("ul li").last().prependTo($("ul"));
+                $("ul").stop(true).animate({"marginLeft":0},1000,function(){
+                    changeClass();
+                });
+                
+            })
+           
+        })
+    </script>
+</body>
+</html>

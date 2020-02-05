@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            margin: 50px auto;
+            /* width: 988px;             不行？？ */
+            width: 1000px;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            
+        }
+        ul li{
+            float: left;
+            width: 75px;
+        }
+        img{
+            width: 538px;
+            height: 405px;
+        }
+        .active{
+            width: 538px;
+            height: 405px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <ul>
+            <li class="active"><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+            <li><img src="images/7.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+            $("ul li").mouseover(function(){
+                $(this).stop(true).animate({width:538},500).siblings().stop(true).animate({width:75},500)
+            })
+          
+
+        })
+    </script>
+</body>
+</html>
