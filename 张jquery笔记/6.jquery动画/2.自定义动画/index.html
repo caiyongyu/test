@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+           width: 300px;
+           height: 300px;
+           background: greenyellow;
+           /* display: none; */
+        }
+    </style>
+</head>
+<body>
+    <button id="start">按钮</button>
+    <button id="end">停止</button>
+    <div id="box"></div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+           $("#start").click(function(){
+               //animate  第一个参数为表单对象   delay  延时
+               $("#box").animate({marginLeft:1000},1500);
+               $("#box").delay(500).animate({marginTop:300},1500);
+               $("#box").animate({marginLeft:0},1500);
+
+                //stop
+                
+
+           })
+           $("#end").click(function(){
+            //    $("#box").stop()         //参数默认为false
+            //    $("#box").stop(true)         //第一个参数为true，清空动画队列
+            //    $("#box").stop(false,true)       //第二个参数为true，当前动画立即完成
+           })
+
+        })
+    </script>
+</body>
+</html>
