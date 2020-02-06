@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 650px;
+            height: 100px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgs{
+            width: 600px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            margin-left: 15px;             /* 要overflow:hidden需position：absolute？？ */
+        }
+        ul{
+            list-style: none;
+            width: 1500px;
+            height: 50px;
+            position: absolute;
+            top: 25px;
+            left: 20px;
+        }
+        ul li{
+            float: left;
+            width: 100px;
+            height: 50px;
+            /* margin: 0 8px; */
+            padding: 0 8px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #btns div{
+            width: 20px;
+            height: 40px;
+            background: #ccc;
+            opacity: 0.4;
+            position: absolute;
+            top: 30px;
+            line-height: 40px;
+            text-align: center;
+        }
+        #left{
+            left: 0;
+        }
+        #right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="imgs">
+            <ul>
+                <li><img src="images/1.jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/fr-logo-01.gif" alt=""></li>
+                <li><img src="images/fr-logo-02.gif" alt=""></li>
+                <li><img src="images/fr-logo-03.gif" alt=""></li>
+                <li><img src="images/fr-logo-04.gif" alt=""></li>
+                <li><img src="images/fr-logo-05.gif" alt=""></li>
+                <li><img src="images/fr-logo-06.gif" alt=""></li>
+                <li><img src="images/fr-logo-07.jpg" alt=""></li>
+                <li><img src="images/fr-logo-08.jpg" alt=""></li>
+            </ul>
+        </div>
+
+        <div id="btns">
+            <div id="left">&lt;</div>
+            <div id="right">&gt;</div>
+        </div>
+        
+    </div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            var num=3;
+            var li_Width=$("ul li").first().innerWidth();
+            $("#right").click(function(){
+                $("ul").stop(true).animate({marginLeft:-num*li_Width},1000,function(){
+                    $("ul li").slice(0,num).appendTo($("ul"));
+                    $("ul").css("marginLeft",0)
+                })
+                
+            })
+
+            $("#left").click(function(){
+                $("ul").css("marginLeft",-num*li_Width);
+                $("ul li").slice(-num).prependTo($("ul"));
+                $("ul").stop(true).animate({marginLeft:0},1000)
+            })
+            
+        })
+    </script>
+</body>
+</html>
