@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <select name="" id="sheng">
+        <option value="北京">北京</option>
+        <option value="福建">福建</option>
+        <option value="广东">广东</option>
+    </select>
+
+    <select name="" id="city">
+        <option value="海淀">海淀</option>
+        <option value="厦门">厦门</option>
+        <option value="深圳">深圳</option>
+    </select>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            $("#sheng").change(function(){
+               
+            //    alert(1)
+
+                $("#sheng option").each(function(index,item){
+                // console.log(index);
+                    if($("#sheng option").eq(index).prop("selected")==true){            //**
+                        console.log(index);
+                        console.log( $("#city option").eq(index).val());
+                        
+                       console.log($("#city").val());
+                       $("#city").val($("#city option").eq(index).val());
+                        
+                        
+                    }
+                })
+           
+            })
+           
+        //    console.log($("#sheng option").first().prop("selected"));
+           
+           
+        
+        })
+    </script>
+</body>
+</html>

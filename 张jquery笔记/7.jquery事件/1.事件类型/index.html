@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #box{
+            width: 300px;
+            height: 300px;
+            background: blue;
+       }
+       #dv1{
+           width: 100px;
+           height: 100px;
+           background: green;
+       }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="dv1"></div>
+    </div>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+            //鼠标
+        //    $("#box").mouseover(function(){          //问题  移入dv1会相当于先移出再移入，可mouseenter（）解决
+        //        alert(1)
+        //    }).mouseout(function(){
+        //        alert(2)
+        //    })
+
+        // $("#box").mouseenter(function(){          //问题  移入dv1会相当于移出
+        //        alert(1)
+        //    }).mouseout(function(){
+        //        alert(2)
+        //    })
+        
+        // $("#box").hover(function(){                 //完美解决
+        //     alert(1)
+        // },function(){
+        //     alert(2)
+        // })
+
+
+        // })
+
+        //键盘
+            // $(window).keypress(function(){          //类似于keydown
+            //     alert("键盘按下")
+            // })
+
+        //事件
+        $(window).resize(function(){
+            alert("窗口改变了")
+        })
+        
+        })
+    </script>
+</body>
+</html>
