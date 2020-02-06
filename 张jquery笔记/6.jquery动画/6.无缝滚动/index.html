@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       * {
+           margin: 0;
+           padding: 0;
+       }
+       #container{
+           width: 400px;
+           height: 300px;
+           overflow: hidden;
+       }
+       ul{
+            width: 400px;
+           list-style: none;
+           
+       }
+       ul li{
+           width: 400px;
+           height: 100px;
+           text-align: center;
+           background: pink;
+       }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <ul>
+            <li>很多网页都会用到无缝滚动的</li>
+            <li>播放消息通告呀等等</li>
+            <li>推拉门，图片切换，多张图片</li>
+            <li>无缝滚动，消息播放</li>
+            <li>我是来凑数的呀！</li>
+        </ul>
+    </div>
+    
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            // console.log($("ul").height());
+            var li_Height=$("ul li").first().innerHeight();
+            
+            setInterval(function(){
+                $("ul").animate({marginTop:-li_Height},function(){
+                $("ul li").first().appendTo($("ul"));
+                $("ul").css("marginTop",0)
+            })
+            },1000)
+           
+        })
+    </script>
+</body>
+</html>
