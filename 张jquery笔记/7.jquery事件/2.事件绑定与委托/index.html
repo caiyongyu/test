@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <div id="box"></div> -->
+
+    <button>按钮</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //事件绑定
+            // $("#box").bind("click mouseover",function(){
+            //     alert(1)
+            // })
+            // $("#box").unbind()
+
+            // $("#box").on("click",function(){
+            //     alert(2)
+            // })
+            // $("#box").off()
+
+            // $("#box").one("click",function(){
+            //     alert(2)
+            // })
+
+            //事件委托          让后添加的元素也绑定事件
+            $("button").click(function(){
+                var len=$("ul li").length;
+                $("ul").append("<li>"+(len+1)+"</li>")              //必须加括号
+            })
+
+            // $("ul li").click(function(){
+            //     $(this).css("background","red");
+            // })
+            
+            // $("ul li").live("click",function(){                 //1.7后面版本取消了
+            //     $(this).css("background","red");
+            // })
+
+            // $("ul").on("click","li",function(){              //.on（事件名称，子元素，fn）   最常用
+            //     $(this).css("background","blue");
+            // })
+
+            $("ul").delegate("li","click",function(){
+                $(this).css("background","orange");
+            })
+           
+        })
+    </script>
+</body>
+</html>
