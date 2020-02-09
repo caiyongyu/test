@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       #box{
+           width: 300px;
+           height: 300px;
+           background: orange;
+       }
+       #inner{
+           width: 100px;
+           height: 100px;
+           background: blue;
+       }
+    </style>
+</head>
+<body>
+    <!-- <div id="box"></div> -->
+
+    <!-- <button>按钮</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul> -->
+
+
+    <!-- <div id="box">
+        <div id="inner">
+
+        </div>
+    </div> -->
+
+    
+    <form>
+        <input type="text">
+        <input type="submit" value="提交啦">
+    </form>
+
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+        //    $("#box").click(function(e){
+                // console.log(e.type);
+                // console.log(e.pageX);           //是相对于浏览器的，不是文档
+                // console.log(e.pageY);
+                
+            // })
+
+
+            //e.target
+        //         $("button").click(function(){
+        //             $("ul").append("<li>"+($("ul li").length+1)+"</li>")
+        //         })
+        //    })
+        //    $("ul").click(function(e){
+        //        if(e.target.nodeName=="LI"){
+        //         $(e.target).css("background","blue")
+        //        }
+               
+
+
+            // $("#box").click(function(){
+            //     alert("box");
+            // })
+            // $("#inner").click(function(e){
+            //     e.stopPropagation()                 //e.stopPropagation()  阻止冒泡
+            //     alert("inner")
+            // })
+
+
+
+                $("input[type=submit]").click(function(e){
+                    console.log($("input[type=text]").val());
+                    
+                    if($("input[type=text]").val()=="admin"){
+                        // alert("b.html")
+                        // e.preventDefault()
+                        location.href="b.html"              //1 默认action不赋值   2 阻止默认行为
+                        
+                    }else{
+                        e.preventDefault()              //e.preventDefault()   阻止默认行为
+                    }
+                    
+                    // alert(1)
+                })
+
+
+
+           })
+
+
+
+
+       
+    </script>
+</body>
+</html>
