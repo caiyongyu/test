@@ -61,7 +61,7 @@
     <div id="container">
         <div id="top">
             <p class="txt1">8+</p>
-            <p class="txt2">6</p>
+            <p class="txt2">0</p>
         </div>
         <div id="bottom">
             <div id="left">
@@ -100,8 +100,20 @@
                 // $(".txt2").text(t)           //first way
                 
                 if($(".txt2").text().indexOf(".")==-1){
-                    $(".txt2").append($(this).val());
+                    if($(".txt2").text()==0){
+                        // alert(1)
+                        if($(this).val()=="."){
+                            $(".txt2").append($(this).val());
+                        }else{
+                            $(".txt2").text($(this).val())
+                        }
+                        
+                    }else{
+                        $(".txt2").append($(this).val());
+                    }
+                    
                 }
+                
                 else{
                     if($(this).val()!="."){
                         $(".txt2").append($(this).val());
