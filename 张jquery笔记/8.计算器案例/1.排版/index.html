@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     #container{
+         width: 230px;
+         height: 230px;
+         background: rgb(196, 210, 224);
+         margin: 100px auto;
+         /* opacity: 0.2; */
+         padding: 5px;
+     }
+     #top{
+        width: 230px;
+        height: 60px;
+        background: #999999;
+        border-radius: 5px;
+        
+     }
+     #bottom{
+         width: 230px;
+         height: 170px;
+     }
+     #left{
+         width: 150px;
+         height: 160px;
+         float: left;
+     }
+     #left input{
+         width: 40px;
+         height: 40px;
+         margin-top: 3px;
+     }
+     #right{
+         width: 60px;
+         height: 170px;
+         float: right;
+     }
+     #right input{
+         width: 60px;
+         height: 30px;
+         margin-top: 4px;
+     }
+     #top p{
+         line-height: 30px;
+         text-align: right;
+         height: 30px;
+     }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="top">
+            <p class="txt1">8+</p>
+            <p class="txt2">6</p>
+        </div>
+        <div id="bottom">
+            <div id="left">
+                <input type="button" value="7">
+                <input type="button" value="8">
+                <input type="button" value="9">
+                <input type="button" value="4">
+                <input type="button" value="5">
+                <input type="button" value="6">
+                <input type="button" value="1">
+                <input type="button" value="2">
+                <input type="button" value="3">
+                <input type="button" value="c">
+                <input type="button" value="0">
+                <input type="button" value=".">
+            </div>
+            <div id="right">
+                <input type="button" value="+">
+                <input type="button" value="-">
+                <input type="button" value="*">
+                <input type="button" value="/">
+                <input type="button" value="=">
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //1--只能有一个.  2---初始化有个0，再输入除了.都要覆盖
+            var t="";
+            $("#left input").click(function(){
+                // console.log($(this).val())
+                t+=$(this).val();
+                // $(".txt2").text(t)           //first way
+                
+                if($(".txt2").text().indexOf(".")==-1){
+                    $(".txt2").append($(this).val());
+                }
+                else{
+                    if($(this).val()!="."){
+                        $(".txt2").append($(this).val());
+                    }
+                }
+            })
+        
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
