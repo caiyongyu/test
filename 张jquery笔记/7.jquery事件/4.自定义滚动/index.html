@@ -81,7 +81,13 @@
                     else if(_x>=width_L){
                         _x=width_L;
                     }
+                    var bi=_x/width_L;
+                    var tuo=bi*($("#dv2").height()-$("#dv1").height())
+                    //滚动条右拉
                     $("#box2").css("left",_x)
+
+                    //内容上拖
+                    $("#dv2").css("top",-tuo)
                 })
             })
             $(document).mouseup(function(){
