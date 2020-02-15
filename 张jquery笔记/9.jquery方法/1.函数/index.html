@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            //核心函数
+            $("li",$("ul:first")).css("background","red");
+            $("<div>123456</div>").appendTo($("body"))
+            
+            //对象访问
+            console.log($("li").size());        //与.length相同
+            console.log($("li").get(2));
+
+            //数据存储
+            // data("","")     //设置值
+            // data("")
+            
+            
+        
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>

@@ -11,24 +11,16 @@
 </head>
 <body>
     
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
-
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
+    
 
     <script src="jquery1.7.js"></script>
     <script>
         $(function(){
-            //核心函数
-            $("li",$("ul:first")).css("background","red");
-            $("<div>123456</div>").appendTo($("body"))
+            var arr=["a","b","c"];
+            $(arr).each(function(index,val){
+                console.log(index);
+                
+            })
         
         })
 

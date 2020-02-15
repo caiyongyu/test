@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            display: none;
+        }
+        input{
+            /* display: inline; */
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="userName"><span>账号错误</span>
+    <hr>
+    <input type="text" id="userPwd"><span>密码错误</span>
+    <hr>
+    <input type="button" value="登录">
+    
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            $("#userName").blur(function(){
+                if($("#userName").val()!="admin"){
+                    $(this).next().css("display","inline")
+                    $("body").data("num1",0)
+                }else{
+                    $("body").data("num1",1)
+                }
+            })
+
+            $("#userPwd").blur(function(){
+                if($("#userPwd").val()!="123456"){
+                    $(this).next().css("display","inline");
+                    $("body").data("num2",0);
+                }else{
+                    $("body").data("num2",1);
+                }
+            })
+
+            $(":input[type=button]").click(function(){
+                // console.log($("body").data("num1"));
+                var num1=$("body").data("num1");
+                var num2=$("body").data("num2");
+                console.log(num1+num2);
+                
+                if(num1+num2==2){
+                    location.href="aa.html"
+                }
+                
+                
+            })
+        
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
