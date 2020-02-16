@@ -11,16 +11,51 @@
 </head>
 <body>
     
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
     
 
     <script src="jquery1.7.js"></script>
     <script>
         $(function(){
-            var arr=["a","b","c"];
-            $(arr).each(function(index,val){
-                console.log(index);
+            //1---$("").each()
+
+            // var arr=["a","b","c"];
+            // $(arr).each(function(index,val){
+            //     console.log(index);
                 
-            })
+            // })
+            //2---$.each($(""),function(){})
+            // $.each(arr,function(index,val){
+            //     console.log(val);
+                
+            // })
+
+            // $.each($("li"),function(){
+            //     $(this).click(function(){
+            //         console.log(this);
+                    
+            //     })
+            // })
+
+            //指向保留函数
+            // var obj={
+            //     arr:["a","b","c"],
+            //     run:function(){
+            //         $.each(this.arr,$.proxy( function(){             //保留指向
+            //             console.log(this);
+                        
+            //         },this))
+            //     }
+            // }
+            // obj.run()
+
+            var brr=[11,22,44,65,89,101];
+            console.log($.inArray(44,brr));
+             
         
         })
 
