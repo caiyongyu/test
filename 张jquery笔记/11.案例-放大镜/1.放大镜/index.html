@@ -20,7 +20,11 @@
          width: 400px;
          height: 300px;
          float: left;
-         position: relative;
+         /* position: relative; */
+     }
+     #top img{
+        width: 400px;
+         height: 300px;
      }
      #container #min #top b{
          position: absolute;
@@ -40,11 +44,13 @@
          height: 300px;
          float: right;
          overflow: hidden;
-         display: none;
+         position: relative;
      }
      #max img{
          width: 800px;
          height: 600px;
+         display: none;
+         position: absolute;
      }
      #bottom{
          position: absolute;
@@ -97,6 +103,40 @@
     <script>
         $(function(){
             
+            $("#item ul li img").click(function(){
+                // alert($(this).attr("src"));
+                $("#top img").attr("src",$(this).attr("src"));
+                $("#max img").attr("src",$(this).attr("src"));
+                $(this).addClass("active").parent().siblings().find("img").removeClass()
+            })
+
+            $("#top").mousemove(function(e){
+                $("b").show();
+                $("#max img").show();
+                var x=e.pageX-$(this).offset().left-$("b").width()/2;
+                var y=e.pageY-$(this).offset().top-$("b").height()/2;
+                var mx=$(this).width()-$("b").width();
+                var my=$(this).height()-$("b").height();
+                // console.log(x);
+                
+                if(x<0){
+                    x=0;
+                }else if(x>mx){         //角落会出去？？
+                    x=mx;
+                }else if(y<0){
+                    y=0;
+                }else if(y>my){
+                    y=my
+                }
+                $("b").css({
+                    "left":x,
+                    "top":y
+                })
+                $("#max img").css({
+                    "left": -2*x,
+                    "top":-2*y
+                })
+            })
         
         })
 
