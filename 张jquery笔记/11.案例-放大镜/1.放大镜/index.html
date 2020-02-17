@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+         margin: 0;
+         padding: 0;
+     }
+     #container{
+         width: 1000px;
+         height: 500px;
+         margin: 50px auto;
+         position: relative;
+     }
+     #top{
+         width: 400px;
+         height: 300px;
+         float: left;
+         position: relative;
+     }
+     #container #min #top b{
+         position: absolute;
+         width: 150px;
+         height: 150px;
+         left: 0;
+         top: 0;
+         background: blue;
+         opacity: 0.3;
+         display: none;
+     }
+     ul{
+         list-style: none;
+     }
+     #max{
+         width: 400px;
+         height: 300px;
+         float: right;
+         overflow: hidden;
+         display: none;
+     }
+     #max img{
+         width: 800px;
+         height: 600px;
+     }
+     #bottom{
+         position: absolute;
+         left: 0;
+         width: 400px;
+         bottom: 100px;
+     }
+     ul li{
+         float: left;
+         margin: 0 5px;
+     }
+     #left,#right{
+         float: left;
+     }
+     ul li img{
+         width: 60px;
+         height: 45px;
+     }
+     .active{
+         border: 2px solid orange;
+         padding: 2px;
+     }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="min">
+            <div id="top"><img src="images/1.jpg" alt="">
+            <b></b>
+            </div>
+            <div id="bottom">
+                <div id="left"><img src="images/left.gif" alt=""></div>
+                <div id="item">
+                    <ul>
+                        <li><img class="active" src="images/1.jpg" alt=""></li>
+                        <li><img src="images/2.jpg" alt=""></li>
+                        <li><img src="images/3.jpg" alt=""></li>
+                        <li><img src="images/4.jpg" alt=""></li>
+                        <li><img src="images/5.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <div id="right"><img src="images/right.gif" alt=""></div>
+            </div>
+        </div>
+        <div id="max"><img src="images/1.jpg" alt=""></div>
+    </div>
+    
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            
+        
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
