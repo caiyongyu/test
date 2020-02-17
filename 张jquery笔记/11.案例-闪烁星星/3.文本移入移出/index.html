@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      
+    </style>
+</head>
+<body>
+    
+
+   <div title="我是dv1">1111111111</div>            <!-- 自己写title效果 -->
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+            var title;
+           $("div").hover(function(e){
+               title=this.title;            //title要全局
+               this.title="";            //取消默认出title效果
+               $("body").append("<p id='p'>"+title+"</p>")
+                $("#p").css({
+                    "position":"absolute",
+                    "left":e.pageX+3,
+                    "top":e.pageY+3,
+                    // "width":"50px",
+                    "background":"blue"
+                })
+           },function(){
+               this.title=title;
+               $("#p").remove();
+           })
+
+           $("div").mousemove(function(e){
+                $("#p").css({
+                        "position":"absolute",
+                        "left":e.pageX+3,
+                        "top":e.pageY+3,
+                    })
+           })
+
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>

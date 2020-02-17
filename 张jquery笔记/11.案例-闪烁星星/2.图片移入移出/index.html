@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      ul{
+          list-style: none;
+      }
+      ul li img{
+          float: left;
+          width: 300px;
+          height: 250px;
+          margin: 20px;
+      }
+    </style>
+</head>
+<body>
+    
+   <ul>
+       <li><img src="images/1.jpg" alt=""></li>
+       <li><img src="images/2.jpg" alt=""></li>
+       <li><img src="images/3.jpg" alt=""></li>
+       <li><img src="images/4.jpg" alt=""></li>
+   </ul>
+
+    <script src="jquery1.7.js"></script>
+    <script>
+        $(function(){
+           $("ul li").hover(function(e){
+               var iUrl=$(this).find("img").attr("src");
+               $("body").append("<div id='pic'><img src='"+iUrl+"'></div>");
+               $("#pic").css({
+                   "position":"absolute",
+                   "left":e.pageX+10,           //解决闪烁问题，让鼠标不重合
+                   "top":e.pageY+10
+               })
+           },function(){
+                $("#pic").remove()
+           })
+
+           $("ul li").mousemove(function(e){
+                $("#pic").css({
+                    "position":"absolute",
+                    "left":e.pageX+10,
+                    "top":e.pageY+10
+                })
+           })
+
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
