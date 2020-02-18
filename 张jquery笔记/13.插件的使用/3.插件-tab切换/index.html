@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      ul{
+          list-style: none;
+      }
+      #tab1,#tab2{
+          width: 400px;
+          height: 200px;
+          border: 1px solid #ccc;
+          margin: 50px auto;
+      }
+      ul li{
+        width: 198px;
+        height: 80px;
+        border: 1px solid #ccc;
+        float: left;
+        line-height: 80px;
+        text-align: center;
+      }
+      .active{
+          background: orange;
+          opacity: 0.3;
+      }
+      #tab2 ul{
+          width: 400px;
+          height: 60px;
+          text-align: center;
+      }
+      #tab2 ul li{
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          float: left;
+          flex: 1;
+      }
+      .bg{
+          background: #ccc;
+      }
+      .hide{
+          display: none;
+      }
+    </style>
+</head>
+<body>
+   <div id="tab1">
+       <ul>
+           <li class="active">美文</li>
+           <li>美图</li>
+       </ul>
+       <div>
+           <p>美文美文美文美文美文</p>
+           <p class="hide">美图美图美图美图美图</p>
+       </div>
+   </div>
+
+   <div id="tab2">
+    <ul>
+        <li class="bg"></li>
+        <li></li>
+    </ul>
+    <div>
+        <p>圆圈1圆圈1圆圈1</p>
+        <p class="hide">圆圈2圆圈2圆圈2</p>
+    </div>
+</div>
+
+    <script src="jquery1.7.js"></script>
+    <script src="jquery.tab.js"></script>           
+    <script>
+        $(function(){
+           $("#tab1").tab()
+           $("#tab2").tab({
+            "tab":"#tab2",
+            "event":"mouseover",
+            "active":"bg"
+           })
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
