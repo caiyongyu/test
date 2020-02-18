@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      ul{
+          list-style: none;
+          position: absolute;
+          left: 0;
+      }
+      ul li{
+          float: left;
+      }
+      #slider1{
+        width: 800px;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+      }
+      #slider2,#slider3{
+        width: 800px;
+        height: 160px;
+        margin-top: 50px;
+        overflow: hidden;
+        position: relative;
+      }
+    </style>
+</head>
+<body>
+   <div id="slider1">
+       <ul>
+           <li><img src="images/1(1).jpg" alt=""></li>
+           <li><img src="images/2.jpg" alt=""></li>
+           <li><img src="images/3.jpg" alt=""></li>
+           <li><img src="images/4.jpg" alt=""></li>
+       </ul>
+   </div>
+   <div id="slider2">
+    <ul>
+        <li><img src="images/1(1).jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+    </div>
+    <div id="slider3">
+        <ul>
+            <li><img src="images/1(1).jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+        </ul>
+    </div>
+   
+
+    <script src="jquery1.7.js"></script>
+    <script src="jquery.slider.js"></script>           
+    <script>
+        $(function(){
+          $("#slider1").slider()
+          $("#slider2").slider()
+          $("#slider3").slider()
+
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      ul{
+          list-style: none;
+          position: absolute;
+          left: 0;
+      }
+      ul li{
+          float: left;
+      }
+      #slider1{
+        width: 800px;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+      }
+      #slider2,#slider3{
+        width: 800px;
+        height: 160px;
+        margin-top: 50px;
+        overflow: hidden;
+        position: relative;
+      }
+      #box{
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+      }
+      #box span{
+          display: block;
+          float: left;
+          margin-right: 10px;
+          line-height: 30px;
+          text-align: center;
+          width: 30px;
+          height: 30px;
+          background: #ccc;
+          opacity: 0.5;
+          color: #fff;
+      }
+      #box .active{
+          background: rgb(66, 36, 199);
+          opacity: 1;
+      }
+      .left{
+          position: absolute;
+          top: 37px;
+          left: 10px;
+          width: 56px;
+          height: 87px;
+          background: url('images/left-arrow(1).png');
+      }
+      .right{
+          position: absolute;
+          top: 37px;
+          right: 10px;
+          width: 56px;
+          height: 87px;
+          background: url('images/right-arrow.png');
+      }
+    </style>
+</head>
+<body>
+   <div id="slider1">
+       <ul>
+           <li><img src="images/1(1).jpg" alt=""></li>
+           <li><img src="images/2.jpg" alt=""></li>
+           <li><img src="images/3.jpg" alt=""></li>
+           <li><img src="images/4.jpg" alt=""></li>
+       </ul>
+   </div>
+   <div id="slider2">
+    <ul>
+        <li><img src="images/1(1).jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+    </div>
+    <div id="slider3">
+        <ul>
+            <li><img src="images/1(1).jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+        </ul>
+    </div>
+   
+
+    <script src="jquery1.7.js"></script>
+    <script src="jquery.slider.js"></script>           
+    <script>
+        $(function(){
+          $("#slider1").slider()
+          $("#slider2").slider({
+            // "speed":120000,
+            "autoSlider":true,
+            "numControl":true
+          })
+          $("#slider3").slider({
+              "btnControl":true
+          })
+
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>
