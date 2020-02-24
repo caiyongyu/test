@@ -1,0 +1,19 @@
+$bg:red;
+@function fn($w:100px){
+    @return $w+10;
+}
+body{
+    width: 300px+10;
+    height: fn();
+    background: $bg;
+    border :{
+        top:1px solid #ccc;
+        bottom:2px solid #333;
+    }
+}
+
+// sass    
+// #dv1
+//     width:300px
+//     height:200px
+// 工具编译，文件夹名不可为中文，会出错
