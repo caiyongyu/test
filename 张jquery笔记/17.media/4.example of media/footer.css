@@ -1,0 +1,31 @@
+footer ul{
+    padding: 50px 0;
+    display: flex;
+}
+footer ul li{
+    /* flex: 1; */                     /* 加了就不能按照百分比分配了*/
+    /* display: inline-block; */
+    /* justify-content: center;
+    align-items: center; */
+    /* background: red; */
+    width: 25%;
+}
+footer ul li img{
+    display: block;
+    /* width: 100%; */
+    margin: 0 auto;
+}
+@media only screen and (max-width: 996px){
+    footer ul{
+        flex-wrap: wrap;
+    }
+    footer ul li{
+        margin-top: 20px;
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 768px){
+    footer ul li{
+        width: 100%;
+    }
+}
