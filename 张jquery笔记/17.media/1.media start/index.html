@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height: 100px;
+            background: red;
+        }
+        @media only screen and (max-width: 600px){
+            #box{
+                background: blue;
+            }
+        }
+        @media only screen and (min-width: 600px) and (max-width: 900px) {
+            #box{
+                background: orange;
+            }
+        }
+        /* @media 可以排除不支持媒体查询的浏览器 设备类型 */
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@bg:blue;
+.fn(@bg){
+    background: @bg;
+};
+.fn2(@w:50px){
+    @return @w;
+}
+#box{
+    width: 300px+50;                //+ - * /
+    height: 300px;
+    // background: @bg;
+    .fn(@bg)
+}
+ul{
+    list-style: none;
+    li{
+        background: @bg;
+        span{
+            color:orange;
+        }
+    }
+}
+#dv1{
+    width: 200px;
+    height: 200px;
+    background: @bg;
+    &:hover{
+        font-size: 30px;
+    }
+}

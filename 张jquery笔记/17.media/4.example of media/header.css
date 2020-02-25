@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    padding: 20px 0;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+}
+ul{
+    list-style: none;
+    text-align: right;
+    line-height: 30px;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    /* display: inline; */
+}
+.logo{
+    float: left;
+    /* display: inline-block; */
+    line-height: 30px;
+}
+ul li{
+    display: inline-block;
+    margin: 0 20px;
+    display: inline-block;
+   
+}
+.logo::before{
+    content: "T";
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: rgb(75, 218, 158);
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.row-width{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@media only screen and (min-width: 768px){
+    
+    nav{
+        max-width: 768px;
+    }
+    
+    
+}
+
+@media only screen and (min-width: 996px){
+    nav{
+        max-width: 996px;
+    }
+    
+    
+}
+
+@media only screen and (max-width: 768px){
+    .logo{
+        margin-left: 20px;
+    }
+    ul{
+        display: none;
+    }
+}

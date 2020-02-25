@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            background: #000;
+            color: #fff;
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            line-height: 100px;
+        }
+        ul li{
+            display: inline-block;
+            margin: 0 30px;
+        }
+        @media only screen and (max-width: 700px){
+            nav{
+                text-align: left;
+            }
+            ul li+li{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>首页</li>
+            <li>详情</li>
+            <li>二维码</li>
+            <li>购物车</li>
+            <li>登录/注册</li>
+        </ul>
+    </nav>
+</body>
+</html>
