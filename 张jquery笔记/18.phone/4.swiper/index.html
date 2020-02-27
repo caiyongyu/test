@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <link rel="stylesheet" href="swiper.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        header,footer{
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #ccc;
+        }
+        section{
+            flex: 1;
+            /* height: 300px;
+            width: 100vw;
+            overflow: hidden; */
+        }
+        /* 一般网页为防止网速卡顿出现掉块，可以这么处理 */
+        .swiper-wrapper{
+            width: 100%;
+            height: 0;
+            background: #333;
+            padding-bottom: 50%;
+        }
+        section img{
+            width: 100%;
+            /* height: 100%; */
+            /* height: 300px */
+        }
+        .swiper-pagination-bullet-active{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>头部</header>
+        <section>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                      <img src="img/1.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/2.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="img/3.jpg" alt="">
+                  </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+              </div>
+        </section>
+        <footer>尾部</footer>
+    </div>
+
+    <script src="swiper.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,//可选选项，自动滑动
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    </script>
+</body>
+</html>

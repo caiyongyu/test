@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">I am box</div>
+    <script src="zepto.min.js"></script>
+    <script src="touch.js"></script>
+    <script>
+        $(function(){
+            $("#box").css("background","red");
+            // $("#box").click(function(){
+            //     console.log(1);
+                
+            // })
+
+            $("#box").tap(function(){
+                console.log(2);
+                
+            })
+            $(document).on("swipeLeft",function(){
+                console.log("向左滑动");
+                
+            })
+            // $(document).slideDown(function(){
+            //     console.log("向下滑动");
+                
+            // })
+            
+        })
+    </script>
+</body>
+</html>

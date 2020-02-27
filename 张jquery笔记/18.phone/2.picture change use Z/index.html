@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            /* width: 100vw;
+            height: 100vh;  */
+             overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            transition: all 1s;
+        }
+        ul li{
+            float: left;
+            width: 100vw;
+            height: 100vh;
+            
+        }
+        ul li img{
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+        </ul>
+    </div>
+    
+    <script src="zepto.min.js"></script>
+    <script src="touch.js"></script>
+    <script src="fx.js"></script>
+    <script>
+        $(function(){
+            var width=$("li").first().width();
+            var len=$("li").length;
+            var index=0;
+            $("ul").width(len*width);
+            $(document).on("swipeLeft",function(){
+                // console.log(1);
+                index++;
+                if(index==len){
+                    index=0;
+                }
+                $("ul").animate({
+                    transform: "translateX(-"+index*width+"px)"
+                })
+                
+            })
+
+            $(document).on("swipeRight",function(){
+                // console.log(1);
+                index--;
+                if(index<0){
+                    index=len-1;
+                }
+                $("ul").animate({
+                    transform: "translateX(-"+index*width+"px)"
+                })
+                
+            })
+            // $(document).swipeLeft(function(){
+            //     console.log(1);
+                
+                
+            // })
+        })
+    </script>
+</body>
+</html>

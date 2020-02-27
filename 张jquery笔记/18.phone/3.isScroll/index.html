@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        header,footer{
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            background: #ccc;
+            
+        }
+        #container{
+            flex: 1;
+            
+            overflow: hidden;
+            position: relative;
+        }
+        .new{
+            width: 100%;
+            height: 100%;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+        }
+        ul li{
+            height: 80px;
+            margin: 10px;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <header>头部</header>
+        <div id="container">
+            <div class="new">
+                <ul>
+                    <li>周一围这一举动维护朱丹</li>
+                    <li> 欧阳娜娜生图美腿超纤细</li>
+                    <li>曝《花木兰》试映后剪掉吻戏</li>
+                    <li>美人时光机：她与老公屡传离婚</li>
+                    <li> 图:钟丽缇竟然这么美 "麻辣鸡"</li>
+                    <li>欧冠-10人皇马遭逆1-2曼城</li>
+                    <li>曼城8分钟狂飙打蒙皇马</li>
+                    <li>莎娃宣布退役 因科比离世做退役决定</li>
+                </ul>
+            </div>
+            
+        </div>
+        <footer>尾部</footer>
+    </div>
+
+    <script src="iscroll.js"></script>
+    <script>
+        new IScroll(".new",{
+            scrollbars: true,
+            fadeScrollbars:true,
+            click:true 
+            // mouseWheel:true
+            // interactiveScrollbars
+        })
+    </script>
+    
+</body>
+</html>
