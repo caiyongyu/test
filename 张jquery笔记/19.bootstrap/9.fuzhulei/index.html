@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .f{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .bot{
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+        .c{
+            background: url('2.jpg');
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 背景颜色 居中效果要加width属性 -->
+    <div class="bg-success center-block" style="width:100px">I am a div</div>           
+
+    <!-- 关闭按钮 三角符号-->
+    <button type="button" class="close">
+        <span>&times;</span>
+    </button>
+    <span class="caret"></span>
+
+    <div class="clearfix">
+        <div class="f pull-left"></div>
+        <div class="f pull-right"></div>
+        
+    </div>
+    <div class="bot hidden"></div>
+
+
+    <!-- 将文字内容替换成背景图 -->
+    <div class="c text-hide">tedxt-hide</div>
+    
+
+    <script src="js/jquery1.7.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
