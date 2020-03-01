@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       
+    </style>
+</head>
+<body>
+   <!-- 列偏移 -->
+   <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-lg-4">1</div>
+            <div class="col-lg-4 col-lg-offset-4">2</div>
+        </div>
+   </div>
+
+   <!-- 列嵌套 -->
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-lg-9">1
+                <div class="row">
+                    <div class="col-lg-6">A</div>
+                    <div class="col-lg-6">B</div>
+                </div>
+           </div>
+           
+       </div>
+   </div>
+
+   <div class="container-fluid">
+       <div class="row">
+           <!-- push:    left:3/12 -->
+           <div class="col-md-9 col-md-push-3">占据9格</div>
+           <!-- pull   right:9/12 -->
+           <div class="col-md-3 col-md-pull-9">占据3格</div>
+       </div>
+   </div>
+   
+    
+
+    <script src="js/jquery1.7.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
