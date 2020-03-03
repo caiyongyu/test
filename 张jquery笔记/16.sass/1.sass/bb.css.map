@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,IAAI,CACA,KAAK,CAAE,KAAQ,CACf,MAAM,CAAE,KAAI,CACZ,UAAU,CAPV,GAAG,CASC,UAAG,CAAC,cAAc,CAClB,aAAM,CAAC,cAAc",
+"sources": ["styles.scss"],
+"names": [],
+"file": "bb.css"
+}

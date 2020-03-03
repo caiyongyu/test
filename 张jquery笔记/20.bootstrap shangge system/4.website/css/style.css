@@ -1,0 +1,122 @@
+.ad{
+    background: url('../img/chicago_large.jpg') no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+.ad>div{
+    padding: 30px 0 200px;
+}
+.ad a{
+    padding: 10px 70px;
+    color: rgb(119, 149, 248);
+}
+.ad p{
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    line-height: 40px;
+}
+.ad span{
+    width: 150px;
+    height: 1px;
+    border-top: 1px solid #fff;
+    display: inline-block;
+    
+}
+.right-p{
+    background: rgb(244, 243, 244);
+    /* color: #fff; */
+    padding: 100px 0;
+}
+.right-p span{
+    width: 70px;
+    height: 1px;
+    border-top: 1px solid #fff;
+    display: inline-block;
+}
+.right-p h1{
+    padding-bottom: 20px;
+}
+.right-p p{
+    line-height: 40px;
+}
+.right-p a{
+    padding: 10px 70px;
+    color: #fff;
+    background: rgb(62, 207, 142);
+}
+
+@media only screen and (max-width:996px){
+    .right-p img{
+        padding-top: 30px;
+    }
+}
+
+
+.left-p{
+    /* background: rgb(244, 243, 244); */
+    /* color: #fff; */
+    padding: 100px 0;
+}
+.left-p span{
+    width: 70px;
+    height: 1px;
+    border-top: 1px solid #ccc;
+    display: inline-block;
+}
+.left-p h1{
+    padding-bottom: 20px;
+}
+.left-p p{
+    line-height: 40px;
+}
+.left-p a{
+    padding: 10px 70px;
+    color: #fff;
+    background: rgb(62, 207, 142);
+}
+
+
+.four-fonts{
+    padding: 40px;
+}
+.four-fonts span{
+    width: 70px;
+    height: 1px;
+    border-top: 1px solid #ccc;
+    display: inline-block;
+}
+.four-fonts .font{
+    padding-top: 30px;
+}
+
+.last-text{
+    background: rgb(244, 243, 244);
+    padding: 20px;
+}
+.last-text a{
+    margin-top: 30px;
+    padding: 10px 70px;
+    color: rgb(119, 149, 248);
+    /* background: rgb(62, 207, 142); */
+}
+
+footer{
+    color: #fff;
+    background: #000;
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+footer .row{
+    flex-wrap: nowrap;
+}
+body footer a{
+    white-space: nowrap;
+    
+}
+/* .T-left{ */
+    /* text-decoration: none; */
+    /* flex: 1; */
+/* } */
