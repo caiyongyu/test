@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            /* 由em（相对父类引出）相当于100px  谷歌浏览器默认16px，最小12px，防止在移动端受最小12px影响*/
+            font-size: 625%;    
+        }
+        div{
+            /* 相对于根（html） 用得最多*/
+            font-size: .3rem;
+        }
+        div{
+            background: red;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div>
+        我是div
+        <p>我是p标记</p>
+    </div>
+</body>
+</html>

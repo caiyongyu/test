@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.wrap{
+		width: 80%;
+		height: 500px;
+		margin:0 auto;
+	}
+	.left{
+		float: left;
+		width: 200px;
+		height: 100%;
+		background: pink;
+	}
+	.main{
+		height: 100%;
+		margin: 0 auto;
+		background: red;
+		/*不设置宽度，左右两边设置宽度*/
+	}
+	.right{
+		float: right;
+		width: 200px;
+		height: 100%;
+		background: pink;
+	}
+	/*注意：如果父级不设置高度，三个子集都采用浮动并设置高度，就
+	会造成父级高度塌陷，需要清除浮动父级才有高度，上面这种方法推荐，
+    但需注意的是不加浮动的标签需要放在两个浮动标签的下面才行！！！
+    类似不加浮动的标签和样式同级中只能存在一个(不加浮动，不加宽度，居中，标签最下面)，
+    其他的都要需要加浮动，两个的话就会掉下去了
+	*/
+</style>
+<body>
+	<div class="wrap">
+		<section class="left"></section>
+		<section class="right"></section>
+		<!-- 中间内容需要放在第三位 -->
+		<aside class="main">1232323</aside>
+        <!-- 有四块的话还是ul li布局吧 -->
+	</div>
+</body>
+</html>

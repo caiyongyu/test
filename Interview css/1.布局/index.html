@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+	.wrap{
+		margin: 0 auto;
+		width: 1200px;
+	}
+	#left{/*左边宽度固定*/
+		width: 200px;
+		height: 500px;
+		background: pink;
+		float: left;
+	}
+	#right{
+		height: 500px;
+		background: red;
+		margin-left: 200px;
+	}
+	/*两栏和两栏以上外面需要加父级，
+		其中不管几栏布局，其中只能有一个设置居中，
+		且不设置宽度，其他的都要加浮动
+	*/
+</style>
+</head>
+<body>
+    <div class="wrap">
+		<aside id="left">l</aside>
+		<section id="right">r</section><!--第二个不需要加浮动-->
+	</div>
+
+</body>
+</html>

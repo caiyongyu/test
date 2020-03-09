@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #text{
+            width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        } */
+        /* #text{
+            width: 100px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        } */
+        #text{
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text">的访问发热体杜莎夫人访谈人人范德萨发放让他人员途研究院和格式的方式</div>
+    <script src="clamp.js"></script>
+    <script>
+        var module = document.getElementById("text");
+        $clamp(module,{clamp:4})
+// $clamp(module, {clamp: 3});
+    </script>
+</body>
+</html>

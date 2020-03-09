@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class rootTree{
+            constructor(val){
+                this.key=val;
+                this.left=undefined;
+                this.right=undefined;
+            }
+        }
+
+        class BirTree{
+            constructor(arr){
+                this.root=undefined;
+                arr.forEach(item => {
+                    this.insert(item);
+                });
+            }
+            insert(item){
+                if(!this.root){
+                    this.root=new rootTree(item);           //给根节点赋值,赋一个节点
+                }else{
+                    this.insertNum(this.root,item);             //根节点往下开始构建二叉树
+                }
+            }
+            insertNum(Node,item){
+                if(Node.key<item){                         //  用 根 节点的value去比较
+                    if(!Node.right){
+                        Node.right=new rootTree(item);
+                    }else{
+                        this.insertNum(Node.right,item);        //右节点不空，右节点值做根节点继续
+                    }
+                }else{
+                    if(!Node.left){
+                        Node.left=new rootTree(item);
+                    }else{
+                        this.insertNum(Node.left,item);
+                    }
+                }
+            }
+        }
+
+        function hasPathSum(root,sum){
+            if(!root) return false;
+            var num=sum-root.key;
+            if(!root.left&&!root.right&&num==0) return true;
+            if(!root.left) return hasPathSum(root.right,num);
+            if(!root.right) return hasPathSum(root.left,num);
+            return hasPathSum(root.left,num)||hasPathSum(root.right,num);
+        }
+
+        let bt=new BirTree([6,2,4,8,9]);
+        console.log(hasPathSum(bt.root,12));
+        
+        // console.log(bt.root.key);
+        
+    </script>
+</body>
+</html>

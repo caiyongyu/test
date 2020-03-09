@@ -31,23 +31,25 @@
                 }
             }
             insertNum(Node,item){
-                if(!Node.key<item){                         //  用 根 节点的value去比较
+                if(Node.key<item){                         //  用 根 节点的value去比较
                     if(!Node.right){
                         Node.right=new rootTree(item);
                     }else{
-                        insertNum(Node.right,item);
+                        this.insertNum(Node.right,item);
                     }
                 }else{
                     if(!Node.left){
-                        Node.right=new rootTree(item);
+                        Node.left=new rootTree(item);
                     }else{
-                        insertNum(Node.left,item);
+                        this.insertNum(Node.left,item);
                     }
                 }
             }
         }
 
-        console.log(BirTree([6,2,4,8,9]));
+        let bt=new BirTree([6,2,4,8,9]);
+
+        console.log(bt);
         
     </script>
 </body>
