@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str='aabbcccc';
+        function FindMaxNumberString(str){
+            var obj={};
+            for(var i=0;i<str.length;i++){
+                var chart=str.charAt(i);
+                if(obj[chart]){
+                    obj[chart]++;
+                }else{
+                    obj[chart]=1;
+                }
+            }
+            // console.log(obj);
+
+            var max=0;
+            var maxchart='';
+            for(var k in obj){
+                if(obj[k]>max){
+                    max=obj[k];
+                    maxchart=k;
+                }
+            }
+            console.log('maxnumber='+max,'maxchart='+maxchart);
+            
+            
+        }
+        FindMaxNumberString(str);
+    </script>
+</body>
+</html>

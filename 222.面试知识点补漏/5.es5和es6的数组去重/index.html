@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es5
+        //利用对象的性质
+        // var obj={
+        //     5:3,
+        //     "5":6
+        // }
+        // console.log(obj);           //只有6
+
+
+        function unique(arr){
+            var a=[];
+            var brr={};
+            for(var i=0;i<arr.length;i++){
+
+                if(!brr[arr[i]]){
+                    brr[arr[i]]=true;
+                    a.push(arr[i]);
+                }
+            }
+            return a;
+        }
+        var arr=[2,"2",4,6,2,"4"];
+        console.log(unique(arr));
+
+
+        //es6     new Set()   但如5  和  "5"不会去重
+        var crr=new Set(arr);
+        console.log(crr);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         题目：
+// 给你一根长度为n的绳子，请把绳子剪成m段(m、n都是整数，n>1并且m>1)
+// 要求：
+// 每段绳子的长度的最大乘积是多少？
+        //动态规划   f(n)=max(f(n-i)*i)   i   1~n-1
+        function jian(n){
+            if(n==2) return 2;
+            if(n==3) return 3;
+            var maxProduct=[0,1,2,3];
+            var max=0;
+            for(var i=4;i<=n;i++){              //确定maxProduct的第i个数据
+                max=0;
+                for(var j=1;j<i;j++){           //因为j最大为i-1
+                    if(maxProduct[i-j]*j>max){
+                        max=maxProduct[i-j]*j;
+                    }
+                }
+                maxProduct[i]=max;
+            }
+            return maxProduct.pop();
+        }
+        console.log(jian(6));
+        
+    </script>
+</body>
+</html>

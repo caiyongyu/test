@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var BirTree={
+            val:1,
+            left:{
+                val:2,
+                left:null,
+                right:null
+            },
+            right:{
+                val:3,
+                left:null,
+                right:null
+            }
+        }
+        function PathSum(root,sum=0){
+            if(!root) return 0;
+            sum+=root.val;              //假设  2  1  3，先每条路径都先把1加上  再考虑只有一个根的情况
+            if(!root.left&&!root.right) return sum;
+            // sum=sum+root.val;
+            return PathSum(root.right,sum)+PathSum(root.left,sum);
+
+        }
+        console.log(PathSum(BirTree,0));
+        
+    </script>
+</body>
+</html>

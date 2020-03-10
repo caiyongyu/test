@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fibonaxi(n){
+            var f=0;
+            var temp=1;
+            while(n--){
+                temp+=f;
+                f=temp-f;
+            }
+            return f;
+        }
+        function myFn(n){
+            var f=1,
+            temp=1;
+            while(--n){
+                temp+=f;
+                f=temp-f;
+            }
+            return f;
+        }
+        console.log(fibonaxi(4));
+        console.log(myFn(4));
+        
+        
+    </script>
+</body>
+</html>

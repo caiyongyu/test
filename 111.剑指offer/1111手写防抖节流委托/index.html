@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">防抖</button>
+    <script type="text/javascript">
+        //防止一定时间内事件频繁触发，频繁触发定时器重新计时，最后一次执行
+       window.onload=function(){
+        var btn=document.getElementById("btn");
+            btn.addEventListener("click",Nosham(outPut))
+            // btn.onclick=function(){
+            //     Nosham(outPut)()
+                
+            // }
+       }
+           
+                
+        
+        // function Nosham(fn){
+        //     let timer=null;
+        //     return function(){
+        //         clearTimeout(timer);
+
+        //         timer=setTimeout(()=>{
+        //             // fn.call(this,arguments);
+        //             console.log("防抖");
+                    
+        //         },1000)
+        //     }
+        // }
+        // function outPut(){
+        //     console.log("防抖成功");
+            
+        // }
+
+
+
+        function Nosham(fn){
+            let timer=null;
+            return function(){
+                clearTimeout(timer);
+
+                if(!timer) fn.call(this,arguments);                 //2s钟后，timer=null，可立即执行
+                timer=setTimeout(()=>{
+                    timer=null;                 //2s内不再触发，时间到后timer=null
+                },2000)
+            }
+        }
+        function outPut(){
+            console.log("立即执行防抖成功");                
+            
+        }
+    </script>
+</body>
+</html>

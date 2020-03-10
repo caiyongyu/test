@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="1.png" alt="" id="img">
+    <script>
+        var obj1={};
+        var obj2=new Object();
+        function fn(){
+
+        }
+        var obj3=new fn();
+        var obj4=Object.create(Array.prototype);
+        console.log(obj1,obj2,obj3,obj4);
+
+
+        var timer=setInterval(function(){
+            if(img.complete){
+                clearInterval(timer);
+                alert("img onload funish");
+            }
+        },10)
+        
+    </script>
+</body>
+</html>

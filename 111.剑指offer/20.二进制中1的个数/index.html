@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //通过左移比较的值，避免因为负数进入死循环
+        //左移运算符    <<1  二进制全部左移一位，后面补0.超过32位才移出去
+        //右移运算符   >>1   ~~~~~`~   ,左边补符号位。（正数补0）
+       
+
+        function numberOne(n){
+            let count=0;
+            while(n!=0){
+                ++count;
+                n=(n-1)&n;
+            }
+            return count;
+        }
+        console.log(numberOne(7));
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>

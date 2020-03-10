@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function huiwen(s){
+            // var s=new String();
+            // var s="aaaa";
+            var str1=s.toUpperCase().replace(/\W/g,'');         //\w是匹配数字字母下划线，、W与之相反
+            // console.log(str1);
+            var str2=str1.split('').reverse().join('');
+            return str1==str2;
+            
+            
+            
+            
+        }
+        console.log(huiwen("abba"));
+         
+    </script>
+</body>
+</html>

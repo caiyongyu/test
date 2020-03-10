@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //一条长街相邻两家只能打劫一家，否则会警报，求能打劫的最大值
+        function fn(nums){
+            var len=nums.length;
+            var res=[nums[0],Math.max(nums[0],nums[1])];
+            for(var i=2;i<len;i++){
+                res[i]=Math.max(res[i-2]+nums[i],res[i-1]);         //打劫第i家  或者不打劫第i家
+            }
+            return res[len-1];
+        }
+        console.log(fn([1,4,2,6,10]));
+        
+    </script>
+</body>
+</html>

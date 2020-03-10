@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1={
+            name:"aa"
+        }
+        var obj2=obj1;
+        obj2.name="bb";
+        console.log(obj1.name,obj2.name);
+        
+
+
+
+        //2  构造函数与原型的优先级
+        function fn(){
+            // this.name="张三";
+            // this.run=function(){
+            //     return 111;
+            // }
+        }
+        fn.prototype.name="李四";
+        fn.prototype.run=function(){
+            return 222;
+        }
+        var obj=new fn()
+        console.log(obj.name,obj.run());
+        //先找改造，再找原型
+
+
+        //0.1+0.2问题   js没有浮点型  先转为二进制保留小数点，再转为十进制
+        console.log(0.1+0.2);
+        
+        
+    </script>
+</body>
+</html>

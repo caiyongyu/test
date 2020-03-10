@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p>last</p>
+    </div>
+    <script>
+        //添加      appendChild
+        //移除      removeChild
+        //替换      replaceChild
+        //插入      insertBefore            也是移动
+        //复制      .cloneNode(true)
+        //新建      document.createElement
+        var p=document.createElement('p');
+        p.innerHTML='ppp';
+        box.appendChild(p);
+        box.insertBefore(p,box.childNodes[0])
+    </script>
+</body>
+</html>

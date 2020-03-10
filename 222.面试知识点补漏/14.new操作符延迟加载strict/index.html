@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            this.name="A";
+        }
+        fn.prototype.run=function(){
+            return 'run';
+        }
+        var obj=new fn();
+        console.log(obj.name,obj.run());
+        //new操作符做了什么？
+        //1.创建对象
+        //2.赋值操作  (给与属性和方法)obj.__proto__=fn.prototype
+        //3.this指向问题  fn.call(obj)
+
+
+        
+        
+    </script>
+    <!-- js延迟加载 -->
+    <!-- <script src="a.js" async></script>
+    <script src="b.js" defer="defer"></script> -->
+
+
+    <!-- 'use strict'        可在函数中，也可在外部   解决js的一些怪癖行为-->
+    <!-- 好处：使代码更严谨（如arguments不能再赋值，变量不能重复定义）   压缩的代码更小 -->
+    <!-- 坏处：出现错误，阻塞后面代码的运行    压缩可能出现错误 -->
+
+</body>
+</html>

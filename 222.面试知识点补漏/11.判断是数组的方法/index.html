@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3];
+        // function isArray(arr){
+        //     if(arr instanceof Array){
+        //         return 'yes'
+        //     }
+        // }
+        // console.log(isArray({}));
+        
+        
+        function isArray(arr){
+            if(arr.__proto__.constructor===Array){
+                return 'y';
+            }
+        }
+        console.log(isArray(arr));
+        
+        
+    </script>
+</body>
+</html>

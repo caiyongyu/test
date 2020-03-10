@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Find(arr,target){
+            // 1  2  3
+            // 4  5  6
+            var o_len=arr.length;
+            var col_len=arr[0].length;
+            var row=o_len-1;
+            var col=0;
+            if(o_len==0&&col_len==0) return false;
+            while(row>=0&&col<=col_len-1){
+                if(arr[row][col]<target){
+                    col++;
+                }else if(arr[row][col]>target){
+                    row--;
+                }else{
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(Find([[1,2,3],[4,5,6]],7));
+        
+    </script>
+</body>
+</html>

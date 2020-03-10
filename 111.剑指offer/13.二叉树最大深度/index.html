@@ -47,16 +47,16 @@
             }
         }
 
-        function minDepth(root){
+        function maxDepth(root){
             if(!root) return 0;
             if(!root.left&&!root.right) return 1;
-            if(!root.left) return minDepth(root.right)+1;
-            if(!root.right) return minDepth(root.left)+1;
-            return Math.min(minDepth(root.left),minDepth(root.right))+1;        //两个代表：1 4     2 1 4
+            if(!root.left) return maxDepth(root.right)+1;
+            if(!root.right) return maxDepth(root.left)+1;
+            return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
         }
 
-        let bt=new BirTree([6,2,4,8,9]);
-        console.log(minDepth(bt.root));
+        let bt=new BirTree([2,4,6,3]);
+        console.log(maxDepth(bt.root));
         
         // console.log(hasPathSum(bt.root,12));
         

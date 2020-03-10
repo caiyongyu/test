@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function kong(s){
+            return s.replace(/\s/g, '');
+        }
+
+        function replaceSpace(str){
+            var res="",len=str.length;
+            for(var i=0;i<len;i++){
+                if(str[i]===" "){
+                    res+="%20";
+                }else{
+                    res+=str[i];
+                }
+            }
+            return res;
+        }
+        // console.log(kong('aaa bbb'));
+        console.log(replaceSpace('we are goods.'));
+        
+        
+    </script>
+</body>
+</html>
