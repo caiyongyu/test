@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(a,b){
+        //     console.log(a,b);
+            
+        //     [a,b]=[b,a];
+        //     fn(a,b);
+        //     console.log('aaa');
+            
+        // }
+        // fn(1000,2000)
+
+
+
+        function fn(str){
+            if(!str){
+                return str;
+            }else{
+                var result=[];
+                let arr=str.split('');
+                fn2(arr,0,result);
+                return [...new Set(result)].sort((a,b)=>a-b);
+            }
+        }
+        function fn2(arr,index,result){
+            if(index==arr.length){
+                result.push(arr.join(''));
+            }else{
+                for(var i=index;i<arr.length;i++){
+                    [arr[i],arr[index]]=[arr[index],arr[i]];
+                    fn2(arr,index+1,result);                        //不能index++
+                    [arr[i],arr[index]]=[arr[index],arr[i]];        //不可少
+                }
+            }
+        }
+
+    console.log(fn('abc'));
+    </script>
+</body>
+</html>

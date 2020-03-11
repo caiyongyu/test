@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //就有一个数字超过一半，只是找出来
+        // function moreThanHalfNumber(arr){
+        //     var obj={};
+        //     for(var i=0;i<arr.length;i++){
+        //         if(obj[arr[i]]){
+        //             obj[arr[i]]++;
+        //         }else{
+        //             obj[arr[i]]=1;
+        //         }
+        //     }
+        //     for(var k in obj){
+        //         if(obj[k]>Math.floor(arr.length/2)){
+        //             return obj[k];
+        //         }
+        //     }
+        //     return 'null';
+        // }
+
+
+
+        
+        // console.log(moreThanHalfNumber([2,2,3,3,7]));
+
+
+
+
+
+            //2  暴力法，求中间值
+
+            // function fn(arr){
+            //     arr.sort((a,b)=>a-b);
+            //     var center=Math.floor(arr.length/2)+1;
+            //     return arr[center];
+            // }
+
+
+            // console.log(fn([3,2,2,3,3]));
+
+
+
+            //3   保留两个值，初始数和个数为1；
+            //当count=0时，以当前值为基准，并设置count=1;
+
+            function fn(arr){
+                var len=arr.length;
+                if(len<=0){
+                    return 0;
+                }
+                var num=arr[0];
+                var count=1;
+                for(var i=1;i<len;i++){
+                    if(arr[i]==num){
+                        count++;
+                    }else{
+                        count--;
+                    }
+                    if(count==0&&i!=len-1){
+                        num=arr[i];
+                        count=1;
+                    }
+                }
+                if(count==0){
+                    return 0;
+                }else{
+                    return num;
+                }
+            }
+            console.log(fn([2,2,3,3,4]));
+            
+
+            
+        
+        
+    </script>
+</body>
+</html>

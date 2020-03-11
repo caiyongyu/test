@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加</button>
+    <ul id="ul">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        //也叫事件代理，自已不做，绑定父类。后添加的节点事件也起效
+        var oLi=document.getElementsByTagName("li");
+        // for(var i=0;i<oLi.length;i++){
+        //     oLi[i].onclick=function(){
+        //         this.style.background='red'
+        //     }
+        // }
+        ul.onclick=function(e){
+            var tar=e.target||e.srcElement;
+            tar.style.background='blue'
+        }
+        btn.onclick=function(){
+            var li=document.createElement('li')
+            var index=oLi.length;
+            li.innerHTML=index;
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //把arguments对象转换为数组   es6的方法
+        function  fn(){
+            console.log(Array.from( arguments));
+            
+        }
+        fn(1,2,3)
+
+
+
+
+        // var arr=[1,2,2,4,6,4,8];
+        // Array.prototype.unique=function(){
+        //     var a=[];
+        //     var brr={};
+        //     for(var i=0;i<this.length;i++){
+
+        //         if(!brr[this[i]]){
+        //             brr[this[i]]=true;
+        //             a.push(this[i]);
+        //         }
+        //     }
+        //     return a;
+        // }
+        // console.log(arr.unique());
+    </script>
+</body>
+</html>

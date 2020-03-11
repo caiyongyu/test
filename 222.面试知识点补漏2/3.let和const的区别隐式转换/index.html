@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const必须赋值
+        // const a;
+        // console.log(a);
+        
+
+        //const定义常量，地址每个不同，不能像let引用同一个地址
+        // let arr=[1,2,3];
+        // arr=[4,5,6];
+        // console.log(arr);
+        
+
+        // const arr=[1,2,3];
+        // arr=[4,5,6];
+        // console.log(arr);
+
+
+
+
+//显示转换：人为的去改变数据的类型，又叫强制转换
+//隐式转换：在js中，当运算符在运算时，如果两边数据不统一，编译器会自动将运算符两边的数据做一个数据类型转换，转成一样的数据类型再计算
+console.log(true+1);        //2
+console.log('aa'+true);     //'aatrue'          字符串很强，任何类型与之运算都会变成字符型
+console.log(undefined+1);       //'NaN'
+console.log(typeof null);       //object
+
+
+
+
+    </script>
+</body>
+</html>
