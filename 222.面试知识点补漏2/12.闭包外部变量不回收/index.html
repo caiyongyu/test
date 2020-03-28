@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //闭包抛出内部函数，第一次bibao(),就初始化了a，后面都不回收（不会再初始化），一直累加
+        // function bibao(){
+        //     var a=10;
+        //     return function(){
+        //         a++;
+        //         console.log(a);
+                
+        //     }
+        // }
+        // var fn=bibao();
+        // fn();
+        // fn();
+        // fn();
+
+
+
+            //2
+        var f= (function bibao(){
+            var a=10;
+            return function(){
+                a++;
+                console.log(a);
+                
+            }
+        })();
+        f();
+        f();
+        f();
+        f();
+    </script>
+</body>
+</html>

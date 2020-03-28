@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组的解构赋值
+        // let [a,b,c=true]=[1,2];
+        // console.log(a,b,c);
+        
+
+        //对象
+        // let {a,b,c=true}={a:1,b:2};
+        // console.log(a,b,c);
+        // let {foo:aaa}={foo:123};
+        // console.log(aaa);//123      因为foo是模式，aaa是变量
+
+
+        //字符串
+        // let [a,b,c,d,e,f]='hello';
+        // console.log(a,b,c,d,e,f);
+        // let {length:len}='world';
+        // console.log(len);
+
+
+        //数值和布尔值          优先转为对象
+        let {toString:str}=123;
+        console.log(str);
+        
+        console.log(typeof str);        //function
+        // let {toString:str2}=true;
+        // console.log(str2);
+        
+
+
+        //函数
+        // function fn(){
+        //     return [1,2,3,4,5,6];
+        // }
+        // let [a,,b,...c]=fn();
+        // console.log(a,b,c);
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

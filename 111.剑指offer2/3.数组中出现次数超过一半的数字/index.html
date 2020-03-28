@@ -50,35 +50,53 @@
             //3   保留两个值，初始数和个数为1；
             //当count=0时，以当前值为基准，并设置count=1;
 
-            function fn(arr){
-                var len=arr.length;
-                if(len<=0){
-                    return 0;
-                }
-                var num=arr[0];
-                var count=1;
-                for(var i=1;i<len;i++){
-                    if(arr[i]==num){
-                        count++;
-                    }else{
-                        count--;
-                    }
-                    if(count==0&&i!=len-1){
-                        num=arr[i];
-                        count=1;
-                    }
-                }
-                if(count==0){
-                    return 0;
-                }else{
-                    return num;
-                }
-            }
-            console.log(fn([2,2,3,3,4]));
+            // function fn(arr){
+            //     var len=arr.length;
+            //     if(len<=0){
+            //         return 0;
+            //     }
+            //     var num=arr[0];
+            //     var count=1;
+            //     for(var i=1;i<len;i++){
+            //         if(arr[i]==num){
+            //             count++;
+            //         }else{
+            //             count--;
+            //         }
+            //         if(count==0&&i!=len-1){
+            //             num=arr[i];
+            //             count=1;
+            //         }
+            //     }
+            //     if(count==0){
+            //         return 0;
+            //     }else{
+            //         return num;
+            //     }
+            // }
+            // console.log(fn([2,2,3,3,4]));
             
 
             
-        
+
+            function fn(numbers){
+                var obj={};
+                for(var i=0;i<numbers.length;i++){
+                        if(!obj[numbers[i]]){
+                                obj[numbers[i]]=1;
+                        }else{
+                                obj[numbers[i]]++;
+                        }
+                }
+                for(var k in obj){
+                        if(obj[k]>Math.floor(numbers.length/2)){
+                                return k;
+                        }
+                }
+                return 0;
+                    }
+                    console.log(fn([1,1,2,2]));
+                    
         
     </script>
 </body>

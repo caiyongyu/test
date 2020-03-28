@@ -8,40 +8,39 @@
 </head>
 <body>
     <script>
-        let arr=["","a","b","c","d","e","f","g","h","i","j","k"];
-        let tem=0;
+        let arr=['a','b','c','d','e','f','g','h','i','j','k'];
         function phoneConbin(aa) {
-            let num=aa.splice("");
+            let num=aa.split("");
             let code=[];
             num.forEach((item)=>{
                 code.push(arr[item]);
             });
-            return fn(code);
+            return fn(code).sort((a,b)=>a-b);
         }
-
+        // let result=[];
         function fn(s) {
-            let res=[];
-            if(tem==0){
-                res.push("");
-                res.push(s[0][0]);
-            }
-            
-                for(let i=0;i<s[0].length;i++){
-                    for(let j=0;j<s[1].length;j++){
-                        res.push(s[0][i]+s[1][j]);
-                    }
-                }
-            
-                tem++;
-                console.log(tem);
+                 let result=["",s[0]];
                 
-            s.splice(0,2,res);
-            if(s.length>1){
-                fn(s);
-            }
-            return s[0];
+                // temp=true;
+                console.log(result.length);
+                
+                for(var i=1;i<s.length;i++){
+                    let temp=[];
+                    for(var j=0;j<result.length;j++){
+                        // console.log(1);
+                        
+                        temp.push(result[j]+s[i])
+                    }
+                    result=result.concat(temp);
+                }
+            return result;
         }
-        console.log(phoneConbin([2,3,4]));  //??
+        console.log(phoneConbin('23'));
+
+
+        
+        
+        
         
     </script>
 </body>

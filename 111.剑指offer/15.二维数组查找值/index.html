@@ -15,7 +15,7 @@
             var row=o_len-1;
             var col=0;
             if(o_len==0&&col_len==0) return false;
-            while(row>=0&&col<=col_len-1){
+            while(row>=0&&col<=col_len-1){          //前提二维数组本就是有序整齐的。一层循环，row大等0，col小等arr[0].length
                 if(arr[row][col]<target){
                     col++;
                 }else if(arr[row][col]>target){

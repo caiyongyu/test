@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            var num=666;
+            function runFn(){
+                console.log(num);
+                
+            }
+            num++;          //先执行   667
+            return runFn;       //与return fn()   相同
+        }
+        var a=fn();
+        a();
+    </script>
+</body>
+</html>

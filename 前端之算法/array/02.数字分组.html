@@ -8,7 +8,7 @@
 </head>
 <body>
     <script>
-        let arr=[1,1,3,2,2,3,4,4,5];
+        let arr=[1,1,2,2];
         
         //找最大公约数
         function fn(a,b) {
@@ -22,13 +22,16 @@
         function numberArr(s) {
             var str=s.sort((a,b)=>a-b).join("");
             // console.log(s);
-            var a=str.match(/(\d)\1+|\d/g);
+            var a=str.match(/(\d)\1+|\d/g);         //生成字符串数组         ["11", "22"]
+            console.log(a);
+            
             while(a.length>1){
                 let i=a.shift().length;
                 let j=a.shift().length;
                 let k=fn(i,j);
                 a.unshift("0".repeat(k));
-
+                console.log(a);
+                
             }
                 return a[0].length>1?true:false;
         }

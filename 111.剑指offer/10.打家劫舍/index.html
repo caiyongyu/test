@@ -11,7 +11,7 @@
         function fn(nums){
             var len=nums.length;
             var res=[nums[0],Math.max(nums[0],nums[1])];
-            for(var i=2;i<len;i++){
+            for(var i=2;i<len;i++){             //一层循环。从2开始，小于len
                 res[i]=Math.max(res[i-2]+nums[i],res[i-1]);         //打劫第i家  或者不打劫第i家
             }
             return res[len-1];

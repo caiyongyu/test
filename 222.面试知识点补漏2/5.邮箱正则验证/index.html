@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><b></b>
+    <script>
+        var str=/^[\w]{2,12}@[1-9a-zA-Z]{1,6}\.[a-zA-Z]+$/;
+        var input=document.getElementsByTagName('input')[0];
+        input.oninput=function(){
+            if(str.test(input.value)){
+                input.nextElementSibling.innerHTML='正确';
+            }else{
+                input.nextElementSibling.innerHTML='错误';
+            }
+        }
+    </script>
+</body>
+</html>

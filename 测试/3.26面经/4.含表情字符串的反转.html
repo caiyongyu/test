@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function reverse(str){
+            // return str.split('').reverse().join('');
+            return Array.from(str).reverse().join('');
+        }
+        console.log(reverse('😀abcd'));         //因为js用两个字节表示字符，表情符即utf-16用4个字节表示一个表情符，'😀'.length==2
+        
+    </script>
+</body>
+</html>

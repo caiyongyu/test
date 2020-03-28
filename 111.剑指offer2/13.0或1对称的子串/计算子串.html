@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            let match=(s)=>{
+                //以0或1开头
+                var j=s.match(/^(0+|1+)/g)[0];
+                //以0或1开头后的相反的连续相同字符串
+                var o=(j[0] ^ 1).toString().repeat(j.length);           //自己生成后面一半的字符串
+                //创建一个正则表达式匹配
+                var reg=new RegExp(`^(${j}${o})`);
+                if(reg.test(s)){
+                    return RegExp.$1;
+                }
+                else{
+                    return "";
+                }
+            }
+
+            function fn(s) {
+                var res=[];
+                for(var i=0;i<s.length-1;i++){          //i从0开始，小于length-1.因为至少要有两个
+                    let r=match(s.slice(i));
+                    if(r){
+                        res.push(r);
+                    }
+                }
+                return res;
+            }
+            var str="000110011";
+            console.log(fn(str));
+            
+        </script>
+</body>
+</html>

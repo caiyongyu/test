@@ -10,7 +10,7 @@
         <script>
             let match=(s)=>{
                 //以0或1开头
-                var j=s.match(/^(0+|1+)/)[0];
+                var j=s.match(/^(0+|1+)/g)[0];
                 //以0或1开头后的下一个
                 var o=(j[0] ^ 1).toString().repeat(j.length);
                 //创建一个正则表达式匹配
@@ -33,7 +33,7 @@
                 }
                 return res;
             }
-            var str="00110011";
+            var str="000110011";
             console.log(fn(str));
             
         </script>

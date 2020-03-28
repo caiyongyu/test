@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">防抖</button>
+    <script>
+        function qudou(fn,delay){
+            var timer=null;
+            return function(){
+                clearTimeout(timer);
+                timer=setTimeout(function(){
+                    fn.apply(this);
+                }.bind(this),delay)
+            }
+        }
+        btn.onclick=qudou(function(){
+            console.log(Date.now());
+            
+        },1000)
+    </script>
+</body>
+</html>

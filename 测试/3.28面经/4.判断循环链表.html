@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       class Node{
+            constructor(val){
+                this.val=val;
+                this.next=undefined;
+            }
+        }
+
+        class lianbiaoSort{
+            constructor(arr){
+                this.head=new Node(arr[0]);
+                let temp=this.head;
+                for(let i=1;i<arr.length;i++){
+                    temp.next=new Node(arr[i]);
+                    temp=temp.next;
+                }
+                return this.head;
+            }
+        }
+        
+        let isCircle=(begin)=>{
+            let slow=begin;
+            let fast=begin.next;
+            while(1){
+                if(!fast||!fast.next){             //必须用快的指针，保证走完了****8*****
+                    return false;
+                }
+                else if(slow==fast||fast.next==slow){
+                    return true;
+                }else{
+                    slow=slow.next;
+                    fast=fast.next.next;
+                }
+            }
+
+            
+        }
+
+        var lb=new lianbiaoSort([4,6,8,10,3,5,2,9]);
+        lb.next=lb;
+        console.log(isCircle(lb));
+    </script>
+</body>
+</html>

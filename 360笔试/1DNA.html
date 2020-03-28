@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(a,b){
+            // console.log(a.length);
+            var aNum=0,bNum=0;
+            var result=0;
+            var arr=[];
+
+            for(var i=0;i<a.length;i++){
+                // console.log(typeof a[i]);
+                
+                // if(a[i]!=b[i]){
+                //     if(a[i]=='A'){
+                //         aNum++;
+                //     }else{
+                //         bNum++;
+                //     }  
+                // }
+                if(a[i]=='A'&&b[i]=='T'){
+                    aNum++;
+                }
+                else if(a[i]=='T'&&b[i]=='A'){
+                    bNum++;
+                }
+                
+            }
+            if(aNum>bNum){
+                result=bNum+(aNum-bNum);
+            }else{
+                result=aNum+(bNum-aNum);
+            }
+            return result;
+            
+        }
+
+
+        console.log(fn('ATTATTAAATAAAT','TTATTATAAATATTA'));
+
+        
+    </script>
+</body>
+</html>

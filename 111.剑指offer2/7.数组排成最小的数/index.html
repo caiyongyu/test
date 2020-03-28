@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(str){
+            if(!str){
+                return str;
+            }else{
+                var result=[];
+                var arr=[];
+                for(var i=0;i<str.length;i++){
+                    arr.push(str[i].toString())
+                }
+                // let arr=str.split('');
+                result=fn2(arr,0,result);
+                // return [...new Set(result)].sort((a,b)=>a-b);
+                result.sort((a,b)=>a-b);                    //应该是字母字符串不排序，数字字符串排序
+                return parseInt(result[0])
+            }
+        }
+        function fn2(arr,index,result){
+            if(index==arr.length){
+                result.push(arr.join(''));
+            }else{
+                for(var i=index;i<arr.length;i++){
+                    [arr[i],arr[index]]=[arr[index],arr[i]];
+                    fn2(arr,index+1,result);                        //不能index++
+                    [arr[i],arr[index]]=[arr[index],arr[i]];        //不可少
+                }
+            }
+            return result;
+        }
+
+    // console.log(fn('abc'));
+    console.log(fn([3,32,321]));
+    
+    </script>
+</body>
+</html>

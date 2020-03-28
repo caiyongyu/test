@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  var line=read_line().trim();
+        var line='fft';
+
+function isDes(str){
+   var flag=true;
+   str = str.split('');
+   for(let i=0;i<str.length/2;i++){         //两层循环，外层0开始，小于length/2.内层str[i]!=str[str.length-1-i]
+     if(str[i]!=str[str.length-1-i]){
+        flag=false;
+        break;
+     }
+   }
+   return flag;
+ }
+
+
+var ret =false;
+ for(let i=0;i<line.length;i++){
+  var str = line.replace(line[i],"");
+  if(isDes(str)) {                  //有一个满足，Yes。都不返回No
+            //   print("Yes");
+            console.log("Yes");
+            
+              ret=true;
+              break;
+          }
+ }
+if(!ret){
+// print("No");
+console.log("No");
+
+}
+
+                                      
+
+    </script>
+</body>
+</html>

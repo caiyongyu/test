@@ -10,7 +10,7 @@
     <script>
         let arr=["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"];
         function phoneConbin(aa) {
-            let num=aa.splice("");
+            let num=aa.split("");
             let code=[];
             num.forEach((item)=>{
                 code.push(arr[item]);
@@ -20,6 +20,7 @@
 
         function fn(s) {
             let res=[];
+            
             for(let i=0;i<s[0].length;i++){
                 for(let j=0;j<s[1].length;j++){
                     res.push(s[0][i]+s[1][j]);
@@ -29,9 +30,19 @@
             if(s.length>1){
                 fn(s);
             }
-            return s[0];
+            return s[0];                //是二维数组
         }
-        console.log(phoneConbin([2,3,4]));
+        console.log(phoneConbin('234'));
+
+
+        // var brr='abc';
+        // console.log(brr[1]);         //字符串也有下标
+
+        var crr=[2,3,4];
+        let drr=crr.splice(1)           //与slice结果相同
+        console.log(drr);
+        
+        
         
     </script>
 </body>

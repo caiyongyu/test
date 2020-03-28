@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #dv1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            transition: width 2s ease 10s;
+            /* animation: run 5s linear 2s 2 forwards; */
+        }
+        @keyframes run{
+            50%{
+                width: 400px;
+            }
+            100%{
+                width: 800px;
+            }
+        }
+        #dv1:hover{
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dv1"></div>
+    <script>
+
+    </script>
+</body>
+</html>

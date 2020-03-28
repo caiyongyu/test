@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function firstRequest(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(function(){
+                    resolve('aa');
+                },2000)
+            })
+        }
+        async function asyncPrint(){
+            console.log('start');
+            await firstRequest();
+            console.log('end');
+            
+        }
+        firstRequest().then(function(num){
+            console.log(num);
+            
+        })
+        asyncPrint()
+    </script>
+</body>
+</html>

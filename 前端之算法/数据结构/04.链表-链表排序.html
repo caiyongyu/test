@@ -30,7 +30,7 @@
         let swap=(p,q)=>{
             [p.val,q.val]=[q.val,p.val];
         }
-
+        //p=begin,q=begin.next.       if(q.val<beginVal) swap(p.next,q);q=q.next;p=p.next;不小q=q.next  当q=end跳出；swap(p,begin)
         let pos=(begin,end)=>{          //找到基准值
             let beginVal=begin.val;
             let p=begin;
@@ -69,6 +69,7 @@
 
         //           p   q
         // 5,3,2,1,4,6,8,4,4
+                    // 6 4 8 4
 
         //             p   q
         // 5,3,2,1,4,4,8,6,4

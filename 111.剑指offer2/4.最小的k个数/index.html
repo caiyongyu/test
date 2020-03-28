@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 输入n个整数，找出其中最小的k个数
+        // function FindkMin(arr,k){
+        //     var len=arr.length;
+        //     if(len<k){
+        //         return false;
+        //     }else{
+        //         var brr=arr.slice(0,k);
+        //         var index=FindmaxIndex(brr);
+        //         var maxNum=brr[index];
+        //         for(var i=k;i<len;i++){                  //一层循环，小于length
+        //             if(arr[i]<maxNum){
+        //                 brr[index]=arr[i];
+        //                 index=FindmaxIndex(brr);
+        //                 maxNum=brr[index];
+        //             }
+        //         }
+        //     }
+        //     return brr.sort((a,b)=>a-b)
+        // }
+        // function FindmaxIndex(arr){                  //返回最大值的下标
+        //     var max=arr[0];
+        //     var index=0;
+        //     for(var i=1;i<arr.length;i++){
+        //         if(arr[i]>max){
+        //             max=arr[i];
+        //             index=i;
+        //         }
+        //     }
+        //     return index;
+        // }
+        // console.log(FindkMin([2,6,3,8,10,11,15,18],4));
+        
+
+
+        function GetLeastNumbers_Solution(arr, k)
+{
+    // write code here
+        var len=arr.length;
+            if(len<k){
+                return false;
+            }else{
+                var brr=arr.slice(0,k);
+                var index=FindmaxIndex(brr);
+                var maxNum=brr[index];
+                for(var i=k;i<len;i++){
+                    if(arr[i]<maxNum){
+                        brr[index]=arr[i];
+                        index=FindmaxIndex(brr);
+                        maxNum=brr[index];
+                    }
+                }
+            }
+            return brr.sort((a,b)=>a-b)
+}
+        function FindmaxIndex(arr){
+            var max=arr[0];
+            var index=0;
+            for(var i=1;i<arr.length;i++){
+                if(arr[i]>max){
+                    max=arr[i];
+                    index=i;
+                }
+            }
+            return index;
+        }
+
+console.log(GetLeastNumbers_Solution([4,5,1,6,2,7,3,8],4));
+
+
+
+        // var mid=Math.floor(4/2);
+        // console.log(mid-1,mid);          //偶数个，求中位数。   是mid-1  mid   因为是index
+        
+    </script>
+</body>
+</html>

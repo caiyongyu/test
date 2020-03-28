@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function fn(a,b){
+           var result=0;
+        if(a==1){
+            result=(b/(a+b)*(b-1)/b*(1/2))+0.25;
+            result=result.toFixed(4);
+            return result;
+        }
+
+        if(a==0){
+            var num=0;
+            return num.toFixed(4);
+        }
+       }
+        console.log(fn(0,3));
+    </script>
+</body>
+</html>

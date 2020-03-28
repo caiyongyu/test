@@ -25,23 +25,34 @@
             }else{
                 var result=[];
                 let arr=str.split('');
-                fn2(arr,0,result);
-                return [...new Set(result)].sort((a,b)=>a-b);
+                result=fn2(arr,0,result);                       //3参数   字符数组  0   空数组
+                return [...new Set(result)].sort();
             }
         }
         function fn2(arr,index,result){
             if(index==arr.length){
-                result.push(arr.join(''));
+                // let str=arr.join("");
+                // let num=(str.charCodeAt());
+                
+                result.push(arr.join(""));
             }else{
-                for(var i=index;i<arr.length;i++){
+                for(var i=index;i<arr.length;i++){              //一层循环，从index开始，小于length
                     [arr[i],arr[index]]=[arr[index],arr[i]];
                     fn2(arr,index+1,result);                        //不能index++
                     [arr[i],arr[index]]=[arr[index],arr[i]];        //不可少
                 }
             }
+            return result;
         }
 
-    console.log(fn('abc'));
+    console.log(fn('a'));
+
+    // var strArr=['cba','cab','abc'];
+    // console.log(strArr.sort((a,b)=>a-b));
+    // console.log('abc'.charCodeAt());
+    // String.fromCharCode(97)
+    
+    
     </script>
 </body>
 </html>

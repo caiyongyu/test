@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(pre,vin){
+            if(pre.length==0||vin.length.length==0){
+                return null;
+            }
+            let root=pre[0];
+            let rootIndex=vin.indexOf(root);
+            let lVin=vin.slice(0,rootIndex);
+            let rVin=vin.slice(rootIndex+1);
+            return{
+                val:root,
+                left:fn(pre.slice(1,rootIndex+1),lVin),
+                right:fn(pre.slice(rootIndex+1),rVin)
+            }
+        }
+
+        function rear(Node){
+            if(Node.left){
+                rear(Node.left);
+            }
+            if(Node.right){
+                rear(Node.right);
+            }
+            console.log(Node.val);
+            
+        }
+        var Node=fn([1,2,4,7,3,5,6,8],[4,7,2,1,5,3,8,6]);
+        // console.log(Node);
+        rear(Node)
+        
+    </script>
+</body>
+</html>

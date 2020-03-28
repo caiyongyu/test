@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function message(arr){
+            if(arr.length<2){
+                return arr;
+            }
+            var mid=Math.floor(arr.length/2);
+            var left=arr.slice(0,mid);
+            var right=arr.slice(mid);
+            return messageFn(message(left),message(right));
+        }
+        function messageFn(left,right){
+            var array=[];
+            while(left.length&&right.length){
+                if(left[0]>right[0]){
+                    array.push(right.shift());
+                }else{
+                    array.push(left.shift());
+                }
+            }
+            while(left.length){
+                array.push(left.shift());
+            }
+            while(right.length){
+                array.push(right.shift())
+            }
+            return array;
+        }
+        console.log(message([4,1,3,8,10]));
+        
+    </script>
+</body>
+</html>

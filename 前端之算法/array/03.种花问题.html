@@ -11,7 +11,7 @@
         let arr=[1,0,0,0,1];
 
         function fn(s,n) {
-            let max=0;
+            let max=0;              //一旦可以插入，立即插花。算最大可插入个数
             let flag=false;
             for(let i=0;i<s.length-1;i++){
                 if(i===0 && s[0]===0 && s[1]===0){
@@ -28,7 +28,7 @@
                     }
                 }
             }
-            if(!flag && s[length-1]===0 && s[length-2]===0){
+            if(!flag && s[length-1]===0 && s[length-2]===0){            //出现最后 1 0 0 的情况
                 max++;
                 // s[length-1]=1;
             }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function QuickSort(arr){
+            let len=arr.length;
+            if(arr.length<=1){
+                return arr;
+            }
+            let middleIndex=Math.floor(len/2);
+            let arrLeft=[];
+            let arrRight=[];
+            
+            
+            let middleValue=arr.splice(middleIndex,1)[0];           //把中间那个值分隔出来，后面要拼回去
+            console.log(len,arr.length);
+            for(let i=0;i<arr.length;i++){
+                let item=arr[i];
+                arr[i]<middleValue?arrLeft.push(item):arrRight.push(item);
+                // console.log(arrLeft);
+                
+            }
+            return QuickSort(arrLeft).concat(middleValue,QuickSort(arrRight));      //concat拼接
+            
+        }
+        console.log(QuickSort([3,5,6,1,10]));
+        
+    </script>
+</body>
+</html>

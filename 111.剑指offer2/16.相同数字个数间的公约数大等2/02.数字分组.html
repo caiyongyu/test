@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[1,1,2,2];
+        
+        //找最大公约数
+        function fn(a,b) {
+            if(b==0){
+                return a;
+            }else{
+                return fn(b,a % b);
+            }
+        }
+
+        function numberArr(s) {
+            var str=s.sort((a,b)=>a-b).join("");
+            // console.log(s);
+            var a=str.match(/(\d)\1+|\d/g);         //生成字符串数组         ["11", "22"]
+            console.log(a);
+            
+            while(a.length>1){                      //当a.length==1时，停止
+                let i=a.shift().length;
+                let j=a.shift().length;
+                let k=fn(i,j);
+                a.unshift("0".repeat(k));
+                console.log(a);
+                
+            }
+                return a[0].length>1?true:false;                //a[0].length大等2，true
+        }
+        console.log(numberArr(arr));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function zhang(array){
+            let arr=[];
+            let first=0,second=0;
+            if(!array){
+                return 0;
+            }else{
+                array.forEach(item => {
+                    switch(item){
+                        case 'D':{
+                            first=arr.pop();
+                            second=first*2;
+                            arr.push(first);
+                            arr.push(second);
+                            break;
+                        }
+                        case 'C':{
+                            arr.pop();
+                            break;
+                        }
+                        case "+":{
+                            first=arr.pop();
+                            second=arr.pop();
+                           
+                            arr.push(second,first,first+second);
+                            break;
+                        }
+                        default:
+                            console.log(item)
+                            arr.push(item*1);
+                            break;
+                        
+                    }
+                });
+                return arr.reduce((a,b)=>a+b);
+            }
+        }
+        console.log(zhang([2,3,4,"D","C","+"]));
+        
+    </script>
+</body>
+</html>

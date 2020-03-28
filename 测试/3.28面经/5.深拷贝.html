@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1={
+            name:"Lisa",
+            arr:[2,4,8,9]
+        }
+        var obj2={};
+        function Depth(origin,now){
+            for(var k in origin){
+                if(typeof origin[k]=='object'){             //****origin[k]
+                    now[k]=(origin[k].constructor==Array)?[]:{};                //***==Array
+                    Depth(origin[k],now[k]);
+                }else{
+                    now[k]=origin[k];
+                }
+            }
+            return now;
+        }
+        obj2=Depth(obj1,obj2);
+        obj1.arr[0]=10;
+        console.log(obj1.arr,obj2.arr);
+        
+    </script>
+</body>
+</html>

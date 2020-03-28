@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var demo=(first,...num)=>[first,num];           //默认有return  first和num
+        // console.log(demo(1,2,3,4));
+        
+
+
+        //let不能重复定义变量，有块级作用域
+        // let a=1;
+        // if(true){
+        //     let a=2;
+        // }
+        // console.log(a);         //外面的只能取外面的
+        
+
+
+        //合并两个对象为一个对象        用es6的方法  Object.assign()
+        // const a={
+        //     attr1:1
+        // }
+        // const b={
+        //     attr2:2
+        // }
+        // const obj=Object.assign(a,b);
+        // console.log(obj);
+
+
+        //解决异步多层嵌套   Promise
+        function foo(){
+            return new Promise(function(res,reject){
+                res(123);
+               
+            })
+        }
+        foo()
+            .then(function(num){
+                console.log(num);
+                return new Promise(function(ress,reject){
+                    ress(3456);
+                })
+            })
+            .then(function(temp){
+                console.log(temp);
+                
+            })
+        
+
+
+        //变量在函数内定义是局部的，外面调用报错
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let f=function(){
+            return new Promise((resolve,reject)=>{
+                setTimeout(function(){
+                    resolve('aaa');
+                },1000)
+            })
+        }
+        f().then(function(n){
+            console.log(n);
+            return new Promise((resolve,reject)=>{
+                setTimeout(function(){
+                    resolve('bbb');
+                },1000)
+            })
+        }).then(function(temp){
+            console.log(temp);
+            
+        })
+    </script>
+</body>
+</html>

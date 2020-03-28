@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1~n十进制1出现的次数
+        function numOf1run(n){
+            if(n<=0){
+                return 0;
+            }else{
+
+                var sum=0;
+                for(var i=1;i<=n;i++){
+
+                    sum+=getNumof1(i)
+                }
+                return sum;
+            }
+        }
+        function getNumof1(num){
+            var count=0;
+            while(num){
+                if(num%10==1){                      //取余10等于1，数量加一
+                    count++;
+                }
+                num=Math.floor(num/10);                 //num=num/10向下取整
+            }
+           return count;
+        }
+        console.log(numOf1run(12));
+        
+    </script>
+</body>
+</html>

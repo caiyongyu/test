@@ -124,11 +124,20 @@
 
 
         //.reduceRight          从数组末尾开始的累加器
-        var arr=[2,2,1,1];
-        var sum=arr.reduceRight(function(a,b,index,arr){
-            return a+b;
-        })
-        console.log(sum);
+        // var arr=[2,2,1,1];
+        // var sum=arr.reduceRight(function(a,b,index,arr){
+        //     return a+b;
+        // })
+        // console.log(sum);
+        
+
+
+        var arr=[2,3,4];
+        // arr.shift(1);               //删除第一个并返回
+        arr.unshift(1)                  //头部添加一个
+        console.log(arr);
+
+        
         
     </script>
 </body>

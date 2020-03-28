@@ -7,16 +7,27 @@
 </head>
 <body>
     <script>
-        function moveoddBeforeeven(arr){
+        function moveoddBeforeeven(array){
+            // var odd=[];
+            // var even=[];
+            // for(var i=0;i<arr.length;i++){
+            //     if(arr[i]%2==0){
+            //         even.push(arr[i]);
+            //     }else{
+            //         odd.push(arr[i]);                }
+            // }
+            // return odd.concat(even);
             var odd=[];
-            var even=[];
-            for(var i=0;i<arr.length;i++){
-                if(arr[i]%2==0){
-                    even.push(arr[i]);
-                }else{
-                    odd.push(arr[i]);                }
-            }
-            return odd.concat(even);
+    var even=[];
+    for(var i=0;i<array.length;i++){
+        if(array[i]%2==0){
+            even.push(array[i]);
+        }else{
+            odd.push(array[i]);
+        }
+        
+    }
+    return(odd.concat(even));
         }
         console.log(moveoddBeforeeven([1,2,3,4,5,6,7,8]));
         

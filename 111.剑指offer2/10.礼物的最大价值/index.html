@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+题目：
+在一个m*n的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于0）。
+你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格，直到到达棋盘的右下角。
+要求：
+给定一个棋盘及其上面的礼物，请计算你最多能拿到多少价值的礼物？
+*/
+
+/**
+其实就是背包问题的变形，也是采用动态规划的方式。
+假设f(i,j)表示在坐标（i,j）处礼物之和的最大值。
+那么如果它只能从左侧或者上侧过来的，所以只需要判断max[f(i-1, j), f(i, j-1)]，
+即f(i, j) = value(i, j) + max[f(i-1, j), f(i, j-1)];
+*/
+        function FindMaxMoney(value,m,n){
+            let money=new Array(m*n);
+            for(var row=0;row<m;row++){             //两层循环，外层0开始，小于m。内层0开始，小于n
+                for(var col=0;col<n;col++){
+                    let left=0;
+                    let top=0;
+                    if(value[row][col]=='#'){
+                        // console.log(value[row][col]);
+                        value[row][col]=-1000;
+                        money[row*n+col]=-1000;
+                        // console.log(money[row*n+col])
+                    }
+                    if(col>0){
+                        left=money[row*n+col-1];
+                    }
+                    if(row>0){
+                        top=money[(row-1)*n+col];
+                    }
+                    money[row*n+col]=value[row][col]+Math.max(left,top);
+                }
+            }
+            // console.log(money[m*n-1]);
+            
+            return money[m*n-1];
+        }
+        let value=[
+            [1,2,3,4],
+            [5,6,7,8],
+            [9,'#',2,3],
+            [4,7,5,1]
+        ];
+        // let value={
+        //     {1,2,3,4},
+        //     {5,6,7,8},
+        //     {9,10,2,3},
+        //     {4,7,5,1}
+        // };
+        console.log(FindMaxMoney(value,4,4));
+        
+    </script>
+</body>
+</html>

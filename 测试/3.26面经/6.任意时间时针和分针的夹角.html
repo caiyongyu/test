@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jiao(hour,minute){
+            if(hour<24&&minute<60){
+                let s1=hour%12*30+0.5*minute;
+                let s2=minute*6;
+                return Math.abs(s1-s2);
+            }
+        }
+        console.log(jiao(5,50));
+        
+    </script>
+</body>
+</html>

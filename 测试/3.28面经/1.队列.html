@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class duilie{
+            constructor(num){
+                this.arr=new Array(num);                //****
+                this.front=0;
+                this.last=0;
+                this.len=num;
+            }
+            Front(){            //获取队首
+                if(!this.isEmpty()){
+                    return this.arr[this.front];
+                }
+            }
+            Last(){
+                if(!this.isEmpty()){
+                    if(this.last==0){
+                        this.last=this.len-1;
+                        return this.arr[this.last];         //****
+                    }else return this.arr[this.last-1];         //*****
+                }
+            }
+            Insert(value){
+                if(!this.isFull()){
+                    this.arr[this.last]=value;
+                    this.last=(this.last+1)%this.len;
+                    return true;
+                }
+                return false;
+            }
+            Droop(){
+                if(!this.isEmpty()){
+                    this.arr[thhis.front]=null;
+                    this.front=(this.front+1)%this.len;
+                }
+            }
+            isEmpty(){
+                return this.front==this.last&&!this.arr[this.front];
+            }
+            isFull(){
+                return this.front==this.last&&!!this.arr[this.front];
+            }
+        }
+
+        var dui=new duilie(4);
+        
+        console.log(dui.Insert(2));
+        console.log(dui);
+        
+        
+    </script>
+</body>
+</html>

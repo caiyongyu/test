@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Parent(){
+        //     this.name='Lisa';
+        // }
+        // Parent.prototype.eat=function(){
+        //     return 'eat foods';
+        // }
+        // function Child(){
+        //     Parent.call(this);
+        // }
+        // Child.prototype=new Parent();
+        // var obj=new Child();
+        // console.log(obj.name,obj.eat());
+
+
+        //寄生组合式继承            创建一个没有实例的类
+         function Parent(){
+            this.name='Lisa';
+        }
+        Parent.prototype.eat=function(){
+            return 'eat foods';
+        }
+        function Child(){
+            Parent.call(this);
+        }
+        (function(){
+            var obj=function(){};
+            obj.prototype=Parent.prototype;
+            Child.prototype=new obj();
+        })();
+        var obj2=new Child();
+        console.log(obj2.name,obj2.eat());
+        
+
+        
+    </script>
+</body>
+</html>

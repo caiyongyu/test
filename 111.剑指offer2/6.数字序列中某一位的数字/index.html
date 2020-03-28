@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function FindnThNum(n){
+            var str='0123456789';
+            if(n<=9){
+                return str.charAt(n);
+            }else{
+                for(var i=10;i<=n;i++){
+                    var str2=i.toString();
+                    str=str.concat(str2);
+                }
+                return str.charAt(n);
+            }
+        }
+        console.log(FindnThNum(15));
+        
+        
+        
+    </script>
+</body>
+</html>

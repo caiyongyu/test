@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=['a','b','c','d','e','f','g','h','i','j','k'];
+        function phoneConbin(aa) {
+            let num=aa.split("");
+            let code=[];
+            num.forEach((item)=>{
+                code.push(arr[item]);
+            });
+            return fn(code).sort();
+        }
+
+        function fn(s) {
+                 let result=["",s[0]];          //返回result这二维数组，初始化["",s[0]]            
+                
+                
+                console.log(result.length);
+                
+                for(var i=1;i<s.length;i++){
+                    let temp=[];
+                    for(var j=0;j<result.length;j++){
+                        // console.log(1);
+                        
+                        temp.push(result[j]+s[i])
+                    }
+                    result=result.concat(temp);
+                }
+            return result;
+        }
+        console.log(phoneConbin('23'));         //["", "c", "d", "cd"]
+
+
+        
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -16,11 +16,18 @@ module.exports = {
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader','css-loader'] },
-        {
-            test:/\.(js|jsx)$/,       //匹配文件夹中后缀名是 .js的文件（注意这里不能加 引号）
-            exclude:/node_modules/, //排除 node_modules 中的js文件（注意这里不能加引号）
-            loader:"babel-loader"            //对匹配的 js文件用 babel来编译
+      {
+        test: /(\.jsx|\.js)$/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: [
+                    "env", "react"
+                ]
+            }
         },
+        exclude: /node_modules/
+    },
 
 //blog.csdn.net/hjh15827475896/article/details/86174626
       // { test: /\.css$/, use: ExtracttextPlugin.extract({

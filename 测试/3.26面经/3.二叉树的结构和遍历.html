@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(item){
+                this.key=item;
+                this.left=undefined;
+                this.right=undefined;
+            }
+        }
+        class Tree{
+            constructor(arr){
+                this.root=undefined;
+                arr.forEach(item => {
+                    this.insert(item);
+                });
+            }
+            insert(item){
+                if(!this.root){
+                    this.root=new Node(item);
+                }else{
+                    this.insertNum(this.root,item);
+                }
+            }
+            insertNum(root,item){
+                if(item>root.key){
+                    if(!root.right){
+                        root.right=new Node(item);
+                    }else{
+                        this.insertNum(root.right,item);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(item);
+                    }else{
+                        this.insertNum(root.left,item);
+                    }
+                }
+            }
+        }
+
+
+        //遍历方式
+        var arr=[],brr=[];
+        function front(Node){
+            // arr=[]||arr;
+            this.arr.push(Node.key);
+            if(Node.left){
+                front(Node.left);
+            }
+            if(Node.right){
+                front(Node.right);
+            }
+            // return (arr);
+        }
+
+        //中序
+        function center(Node){
+            
+            if(Node.left){
+                center(Node.left);
+            }
+            this.brr.push(Node.key);
+            if(Node.right){
+                center(Node.right);
+            }
+        }
+
+        //中序排序
+        //后序排序
+        var twoTree=new Tree([8,3,2,4,5,10,7,9]);
+        
+        //前序中序推原序
+        function originTree(pre,vin){
+            if (pre.length === 0 || vin.length === 0)           //要有递归结束条件
+        return null;
+            var midVal=pre[0];
+            console.log(pre[0]);
+            
+            // var midIndex=0;
+            // for(var i=0;i<vin.length;i++){
+            //     if(vin[i]==midVal){
+            //         midIndex=i;
+            //     }
+            // }
+            var midIndex=vin.indexOf(midVal);
+            var lVin=vin.slice(0,midIndex);
+            var rVin=vin.slice(midIndex+1);
+            // console.log(lVin,rVin);
+            
+            return {
+                val:midVal,
+                left:originTree(pre.slice(1,midIndex+1),lVin),
+                right:originTree(pre.slice(midIndex+1),rVin)
+            }
+        }
+        front(twoTree.root);
+        center(twoTree.root);
+        console.log(arr,brr);
+        console.log(originTree([8, 3, 2, 4, 5, 7, 10, 9],[2, 3, 4, 5, 7, 8, 9, 10]));
+        
+        // console.log(twoTree);
+        
+    </script>
+</body>
+</html>

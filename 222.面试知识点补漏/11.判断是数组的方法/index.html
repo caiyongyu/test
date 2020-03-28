@@ -16,14 +16,19 @@
         // console.log(isArray({}));
         
         
-        function isArray(arr){
-            if(arr.__proto__.constructor===Array){
-                return 'y';
-            }
+        // function isArray(arr){
+        //     if(arr.__proto__.constructor===Array){
+        //         return 'y';
+        //     }
+        // }
+        // console.log(isArray(arr));
+        
+
+        function isArray2(arr){
+            return Array.isArray(arr);
+            // return 1;
         }
-        console.log(isArray(arr));
-        
-        
+        console.log(isArray2({}));
     </script>
 </body>
 </html>

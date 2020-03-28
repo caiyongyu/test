@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jieliu(fn,delay){
+            var startTime=0;
+            return function(){
+                var nowTime=Date.now();
+                if(nowTime-startTime>delay){
+                    fn.call(this);
+                    // console.log(this);
+                    
+                    startTime=nowTime;
+                }
+            }
+        }
+        document.onmousemove=jieliu(function(){
+            console.log("success!");
+            console.log(this);
+            
+        },2000)
+    </script>
+</body>
+</html>

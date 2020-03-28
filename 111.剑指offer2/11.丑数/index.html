@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //返回第n个丑数
+        function FindThnchou(n){
+            if(n<=0){
+                return 0;
+            }
+            let result=0;
+            let num=0;
+            while(num<n){               //从0开始，小于n。即第n个丑数
+                ++result;
+                if(chou(result)){
+                    ++num;
+                }
+            }
+            return result;
+        }
+        function chou(result){
+            while(result%2==0){
+                result=result/2;
+            }
+            while(result%3==0){
+                result=result/3;
+            }
+            while(result%5==0){
+                result=result/5;
+            }
+            return result==1?true:false;                //result是1，true
+        }
+        console.log(FindThnchou(7));
+        
+    </script>
+</body>
+</html>

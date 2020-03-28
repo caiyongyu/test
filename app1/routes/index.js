@@ -11,7 +11,7 @@ router.get('/login', function(req, res, next) {
 });
 
 router.use("/loginUrl",function(req,res,next) {
-  res.json('7788')
+  res.json(7788)
 })
 
 module.exports = router;

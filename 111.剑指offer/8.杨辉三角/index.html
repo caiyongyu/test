@@ -12,9 +12,9 @@
             var temp=[];
             var arr=new Array(row);
 
-            for(var i=0;i<row;i++){
-                arr[i]=new Array(i);        //第0行有0个，第一行有一个，类推
-                for(var j=0;j<i+1;j++){
+            for(var i=0;i<row;i++){             //两层循环。外层从0开始，小于row,保证有row行。内层从0开始，小于i+1
+                arr[i]=new Array(i);        //第0行有1个，第一行有2个，类推
+                for(var j=0;j<i+1;j++){         //保证第i行有i+1个数
                     if(i==0||j==0||i==j){
                         arr[i][j]=1;
                     }
@@ -22,6 +22,8 @@
                         arr[i][j]=(arr[i-1][j-1]) +(arr[i-1][j]);
                     }
                 }
+                console.log(arr[i].length);
+                
                 temp.push(arr[i]);
                 // console.log(arr[i]);
                 
@@ -30,7 +32,7 @@
             console.log(temp);
             
         }
-        single(4)
+        single(4)               //4行
        
         
     </script>

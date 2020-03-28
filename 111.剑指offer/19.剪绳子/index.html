@@ -17,9 +17,9 @@
             if(n==3) return 3;
             var maxProduct=[0,1,2,3];
             var max=0;
-            for(var i=4;i<=n;i++){              //确定maxProduct的第i个数据
+            for(var i=4;i<=n;i++){              //确定maxProduct的第i个数据   外层循环从4开始，到n
                 max=0;
-                for(var j=1;j<i;j++){           //因为j最大为i-1
+                for(var j=1;j<i;j++){           //因为j最大为i-1            内层循环从1开始，到i-1
                     if(maxProduct[i-j]*j>max){
                         max=maxProduct[i-j]*j;
                     }

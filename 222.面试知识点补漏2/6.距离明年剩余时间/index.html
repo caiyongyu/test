@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <time></time>    
+    <script>
+        var time=document.getElementsByTagName('time')[0];
+        var date=new Date();
+        var year=date.getFullYear();
+        // console.log(date);
+
+        var newDate=new Date();
+        newDate.setFullYear(year+1);
+        newDate.setMonth(0,1);
+        newDate.setHours(0,0,0);
+
+        var iTime=newDate.getTime()-date.getTime();
+        var iSecond=parseInt( iTime/1000);
+        var days=parseInt(iSecond/(24*60*60));
+        var lastDays=iSecond%(24*60*60);
+        var Hours=parseInt( lastDays/(60*60));
+        var lastHours=lastDays%(60*60);
+        var minutes=parseInt( lastHours/60);
+        var seconds=lastHours%60;
+
+        time.innerHTML=year+'年'+days+'天'+Hours+'小时'+minutes+'分钟'+seconds+'秒';
+        console.log(days);
+        
+        
+    </script>
+</body>
+</html>
