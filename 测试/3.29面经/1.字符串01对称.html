@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sameString(str){
+            var str2=str.match(/^(0+|1+)/g)[0];
+            var str3=(str2[0] ^ 1).toString().repeat(str2.length);
+            // var result=str2+str3;
+            var res=new RegExp(`^(${str2}${str3})`);
+            console.log(res);
+            
+            if(res.test(str)){
+                return RegExp.$1;
+            }
+            else return "";
+        }
+        function duicheng(str){
+            var arr=[];
+            for(var i=0;i<str.length-1;i++){
+                var s=sameString(str.slice(i));
+                // console.log(s)
+                if(s){                  //*****
+
+                arr.push(s);
+                }
+            }
+            return arr;
+        }
+        console.log(duicheng('001100'))
+    </script>
+</body>
+</html>
