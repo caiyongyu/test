@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(url){
+            var xmlhttp=undefined;
+            if(window.XMLHttpRequest){
+                xmlhttp=new XMLHttpRequest();
+            }else{
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            // xmlhttp.open('GET',url+'?'+'name=ccc',true);
+            // xmlhttp.send();
+
+            xmlhttp.open('POST',url,true);
+            xmlhttp.setRequestHeader('Content-type','application/x-www-');
+            xmlhttp.send("name=ddd&age=26");
+
+            xmlhttp.onreadystatechange((response,reject)=>{
+                if(readyState==4&&status==200){
+                    response(JSON.parse(xmlhttp.responseText));
+                }else{
+                    reject('error');
+                }
+            })
+        }
+        (async function(){
+            await ajax('/users.php').then(function(data){
+                console.log(data);
+                
+            }).catch(function(err){
+                console.log(err);
+                
+            })
+        })()
+    </script>
+</body>
+</html>

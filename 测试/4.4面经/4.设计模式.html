@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function obj(){
+           this.name="张三";
+       }
+       obj.prototype.getName=function(){
+           return this.name;
+       }
+       function newObj(){
+           var aa=null;
+           if(!aa){
+               aa=new obj();                //只实例化一次
+           }
+           return aa;
+       }
+       var obj1=new newObj();
+       var obj2=new newObj();
+       console.log(obj1.name);
+       console.log(obj1.getName==obj2.getName);             
+       
+    </script>
+</body>
+</html>

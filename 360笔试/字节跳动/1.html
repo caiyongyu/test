@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //line=readline()
+//print(line)
+function isSymmtery(root: Node){
+    if(!root){
+        return false;
+    }
+    var larr=[]||larr;
+    var rarr=[]||rarr;
+    var Leftlen=Leftlen||null;
+     var Rightlen=Rightlen||null;
+    if(!root.left&&!root.right) return true;
+    while(root.left){
+        root=root.left;
+        Leftlen++;
+        larr.push(root.value);
+    }
+    while(root.right){
+        root=root.right;
+        Rightlen++;
+        rarr.push(root.value);
+    }
+    if(Leftlen==Rightlen&&larr==rarr){
+        return true;
+    }
+}
+console.log(isSymmtery(root))
+    </script>
+</body>
+</html>

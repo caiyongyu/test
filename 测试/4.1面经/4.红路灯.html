@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #l{
+            width: 100px;
+            height: 100px;
+             /* background-color: blueviolet; */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="l"></div>
+    <script>
+        //题目：红灯三秒亮一次，绿灯一秒亮一次，黄灯2秒亮一次；如何让三个灯不断交替重复亮灯？（用Promse实现）
+        function red(){
+            // console.log("red");
+            l.style.background="red"
+            
+        }
+        function green(){
+            // console.log("green");
+            l.style.background="green"
+        }
+        function yellow(){
+            // console.log("yellow");
+            l.style.background="yellow"
+            
+        }
+
+        var light=function(cb,timer){
+            return new Promise((resolve,reject)=>{
+                setTimeout(function(){
+                    cb();
+                    resolve();
+                },timer)
+            })
+        }
+
+        var run=function(){
+            Promise.resolve().then(function(){
+                return light(red,3000);
+            }).then(function(){
+                return light(green,2000);
+            }).then(function(){
+                return light(yellow,1000);
+            }).then(function(){
+                run();
+            })
+        }
+        run();
+    </script>
+</body>
+</html>

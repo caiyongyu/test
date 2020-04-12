@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ReverseList(pHead)             //输入一个链表，反转链表后，输出新链表的表头。
+            {
+                // write code here
+                    var zhang=[];
+                    var res=[];
+                    var node=pHead;
+                    while(node!=null){
+                            zhang.push(node.val);
+                            node=node.next;
+                    }
+                    node=pHead;
+                    while(node!=null){
+                            node.val=zhang.pop();
+                            node=node.next;
+                    }
+                    return pHead;
+            }
+    </script>
+</body>
+</html>

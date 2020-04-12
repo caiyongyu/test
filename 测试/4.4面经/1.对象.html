@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a={
+            n:1
+        }
+        // a.x=a                //内部x属性，会一直循环
+        a.x=a={n:1};              //会输出undefined    因为x要等于a，x又要等于{n:2}，后面有了怎么都是undefined
+        console.log(a.x);
+        
+    </script>
+</body>
+</html>

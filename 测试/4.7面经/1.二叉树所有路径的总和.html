@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(item){
+                this.val=item;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(element);
+                });
+            }
+            insert(item){
+                if(!this.root){
+                    this.root=new Node(item);
+                }else{
+                    this.newInsert(this.root,item);
+                }
+            }
+            newInsert(root,item){
+                if(item>root.val){
+                    if(!root.right){
+                        root.right=new Node(item);
+                    }else{
+                        this.newInsert(root.right,item);
+                    }
+                }
+                else  if(item<root.val){
+                    if(!root.left){
+                        root.left=new Node(item);
+                    }else{
+                        this.newInsert(root.left,item);
+                    }
+                }
+            }
+        }
+
+        function sumTwoTree(root,sum=0){
+            if(!root){
+                return false;
+            }
+            sum+=root.val;
+            if(!root.left&&!root.right){
+                return sum;
+            }
+            return sumTwoTree(root.left,sum)+sumTwoTree(root.right,sum);
+        }
+
+        var two=new twoTree([1,2,3,4,5,6]);
+        // console.log(two);
+        console.log(sumTwoTree(two.root));
+        
+
+        
+    </script>
+</body>
+</html>

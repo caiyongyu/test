@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function trim (str) {
+        
+        var str2=new RegExp("\\bhello\\b");             //\b代表单词的分界  匹配到有XX hello XX的单词的字符串
+        var str4=new RegExp("a\\b.\\bye");              //匹配有XXXa byeXXX的单词的字符串
+        // var str5=/ba\b.\by/;
+        // var str3=/\bhello\b/;
+        if(str4.test(str)){
+            return str;
+        }else{
+            return false;
+        }
+        }
+        console.log(trim('     hello world     ')); // => hello world
+        console.log(trim('hellodsad'));
+        console.log(trim("this is aba yello"));
+        console.log(trim('hell o'));
+    </script>
+</body>
+</html>

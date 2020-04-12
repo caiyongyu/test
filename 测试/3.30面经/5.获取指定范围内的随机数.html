@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function randomNum(min,max){
+            var num=Math.floor(Math.random()*(max-min+1))+min;
+            return num;
+        }
+        var arr=[];
+        for(var i=0;i<20;i++){
+
+            arr.push(randomNum(10,20));
+        }
+        console.log(arr);
+        
+    </script>
+</body>
+</html>

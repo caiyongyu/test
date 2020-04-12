@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var intToRoman = function(num) {
+        let nums=[1000,900,500,400,100,90,50,40,10,9,5,4,1],
+            chars=['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
+        var res='';
+        while(num!=0){
+            if(num>=nums[0]){
+            res+=chars[0];
+            num=num-nums[0];
+            }else{
+                nums.shift();
+                chars.shift();
+            }
+        }
+        return res;
+        
+    };
+    // console.log(1);
+    
+    console.log(intToRoman(990));
+    
+    </script>
+</body>
+</html>

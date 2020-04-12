@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        window.name = 'ByteDance';
+        function A () {
+        this.name = 123;
+        }
+        A.prototype.getA = function(){          //是原型上的，所以
+                console.log(this);              //Window
+                return this.name + 1;           //ByteDance1
+        }
+        let a = new A();
+        let funcA = a.getA;
+        console.log(funcA());
+    </script>
+</body>
+</html>

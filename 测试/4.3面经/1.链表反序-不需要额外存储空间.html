@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(val){
+                this.val=val;
+                this.next=undefined;
+            }
+        }
+
+        class lianbiao{
+            constructor(arr){
+                this.head=new Node(arr[0]);
+                var temp=this.head;
+                for(var i=1;i<arr.length;i++){
+                    temp.next=new Node(arr[i]);
+                    temp=temp.next;
+                }
+                return this.head;
+            }
+        }
+        var pHead=new lianbiao([2,4,6,7,9]);
+        // var zhang=[];
+        // while(lb){
+        //     
+        //     if(lb.val!=null){
+        //         zhang.push(lb);
+        //     }
+        //     lb=lb.next;
+        // }
+        // while(zhang.length!=0){
+        //     console.log(zhang.pop().val);
+            
+        // }
+
+
+
+
+
+
+        //方法二   直接遍历，不需要额外存储空间，但时间复杂度：O(n^2)
+        // var now=lb;
+        // var count=0;            //统计节点数
+        //     while(now){
+        //         count++;
+        //         now=now.next;
+        //     }
+        //     for(var i=count;i>0;i--){               //***
+        //         var tem=i;
+        //         var cur=lb;
+        //         while(tem--!=1){
+        //             cur=cur.next;
+        //         }
+        //         console.log(cur.val);
+                
+        //     }
+    </script>
+</body>
+</html>

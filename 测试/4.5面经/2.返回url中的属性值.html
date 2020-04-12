@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var url='https://mbd.baidu.com/newspage/data/landingsuper?n_type=1&p_from=4';
+        function getUrlParams(url,key){
+            var str=url.split("?")[1];
+            // console.log(str);
+            var arr=str.split('&');
+            var obj={};
+            for(var i=0;i<arr.length;i++){
+                var brr=arr[i].split('=');
+                obj[brr[0]]=brr[1];
+            }
+            for(k in obj){
+                if(k==key){
+                    return obj[k];
+                }
+            }
+            
+        }
+        console.log(getUrlParams(url,'p_from'));
+        
+    </script>
+</body>
+</html>

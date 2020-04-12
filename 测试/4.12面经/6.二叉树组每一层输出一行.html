@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        
+        function GetCeng(pRoot){
+            var arr=[];
+            var res=[];
+            if(pRoot){
+                arr.push(pRoot);
+            }
+            while(arr.length!=0){       //输出每一层
+                
+                var l=0;
+                var brr=[];
+                var h=arr.length;               //记录每一层的节点数
+                while(l++<h){
+                    var first=arr.shift();
+                    brr.push(first.val);
+                    if(first.left){
+                        arr.push(first.left);
+                    }
+                    if(first.right){
+                        arr.push(first.right);
+                    }
+                }
+                res.push(brr);                  //res为二维数组
+            }
+            return res;
+        }
+
+            var two=new twoTree([8,6,10,5,7,9,11,1]);
+            console.log(GetCeng(two.root));
+            
+    </script>
+</body>
+</html>

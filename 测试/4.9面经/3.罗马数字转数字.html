@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var romanToInt = function(s) {
+    let o = {
+            'I':1,
+            'V':5,
+            'X':10,
+            'L':50,
+            'C':100,
+            'D':500,
+            'M':1000
+        },
+        n = 0;
+        var len=s.length;
+        for(var i=0;i<len;i++){
+            var temp=o[s[i]];
+            if(i<len-1&&o[s[i]]<o[s[i+1]]){
+                n=n-temp;
+            }else{
+                n=n+temp;
+            }
+        }
+        return n;
+};
+
+    console.log(romanToInt("MCMXCIV"));
+    
+    </script>
+</body>
+</html>

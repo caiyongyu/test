@@ -18,7 +18,7 @@
             
             
             let middleValue=arr.splice(middleIndex,1)[0];           //把中间那个值分隔出来，后面要拼回去
-            console.log(len,arr.length);
+            // console.log(len,arr.length);
             for(let i=0;i<arr.length;i++){
                 let item=arr[i];
                 arr[i]<middleValue?arrLeft.push(item):arrRight.push(item);

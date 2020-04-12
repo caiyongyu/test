@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //节流：一定时间内，只会触发一次
+            function jie(fn,timer){
+               var startTime=0;
+               return function(){
+                    var nowTime=Date.now();
+                    if(nowTime-startTime>timer){
+                        fn.call(this);
+                        startTime=nowTime;
+                    }
+               }
+            }
+            document.onmousemove=jie(function(){
+                console.log("success");
+                
+            },2000)
+
+            //防抖：一定时间内只有最后一次才会触发
+                function dou(fn,timer){
+                    var Time;                   //相当于以后都只执行fn，即return的函数？？
+                    return function(){
+                        clearTimeout(Time);
+                        
+                        Time=setTimeout(function(){
+                            fn.call(this);
+                        },timer);
+                    }
+                }
+                document.onmousemove=dou(function(){
+                    console.log("dou");
+                    
+                },2000)
+        </script>
+    </body>
+    </html>
+</body>
+</html>

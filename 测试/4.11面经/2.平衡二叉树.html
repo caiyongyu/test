@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        function ping(){
+
+        }
+        function ping(root){
+            if(!root) return true;
+            else if(Math.abs(Depth(root.left)-Depth(root.right))>1){
+                return false;
+            }
+            return ping(root.left)&&ping(root.right);
+        }
+        function Depth(root){
+            if(!root){
+                return 0;
+            }
+            return Math.max(Depth(root.left),Depth(root.right))+1;
+        }
+        var array=[2,4,7,9,10,17,11,1];
+        var two=new twoTree(array);
+        console.log(ping(two.root))
+        
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="temp">11111</div>
+    <div class="temp aa">22222</div>
+    <div class="tempq aa">3333</div>
+    <div class="bb temp">22222</div>
+    <div class="rr temp aa">22222</div>
+    <script>
+        function getAllClassName(attr){
+            var arr=[];
+            var doms=document.getElementsByTagName('*');
+            for(var i=0;i<doms.length;i++){
+                if(doms[i].className==attr||doms[i].className.indexOf(attr+" ")!=-1||doms[i].className.indexOf(" "+attr)!=-1|| doms[i].className.indexOf(" "+attr+" ")!=-1){
+                    arr.push(doms[i]);
+                }
+            }
+            return arr;
+        }
+        var classNames=getAllClassName('temp');
+        for(var j=0;j<classNames.length;j++){
+            classNames[j].style.background='red';
+        }
+    </script>
+</body>
+</html>

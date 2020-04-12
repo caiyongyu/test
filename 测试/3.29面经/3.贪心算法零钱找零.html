@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function returnMoney(arr){
+            // if(arr.length==0){
+            //     return false;
+            // }
+            var box=[];
+            while(arr.length>0){
+                let giveMoney=arr.shift();          //****arr.shift()
+                if(giveMoney==5){
+                    box.push(giveMoney);
+                }else{
+                    var returnMon=giveMoney-5;          //****
+                    box.sort((a,b)=>b-a);
+                    for(var i=0;i<box.length;i++){
+                        if(returnMon>=box[i]){
+                            returnMon=returnMon-box[i];
+                            box.splice(i,1);                //****
+                            i--;
+                        }
+                        else if(returnMon==0){
+                            box.push(giveMoney);
+                            break;
+                        }
+                    }
+                    if(returnMon!=0){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        console.log(returnMoney([5,5,10,20,5,10]));
+        
+    </script>
+</body>
+</html>

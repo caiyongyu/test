@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // if (!Array.prototype.forEach) {  
+        //     Array.prototype.eachEach = function(fun /*, thisp*/){  
+        //         var len = this.length;  
+        //         if (typeof fun != "function")  
+        //             throw new TypeError();              //假定 Object 和 TypeError 拥有它们的初始值
+        //         var thisp = arguments[1];  
+        //         for (var i = 0; i < len; i++){  
+        //             // if (i in this)  
+        //                 // fun.call(thisp, this[i], i, this);  
+        //                 fun.call(this,this[i])
+        //         }  
+        //     };  
+        // // }
+
+        // var arr=[2,5,8,9,1];
+        // arr.eachEach(function(item){
+        //     console.log(item);
+            
+        // })
+
+
+
+
+
+
+        // if(!Array.prototype.forEach){
+            Array.prototype.eachfor=function(fn){
+                var len=this.length;
+                if(typeof fn!="function"){
+                    throw new TypeError();
+                }
+                // var thisp=arguments[1]
+                    for(var i=0;i<len;i++){
+                        fn.call(this,this[i]);
+                    }
+                
+            }
+        // }
+        var brr=[5,7,9,2];
+        brr.eachfor((item)=>{
+            console.log(item);
+            
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

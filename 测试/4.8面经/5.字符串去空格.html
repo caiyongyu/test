@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //去除掉前后空格
+        // function trim(str){
+        //     return str.trim();
+        // }
+        // console.log(trim("  a trim "));
+        // console.log("  a trim ");
+        
+        
+        //去除掉所有空格
+        // function trim(str){
+            
+        //     return str.replace(/\s*/g,"")
+        // }
+
+        // console.log(trim("  a trim "));
+        // console.log("  a trim ");
+
+
+        //
+        String.prototype.tr_im=function(){
+            return this.replace(/^\s+|\s+$/g,"");
+        }
+        console.log("  prototype trim ".tr_im());
+        console.log("  prototype trim ");
+        
+    </script>
+</body>
+</html>

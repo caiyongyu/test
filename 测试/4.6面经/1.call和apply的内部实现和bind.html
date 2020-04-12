@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数都可以调用call，apply，bind方法，所以函数方法要写在原型上
+        // Function.prototype.ca_ll=function(){
+        //     let [thisArg,...arg]=arguments;
+        //     //thisArg=window;
+        //     thisArg.func=this;
+        //     var result=thisArg.func(...arg);                //内部参数指向thisArg
+        //     delete thisArg.func;
+        //     return result;
+        // }
+        // var obj={
+        //     name:"sily"
+        // }
+        // function fn(arg1,arg2){
+        //     console.log(this.name);
+        //     console.log(arg1,arg2);
+            
+        // }
+        // fn.ca_ll(obj,1,2);
+
+
+
+
+            //apply
+            // Function.prototype.app_ly=function(){
+            //     var [thisArg,args]=arguments;
+            //     thisArg.func=this;
+            //     var result;
+            //     // if(!args){
+            //     //     result=thisArg.func();
+            //     // }else{
+            //         result=thisArg.func(args);
+            //     // }
+            //     delete thisArg.func;
+            //     return result;
+            // }
+            // var obj={
+            //     name:"aima"
+            // }
+            // function fn(arr){
+            //     console.log(this.name);
+            //     console.log(arr);
+                
+            // }
+            // fn.app_ly(obj,[1,2,3])
+
+
+
+
+
+            Function.prototype.bind_=function(){
+            
+            //thisArg=window;
+                return ()=>{
+                    let [thisArg,...arg]=arguments;
+                    thisArg.func=this;
+                    var result=thisArg.func(...arg);                //内部参数指向thisArg
+                    delete thisArg.func;
+                    return result;
+                }
+            
+        }
+        var obj={
+            name:"sily"
+        }
+        function fn(arg1,arg2){
+            console.log(this.name);
+            console.log(arg1,arg2);
+            
+        }
+        fn.bind_(obj,1,2)();
+
+    </script>
+</body>
+</html>

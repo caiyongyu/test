@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //将多维数组转为一维数组
+        let arr = [1, [2, [3, 4]]];
+        let result = [];
+        function flattern(arr) {
+                
+                for(let i = 0; i < arr.length; i++) {
+                    if(arr[i].constructor==Array) {
+                        console.log(1);
+                        
+                        flattern(arr[i])
+                    } else {
+                        result.push(arr[i])
+                    }
+                }
+                return result;
+            }
+        console.log(flattern(arr));
+
+
+
+
+
+        //方法2
+        // function fn(arr){
+        //     return arr.toString().split(',').map(element => {
+        //         return element*1;
+        //     });
+        // }
+        // console.log(fn(arr));
+
+
+
+        //方法3
+        // function fn(arr){
+        //     return arr.reduce(function(prev, next){          //forget  no use more
+        //     return prev.concat(Array.isArray(next) ? fn(next) : next)
+        // }, [])
+
+
+
+
+            // var arr = [2, 2, 1, 10];
+            // var sum = arr.reduce(function (a, b) {
+            //     return a + b
+            // })
+            // return sum;   //[10]
+        // }
+        // console.log(fn(arr));
+        
+        
+
+        //方法4
+        // function flatten(arr) {
+ 
+        //     while (arr.some(item => Array.isArray(item))) {
+        //         arr = [].concat(...arr);
+        //     }  //ES6新方法
+
+        //     return arr;
+        //     }
+        //     console.log(flatten(arr));
+
+        
+    </script>
+</body>
+</html>

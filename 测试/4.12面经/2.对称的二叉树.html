@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        
+        
+        var flag=false;
+function isSymmetrical(pRoot)
+{
+    // write code here
+        
+        if(!this.flag){
+            console.log(1);
+                this.atwoTree=pRoot;
+                this.flag=true;
+        }
+        if(!pRoot){
+                return;
+        }
+        var temp=pRoot.left;
+        pRoot.left=pRoot.right;
+        pRoot.right=temp;
+        isSymmetrical(pRoot.left);
+        isSymmetrical(pRoot.right);
+        return pRoot==this.atwoTree;
+}
+            var two=new twoTree([8,6,10,5,7,9,11]);
+            // isSymmetrical(two.root);
+            // var atwoTree=new Node(0);
+            const atwoTree=two.root;
+            console.log(isSymmetrical(two.root));
+            console.log(atwoTree,two);
+            
+            
+    </script>
+</body>
+</html>

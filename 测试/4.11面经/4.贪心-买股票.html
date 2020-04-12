@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function maxMoney(arr){
+            var sum=0;
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=i+1;j<arr.length;j++){
+                    if(arr[j]>arr[i]){
+                        sum+=arr[j]-arr[i];
+                        i=j;
+                    }else{
+                        i=j-1;
+                        break;
+                    }
+                }
+            }
+            return sum;
+        }
+        var arr=[1,2,4,6,-2,10];
+        console.log(maxMoney(arr));
+        
+    </script>
+</body>
+</html>
