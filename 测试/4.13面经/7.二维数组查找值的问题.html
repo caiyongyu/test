@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Find(target, array)
+{
+    // write code here
+        var row=array.length;
+        var col=array[0].length;
+        var i=row-1,j=0;
+        //var num=array[i][j];
+        while(i>=0&&j<=col-1){
+                
+                if(target>array[i][j]){
+                        j++;
+                }
+                if(target<array[i][j]){
+                        i--;
+                }else if(target==array[i][j]){              //如果三个if，时间会超
+                        return true;
+                }
+        }
+        return false;
+}
+    </script>
+</body>
+</html>5

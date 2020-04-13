@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //前提是重复的数字必须是连在一起的
+        class Node{
+                    constructor(val){
+                        this.val=val;
+                        this.next=null;
+                    }
+                }
+                class lianbiao{
+                    constructor(arr){
+                        this.root=new Node(arr[0]);
+                        var temp=this.root;
+                        for(var i=1;i<arr.length;i++){
+                            temp.next=new Node(arr[i]);
+                            temp=temp.next;
+                        }
+                        return this.root;
+                    }
+                }
+
+
+                function deleteDuplication(pHead)
+                    {
+                        if(pHead == null || pHead.next == null){
+                            return pHead; //只有0个或1个结点，则返回
+                        }
+                        if(pHead.val == pHead.next.val){
+                            var pNode = pHead.next;
+                            while(pNode!=null && pNode.val==pHead.val){
+                                pNode = pNode.next;
+                            }
+                            return deleteDuplication(pNode);
+                        }else{
+                            pHead.next = deleteDuplication(pHead.next);
+                            return pHead;
+                        }
+                    }
+            var lb=new lianbiao([1,2,3,3,5,5,7,2]);
+            // console.log(2);
+            
+            console.log(deleteDuplication(lb));
+    </script>
+</body>
+</html>

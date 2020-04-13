@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        
+        var arr = [];
+            function Serialize(pRoot){
+            if(pRoot==null){
+                    arr.push('a');
+                }else{
+                    arr.push(pRoot.val);                    //算了，还是先序遍历吧，看起来正常点
+                    Serialize(pRoot.left);
+                    // arr.push(pRoot.val);
+                    Serialize(pRoot.right);
+                }
+            }
+function Deserialize(s)
+{
+    var node=null;
+    if(s.length<1){
+        return null;
+    }
+    var h=s.shift();
+    if(typeof h=='number'){
+        node=new Node(h);
+        node.left=Deserialize(arr);
+        node.right=Deserialize(arr);
+    }
+    return node;
+}
+            var two=new twoTree([8,6,10,5,7,9,11,1]);
+            Serialize(two.root)
+            console.log(arr);
+            console.log(Deserialize(arr));
+            
+            
+
+            
+    </script>
+</body>
+</html>

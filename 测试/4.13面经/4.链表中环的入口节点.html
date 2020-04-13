@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         class Node{
+            constructor(val){
+                this.val=val;
+                this.next=null;
+            }
+        }
+        class lianbiao{
+            constructor(arr){
+                this.root=new Node(arr[0]);
+                var temp=this.root;
+                for(var i=1;i<arr.length;i++){
+                    temp.next=new Node(arr[i]);
+                    temp=temp.next;
+                }
+                return this.root;
+            }
+        }
+
+
+        function EntryNodeOfLoop(pHead)
+            {
+                // write code here
+                    var slow=pHead;
+                    //var fast=pHead.next;
+                    var arr=[];
+                    while(slow){
+                            arr.push(slow);
+                            if(slow.next){
+
+                            slow=slow.next;
+                            }
+                            for(var i=0;i<arr.length;i++){
+                                if(slow.next==null) return null;
+                                    if(arr[i]==slow.next){
+                                            return arr[i];
+                                    }
+                            }
+                    }
+                    return null;
+            }
+
+            var lb=new lianbiao([2,3,5,6,8]);
+            lb.next.next=lb.next;
+            // console.log(lb);
+            
+            console.log(EntryNodeOfLoop(lb));
+            
+    </script>
+</body>
+</html>

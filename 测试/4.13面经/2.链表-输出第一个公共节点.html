@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(val){
+                this.val=val;
+                this.next=null;
+            }
+        }
+        class lianbiao{
+            constructor(arr){
+                this.root=new Node(arr[0]);
+                var temp=this.root;
+                for(var i=1;i<arr.length;i++){
+                    temp.next=new Node(arr[i]);
+                    temp=temp.next;
+                }
+                return this.root;
+            }
+        }
+
+        function FindFirstCommonNode(pHead1, pHead2)
+            {
+                // write code here
+                    while(pHead1){
+                            var first=pHead2;                   //二叉树，链表等class出来的都是object，试试这里PHead2只是永远指向首节点
+                            while(first){
+                                console.log(pHead1.val,first.val);
+                                
+                                    if(pHead1.val==first.val){
+                                            return pHead1;
+                                    }
+                                    first=first.next;
+                            }
+                            pHead1=pHead1.next;
+                    }
+                    return null;
+            }
+
+        var lb=new lianbiao([1,3,4,6,8]);
+        var lb2=new lianbiao([10,2,3,4,8]);
+        // while(lb){
+        //     console.log(lb.val);
+        //     lb=lb.next;
+        // }
+        console.log(typeof lb);
+        
+        console.log(FindFirstCommonNode(lb,lb2));
+    </script>
+</body>
+</html>
