@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function StrToInt(str)
+            {
+                // write code here
+                    //return Number(str)? parseInt(str):0;
+                    var s=Number(str);
+                    if(s<-2147483648||s>2147483647){            //牛客的数字数值范围
+                            return 0;
+                    }
+            else if(s) return s;
+                    
+                else return 0;
+            }
+    </script>
+</body>
+</html>

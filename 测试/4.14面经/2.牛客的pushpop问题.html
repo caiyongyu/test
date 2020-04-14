@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var outArr=[];
+        var inArr=[];
+        function push(node)
+        {
+            // write code here
+                inArr.push(node);
+        }
+        function pop()
+        {
+            // write code here
+                if(outArr.length==0){               //必须加这条件？？pop函数与原型的pop冲突了？？？
+                        while(inArr.length){
+                        outArr.push(inArr.pop());
+                
+                }
+                }
+                    
+                
+                return outArr.pop()
+        }
+    </script>
+</body>
+</html>

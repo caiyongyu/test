@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var inarr=[];
+
+        function push(node)
+        {
+            // write code here
+                inarr.push(node);
+        }
+        function pop()
+        {
+            // write code here
+                if(inarr.length){
+                        return inarr.pop();
+                }
+            
+        }
+        function top()
+        {
+            // write code here
+                if(inarr.length){
+                        return inarr.shift();
+                }
+        }
+        function min()
+        {
+            // write code here
+                return Math.min.apply(this,inarr);              //O(1)时间内
+                
+                
+        }
+    </script>
+</body>
+</html>

@@ -65,14 +65,14 @@ function Deserialize(s)
     var h=s.shift();
     if(typeof h=='number'){
         node=new Node(h);
-        node.left=Deserialize(arr);
-        node.right=Deserialize(arr);
+        node.left=Deserialize(s);
+        node.right=Deserialize(s);
     }
     return node;
 }
             var two=new twoTree([8,6,10,5,7,9,11,1]);
             Serialize(two.root)
-            console.log(arr);
+            // console.log(arr);
             console.log(Deserialize(arr));
             
             

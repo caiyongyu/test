@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function IsPopOrder(pushV, popV)
+            {
+                // write code here
+                    var arr=[];
+                    for(var i=0;i<pushV.length;i++){
+                            arr.push(pushV[i]);         //每新一轮，先pushV的index为0开始压入一个新栈，当栈顶相等就连续弹出
+                            while(arr.length&&arr[arr.length-1]==popV[0]){
+                                    arr.pop();
+                                    popV.shift();
+                            }
+                    }
+                    if(arr.length==0){
+                            return true;
+                    }else{
+                            return false;
+                    }
+            }
+    </script>
+</body>
+</html>
