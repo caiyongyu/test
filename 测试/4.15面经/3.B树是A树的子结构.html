@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        
+        
+
+
+        // var arr=[];
+        // var brr=[];
+        function HasSubtree(pRoot1, pRoot2)
+        {
+            // write code here
+                if(!pRoot2){
+                        return false;
+                }
+                var str2=center(pRoot1);
+                brr=[];
+                var str3=center(pRoot2);
+                
+                if(str2.indexOf(str3)!=-1){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+        var brr=[];
+        function center(root){
+                
+                brr.push(root.val);
+                if(root.left){
+                        center(root.left);
+                }
+                
+                if(root.right){
+                        center(root.right);
+                }
+                
+                var str=brr.join('')
+                // console.log(brr);
+                // brr=[];                      //不可以，此时str变成了引用数据类型
+                return str;
+        }
+        
+        var A=new twoTree([1,2,4,6,8]);
+        var B=new twoTree([4,6])
+        // console.log(center(A.root));
+        // console.log(brr);
+        
+        console.log(HasSubtree(A.root,B.root));
+
+        // console.log('abcd'.indexOf('abc'));
+        // var arr=['a','b'];
+        // console.log(arr.join(''));
+        
+        
+        
+    </script>
+</body>
+</html>

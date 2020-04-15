@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findMaxString(str){
+        var len=str.length;
+        var maxLen=1;
+        var maxStr=str.charAt(0);
+        if(len==1){
+            return str;
+        }
+        var i=0;
+        for(var j=1;j<len;j++){
+            if(str.slice(i,j).indexOf(str[j])!=-1){
+                console.log(2);
+                
+                i++;
+            }
+            else if(maxLen<j-i+1){
+                console.log(1);
+                
+                maxLen=j-i+1;
+                maxStr=str.slice(i,j+1);
+            }
+        }
+        // console.log(1);
+        
+        return maxStr;
+    }
+    console.log(findMaxString('abcdecdef'));
+    </script>
+</body>
+</html>
