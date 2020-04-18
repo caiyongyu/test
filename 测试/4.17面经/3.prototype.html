@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            // console.log(1);
+            // fn.call(this);
+            
+            
+        }
+        fn.prototype.run=function(){
+            fn.call(this)
+            this.count++;               //面试官说绑定的是自身，两次都是输出1？？
+            console.log(count);
+        }
+        fn.prototype.count=0;
+        a.prototype=new fn();
+        fn().run();
+        fn().run();
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function FindContinuousSequence(sum)
+            {
+                let low = 1,high=2;
+                let result = [];
+                while(high > low){
+                    let cur = ((low+high) / 2) * (high-low+1);
+                    if(cur === sum){
+                        let list = [];
+                        for(let i = low;i <= high;i++){
+                            list.push(i)
+                        }
+                        result.push(list);
+                        high++;
+                    }else if(cur < sum){
+                        high++;
+                    }else{
+                        low++;
+                    }
+                }
+                return result;
+            }
+        var brr=[0,1,3,4,5];
+        console.log(FindContinuousSequence(50));
+        
+    </script>
+</body>
+</html>

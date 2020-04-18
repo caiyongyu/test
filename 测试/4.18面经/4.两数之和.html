@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function two(arr){
+            if(arr.length<2){
+                return [];
+            }else{
+                var res=[];
+                arr.sort((a,b)=>a-b);
+                var end=arr.length-1;
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i+1]==arr[i]){
+                        continue;
+                    }
+                    if(arr[i]>0){
+                        break;
+                    }
+                    while(i<end){
+                        var sum=arr[i]+arr[end];
+                        if(sum==0){
+                            res.push([arr[i],arr[end]]);
+                            while(arr[i]==arr[i+1]&&i<end){
+                                i++;
+                            }
+                            while(arr[end]==arr[end-1]&&i<end){
+                                end--;
+                            }
+                            i++;
+                            end--;
+                        }else if(sum<0){
+                            i++;
+                        }else{
+                            end--;
+                        }
+                    }
+                }
+                return res;
+            }
+        }
+        var brr=[-2,0,-1,2,1,4,6,8];
+        console.log(two(brr));
+        
+    </script>
+</body>
+</html>

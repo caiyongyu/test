@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <script>
+        
+        // document.addEventListener('click',function(){
+        //     console.log(1);
+            
+        // })
+        // document.body.addEventListener('click',function(){
+        //     console.log(2);
+            
+        // })              //结果就一直输出1呀         面试官说先输出2，再输出1
+
+
+
+
+
+        // var btn=document.getElementById('btn');
+        var oDiv = document.getElementById('btn');
+        
+        document.body.addEventListener('click',function(){
+            console.log('body')
+        });
+        document.addEventListener('click',function(){           //是，先输出body,再输出document。但要绑定节点。否则只输出document
+            console.log('document')
+        });
+        // oDiv.addEventListener('click',function(){
+        //     console.log('div')
+        // },false);
+    </script>
+</body>
+</html>

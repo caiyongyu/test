@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var print=function(){alert(1);}
+        function Fn() {
+            print=function(){alert(2);}
+            return this;
+        }
+        function print(){alert(3);}
+        Fn.prototype.print=function(){alert(4);}
+        Fn.print=function(){alert(5);}
+        
+        print();            //1
+        Fn.print();         //5
+        Fn().print();           //2
+        new Fn.print();         //5
+        new Fn().print();       //****    4
+    </script>
+</body>
+</html>
