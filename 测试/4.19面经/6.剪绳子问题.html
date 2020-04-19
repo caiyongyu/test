@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jian(n){
+            if(number==2){
+                return 1;
+            }else if(number==3){
+                    return 2;
+            }else{
+                var maxPro=[1,2,3,4];           //****本就是剪绳子减到最大，不是剪成两段
+                    for(var i=4;i<number;i++){
+                            for(var j=1;j<i;j++){
+                                    maxPro[i]=Math.max(maxPro[i-j]*j);
+                            }
+                    }
+                    return maxPro[number-1]; 
+            }
+        }
+        console.log(jian(5));
+        
+    </script>
+</body>
+</html>

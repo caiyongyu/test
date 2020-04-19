@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function FindNumbersWithSum(array, sum)
+{
+    // write code here
+        if(array.length<2){
+                return [];
+        }else{
+                var res=[];
+                var end=array.length-1;
+                for(var i=0;i<array.length;i++){
+                        if(array[i]==array[i+1]){
+                                continue;
+                        }
+                        if(array[i]>sum){
+                                break;
+                        }
+                        while(i<end){
+                                var two=array[i]+array[end];
+                                if(two==sum){
+                                        res.push([array[i],array[end]]);
+                                        while(array[i]==array[i+1]&&i<end){
+                                                i++;
+                                        } 
+                                        while(array[end]==array[end-1]&&i<end){
+                                                end--;
+                                        }
+                                        i++;
+                                        end--;
+                                }else if(two<sum){
+                                        i++;
+                                }else{
+                                        end--;
+                                }
+                        }
+                }
+                // console.log(res);
+                
+                return min(res);
+        }
+}
+function min(arr){
+        var sum=99999999;
+        for(var i=0;i<arr.length;i++){
+                if(arr[i][0]*arr[i][1]<sum){
+                        sum=arr[i];
+                }
+        }
+        return sum;
+}
+        console.log(FindNumbersWithSum([-2,-1,0,1,2,3,4,5],0));
+    </script>
+</body>
+</html>

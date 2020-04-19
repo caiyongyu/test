@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //错
+        function LastRemaining_Solution(n, m)
+            {
+                // write code here
+                    var arr=new Array(n);
+                    for(let i=0;i<n;i++){
+                            arr[i]=i;
+                            // arr[i].__proto__.num=i;
+                            
+                            
+                    }
+                    // console.log(arr[2].__proto__.num);
+                    return fn(arr,m);
+                
+            }
+            function fn(arr,m){
+                    if(arr.length<=1){
+                        // console.log(arr[0]);
+                        
+                            return arr[0];
+                    }else{
+                        var brr=arr.filter(function(val,ind){
+                            return ind==m-1;
+                            })
+                            return fn(brr,m);  
+                    }
+                    
+            }
+            console.log(LastRemaining_Solution(5,2));
+            
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(value){
+                this.val=value;
+                this.left=null;
+                this.right=null;
+            }
+        }
+        class twoTree{
+            constructor(arr){
+                this.root=null;
+                arr.forEach(element => {
+                    this.insert(this.root,element)
+                });
+            }
+            insert(root,ele){
+                if(!root){
+                    this.root=new Node(ele);
+                }else{
+                    this.insertLast(this.root,ele);
+                }
+            }
+            insertLast(root,num){
+                if(num>root.val){
+                    if(!root.right){
+                        root.right=new Node(num);
+                    }else{
+                        this.insertLast(root.right,num);
+                    }
+                }else{
+                    if(!root.left){
+                        root.left=new Node(num);
+                    }else{
+                        this.insertLast(root.left,num);
+                    }
+                }
+            }
+        }
+        
+
+        function KthNode(pRoot, k)
+            {
+                    if(!pRoot){
+                            return null;
+                    }
+                var brr=fn2(pRoot);
+                    if(k>brr.length){
+                            return null;
+                    }
+                for(var i=0;i<brr.length-1;i++){
+                for(var j=i+1;j<brr.length;j++){
+                        if(brr[j].val<brr[i].val){
+                                [brr[i],brr[j]]=[brr[j],brr[i]];
+                        }
+                }
+                if(i==k-1){
+                       return brr[k-1]; 
+                }
+        }
+            }
+        var arr=[];
+        function fn2(root){
+        
+            // console.log(root);
+            
+                this.arr.push(root);
+                if(root.left){
+                        fn2(root.left);
+                }
+                if(root.right){
+                        fn2(root.right);
+                }
+                // console.log(this.arr);
+                
+                return arr;
+        }
+        var lb=new twoTree([8,6,10,5,7,9,11])
+        console.log(KthNode(lb.root,2));
+        
+    </script>
+</body>
+</html>
