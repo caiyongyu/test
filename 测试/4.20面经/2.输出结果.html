@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const obj = {
+            name: 'jsCoder',
+            skill: ['es6','react','angular'],
+            say: function(){
+                for(var i = 0,len = this.skill.length;i < len;i++){
+                    setTimeout(function(){
+                        console.log('No.' + i + this.name);
+                        console.log(this.skill[i]);         //下标没有3，报错，下面就不执行了
+                        console.log('------------------');
+                    },0);
+                    console.log(i);
+                }
+            }
+        }
+        obj.say();          
+
+
+
+        // for(var i=0;i<3;i++){
+        //     console.log(i);          //0 1 2
+            
+        // }
+    </script>
+</body>
+</html>

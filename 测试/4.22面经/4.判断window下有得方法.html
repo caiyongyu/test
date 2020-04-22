@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(window);
+       
+        
+        console.log( window.hasOwnProperty('toString'));            //window下有toString方法??hasOwnProperty只找自身有无，不找原型链下的
+        
+        console.log(window.toString());
+        console.log(Number);
+        
+        console.log(Number.toString());
+        console.log(Number.hasOwnProperty('toString'));
+        
+        console.log('toString' in window);
+        
+
+ 
+
+        //数字转字符串
+        //1
+        var num=123;
+        console.log(num.toString());
+
+        //2
+        console.log(num+"");
+        
+        
+
+    </script>
+</body>
+</html>

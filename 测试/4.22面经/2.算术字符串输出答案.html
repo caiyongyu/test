@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(str){
+        //     str=str.split('');
+        //     var newStr=/\W/g;
+        //     var temp=str.map(function(val){
+        //         return newStr.test(val);
+        //     });
+        //     return temp;
+        // }
+            var obj={
+                '+':(a,b)=>a+b,             //***
+                '-':(a,b)=>a-b              //***
+            }
+        function fn(str){
+            var res=[];
+            var strArr=[];
+            for(var i=0;i<str.length;i++){
+                if(str[i]=='+'||str[i]=='-'){
+                    strArr.push(str[i]);
+                }
+            }
+            nums=str.split(/\W/);
+            console.log(nums);
+            for(var i=0;i<strArr.length;i++){
+                if(strArr[i] in obj)
+                var a=obj[strArr[i]](parseInt(nums.shift()),parseInt(nums.shift()));
+                nums.unshift(a);                //***
+            }
+            return nums[0];
+            
+        }
+        console.log(fn('123+234-123+100='));
+
+
+
+        // console.log(parseInt('9990'));
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Parent(){
+            this.name='Lisa',
+            this.arr=[1,2,3];
+        }
+        Parent.prototype.run=function(){
+            console.log('run');
+            
+        }
+        function Child(){
+            Parent.call(this);
+        }
+        Child.prototype=Object.create(Parent.prototype);
+        Child.prototype.constructor=Child;
+        var obj=new Child();
+        var obj2=new Child();
+        console.log(obj.name);
+        obj.run();
+        obj.arr[0]='a';
+        console.log(obj2.arr);
+        
+    </script>
+</body>
+</html>

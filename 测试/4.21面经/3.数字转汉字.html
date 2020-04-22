@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(str){
+            var reg=/^[1-9]\d*/g;
+            if(!reg.test(str)){
+                return 'string no a number';
+            }else{
+                var dan='千百十亿千百十万千百十个';
+                if(str.length>dan.length){
+                    return 'expand random';
+                }
+                var resStr=dan.substr(dan.length-str.length);
+                // console.log(resStr);
+                
+                var res='';
+                var numStr='零一二三四五六七八九'
+                for(var i=0;i<resStr.length;i++){
+                    res+=numStr[str[i]]+resStr[i];
+                }
+                var newStr=res.replace(/(个*)/g,'');
+                newStr=newStr.replace(/零(千|百|十)/g,'零').replace(/(零+)/g,'零').replace(/零(亿|万)/g,'$1');
+                return newStr;
+            }
+
+        }
+        console.log(fn('111111111111'));
+        
+    </script>
+</body>
+</html>
