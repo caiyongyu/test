@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arr){
+            // return arr.map(function(val){            //返回数组
+            //     return val%2;
+            // })
+
+
+            arr.forEach(element => {                //返回undefined,因为一般都拿来直接遍历
+                return element%2==0;
+            });
+        }
+        console.log(fn([1,2,3,4,5]));
+        
+    </script>
+</body>
+</html>

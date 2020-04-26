@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <script>
+        function fn(n){
+            var a=0,b=1,num=0;
+            if(n==0){
+                return 0;
+            }else if(n==1){
+                return 1;
+            }
+            for(var i=1;i<n;i++){               //O(n)
+                num=a+b;
+                a=b;
+                b=num;
+            }
+            return num;
+        }
+        console.log(fn(3));
+        
+    </script>
+</body>
+</html>

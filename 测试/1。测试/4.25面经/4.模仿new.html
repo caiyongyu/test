@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Foo(a,b,c,d){
+            
+        }
+        function create(Foo,a,b,c){
+            this.Foo=function(){
+                // console.log(a+b+c);
+                
+                return a+b+c;
+            }
+            return this.Foo();
+        }
+        
+        
+        console.log(create(Foo,1,2,3))
+        var obj=new Foo();
+        console.log(obj);
+        
+        // console.log(obj);
+        
+    </script>
+</body>
+</html>

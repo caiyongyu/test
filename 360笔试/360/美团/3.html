@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['3','5','6','1'];
+        var res=[];
+        var res2=[];
+        for(var i=0;i<arr.length;i++){
+            var brr=arr.filter(function(val,index){
+                return index!=i;
+            })
+            // arr[i]=-1;
+            // console.log(brr);
+            
+           for(var j=0;j<brr.length;j++){
+               var num=Number(arr[i])&Number(brr[j]);
+               
+               if(num==0){
+                //    console.log(1);
+                   
+                    
+                    res2.push(i);
+                    break;
+               }
+           }
+        }
+        for(var i=0;i<arr.length;i++){
+            arr[i]=-1;
+        }
+        for(var i=0;i<res2.length;i++){
+            arr[res2[i]]=1;
+        }
+        console.log(arr);
+        
+        
+    </script>
+</body>
+</html>

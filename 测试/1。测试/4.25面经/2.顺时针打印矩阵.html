@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function rotate(matrix){
+            if(matrix.length == 0){
+                return;
+            }
+            var rows = matrix.length;
+            var cols = matrix[0].length;
+            var start = 0;
+            var result = [];
+
+            while(rows>start*2&&cols>start*2){
+                var endX=cols-1-start;
+                var endY=rows-1-start;
+
+                for(var i = start; i <= endX; i++){
+                    result.push(matrix[start][i]);
+                }
+         
+                //从上到下打印
+                if(start < endY){
+                    for(var i = start + 1; i <= endY; i++){
+                        result.push(matrix[i][endX]);
+                    }
+                }
+                
+                //从右到左打印
+                if(start < endX && start < endY){
+                    for(var i = endX - 1; i >= start ; i--){
+                        result.push(matrix[endY][i]);
+                    }
+                }
+                
+                //从下到上打印
+                if(start < endX && start < endY - 1){          
+                    for(var i = endY - 1; i >= start + 1; i--){
+                    result.push(matrix[i][start]);
+                    }
+                }
+                start++;
+            }
+            return result;
+        }
+
+         var arr=[
+            [1,2,3,4],
+            [5,6,7,8],
+            [9,10,11,12],
+            [13,14,15,16]
+        ]
+        console.log(rotate(arr));
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+
+
+
+
+
+
+        var res=[['0','0'],['0', '1'],['0', '2'],['0', '3'],['1', '1'],['1', '2'],['-1', '1'],['-1', '2']]
+        var xiao1=0;
+        var xiao2=0;
+        var da1=0;
+        var da2=0;
+        var sum=0;
+        for(var i=0;i<8;i++){
+            for(var j=0;j<8;j++){
+                if(res[i][0]==res[j][0]&&Number(res[i][1])<Number(res[j][1])){
+                    da1++;
+                }
+                if(res[i][0]==res[j][0]&&Number(res[i][1])>Number(res[j][1])){
+                    da2++;
+                }
+                if(res[i][1]==res[j][1]&&Number(res[i][0])<Number(res[j][0])){
+                    xiao1++;
+                }
+                if(res[i][1]==res[j][1]&&Number(res[i][0])>Number(res[j][0])){
+                    xiao2++;
+                }
+            }
+            if(da1>0&&da2>0&&xiao1>0&&xiao2>0){
+                sum++;
+            }
+            xiao1=0;
+            xiao2=0;
+            da1=0;
+            da2=0;
+        }
+        console.log(sum);
+        
+    </script>
+</body>
+</html>

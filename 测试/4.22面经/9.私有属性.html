@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let pet = new Proxy(
+        {
+            name:'小白ES6',
+            type:'dog',
+            age:10
+        },
+        {
+            get(target,key){
+                return target[key]
+            },
+            set(target,key,val){
+                if(key!=='type'){
+                    target[key] = val
+                    return true
+                }
+                return false
+            }
+        })
+        console.log(pet)
+        pet.age = 12
+        try{
+            pet.type = 'cat'
+        }catch(e){
+            console.log(e)//在这里打印了由于给type设值抛出的错误
+        }
+        console.log(pet)
+    </script>
+</body>
+</html>

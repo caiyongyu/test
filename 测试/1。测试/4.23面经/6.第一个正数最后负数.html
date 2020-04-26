@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arr){
+            var first=0,end=0,temp=0;
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]>temp){
+                    first=i;
+                    temp=999999;
+                    continue;
+                }else if(arr[i]<0){
+                    end=i;
+                }
+
+            }
+            console.log(first+1,end+1);
+            
+        }
+        fn([-1,-2,0,0,0,0,4,5])
+        
+    </script>
+</body>
+</html>
