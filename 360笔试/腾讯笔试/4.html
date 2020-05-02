@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var str=readline();
+        var str='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36';
+var arr=str.split('/');
+var res=new Array;
+res.push(arr.shift());
+// console.log(arr);
+
+for(var i=0;i<arr.length;i++){
+    var brr=arr[i].split(' ');
+    res.push(brr[brr.length-1]);
+}
+res.pop();
+for(var i=0;i<res.length;i++){
+    res[i]="\""+res[i]+"\"";
+}
+var resStr="[";
+for(var j=0;j<res.length-1;j++){
+    resStr+=res[j]+",";
+}
+resStr+=res[res.length-1]+"]";
+console.log(resStr);
+
+
+
+    </script>
+</body>
+</html>

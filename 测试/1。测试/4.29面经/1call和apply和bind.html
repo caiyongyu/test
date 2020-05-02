@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call
+        // Function.prototype.myCall=function(){
+        //     let [fn,...arg]=arguments;
+        //     fn.run=this;
+        //     var result=fn.run(...arg);
+        //     delete fn.run;
+        //     return result;
+        // }
+        // var obj={
+        //     name:'lisa'
+        // }
+        // function a(b,c){
+        //     console.log(b+c,this.name);
+            
+        // }
+        // a.myCall(obj,6,6);
+
+        //apply
+        Function.prototype.myApply=function(){
+            let [fn,arg]=arguments;
+            fn.run=this;
+            var result=fn.run(arg);
+            delete fn.run;
+            return result;
+        }
+        var obj={
+            name:'lisa'
+        }
+        function a(arr){
+            console.log(arr);
+            
+            console.log(this.name);
+            
+        }
+        a.myApply(obj,[9,9]);
+    </script>
+</body>
+</html>

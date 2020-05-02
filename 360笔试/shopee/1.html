@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=read_line().split(',');
+var brr=read_line().split(',');
+//print(typeof arr[1]);
+arr[0]=arr[0][1];
+brr[0]=brr[0][1];
+arr[arr.length-1]=arr[arr.length-1].slice(1);
+var len1=arr[arr.length-1].length;
+arr[arr.length-1]=arr[arr.length-1].slice(0,len1-1);
+
+brr[brr.length-1]=brr[brr.length-1].slice(1);
+var len2=brr[brr.length-1].length;
+brr[brr.length-1]=brr[brr.length-1].slice(0,len2-1);
+//arr[arr.length-1][arr[arr.length-1]-1]='';
+//arr[arr.length-1]=arr[arr.length-1][0];
+//brr[brr.length-1]=brr[brr.length-1][0];
+//print(arr);
+//print(brr);
+var res=[];
+var num=0;
+arr[arr.length-1]=Number(arr[arr.length-1]);
+brr[brr.length-1]=Number(brr[brr.length-1]);
+while(arr.length&&brr.length){
+    if(Number(arr[0])<Number(brr[0])){
+        res.push(Number(arr.shift()));
+    }else{
+        var qian=Number(brr.shift());
+        res.push(qian);
+    }
+    num++;
+}
+while(arr.length){
+    res.push(Number(arr.shift()));
+}
+while(brr.length){
+     var qian=Number(brr.shift());
+    res.push(qian);
+}
+
+var str='';
+for(var i=0;i<res.length-1;i++){
+    str+=res[i]+', ';
+}
+str+=res[res.length-1]+' ';
+var three=read_line();
+three=Number(three);
+if(num<three){
+    str+='true';
+}else{
+    str+='false';
+}
+print(str);
+    </script>
+</body>
+</html>

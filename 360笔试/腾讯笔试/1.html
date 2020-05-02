@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class duilieArray{
+            constructor(){
+                this.list=[];
+                this.front=0;
+                this.rear=0;
+                //this.max=k;         //规定的队列长度
+            }
+            Front(){            //获取队首指针的元素
+                if(this.isEmpty()){
+                    return -1;
+                }else{
+                    return this.list[this.front];
+                }
+            }
+            Rear(){         //获取队尾指针的前一个元素
+                if(this.isEmpty()){
+                    return -1;
+                }else{
+                    if(this.rear==0){
+                        this.rear=this.max-1;
+                        return this.list[this.rear];
+                    }
+                    return this.list[this.rear-1];
+                }
+            }
+    Size(){
+        return this.list.length;
+    }
+            Insert(value){          //在队尾指针上插入元素
+                if(this.isFull()){
+                    return false;
+                }else{
+                    this.list[this.rear]=value;
+                    this.rear=(this.rear+1);               //往队列中插入数据后，队尾指针向后偏移
+                    return true;
+                }
+            }
+            Droop(){            //删除队首指针上的元素
+                if(this.isEmpty()){
+                    return false;
+                }else{
+                    this.list[this.front]=null;
+                    this.front=(this.front+1);
+                    return true;
+                }
+            }
+    Clear(){
+        this.list=[];
+    }
+            isEmpty(){
+                return this.front===this.rear && !this.list[this.front];
+            }
+            isFull(){
+                return this.front===this.rear && !!this.list[this.front];
+            }
+        }
+let dui=new duilieArray();
+// var nums=readline();
+// nums=Number(nums);
+var nums=1;
+for(var i=0;i<nums;i++){
+    // var cao=readline();
+    // cao=Number(cao);
+    cao=1;
+    dui.Insert(2);
+    for(var j=0;j<cao;j++){
+        // var str=readline();
+        var str='SIZE'
+        var arr=str.split(' ');
+        if(arr[0]=='PUSH'){
+            dui.Insert(Number(arr[1]));
+        }else if(arr[0]=='TOP'){
+            console.log(dui.Front())
+        }else if(arr[0]=='POP'){
+            dui.Droop();
+        }else if(arr[0]=='SIZE'){
+            console.log(dui.Size())
+        }else if(arr[0]=='CLEAR'){
+            dui.Clear()
+        }
+        
+    }
+}
+    </script>
+</body>
+</html>

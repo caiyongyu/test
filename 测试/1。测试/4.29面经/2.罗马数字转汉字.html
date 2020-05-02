@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var romanToInt = function(s) {
+    let o = {
+            'I':1,
+            'V':5,
+            'X':10,
+            'L':50,
+            'C':100,
+            'D':500,
+            'M':1000
+        };
+        var n=0;
+        for(var i=0;i<s.length;i++){
+            var temp=o[s[i]];
+            if(i<s.length-1&&o[s[i]]<o[s[i+1]]){                //意思最后一个必须加上？？
+                n=n-temp;
+            }else{
+                n=n+temp;
+            }
+        }
+        return n;
+    }
+    console.log(romanToInt('VI'));
+    
+    </script>
+</body>
+</html>

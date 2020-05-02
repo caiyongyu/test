@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var merge = function(intervals) {
+            if(!intervals.length) return [];
+            intervals.sort((x,y) => x[0]-y[0]),res = [];
+            for(let i = 0;i < intervals.length;i++){
+                if(i === 0) res.push(intervals[i]);
+                else{
+                    if(intervals[i][0] <= res[res.length-1][1]){
+                        if(intervals[i][1] > res[res.length-1][1])res[res.length-1][1] = intervals[i][1];
+                    }else{
+                        res.push(intervals[i]);
+                    }
+                }
+            }
+            return res;
+        };
+        console.log(merge([1,2,3,4,5,6,9,8]))
+
+    </script>
+</body>
+</html>

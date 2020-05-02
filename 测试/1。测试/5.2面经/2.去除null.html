@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function removeNull(data, defaultStr = '') {
+            // 普通数据类型
+            if (typeof data != 'object' || data == null) {
+                if ((data == null || data == 'null')) {
+                    return '';
+                } else {
+                    return data;
+                }
+            }
+            // 引用数据类型
+            for (const v in data) {
+                if (data[v] == null || data[v] == 'nul') {
+        //             data[v] = defaultStr;
+                        //删除属性的方法   1 delete data.v       2   data.v=undefined
+                        delete data.v;              //为什么不行？？
+                }
+                if (typeof data[v] == 'object') {
+                    removeNull(data[v])
+                }
+            }
+        return data;
+        }
+
+
+        const data = {
+    aa: null,
+    bb: 'bb',
+    cc: 'nul',
+    dd: {
+        dd1: 'dd1',
+        dd2: null,
+        dd3: 'null'
+    },
+    ee: [{
+        ee: 'null',
+        ff: ['null', {
+            ff1: {
+                ff2: null
+            }
+        }]
+    }, null]
+}
+ 
+//  delete data.aa;
+// 如果是object, 因为是引用传递, 我没有将data return回来, 调用方法之后该data已经去除完成 
+console.log(removeNull(data))
+console.log(data)
+
+    </script>
+</body>
+</html>

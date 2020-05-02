@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let name=Symbol('abc');                 //必须用let？？
+        // let obj={};
+        // obj[name]='eee'
+        // console.log(obj[name]);
+
+
+
+
+        //Symbol.for
+        let name=Symbol.for('uid');
+        var obj={};
+        obj[name]='abc';
+        console.log(obj[name]);
+        let temp=Symbol.for('uid');                 //**
+        console.log(obj[temp]);
+        
+        
+        
+    </script>
+</body>
+</html>

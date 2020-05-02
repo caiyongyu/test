@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="jsContent">
+        <h1>123</h1>
+        <p>34</p>
+        <h2>56</h2>
+    </div>
+    <div id="jsMenu">
+        
+    </div>
+    <script>
+        function menu(){
+            var content=document.getElementById('jsContent');
+            var jsMenu=document.getElementById('jsMenu');
+            var doms=content.getElementsByTagName('*');
+            // console.log(oDoms);
+            
+            var res=[];
+            for(var i=0;i<doms.length;i++){
+                // console.log(1);
+                
+                console.log(doms[i].tagName);
+                
+                if(doms[i].tagName=='H1'||doms[i].tagName=='H2'||doms[i].tagName=='H3'||doms[i].tagName=='H4'||doms[i].tagName=='H5'||doms[i].tagName=='H6'){
+                    console.log(1);
+                    
+                    jsMenu.append(doms[i]);
+                }
+            }
+
+        }
+        menu()
+    </script>
+</body>
+</html>
