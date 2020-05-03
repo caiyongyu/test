@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=[1,2,3];
+        var b=a;                    //a指向了一个新地址，相当于复制了一层。不指向原地址了
+        a=[4,5,6];
+        a[0]=9;
+        console.log(b);         //[1,2,3]
+        
+    </script>
+</body>
+</html>

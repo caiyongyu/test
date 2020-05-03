@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var temp='ZZZ';
+        function toNum(str){
+            var len=str.length;
+
+            if(len==1){
+                return str.charCodeAt()-65;
+            }else if(len==2){
+                return (str.charCodeAt(0)-64)*26+str.charCodeAt(1)-65;          //AA===>1*26
+            }else if(len==3){
+                return (27+26*(str.charCodeAt()-65))*26+ (str.charCodeAt(1)-65)*26+str.charCodeAt(2)-65;       //AAA==>27*26  BAA==>(27+26)*26
+            }
+        }
+        console.log(toNum(temp));
+        console.log(27*26);
+        
+        
+    </script>
+</body>
+</html>

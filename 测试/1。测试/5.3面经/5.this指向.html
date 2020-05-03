@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var o = {
+            a:10,
+            b:{
+                a:12,
+                fn:function(){
+                    console.log(this.a); //undefined
+                    console.log(this); //window
+                }
+            }
+        }
+        // o.b.fn()            //会指向最近的b对象
+        var j = o.b.fn;
+        j();            //没有立即执行，相当于window.j()
+    </script>
+</body>
+</html>
