@@ -23,13 +23,28 @@ const server = new net.createServer(function(socket){
     socket.on('data',function(data){
         // console.log(`client${socket.name} send:` + data);
         var Crr=JSON.parse(data);
+
+        var flag=1;
+        if(flag==1){
+
+          var BrrString='[{"pro1":"N1","pro2":5,"pro3":"A"},{"pro1":"N2","pro2":3,"pro3":"C"},{"pro1":"N6","pro2":6,"pro3":"F"},{"pro1":"N8","pro2":4,"pro3":"E"}]';
+          flag=0;
+        }
+        var Brr=JSON.parse(BrrString);
+
         for(var i=0;i<Crr.length;i++){
           Crr[i]['pro2']++;
+          if(Crr[i]['pro2']>16){
+            Brr[i]=Crr[i];
+            Brr[i]['pro2']=16;
+          }
+          else if(Crr[i]['pro2']==16){
+            Brr[i]=Crr[i];
+          }
           Crr[i]['pro3']='C';
         }
         // console.log(Crr);
-        var BrrString='[{"pro1":"N1","pro2":5,"pro3":"A"},{"pro1":"N2","pro2":3,"pro3":"C"},{"pro1":"N6","pro2":6,"pro3":"F"},{"pro1":"N8","pro2":4,"pro3":"E"}]';
-        var Brr=JSON.parse(BrrString);
+        
         for(var i=0;i<Crr.length;i++){
           for(var j=0;j<Brr.length;j++){
             if(Crr[i]['pro1']==Brr[j]['pro1']){
@@ -45,8 +60,11 @@ const server = new net.createServer(function(socket){
         }
         Brr.sort(compare('pro1'));
         console.log(Brr);
-        
-        // socket.write(typeof data);          //object
+        console.log('');
+        var toCStr=JSON.stringify(Brr);
+        // console.log(toCStr);
+        BrrString=toCStr;
+        socket.write(toCStr);          //object
        });
     
 });
