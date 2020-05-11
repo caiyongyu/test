@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn(arr){
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr[i]%2==0){
+        //             for(var j=i+1;j<arr.length;j++){
+        //                 if(arr[j]%2==1){
+        //                     [arr[i],arr[j]]=[arr[j],arr[i]];
+        //                     break;
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // console.log(fn([1,2,3,4,5,6]));
+
+
+        function fn(arr){
+            var odd=[],even=[];
+            for(var i of arr){
+                if(i%2==1) odd.push(i);
+                else even.push(i);
+            }
+            return odd.concat(even);
+        }
+        console.log(fn([1,2,3,4,5,6]));
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class node{
+            constructor(val){
+                this.val=val;
+                this.next=null;
+            }
+        }
+        function lianbiao(arr){
+            var head=new node(arr[0]);
+            var temp=head;
+            for(var i=1;i<arr.length;i++){
+                temp.next=new node(arr[i]);
+                temp=temp.next;
+            }
+            return head;
+        }
+
+        function deleteNon(lb,n){
+            var arr=[];
+            while(lb){
+                arr.push(lb);
+                lb=lb.next;
+            }
+            var len=arr.length;
+            arr[len-(n+1)].next=arr[len-(n-1)];
+        }
+        var lb=new lianbiao([1,3,4,5,6]);
+        
+            deleteNon(lb,2);
+            while(lb){
+            console.log(lb.val);
+            lb=lb.next;
+        }
+//         一、自我介绍：
+// 我叫蔡永昱，来自黑龙江大学的软件工程专业，是一名大三的学生，在学校期间经常参加组织一些校级，院级活动，
+// 曾担任过科协UI部部长，计算机的班长，软件工程的班主任，大二上学期通过学长学姐的介绍，开始接触前端，
+// 开启了自己的自学前端之路，从初学html，css，到vue，react，再到自己独立完成一个项目，这期间收获很多，学到了
+// 很多知识，然后就是今年6月份开始在滴滴实习，期间主要负责风控平台和三证背审系统的前端开发，项目的技术栈主要是vue全家桶，
+// 和react全家桶。我性格比较开朗，容易相处，比较喜欢学习新技术。目前就这些，您有什么要问的吗？
+
+// 二、项目介绍：
+// 牛盾风控平台是承担安全部对外输送安全服务能力的综合平台：主要承载风控拦截、策略配置、告警控制、处罚动作等功能
+    </script>
+</body>
+</html>

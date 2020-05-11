@@ -27,7 +27,7 @@ const server = new net.createServer(function(socket){
         var flag=1;
         if(flag==1){
 
-          var BrrString='[{"pro1":"N1","pro2":5,"pro3":"A"},{"pro1":"N2","pro2":3,"pro3":"C"},{"pro1":"N6","pro2":6,"pro3":"F"},{"pro1":"N8","pro2":4,"pro3":"E"}]';
+          var BrrString='[{"pro1":"N1","pro2":11,"pro3":"A"},{"pro1":"N2","pro2":12,"pro3":"C"},{"pro1":"N6","pro2":11,"pro3":"F"},{"pro1":"N8","pro2":4,"pro3":"E"}]';
           flag=0;
         }
         var Brr=JSON.parse(BrrString);

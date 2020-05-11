@@ -7,12 +7,13 @@
 </head>
 <body>
     <script>
-        // setTimeout(function(){
-        //     console.log(this);
-            
-        // },500)
+        //toString的缺点，null和undefined不能用。可用+''
 
-        setTimeout(console.log(this),1000);
+        var a=null;
+        // var a=undefined;
+        // a=a.toString();
+        a=a+'';
+        console.log(a);
         
     </script>
 </body>

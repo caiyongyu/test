@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const person = {player: {name: 'Messi'}};
+        
+        const person1 = person;
+        
+        // console.log(person, person1);
+        
+        //[ { name: 'Messi' } ] [ { name: 'Messi' } ]
+        
+        person.player.name = 'Kane';
+        
+        console.log(person, person1);
+
+
+       
+        
+    </script>
+</body>
+</html>

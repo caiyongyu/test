@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var brr=new Array();
+       var productExceptSelf = function(nums) {
+           var newNums=[];
+           for(var i=0;i<nums.length;i++){
+                var arr=nums.filter(function(value,index){
+                    return index!=i;
+                })
+                
+
+                newNums.push(arr);
+               
+           }
+           
+           
+            for(var i=0;i<newNums.length;i++){
+                var result=1;
+                for(var j=0;j<newNums[i].length;j++){
+                    // console.log(result)
+                    result=result*newNums[i][j];
+                }
+                nums[i]=result;
+            }
+            return nums;
+        };
+    console.log(productExceptSelf([6,5,4,8,9]));
+    </script>
+</body>
+</html>

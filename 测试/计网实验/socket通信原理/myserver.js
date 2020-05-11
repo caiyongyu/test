@@ -13,58 +13,12 @@ const server = new net.createServer(function(socket){
     // socket.write('Hello client!\n');
     socket.name = ++temp; 
     clients[socket.name] = socket;
-    function compare(property){
-      return function(value1,value2){
-          var num1=Number(value1[property].charAt(1));
-          var num2=Number(value2[property].charAt(1));
-          return num1-num2;
-      }
-  }
     socket.on('data',function(data){
-        // console.log(`client${socket.name} send:` + data);
-        var Crr=JSON.parse(data);
-
-        var flag=1;
-        if(flag==1){
-
-          var BrrString='[{"pro1":"N1","pro2":5,"pro3":"A"},{"pro1":"N2","pro2":3,"pro3":"C"},{"pro1":"N6","pro2":6,"pro3":"F"},{"pro1":"N8","pro2":4,"pro3":"E"}]';
-          flag=0;
-        }
-        var Brr=JSON.parse(BrrString);
-
-        for(var i=0;i<Crr.length;i++){
-          Crr[i]['pro2']++;
-          if(Crr[i]['pro2']>16){
-            Brr[i]=Crr[i];
-            Brr[i]['pro2']=16;
-          }
-          else if(Crr[i]['pro2']==16){
-            Brr[i]=Crr[i];
-          }
-          Crr[i]['pro3']='C';
-        }
-        // console.log(Crr);
-        
-        for(var i=0;i<Crr.length;i++){
-          for(var j=0;j<Brr.length;j++){
-            if(Crr[i]['pro1']==Brr[j]['pro1']){
-              if(Crr[i]['pro3']==Brr[j]['pro3']||Crr[i]['pro2']<Brr[j]['pro2']){
-                Brr[j]=Crr[i];
-              }
-              break;
-            }
-          }
-          if(j==Brr.length){
-            Brr.push(Crr[i]);
-          }
-        }
-        Brr.sort(compare('pro1'));
-        console.log(Brr);
-        console.log('');
-        var toCStr=JSON.stringify(Brr);
-        // console.log(toCStr);
-        BrrString=toCStr;
-        socket.write(toCStr);          //object
+        console.log(`client${socket.name} send:` + data);
+        // message=data;
+        var message=data.toString();
+        socket.write(message.toUpperCase());            //toLowerCase()
+        // socket.write(typeof data);          //object
        });
     
 });
