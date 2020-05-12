@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         class node{
+            constructor(val){
+                this.val=val;
+                this.next=null;
+            }
+        }
+        function lianbiao(arr){
+            var head=new node(arr[0]);
+            var temp=head;
+            for(var i=1;i<arr.length;i++){
+                temp.next=new node(arr[i]);
+                temp=temp.next;
+            }
+            return head;
+        }
+        function commitLb(lb1,lb2){
+            if(!lb1) return lb2;
+            if(!lb2) return lb1;
+            var p;
+            if(lb1.val<lb2.val){
+                p=lb1;
+                // console.log(lb1.val)
+                
+                p.next=commitLb(lb1.next,lb2);
+            }else{
+                p=lb2;
+                p.next=commitLb(lb1,lb2.next);
+            }
+            return p;
+        }
+
+        var lb1=new lianbiao([1,3,5,7,9]);
+        var lb2=new lianbiao([2,4,6,8,10]);
+        var k=commitLb(lb1,lb2);
+        while(k){
+            console.log(k.val);
+            k=k.next;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function goTo0(grid,i,j,rows,cols){
+            if(i<0||j<0||i>rows-1||j>cols-1||grid[i][j]=="0")
+                return;
+            grid[i][j]="0";
+            goTo0(grid,i+1,j,rows,cols);
+            goTo0(grid,i-1,j,rows,cols);
+            goTo0(grid,i,j+1,rows,cols);
+            goTo0(grid,i,j-1,rows,cols);
+        }
+
+        var numIslands = function(grid) {
+            var res=0;
+            const rows=grid.length;
+            if(rows==0) return 0;
+            const cols=grid[0].length;
+            for(var i=0;i<rows;i++){
+                for(var j=0;j<cols;j++){
+                    if(grid[i][j]=="1"){
+                        goTo0(grid,i,j,rows,cols);
+                        res++;
+                    }
+                }
+            }
+            return res;
+        };
+    </script>
+</body>
+</html>

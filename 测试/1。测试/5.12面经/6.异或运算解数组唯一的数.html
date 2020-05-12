@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组中每个数字都有2个，找出只有一个的数字
+        //异或运算^，相同为0，不同为自身（9^0=9） a^b^a=a^a^b=0^b=b
+        var singleNumber = function(nums) {
+            var res=0;
+            nums.forEach((val)=>{
+                res^=val;
+            })
+            return res;
+        };
+    </script>
+</body>
+</html>
