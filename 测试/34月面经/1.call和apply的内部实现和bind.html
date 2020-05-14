@@ -8,23 +8,25 @@
 <body>
     <script>
         //函数都可以调用call，apply，bind方法，所以函数方法要写在原型上
-        // Function.prototype.ca_ll=function(){
-        //     let [thisArg,...arg]=arguments;
-        //     //thisArg=window;
-        //     thisArg.func=this;
-        //     var result=thisArg.func(...arg);                //内部参数指向thisArg
-        //     delete thisArg.func;
-        //     return result;
-        // }
-        // var obj={
-        //     name:"sily"
-        // }
-        // function fn(arg1,arg2){
-        //     console.log(this.name);
-        //     console.log(arg1,arg2);
+        Function.prototype.ca_ll=function(){
+            let [thisArg,...arg]=arguments;
+            //thisArg=window;
+            thisArg.func=this;
+            // console.log(this);               //this指向fn
             
-        // }
-        // fn.ca_ll(obj,1,2);
+            var result=thisArg.func(...arg);                //内部参数指向thisArg.func,即fn
+            delete thisArg.func;
+            return result;
+        }
+        var obj={
+            name:"sily"
+        }
+        function fn(arg1,arg2){
+            console.log(this.name);
+            console.log(arg1,arg2);
+            
+        }
+        fn.ca_ll(obj,1,2);
 
 
 
@@ -56,27 +58,27 @@
 
 
 
-            Function.prototype.bind_=function(){
+        //     Function.prototype.bind_=function(){
             
-            //thisArg=window;
-                return ()=>{
-                    let [thisArg,...arg]=arguments;
-                    thisArg.func=this;
-                    var result=thisArg.func(...arg);                //内部参数指向thisArg
-                    delete thisArg.func;
-                    return result;
-                }
+        //     //thisArg=window;
+        //         return ()=>{
+        //             let [thisArg,...arg]=arguments;
+        //             thisArg.func=this;
+        //             var result=thisArg.func(...arg);                //内部参数指向thisArg
+        //             delete thisArg.func;
+        //             return result;
+        //         }
             
-        }
-        var obj={
-            name:"sily"
-        }
-        function fn(arg1,arg2){
-            console.log(this.name);
-            console.log(arg1,arg2);
+        // }
+        // var obj={
+        //     name:"sily"
+        // }
+        // function fn(arg1,arg2){
+        //     console.log(this.name);
+        //     console.log(arg1,arg2);
             
-        }
-        fn.bind_(obj,1,2)();
+        // }
+        // fn.bind_(obj,1,2)();
 
     </script>
 </body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //O（n）查找值就想到使用二分查找，但二分查找只能在有序的数组中查找。所以尽量把无序的那一半抛掉。
+        //while(low<end){   如果mid=target返回  如果mid<start&&target>mid    或者如果mid>start&&(target>mid||target<start)  start=mid+1
+        //否则：end=mid-1       }
+        var search = function(nums, target) {
+        var low = 0;
+        var high = nums.length - 1;
+        while(low < high){
+            var mid = (low+high)>>1;
+            if( target < nums[0] && target > nums[mid]){
+                low = mid+1;
+            }
+            else if(nums[0] <= nums[mid] && (target > nums[mid] || target < nums[0])) {
+                low = mid+1;
+            }
+            else{
+                high = mid;
+            }
+        }
+        return low == high && nums[low] == target ? low : -1;
+    };
+    </script>
+</body>
+</html>

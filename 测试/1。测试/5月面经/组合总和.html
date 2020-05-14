@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var combinationSum = function(candidates, target) {
+        let n = candidates.length;
+        let res = [];
+        let tmpPath = [];
+        let backtrack = (tmpPath,target,start) => {
+            if(target < 0){
+                return;
+            }
+            if(target == 0){
+                res.push(tmpPath);
+                return;
+            }
+            for(let i = start;i < n;i++){
+                tmpPath.push(candidates[i]);
+                backtrack(tmpPath.slice(),target - candidates[i],i);            //.slice()??记录每一轮递归时push进去的值？？
+                tmpPath.pop();          //pop()掉，因为此数用完了。不会用到了
+            }
+        }
+        backtrack(tmpPath,target,0);
+        return res;
+    };
+    var arr=combinationSum([2,2,3,6,7],7);
+    
+    console.log(arr);
+    
+    // console.log(JSON.parse("[1,2,3]"));
+    
+
+
+
+    // var arr=[1,2,3];
+    // console.log(arr.slice());
+    
+
+
+    </script>
+</body>
+</html>
