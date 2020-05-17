@@ -8,13 +8,16 @@
 <body>
     <script>
 
+        var name='aaa'
         const obj = {
             name: 'jsCoder',
             skill: ['es6','react','angular'],
             say: function(){
                 for(var i = 0,len = this.skill.length;i < len;i++){
                     setTimeout(function(){
-                        console.log('No.' + i + this.name);
+                        // console.log(this.name);
+                        
+                        console.log('No.' + i + this.name);         //this指向window，所以没有
                         console.log(this.skill[i]);         //下标没有3，报错，下面就不执行了
                         console.log('------------------');
                     },0);

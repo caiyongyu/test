@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //缺点：属性值不能为undefined，Symbol，函数。也不能循环引用
+        // var obj={
+        //     a:1,
+        //     b:{
+        //         c:2
+        //     }
+        // }
+        // var obj2=JSON.parse(JSON.stringify(obj));
+        // obj.b.c=3;
+        // console.log(obj2.b.c);
+
+
+
+        //浅拷贝的另外两种方式   Object.assign  和  扩展运算符...
+        // var obj={
+        //     a:1
+        // }
+        // var obj2=Object.assign({},obj);
+        // obj.a=3;
+        // console.log(obj2.a);
+
+
+
+
+        var obj={
+            a:1
+        }
+        var obj2={...obj};
+        obj.a=4;
+        console.log(obj2.a);
+        
+        
+        
+    </script>
+</body>
+</html>

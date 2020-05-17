@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //转布尔型时，除了null，undefined，false，NaN，''，0，-0之外，都是true
+        //数组转字符串，[1,2]==>'1,2'     数组转数字，[]==>0  [2]==>2  其它都是NaN
+        //字符串转数字，+'b'==>NaN
+        console.log(Number([2]));
+
+
+
+
+        //四则运算符
+        console.log(true+true);         //2
+        console.log('a'+[1,2,3]);       //'a1,2,3'
+        console.log('a'+ +'b');           //'aNaN'
+        console.log(4*[1,2]);              //NaN
+        console.log(0=='0.00');             //true
+        console.log([]==[]);                //false   []==![]==>true
+        console.log(Number({a:12}));         //NaN
+        
+       
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
