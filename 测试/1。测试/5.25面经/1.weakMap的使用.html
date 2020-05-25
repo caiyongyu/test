@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function   FindMax(arr) {
+            var obj=new WeakMap();
+            var maxVal;
+            var max=0;
+            for(let i=0;i<arr.length;i++) {
+                if(!obj[arr[i]]) {
+                    obj[arr[i]]=1;
+                }else {
+                    obj[arr[i]]++;
+                }
+                if(obj[arr[i]] > max){
+                    max=obj[arr[i]];
+                    maxVal=arr[i];
+                }
+            }
+            return [maxVal,max];
+        }
+        // console.log(FindMax([{"a":3},{"a":4},{"a":3}]));
+        console.log(FindMax(["a","b","a"]));
+        
+        
+    </script>
+</body>
+</html>

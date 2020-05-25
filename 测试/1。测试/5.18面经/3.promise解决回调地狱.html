@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //缺点：promise不能取消，状态不能回退，每次都是一个新的promise
+        let promiseArr=[()=>{
+            return new Promise((resolve)=>{
+                resolve(1)
+            })
+        },()=>{
+            return new Promise((resolve)=>{
+                resolve(2)
+            })
+        },()=>{
+            return new Promise((resolve)=>{
+                resolve(3)
+            })
+        }]
+        promiseArr.shift()().then((res)=>{
+            promiseArr.shift();
+        }).then((res)=>{
+            promiseArr.shift();
+        })
+    </script>
+</body>
+</html>

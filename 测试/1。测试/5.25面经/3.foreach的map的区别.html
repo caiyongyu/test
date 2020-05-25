@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //forEach会改变原数组，且返回undefined
+        // var arr = [1,2,3,5];
+        // var b = arr.forEach((val,index) => {
+        //     return arr[index] = val-3;
+            
+        // })
+        // console.log(arr);
+        
+        // console.log(b);
+        
+
+        //map会返回一个新的数组
+        var arr = [1,2,3,5];
+        var b = arr.map((val,index) => {
+            return val-3;
+            
+        })
+        console.log(arr);
+        
+        console.log(b);
+    </script>
+</body>
+</html>
