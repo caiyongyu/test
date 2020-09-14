@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 'abc'   ["abc", "acb", "bac", "bca", "cab", "cba"]
+
+    function fn(str){
+        if(!str){
+            return false;
+        }else{
+            var arr=str.split('');
+            var result=[];
+            var brr=Sort(arr,0,result);
+            return [...new Set(brr)].sort();
+        }
+    }
+    function Sort(arr,index,result){
+        if(arr.length==index){
+           result.push(arr.join("")); 
+        }
+        for(var i=index;i<arr.length;i++){
+            [arr[i],arr[index]]=[arr[index],arr[i]];
+            Sort(arr,index+1,result);
+            [arr[index],arr[i]]=[arr[i],arr[index]];
+        }
+        return result;
+    }
+    console.log(fn('bac'));
+    
+</script>
+</body>
+</html>

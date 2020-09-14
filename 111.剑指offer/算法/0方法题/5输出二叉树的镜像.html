@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Mirror(root)
+            {
+                    if(!root){
+                        return;
+                    }
+                    [root.left, root.right] = [root.right, root.left]
+                    Mirror(root.left);
+                    Mirror(root.right);
+                    
+            }
+            var two=new twoTree([8,6,10,5,7,9,11]);
+            Mirror(two.root);
+            console.log(two);
+    </script>
+</body>
+</html>

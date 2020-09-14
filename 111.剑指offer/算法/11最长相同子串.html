@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function longestCommonPrefix(strs, first, k) {
+    var first = getMaxStr(first, strs[k]);
+    if(k != strs.length-1) {
+        longestCommonPrefix(strs, first, k++);
+    }
+    if(strs[0].indexOf(first) == 0 && first.length != 0) {
+        return first;
+    }else {
+        return "empty"
+    }
+
+}
+
+        function getMaxStr(str1,str2) {
+            var max = str1.length > str2.length ? str1 : str2;
+            var min = (max == str1 ? str2 : str1);
+            for(var i = 0; i<min.length; i++) {
+                for(var x = 0,y=min.length-i;y!=min.length+1; x++,y++) {
+                    var newStr = min.substring(x,y);
+                    if(max.indexOf(newStr) != -1) {
+                        return newStr;
+                    }
+                }
+            }
+        }
+        console.log(getMaxStr("aba", "abac"))
+        var a = "abc";
+        console.log(a.indexOf("ab"))
+    </script>
+</body>
+</html>

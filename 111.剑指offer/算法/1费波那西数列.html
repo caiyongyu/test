@@ -7,15 +7,6 @@
 </head>
 <body>
     <script>
-        function fibonaxi(n){
-            var f=0;
-            var temp=1;
-            while(n--){
-                temp+=f;
-                f=temp-f;
-            }
-            return f;
-        }
         function myFn(n){
             var f=1,
             temp=1;
@@ -25,8 +16,25 @@
             }
             return f;
         }
-        console.log(fibonaxi(4));
         console.log(myFn(4));
+
+
+        //费波那西数列O（n） 不递归
+        function fn(n){
+            var a=0,b=1,num=0;
+            if(n==0){
+                return 0;
+            }else if(n==1){
+                return 1;
+            }
+            for(var i=1;i<n;i++){               //O(n)
+                num=a+b;
+                a=b;
+                b=num;
+            }
+            return num;
+        }
+        console.log(fn(3));
         
         
     </script>

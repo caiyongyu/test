@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sumTwoTree(root,sum=0){
+            if(!root){
+                return false;
+            }
+            sum+=root.val;
+            if(!root.left&&!root.right){
+                return sum;
+            }
+            return sumTwoTree(root.left,sum)+sumTwoTree(root.right,sum);
+        }
+
+        var two=new twoTree([5, 1,6]);
+        console.log(sumTwoTree(two.root));
+    </script>
+</body>
+</html>
