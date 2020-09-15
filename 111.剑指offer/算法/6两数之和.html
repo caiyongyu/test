@@ -10,25 +10,25 @@
         //返回索引
 
         const twoSum = (nums, target) => {
-  // 存放出现过的数字，和对应的索引
-  const prevNums = {};                         
-  // 遍历元素
-  for (let i = 0; i < nums.length; i++) {      
-    // 当前元素
-    const curNum = nums[i];                    
-    // 满足题目要求的目标元素
-    const targetNum = target - curNum;         
-    // 在prevNums中找目标元素的索引
-    const targetNumIndex = prevNums[targetNum];
-    // 如果存在，直接返回 [目标元素的索引, 当前索引]
-    if (targetNumIndex !== undefined) {        
-      return [targetNumIndex, i];             
-    }                                     
-    // 如果不存在，说明之前没出现过目标元素
-    // 每次都存入当前元素和对应的索引
-    prevNums[curNum] = i;                      
-  }
-}
+        // 存放出现过的数字，和对应的索引
+        const prevNums = {};                         
+        // 遍历元素
+        for (let i = 0; i < nums.length; i++) {      
+            // 当前元素
+            const curNum = nums[i];                    
+            // 满足题目要求的目标元素
+            const targetNum = target - curNum;         
+            // 在prevNums中找目标元素的索引
+            const targetNumIndex = prevNums[targetNum];
+            // 如果存在，直接返回 [目标元素的索引, 当前索引]
+            if (targetNumIndex !== undefined) {        
+            return [targetNumIndex, i];             
+            }                                     
+            // 如果不存在，说明之前没出现过目标元素
+            // 每次都存入当前元素和对应的索引
+            prevNums[curNum] = i;                      
+        }
+        }
     </script>
 </body>
 </html>
