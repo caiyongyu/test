@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //[[1,4],[4,5]]   [[1, 5]]
+        var merge = function(intervals) {
+        intervals.sort((a, b) => a[0] - b[0]);
+        let res = [];
+        let idx = -1;
+        for (let interval of intervals) {
+            if (idx == -1 || interval[0] > res[idx][1]) {
+                res.push(interval);
+                idx++;
+            } else {
+                res[idx][1] = Math.max(res[idx][1], interval[1]);
+            }
+        }
+        return res;
+    };
+    console.log(merge([[1,4],[4,5]]));
+    </script>
+</body>
+</html>

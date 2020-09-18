@@ -8,13 +8,57 @@
 <body>
     <script>
         //1  Object.is    等价于===
-        
+        //2  判断是否是重复字符串
+        //3  Symbol的使用
+        //4  canvas的使用
+        //5  进度条标签
+
 
         //1  Object.is    等价于===
         console.log(Object.is(+0,-0));          //false console.log(0===-0);   true
         console.log(Object.is(NaN,NaN));            //这里返回true， NaN表示非数字，与任何值都不相等包括其本身。可用isNaN()判断是否为NaN.
         console.log(0/0);               //NaN
         console.log(3/0);               //Infinity   无穷大          -Infinity表示负无穷大
+
+        //2  判断是否是重复字符串
+        function fn(str){
+            var res=/^(\w+)\1$/;
+            if(res.test(str)){
+                return true;
+            }else return false;
+        }
+        console.log(fn('acbacb'));
+
+
+        //3  Symbol的使用
+        // var a=Symbol('abc');                
+        // var obj={};
+        // obj[a]='eee'
+        // console.log(obj[a]);     //'eee'
+
+
+        //Symbol.for
+        let a=Symbol.for('uid');
+        var obj={};
+        obj[a]='abc';
+        console.log(obj[a]);
+        let temp=Symbol.for('uid');                 
+        console.log(obj[temp]);         //'abc'
+
+
+        //4  canvas的使用
+        <canvas></canvas>
+        <script>
+            var canvas=document.getElementsByTagName('canvas')[0];
+            var cvs=canvas.getContext('2d');
+            cvs.fillStyle="red";
+            cvs.fillRect(0,0,80,100);
+        </script>
+
+
+        //5  进度条标签
+        <progress max="10" value="2"></progress>
+        <meter max="10" value="3"></meter>
 
 
     </script>
