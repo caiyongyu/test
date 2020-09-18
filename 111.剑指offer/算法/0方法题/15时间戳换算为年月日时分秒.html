@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //时间戳换算为时分秒 年月日时分秒
+        function formatSeconds(value) {
+            var theTime = parseInt(value);// 秒
+            var middle= 0;// 分
+            var hour= 0;// 小时
+
+            if(theTime > 60) {
+                middle= parseInt(theTime/60);
+                theTime = parseInt(theTime%60);
+                if(middle> 60) {
+                    hour= parseInt(middle/60);
+                    middle= parseInt(middle%60);
+                }
+            }
+            var result = ""+parseInt(theTime)+"秒";
+            if(middle > 0) {
+                result = ""+parseInt(middle)+"分"+result;
+            }
+            if(hour> 0) {
+                result = ""+parseInt(hour)+"小时"+result;
+            }
+            return result;
+        }
+
+        var formatDateTime = function(inputTime) {
+            var date = new Date(inputTime);
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            m = m < 10 ? ('0' + m) : m;
+            var d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            var h = date.getHours();
+            h = h < 10 ? ('0' + h) : h;
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+            minute = minute < 10 ? ('0' + minute) : minute;
+            second = second < 10 ? ('0' + second) : second;
+            return y+'-'+m+'-'+d+' '+' '+h+':'+minute+':'+second;
+        }
+        console.log(formatSeconds(10000002));           //2777小时46分42秒
+        console.log(formatDateTime(10000002));
+    </script>
+</body>
+</html>
