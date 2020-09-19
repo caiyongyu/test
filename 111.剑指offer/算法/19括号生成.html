@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //n = 3      [
+                //    "((()))",
+                //    "(()())",
+                //    "(())()",
+                //    "()(())",
+                //    "()()()"
+                //  ]
+
+                //经典递归解法 1.左边括号数一定大于等于右边   2.每次递归前需记录左右括号数
+                var generateParenthesis = function (n) {
+                let res = [];
+                //  cur :当前字符  left：当前字符左括号 right:当前字符右括号
+                const help = (cur, left, right) => {
+                    if (cur.length === 2 * n) {
+                    res.push(cur);
+                    return;
+                    }
+                    if (left < n) {
+                    help(cur + "(", left + 1, right)
+                    }
+                    if (right < left) {
+                    help(cur + ")", left, right + 1);
+                    }
+                };
+                help("", 0, 0);
+                return res;
+                };
+                console.log(generateParenthesis(3))
+
+    </script>
+</body>
+</html>

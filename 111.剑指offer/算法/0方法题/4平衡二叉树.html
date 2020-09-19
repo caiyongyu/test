@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function ping(root){
+            if(!root) return true;
+            else if(Math.abs(Depth(root.left)-Depth(root.right))>1){
+                return false;
+            }
+            return ping(root.left)&&ping(root.right);
+        }
+        function Depth(root){
+            if(!root){
+                return 0;
+            }
+            return Math.max(Depth(root.left),Depth(root.right))+1;
+        }
+        Depth(shu.root)
+    </script>
+</body>
+</html>

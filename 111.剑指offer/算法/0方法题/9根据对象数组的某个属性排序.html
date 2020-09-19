@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [
+        {
+            id: 12,
+            name: 'zhangsan'
+        },
+        {
+            id: 2,
+            name: 'lisa'
+        },
+    ]
+    function compare(property) {
+        return function (value1, value2) {
+            let v1=value1[property].charCodeAt();
+            let v2=value2[property].charCodeAt();
+            return v1-v2;
+        }
+    }
+    console.log(a.sort(compare('name')));
+    </script>
+</body>
+</html>

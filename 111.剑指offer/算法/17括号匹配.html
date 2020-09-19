@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1 判断字符串的括号是否匹配正确
+        //2 输出最长有效括号的长度
+
+        //"()[]{}"     true
+        const isValid = (s) => {
+        const map = { '{': '}', '[': ']', '(': ')' };
+        const stack = [];
+
+        for (const cur of s) {
+            if (map[cur]) {                  
+            stack.push(cur);             
+            } else {                           
+            if (stack.length == 0) {           
+                return false;                 
+            }
+            const stackTop = stack[stack.length - 1]; 
+            if (map[stackTop] == cur) {          
+                stack.pop();                      
+            } else {                           
+                return false;                    
+            }
+            }
+        }
+        // 栈中是否还有未匹配的左括号
+        return stack.length == 0; 
+        };
+
+
+
+        //最长有效括号  ")()()"   4
+        var longestValidParentheses = function(s) {
+        var max = 0;
+        var stack = [-1];
+        for(var i = 0;i < s.length;i++){
+            if(s[i] == '('){
+                stack.push(i);
+            }else{
+                stack.pop();        //pop之后，就是最近的有效括号的开始index
+                if(stack.length == 0){
+                    stack.push(i);
+                }else{
+                    console.log("max-->", max)
+                    max = Math.max(max,i - stack[stack.length-1]);
+                }
+            }
+        }
+        return max;
+    };
+    console.log(longestValidParentheses("(()()"))
+    </script>
+</body>
+</html>

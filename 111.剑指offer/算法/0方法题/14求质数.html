@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //10   4（2,3,5,7）     //2是唯一的既是偶数又是质数
+        function prime(n) {
+            var zhiShuArr = [1, 2, 3]; //可以很容易的确定了。这三个质数
+            for (var i = 4; i <= n; i++) {
+                var flag = true;//这个是标志位
+                for (var j = 2; j <= i/2; j++) { //从2开始，讲道理应该到i的，但是数学的原理你懂的
+                    if (i%j == 0) {
+                        flag = false; //如果有的话flag就为false
+                    }
+                }
+                if (flag) { 
+                    zhiShuArr.push(i);
+                }
+            }
+            return zhiShuArr;
+        }
+        
+        console.log(prime(10));
+ 
+
+    </script>
+</body>
+</html>

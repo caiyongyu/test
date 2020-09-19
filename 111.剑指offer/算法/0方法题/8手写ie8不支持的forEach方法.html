@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         // if(!Array.prototype.forEach){
+            Array.prototype.eachfor=function(fn){
+                var len=this.length;
+                if(typeof fn!="function"){
+                    throw new TypeError();
+                }
+                    for(var i=0;i<len;i++){
+                        fn.call(this,this[i]);
+                    }
+                
+            }
+        // }
+        var brr=[5,7,9,2];
+        brr.eachfor((item)=>{
+            console.log(item);   
+        })
+    </script>
+</body>
+</html>

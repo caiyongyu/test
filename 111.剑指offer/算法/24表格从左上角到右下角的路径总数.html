@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //m = 3, n = 2    3  回溯法
+        var uniquePaths = function (m, n) {
+            // 若只有一条路线
+            if (m === 1 || n === 1) {
+                return 1;
+            }
+            // 存储已遍历的值
+            const store = [...Array(m)].map(() => [...Array(n)]);
+            const findPath = function(i, j) {
+                if (store[i][j]) {
+                    return store[i][j];
+                }
+                // 计算每一节点的路线数
+                let count = 0;
+                if (i + 1 < m - 1) {
+                    // 若未至底侧，继续进入底侧节点
+                    count += findPath(i + 1, j);
+                } else {
+                    count++;
+                }
+                if (j + 1 < n - 1) {
+                    // 若未至右侧，继续进入右侧节点
+                    count += findPath(i, j + 1);
+                } else {
+                    count++;
+                }
+                store[i][j] = count;
+                return count;
+            }
+
+            return findPath(0, 0);
+        };
+        console.log(uniquePaths(3, 2))
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ["eat", "tea", "tan", "ate", "nat", "bat"]       [
+                                                            // ["ate","eat","tea"],
+                                                            // ["nat","tan"],
+                                                            // ["bat"]
+                                                         // ]
+        //维护哈希表Map
+    var groupAnagrams = function(strs) {
+        let hash = new Map()
+        
+        for(let i = 0; i < strs.length; i++) {
+            let str = strs[i].split('').sort().join()
+            if(hash.has(str)) {
+                let temp = hash.get(str)
+                temp.push(strs[i])
+                hash.set(str, temp)
+            } else {
+                hash.set(str, [strs[i]])
+            }
+        }
+        return [...hash.values()]
+        };
+        console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+
+    </script>
+</body>
+</html>

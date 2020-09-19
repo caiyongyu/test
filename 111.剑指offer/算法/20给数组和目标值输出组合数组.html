@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //输入： [2,3,5]  8
+        //输出： [
+                // [2,2,2,2],
+                // [2,3,3],
+                // [3,5]
+                // ]
+                //回溯法 没找到就退回上一级
+                const combinationSum = (candidates, target) => {
+                const res = [];
+                const dfs = (start, temp, sum) => {
+                    if (sum >= target) {
+                    if (sum == target) {
+                        res.push(temp.slice()); // temp的拷贝
+                    }
+                    return;     // 结束当前递归
+                    }
+                    for (let i = start; i < candidates.length; i++) { // 枚举出选择，从start开始
+                    temp.push(candidates[i]);           // 加入“部分解”
+                    dfs(i, temp, sum + candidates[i]);  // 往下继续选择，同时sum累加上当前数字
+                    temp.pop();                         // 撤销选择
+                    }
+                };
+                dfs(0, [], 0);
+                return res;
+                };
+                console.log(combinationSum([2,3,5], 8))
+    </script>
+</body>
+</html>

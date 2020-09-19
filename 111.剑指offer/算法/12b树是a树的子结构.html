@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //pRoot2是pRoot1的子节点
+        function HasSubtree(pRoot1, pRoot2)
+            {
+                    //自身，左子树，右子树只要一个符合即为子结构
+                    if(pRoot1==null||pRoot2==null){
+                            return false;
+                    }
+                    return isSubtree(pRoot1,pRoot2)||HasSubtree(pRoot1.left,pRoot2)||HasSubtree(pRoot1.right,pRoot2);
+            }
+            function isSubtree(root1,root2){
+                    //root2已空，但root1还可继续，即真
+                    if(root2==null){
+                            return true;
+                    }
+                    if(root1==null){
+                            return false;
+                    }
+                    if(root1.val==root2.val){
+                            return isSubtree(root1.left,root2.left)&&isSubtree(root1.right,root2.right);
+                    }else{
+                            return false;
+                    }
+            }
+    </script>
+</body>
+</html>

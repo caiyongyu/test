@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let frontArr = ['a', 'c', 'f', 'g', 'b', 'd', 'e'];
+        // let middleArr = ['f', 'c', 'g', 'a', 'd', 'b', 'e'];
+        // let endArr = ['f', 'g', 'c', 'd', 'e', 'b', 'a'];
+index
+        function chongjian(pre, vin) {
+            if(pre.length == 0 || vin.length == 0) return null;
+            var index = vin.indexOf(pre[0]);
+            var left = vin.slice(0, index);
+            var right = vin.slice(index+1);
+            return {
+                val: pre[0],
+                left: chongjian(pre.slice(1, index+1), left),
+                right: chongjian(pre.slice(index+1), right)
+                // left: chongjian(end.slice(0, index), left),
+                // right: chongjian(end.slice(index, end.length-1))
+            }
+        }
+    </script>
+</body>
+</html>

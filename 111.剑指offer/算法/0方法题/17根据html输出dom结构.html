@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+    function dealStr(s) {
+      var div = document.createElement('div')
+      div.innerHTML = s
+      return div.children[0]
+    }
+
+    function createVistualDom(dom) {
+      if (!dom) return
+      let obj = {}
+      obj.type = dom.tagName.toLowerCase()
+      obj.children = []
+      if (dom.children) {
+        for(let i = 0 ; i < dom.children.length ; i++) {
+          const child = dom.children[i]
+          obj.children.push(createVistualDom(child))
+        }
+      }
+      return obj
+    }
+
+    var template = "<div><p><span></span></p></div>"
+    const dom = dealStr(template)
+    const result = createVistualDom(dom);
+    console.log(dom, result)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Merge(pHead1, pHead2)
+            {
+                if(!pHead1) return pHead2;
+                    if(!pHead2) return pHead1;
+                    var h;
+                    if(pHead1.val>pHead2.val){
+                            h=pHead2;
+                            h.next=Merge(pHead1,pHead2.next);
+                    }
+                    else if(pHead1.val<=pHead2.val){
+                            h=pHead1;
+                            h.next=Merge(pHead1.next,pHead2);
+                    }
+                    return h;               //返回的是第一个节点，
+            }
+    </script>
+</body>
+</html>

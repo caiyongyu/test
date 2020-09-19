@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //[3,2,1,0,4]  false
+    //应该是前面跳数还有剩，可以用到后面
+    var canJump = function(nums) {
+    const length = nums.length
+    let maxStep = 0
+    for (let i = 0; i < length; i++) {
+        /** 当前可以达到的最大位置，到不了当前遍历的位置i，直接返回false */
+        if (maxStep < i) return false
+        maxStep = Math.max(maxStep, i + nums[i])
+        /** 当前可以达到的最大位置，已经可以达到最后一个位置，返回true */
+        if (maxStep >= length - 1) return true
+    }
+    };
+    console.log(canJump([3,2,1,0,4]))
+    </script>
+</body>
+</html>
