@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 想在对象上定义一个属性，每次修改这个属性时，打印出更新后的值
+// foo.a = 1 输出 changed 1
+// var foo = {};
+// const value = foo.a;
+// if(foo.a != value) {
+//     console.log(foo.a);
+// } {}
+
+
+// 实现类似javascript字符串indexOf的函数
+// 示例：match('hello', 'ell')  'hello'.indexOf('ell') => 1、'hello'.indexOf('eel') => -1 
+
+function match(str, word){
+    var arr1 = str.split('');
+    var arr2 = word.split('');
+    if(arr1.length < arr2.length) return -1;
+    var flag =false;
+    var sum = 0;
+    for(let i = 0; i < arr1.length; i++) {
+        for(let j =0; j < arr2.length; j++) {
+            if(arr1[i] == arr2[0]) {
+                var item = j - 0;
+                if(arr1[i + item] == arr2[j] ) {
+                    sum ++;
+                }
+                if(sum == arr2.length) return i;
+                
+            } 
+        }
+    }
+    if(sum != arr2.length) return -1;
+}
+
+
+console.log(match('helloelll', 'el'))
+console.log(match('hello', 'elle'))
+    </script>
+</body>
+</html>

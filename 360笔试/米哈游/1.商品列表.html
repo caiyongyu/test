@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 430px;
+            height: 500px;
+        }
+        .item {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+        .item .top {
+            height: 70px;
+        }
+        .item .bottom {
+            height: 30px;
+        }
+        .item  img {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            left: 35px;
+            top: 15px;        
+        }
+        .top p {
+            text-align: center;
+        }
+        .bottom button {
+            position: relative;
+            left: 24px;
+        }
+        .item:hover {
+            position: relative;
+            top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <div class="top">
+                <img src="0.jpg" alt="">
+                <p>10钻石</p>
+            </div>
+            <div class="bottom">
+                <button>100点</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="top">
+                <img src="0.jpg" alt="">
+                <p>10钻石</p>
+            </div>
+            <div class="bottom">
+                <button>100点</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="top">
+                <img src="0.jpg" alt="">
+                <p>10钻石</p>
+            </div>
+            <div class="bottom">
+                <button>100点</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="top">
+                <img src="0.jpg" alt="">
+                <p>10钻石</p>
+            </div>
+            <div class="bottom">
+                <button>100点</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function ajax(options) {
+            let xhr = null;
+            xhr = new XMLHttpRequest();
+            if(options.type == "GET") {
+                xhr.open("GET", options.url, false);
+                xhr.send(null);
+            }
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    return xhr.responseText;
+                }else {
+                    return 'error';
+                }
+            }
+        }
+        var options = {
+            type: 'GET',
+            url: 'http://www.mihoyo.com/product/list'
+        }
+        console.log(ajax(options))  //请求数据返回失败？？
+    </script>
+</body>
+</html>

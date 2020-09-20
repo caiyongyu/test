@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1 2 3 4 5 6 7 8 9             1 2 3 6 9 8 7 4 5
+        function printMatrix(matrix) {
+            if(matrix == null || matrix.length == 0) return;
+            var rows = matrix.length;
+            var cols = matrix[0].length;
+            var start = 0;
+            var result = [];
+
+            while(cols > start*2 && rows > start*2) {
+                var endX = cols-1-start;
+                var endY = rows-1-start;
+                for(var i = start; i<=endX; i++) {
+                    result.push(matrix[start][i])
+                }
+
+                if(start < endY) {
+                    for(var i = start + 1; i <= endY; i++) {
+                        result.push(matrix[i][endX])
+                    }
+                }
+
+                if(start < endX && start < endY) {
+                    for(var i = endX-1; i >= start; i--) {
+                        result.push(matrix[endY][i])
+                    }
+                }
+
+                if(start < endX && start< endY-1) {
+                    for(var i = endY-1; i>= start+1; i--) {
+                        result.push(matrix[i][start])
+                    }
+                }
+                start++;            
+            }
+            return result;
+        }
+        console.log(printMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
+
+
+        //2 2     [['A', 'B'], ['D', 'C']]
+        function printMatrix(m, n) {
+            if(m == 0 || n == 0) return;
+            var rows = m;
+            var cols = n;
+            var start = 0;
+            var result = new Array(m);
+            for(let i = 0; i<m; i++) {
+                result[i] = new Array(n);
+            }
+            var flag = -1;
+            var arr = new Array(25);
+            for(let i =0; i<26;i++) {
+                arr[i] = String.fromCharCode(i + 65);
+            }
+            var rarr = new Array(500);
+            for(let i = 0; i < 500; i++) {
+                rarr[i] = arr[i % 26];
+            }
+
+            while(cols > start*2 && rows > start*2) {
+                var endX = cols-1-start;
+                var endY = rows-1-start;
+                for(var i = start; i<=endX; i++) {
+                    ++flag;
+                    result[start][i] = rarr[flag];
+                }
+
+                if(start < endY) {
+                    for(var i = start + 1; i <= endY; i++) {
+                        ++flag;
+                        result[i][endX] = rarr[flag];
+                    }
+                }
+
+                if(start < endX && start < endY) {
+                    for(var i = endX-1; i >= start; i--) {
+                        ++flag;
+                        result[endY][i] = rarr[flag];
+                    }
+                }
+
+                if(start < endX && start< endY-1) {
+                    for(var i = endY-1; i>= start+1; i--) {
+                        ++flag;
+                        result[i][start] = rarr[flag]
+                    }
+                }
+                start++;            
+            }
+            return result;
+        }
+        var a = printMatrix(3, 2);
+        for(let i = 0; i < a.length; i++) {
+            for(let j = 0; j < a[i].length; j++) {
+                if(a[i][j] == undefined) {
+                    a[i].splice(j, 1);
+                }
+            }
+        }
+        console.log(a)
+    </script>
+</body>
+</html>
