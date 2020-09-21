@@ -7,18 +7,6 @@
 </head>
 <body>
     <script>
-        function longestCommonPrefix(strs, first, k) {
-    var first = getMaxStr(first, strs[k]);
-    if(k != strs.length-1) {
-        longestCommonPrefix(strs, first, k++);
-    }
-    if(strs[0].indexOf(first) == 0 && first.length != 0) {
-        return first;
-    }else {
-        return "empty"
-    }
-
-}
 
         function getMaxStr(str1,str2) {
             var max = str1.length > str2.length ? str1 : str2;
@@ -32,9 +20,7 @@
                 }
             }
         }
-        console.log(getMaxStr("aba", "abac"))
-        var a = "abc";
-        console.log(a.indexOf("ab"))
+        console.log(getMaxStr("aba", "abac"))    //  'aba'
     </script>
 </body>
 </html>

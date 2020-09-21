@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ABCABDABDABEABEABF
+        // ABCABDAEC
+        var str = 'ABCABDAEC';
+        var arr = [];
+        for(var i = 0; i < str.length; i+=3) {
+            arr.push(str.slice(i, i+3));
+        }
+        var sum = 0;
+        var index = [];
+        var flag = 0;
+        function fn(arr) {
+            for(let i = 0; i<arr.length-1; i++) {
+                for(let j = 0; j < 3; j++) {
+                    if(arr[i][j] != arr[i+1][j]) {
+                        // sum++;
+                        index.push(j)
+                    }
+                }
+            }
+            index.sort();
+            for(let i =0; i<index.length-1; i++) {
+                if(index[i] != index[i+1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        console.log(fn(arr))
+    </script>
+</body>
+</html>

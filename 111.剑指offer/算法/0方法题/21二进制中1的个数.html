@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //二进制中1的个数
+        function NumberOf1(n) {
+            var count = 0;
+            while(n != 0) {
+                n = n&(n-1);
+                count++;
+            }
+            return count;
+        }
+    </script>
+</body>
+</html>

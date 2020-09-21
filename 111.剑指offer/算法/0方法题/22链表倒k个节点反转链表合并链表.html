@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //链表倒数第k个节点
+        function FindKthToTail(head, k) {
+            if(head == null || k <= 0) return null;
+            var prev = head;
+            var tail = head;
+            for(var index = 0; index < k-1; index++) {
+                if(tail.next != null) {
+                    tail = tail.next;
+                }else{
+                    return null;
+                }
+            }
+            while(tail.next != null) {
+                prev = prev.next;
+                tail = tail.next;
+            }
+            return prev;
+        }
+
+        //反转链表
+        function ReverseList(phead) {
+            if(phead == null || phead.next == null) return phead;
+            var prev = null;
+            var next = null;
+            while(phead != null) {
+                next = phead.next;
+                phead.next = prev;
+                prev = phead;
+                phead = next;
+            }
+            return prev;
+        }
+
+        //合并两个排序的链表
+        function Merge(pHead1, pHead2)
+            {
+                // write code here
+                if(!pHead1) return pHead2;
+                    if(!pHead2) return pHead1;
+                    var h;
+                    if(pHead1.val>pHead2.val){
+                            h=pHead2;
+                            h.next=Merge(pHead1,pHead2.next);
+                    }
+                    else if(pHead1.val<=pHead2.val){
+                            h=pHead1;
+                            h.next=Merge(pHead1.next,pHead2);
+                    }
+                    return h;
+            }
+    </script>
+</body>
+</html>
