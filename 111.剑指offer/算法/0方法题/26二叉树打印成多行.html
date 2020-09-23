@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Print(pRoot)
+        {
+            // write code here
+                var arr=[];
+                var res=[];
+                if(pRoot){
+                        arr.push(pRoot);
+                }
+                while(arr.length!=0){
+                        var brr=[];
+                        var h=arr.length;
+                        var l=0;
+                        while(l++<h){
+                                var first=arr.shift();
+                                brr.push(first.val);
+                                if(first.left){
+                                        arr.push(first.left);
+                                }
+                                if(first.right){
+                                        arr.push(first.right);
+                                }
+                        }
+                        res.push(brr);
+                }
+                return res;
+        }
+
+
+        //按之字行打印二叉树
+        function Print(pRoot)
+        {
+            // write code here
+                var arr=[];
+                var res=[];
+                if(pRoot){
+                        arr.push(pRoot);
+                }
+                while(arr.length!=0){
+                        var data=arr.shift;
+                        if(data.left){
+                                arr.push(data.left);
+                        }
+                        if(data.right){
+                                arr.push(data.right);
+                        }
+                        res.push(data.val);
+                }
+                return res;
+        }
+    </script>
+</body>
+</html>
