@@ -69,6 +69,19 @@
         //     }
         //     console.log(flatten(arr));
 
+
+
+        //flatMap二维数组的降维     多维数组的降维
+        [1, [2], 3].flatMap((v) => v + 1)
+        // -> [2, 3, 4]
+
+        const flattenDeep = (arr) => Array.isArray(arr)
+        ? arr.reduce( (a, b) => [...a, ...flattenDeep(b)] , [])
+        : [arr]
+ 
+flattenDeep([1, [[2], [3, [4]], 5]])
+
+
         
     </script>
 </body>
