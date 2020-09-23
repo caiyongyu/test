@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Data = { data: 1, el : 7 }
+        // Object.defineProperty(Data, "data", {
+        //         get:function() {
+        //             return data
+        //             },
+        //         set: function(value) {
+        //             console.log(value); //value是 data改变后的值
+        //         }
+        //     })
+        //     Data.data = 2;
+
+
+        //2 Proxy
+        let p = new Proxy(Data, {
+            get:function() {
+                return data;
+            },
+            set: function(obj, props, value) {
+                if(props == "data") {
+                    console.log(value)
+                }
+            }
+        })
+        p["data"] = 3
+    </script>
+</body>
+</html>

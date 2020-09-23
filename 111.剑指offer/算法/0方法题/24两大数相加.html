@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //2->4->3   +   5->6->4    7->0->8
+
+        var addTwoNumbers = function(l1, l2) {
+            var number = Math.max(l1.length, l2.length) + 2;
+            let node = new Array(number);
+            let temp = node;//哑结点
+            let add = 0;//是否进一
+            let sum = 0;//新链表当前未取余的值 = 链表1值 + 链表2值 + add;
+
+            //遍历，直到最长的都为空
+            var i = 0, a = l1[0], b = l2[0];
+            while(l1[i] || l2[i]){
+                sum = (a ? a : 0) + (b ? b : 0) + add;
+                temp[i + 1] =(sum % 10);//取余则为新链表的值
+                // temp[i] = temp[i + 1];
+                add = sum >= 10 ? 1 : 0;
+                i = i+1;
+                a && (a = l1[i]);
+                b && (b = l2[i]);
+            }
+            add && (temp[i + 1] = add);
+            return node;
+        };
+        //输入倒一次，输出倒一次
+        var n1 = 542, n2 = 465;
+        n1 = n1 + "";
+        n2 = n2 + ""
+        let arr1 = n1.split('').reverse();
+        let arr2 = n2.split('').reverse();
+        arr1 = arr1.map(item => {
+            return +item;
+        })
+        arr2 = arr2.map(item => {
+            return +item;
+        })
+        var result = addTwoNumbers(arr1, arr2);
+        var result2 = [];
+        for(let i = 0; i < result.length; i++) {
+            if(result[i] != undefined) {
+                result2.push(result[i])
+            }
+        }
+        console.log(+result2.reverse().join(''))
+    </script>
+</body>
+</html>
