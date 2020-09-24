@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //[1,8,6,2,5,4,8,3,7]     49   (9-2)*7
+        //双指针-窗口缩小
+        //双指针初始指向首尾，两种情况：1移动后更低了，不处理   2移动后更高点，和最大值比较
+        var maxArea = function(height) {
+        var i = 0, j = height.length -1, max = j*(Math.min(height[0], height[j]));
+        while (i<j) {
+            if (height[i] < height[j]) {
+                i++;
+                if (height[i - 1] < height[i]) {
+                    max = Math.max(max, (j - i) * Math.min(height[i], height[j]));
+                }
+            } else {
+                    j--;
+                if (height[1+j] < height[j]) {
+                    max = Math.max(max, (j - i) * Math.min(height[i], height[j]));
+                }
+            }
+        }
+        return max;
+        };
+        console.log(maxArea([1,8,6,2,5,4,8,3,7]))
+
+
+        //柱状图中最大的矩阵
+        //[2,1,5,6,2,3]      10
+        var largestRectangleArea = function(heights) {
+            var maxArea = 0;
+            for(var i = 0;i < heights.length;i++){
+                for(var j = i;j < heights.length;j++){
+                    var minHeight = Number.MAX_SAFE_INTEGER;    //代表一个安全最大数,js能表示-2^53-2^53（不含两端点）
+                    for(var k = i;k <= j;k++){
+                        minHeight = Math.min(minHeight,heights[k]);
+                    }
+                    maxArea = Math.max(maxArea ,minHeight* (j-i+1));
+                }
+            }
+            return maxArea;
+        };
+        console.log(largestRectangleArea([2,1,5,6,2,3]))
+
+
+        //柱状图的最大矩阵的变形    
+        var maximalRectangle = function(matrix) {
+            let heights = [], max = 0;
+            for (let i=0;i<matrix.length;i++) {
+                if (heights.length == 0) {
+                    // init 
+                    // 前后补0，使代码更简洁，初始化高度为0
+                    for (let k=0;k<matrix[i].length+2;k++) {
+                        heights[k] = 0;
+                    }
+                }
+                let stack = [];
+                for (let j=0;j<heights.length;j++) {
+                    // 同步更新每一个柱子的高度
+                    heights[j] = j>0&&j<=matrix[i].length&&'1'==matrix[i][j-1] ? heights[j]+1 : 0;
+                    // 计算每一个单调递增栈
+                    while (stack.length>0 && heights[j] < heights[stack[stack.length-1]]) {
+                        max = Math.max(max, heights[stack.pop()]*(j-stack[stack.length-1]-1));
+                    }
+                    stack.push(j);
+                }
+            }
+            return max;
+        };
+        let maxt = [
+        ["1","0","1","0","0"],
+        ["1","0","1","1","1"],
+        ["1","1","1","1","1"],
+        ["1","0","0","1","0"]
+        ]
+        console.log(maximalRectangle(maxt))
+    </script>
+</body>
+</html>

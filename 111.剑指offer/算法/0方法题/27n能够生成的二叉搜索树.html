@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //输入n，求1...n为节点能构成多少二叉搜索树
+        //3       5
+        //遍历i，i为根节点以1...i-1作左子树，i+1...n为右子树，构建唯一的子树
+        var numTrees = function(n) {
+            const G = new Array(n + 1).fill(0);
+            G[0] = 1;
+            G[1] = 1;
+
+            for (let i = 2; i <= n; ++i) {
+                for (let j = 1; j <= i; ++j) {
+                    G[i] += G[j - 1] * G[i - j];
+                }
+            }
+            return G[n];
+        };
+        console.log(numTrees(3))
+    </script>
+</body>
+</html>

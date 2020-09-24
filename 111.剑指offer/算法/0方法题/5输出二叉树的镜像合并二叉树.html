@@ -22,7 +22,7 @@
             console.log(two);
 
 
-            //如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点
+            //2 如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点
             var mergeTrees = function(t1, t2) {
                 if(!t1) return t2 //若t1节点为空，那直接返回t2节点，不管t2是否为空
                 if(!t2) return t1 //若t2为空，那肯定t1肯定不为空，返回t1节点
@@ -31,6 +31,29 @@
                 t1.right = mergeTrees(t1.right, t2.right) ////递归遍历两者的右左子树
                 return t1 //t1必然是返回的根节点，为啥？因为都拼到t1树上了啊
             };
+
+
+            //3 给定二叉树，判断是否是镜像对称的
+            const isSymmetric = (root) => {
+                // 1. 递归树
+                const recursion = (root1, root2) => {
+                    // 2. 如果两个节点同时为空，则为 true
+                    if (!root1 && !root2) {
+                    return true;
+                    }
+
+                    // 3. 如果只有一个节点为空，则为 false
+                    if (!root1 || !root2) {
+                    return false;
+                    }
+
+                    // 4. 判断左边和右边是否相等，并且交互判断
+                    return root1.val === root2.val && recursion(root1.left, root2.right) && recursion(root1.right, root2.left);
+                };
+
+                // 5. 返回结果
+                return recursion(root, root);
+                };
 
     </script>
 </body>
