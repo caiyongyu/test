@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //s = "leetcode", wordDict = ["leet", "code"]      true
+        var wordBreak = function(s, wordDict) {
+            const dp = [];
+            dp[0] = true;
+            for(let i = 1; i <= s.length; i++) {
+                wordDict.forEach(str => {
+                    let temp = i - str.length;
+                    if (dp[temp] && s.substring(temp, i) === str) dp[i] = true;
+                })
+            }
+            return !!dp[s.length];
+        };
+        var s = "leetcode", wordDict = ["leet", "code"]; 
+        console.log(wordBreak(s, wordDict))
+    </script>
+</body>
+</html>

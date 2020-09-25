@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let isCircle=(begin)=>{
+            let slow=begin;
+            let fast=begin.next;
+            while(1){
+                if(!fast||!fast.next){             //必须用快的指针，保证走完了****8*****
+                    return false;
+                }
+                else if(slow==fast||fast.next==slow){
+                    return true;
+                }else{
+                    slow=slow.next;
+                    fast=fast.next.next;
+                }
+            }
+
+            
+        }
+
+
+        //循环链表的入口
+        function EntryNodeOfLoop(pHead)
+            {
+                // write code here
+                    var slow=pHead;
+                    //var fast=pHead.next;
+                    var arr=[];
+                    while(slow){
+                            arr.push(slow);
+                            if(slow.next){
+
+                            slow=slow.next;
+                            }
+                            for(var i=0;i<arr.length;i++){
+                                if(slow.next==null) return null;
+                                    if(arr[i] == slow.next){
+                                            return  arr[i];
+                                    }
+                            }
+                    }
+                    return null;
+            }
+
+            var lb=new lianbiao([2,3,5,6,8]);
+            lb.next.next=lb.next;
+            // console.log(lb);
+            
+            console.log(EntryNodeOfLoop(lb));
+    </script>
+</body>
+</html>
