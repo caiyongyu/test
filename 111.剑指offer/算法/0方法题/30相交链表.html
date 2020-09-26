@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //返回链表相交的起始节点
+        var getIntersectionNode = function(headA, headB) {
+            // 清除高度差
+            let pA = headA, pB = headB
+            while(pA || pB) {
+                if(pA === pB) return pA
+                pA = pA === null ? headB : pA.next
+                pB = pB === null ? headA : pB.next
+            }
+            return null
+        };
+    </script>
+</body>
+</html>

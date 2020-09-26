@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        //2 循环链表的入口
+        //3 排序链表   4->2->1->3   1->2->3->4
         let isCircle=(begin)=>{
             let slow=begin;
             let fast=begin.next;
@@ -51,9 +53,25 @@
 
             var lb=new lianbiao([2,3,5,6,8]);
             lb.next.next=lb.next;
-            // console.log(lb);
-            
             console.log(EntryNodeOfLoop(lb));
+
+
+            //3 排序链表   4->2->1->3   1->2->3->4
+            var sortList = function(head) {
+                let itemArr = []
+                let sortCur = head
+                while( sortCur ){
+                    itemArr.push( sortCur.val )
+                    sortCur = sortCur.next
+                }
+                sortCur = head
+                itemArr.sort();
+                for( let i = 0 ; i < itemArr.length ; i++ ){
+                    sortCur.val = itemArr[i]
+                    sortCur = sortCur.next
+                }
+                return head
+            };
     </script>
 </body>
 </html>

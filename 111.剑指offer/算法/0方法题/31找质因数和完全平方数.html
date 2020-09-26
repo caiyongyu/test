@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isPrime(n) {       //判断是否是质数
+            for(var i = 2; i <= Math.sqrt(n); i++) {
+                if(n % i == 0) {
+                    return false;
+                }
+            }
+            return true
+        }
+
+    function Prime(n) {
+        var hash = {};      //用来存储结果的hash
+        while(n > 1) {
+            for(var i = 2; i <= n; i++) {  //从最小的质数开始除
+                if(isPrime(i) && n % i == 0) {
+                    if(hash[i]) {
+                        hash[i] = hash[i] + 1;
+                    }else {
+                        hash[i] = 1;
+                    }
+                    n /= i;         //除掉这个最小的质数
+                }
+            }
+        }
+        this.factor = hash;
+        hash = null;
+    }
+    var a = new Prime(24).factor;
+    var rNum = 0;
+    for(let i in a) {
+        rNum += a[i];
+    }
+    console.log(rNum)
+
+
+    //2 完全平方数
+    //输入： n = 13   输出 2 （9 + 4）
+    var numSquares = function(n) {
+        let dp = new Array(n+1).fill(0);
+        for(let i = 1;i <= n;i++){
+            dp[i] = i;  //表示数字i至少由多少个平方数组成
+            for(let j = 1;j*j <= i;j++){
+                dp[i] = Math.min(dp[i],dp[i - j*j] + 1);
+            }
+        }
+        return dp[n];
+    };
+    console.log(numSquares(13))
+     </script>
+</body>
+</html>
