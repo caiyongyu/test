@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dv1">11111</div>
+    <div id="dv2">22222</div>
+
+    <div class="dv3">3333</div>
+    <div class="dv3">33336</div>
+    <script>
+        function $(str){
+            return new jquery(str);
+        }
+        function jquery(str){
+            this.eles=[];                           //设置构造函数的eles属性为空数组
+            var header=str.charAt(0);
+            var content=str.substr(1);
+            if(header=='#'){
+                this.eles.push(document.getElementById(content));           //id属性对应的标签只有一个push进数组
+                console.log(this.eles);
+                
+            }else if(header=='.'){
+                this.eles=document.getElementsByClassName(content)
+                console.log(this.eles);
+                
+            }
+            
+            // console.log(this);
+            
+        }
+        jquery.prototype.css=function(atr1,atr2){
+            if(typeof atr1=='string' && typeof atr2=='string'){
+                console.log(1);
+                
+                // this.eles.map(function(value,index){
+                    
+                    // value.style[atr1]=atr2;
+                // })
+                for(var i=0;i<this.eles.length;i++){
+                    this.eles[i].style[atr1]=atr2;
+                    
+                }
+                
+            }else if(typeof atr1=='object'&&atr2==undefined){
+                this.eles.map(function(value,index){
+                    for(k in atr1){
+                        value.style[k]=atr1[k];
+                    }
+                })
+            }
+            return this;
+        }
+        jquery.prototype.on=function(atr1,fn){
+            this.eles.map(function(value,index){
+                value.addEventListener(atr1,fn);
+            })
+            return this;
+        }
+        $(".dv3").css('background','red')
+    </script>
+</body>
+</html>
