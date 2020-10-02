@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* p {
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        } */
+        /* 多行省略 */
+        /* p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4; 
+            overflow: hidden;
+        } */
+
+        p{
+            position:relative;
+            line-height:1.4em;
+            /*设置容器高度为3倍行高就是显示3行*/
+            height:4.2em;       /*父元素没有设置font-size的情况下，1em = 16px */
+            width: 9em;
+            overflow:hidden;
+        }
+        p::after{
+            content:'...';
+            font-weight:bold;
+            position:absolute;
+            bottom:0;
+            right:0;
+            padding:0 20px 1px 35px;
+            background:#fff;
+        }
+    </style>
+</head>
+<body>
+    <p>啊实打实发的发的发的发热多福多寿对方水电费单个人发鬼地方是多福多寿粉底乳高低床水电费第三方第三方大使馆的分数线是正常的
+        啊实打实发的发的发的发热多福多寿对方水电费单个人发鬼地方是多福多寿粉底乳高低床水电费第三方第三方大使啊实打实发的发的发的发热多福多寿对方水电费单个人发鬼地方是多福多寿粉底乳高低床水电费第三方第三方大使
+    </p>
+    <script>
+        //js实现，可实现富文本的文字溢出
+        //clientHeight你可以简单的理解为元素的总的高度，当然也包括overflow样式属性导致的视图中不可见内容
+        //scrollHeight为元素内部的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。不包括overflow样式属性导致的视图中不可见内容
+        let clientHeight = document.getElementById('aboutUs-content').clientHeight 
+        let scrollHeight = document.getElementById('aboutUs-content').scrollHeight 
+        console.log(clientHeight) 
+        console.log(scrollHeight) 
+
+        if (clientHeight < scrollHeight) { 
+        　　console.log('发生了文字溢出') 
+        /*我们可以在这里，为元素后面添加省略号，或者用vue项目的v-if显示出省略号*/
+        }
+    </script>
+</body>
+</html>
