@@ -8,16 +8,23 @@
 <body>
     <script>
         var lengthOfLongestSubstring = function(s) {
-            let index = 0, max = 0
+            let index = 0, max = 0, longestStr = "", res = [], arr = [];
             for(let i = 0, j = 0; j < s.length; j++) {
-                index = s.substring(i, j).indexOf(s[j]) 
+                index = s.substring(i, j).indexOf(s[j]);
+                res.push(s.substring(i, j));
                 if(index !== -1) { 
                     i = i + index + 1 
                 } 
-                max = Math.max(max, j - i + 1) 
+                max = Math.max(max, j - i + 1);
             }
-            return max
+            res.forEach(item => {
+                if(item.length == max) {
+                    arr.push(item);
+                }
+            })
+            return arr;
         };
+        console.log(lengthOfLongestSubstring("abcabcbb"))
     </script>
 </body>
 </html>
